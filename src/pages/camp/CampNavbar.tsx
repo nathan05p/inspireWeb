@@ -37,6 +37,16 @@ export default function CampNavbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
     <>
       <motion.header
@@ -45,13 +55,13 @@ export default function CampNavbar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="flex items-center justify-between px-6 md:px-12 py-5">
-          <div className="flex items-center gap-6">
+        <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 md:py-5">
+          <div className="flex items-center gap-3 sm:gap-6">
             <Link to="/home" className="group">
-              <div className="w-14 h-14 rounded-full border border-stone-900 flex items-center justify-center hover:border-amber-500 hover:text-amber-500 transition-colors text-stone-900">
-                <span className="text-current font-serif text-sm leading-none flex items-center">
+              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-stone-900 flex items-center justify-center hover:border-amber-500 hover:text-amber-500 transition-colors text-stone-900">
+                <span className="text-current font-serif text-xs sm:text-sm leading-none flex items-center">
                   <span className="italic tracking-tight">inspire</span>
-                  <span className="font-sans font-bold text-[10px] ml-0.5 mt-1">+</span>
+                  <span className="font-sans font-bold text-[9px] sm:text-[10px] ml-0.5 mt-1">+</span>
                 </span>
               </div>
             </Link>
@@ -88,8 +98,12 @@ export default function CampNavbar() {
             </button>
           </nav>
 
-          <button onClick={() => setMenuOpen(true)} className="md:hidden text-stone-900">
-            <Menu size={24} />
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden text-stone-900 p-2 -mr-2"
+            aria-label="Deschide meniu"
+          >
+            <Menu size={22} />
           </button>
         </div>
       </motion.header>
@@ -103,24 +117,30 @@ export default function CampNavbar() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex justify-between items-center px-8 md:px-16 py-6 border-b border-stone-200">
+            {/* Menu header */}
+            <div className="flex justify-between items-center px-5 sm:px-8 md:px-16 py-5 border-b border-stone-200 shrink-0">
               <span className="text-stone-400 text-xs tracking-widest">NAVIGATION</span>
-              <button onClick={() => setMenuOpen(false)} className="text-stone-900 hover:text-amber-500 transition-colors">
-                <X size={28} />
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-stone-900 hover:text-amber-500 transition-colors p-1"
+                aria-label="Închide meniu"
+              >
+                <X size={26} />
               </button>
             </div>
 
-            <div className="flex-1 grid grid-cols-2 md:grid-cols-4 gap-0 overflow-y-auto">
+            {/* Menu sections — 1 col on mobile, 2 on sm, 4 on md+ */}
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 overflow-y-auto">
               {Object.entries(menuSections).map(([section, links], si) => (
                 <motion.div
                   key={section}
-                  className="border-r border-stone-200 last:border-r-0 px-8 md:px-12 py-12"
+                  className="border-b sm:border-b-0 sm:border-r border-stone-200 last:border-0 px-5 sm:px-8 md:px-12 py-8 md:py-12"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: si * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <p className="text-stone-400 text-[10px] tracking-[0.25em] font-bold mb-8">{section.toUpperCase()}</p>
-                  <ul className="flex flex-col gap-5">
+                  <p className="text-stone-400 text-[10px] tracking-[0.25em] font-bold mb-6 md:mb-8">{section.toUpperCase()}</p>
+                  <ul className="flex flex-col gap-4 sm:gap-5">
                     {links.map((link) => (
                       <li key={link.label}>
                         <a
@@ -137,7 +157,8 @@ export default function CampNavbar() {
               ))}
             </div>
 
-            <div className="px-8 md:px-16 py-6 border-t border-stone-200 flex items-center justify-between">
+            {/* Menu footer */}
+            <div className="px-5 sm:px-8 md:px-16 py-5 border-t border-stone-200 flex items-center justify-between shrink-0">
               <p className="text-stone-400 text-xs tracking-widest">INSPIRE+ TIMIȘOARA</p>
               <Link
                 to="/home"

@@ -108,12 +108,12 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="flex items-center justify-center gap-4 md:gap-8 mt-16 mb-8 relative z-10 w-full max-w-4xl mx-auto">
+    <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-8 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-4xl mx-auto px-4">
       {Object.entries(timeLeft).map(([unit, value]) => (
         <div key={unit} className="flex flex-col items-center flex-1">
-          <div className="bg-white border border-stone-200 shadow-sm rounded-3xl w-full aspect-square max-w-[120px] flex items-center justify-center mb-4 relative overflow-hidden group">
+          <div className="bg-white border border-stone-200 shadow-sm rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-2 sm:mb-4 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-b from-amber-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <span className="text-4xl md:text-6xl lg:text-7xl font-serif text-amber-500 font-bold tabular-nums">
+            <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-serif text-amber-500 font-bold tabular-nums">
               {value.toString().padStart(2, '0')}
             </span>
           </div>
@@ -161,9 +161,19 @@ export default function Camp() {
       <CampNavbar />
 
       {/* HERO SECTION */}
-      <section ref={heroRef} className="relative h-[100svh] w-full overflow-hidden bg-white">
-        {/* VIDEO BACKGROUND */}
-        <div className="absolute inset-0 w-full h-full z-0 bg-[#faf8f5] pointer-events-none">
+      <section ref={heroRef} className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-stone-900">
+
+        {/* MOBILE FALLBACK: static image (shown on sm and below) */}
+        <div className="absolute inset-0 z-0 md:hidden">
+          <img
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80&w=1200"
+            alt="Camp background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* DESKTOP: Vimeo iframe (hidden on mobile) */}
+        <div className="absolute inset-0 w-full h-full z-0 bg-stone-900 pointer-events-none hidden md:block">
           <motion.div
             className="absolute inset-0 w-[150vw] h-[150vh] -left-[25vw] -top-[25vh]"
             initial={{ scale: 1.15, filter: 'blur(10px)' }}
@@ -183,24 +193,28 @@ export default function Camp() {
           </motion.div>
         </div>
 
-        {/* LIGHT OVERLAYS OVER VIDEO */}
-        <div className="absolute inset-0 bg-white/40 z-0 pointer-events-none mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-[#faf8f5] z-0 pointer-events-none" />
+        {/* OVERLAYS */}
+        {/* Mobile overlay — mai închis ca textul să se citească pe imagine */}
+        <div className="absolute inset-0 bg-black/35 z-[1] pointer-events-none md:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-[1] pointer-events-none md:hidden" />
+        {/* Desktop overlays — mai ușoare */}
+        <div className="absolute inset-0 bg-white/40 z-0 pointer-events-none mix-blend-overlay hidden md:block" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-[#faf8f5] z-0 pointer-events-none hidden md:block" />
 
         <motion.div
-          className="absolute bottom-16 left-6 md:left-12 z-10"
+          className="absolute bottom-10 sm:bottom-16 left-4 sm:left-6 md:left-12 z-10"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-amber-600 text-xs font-bold tracking-[0.3em]">INSPIRE+ CAMP</span>
-            <div className="h-[1px] w-12 bg-stone-900/20" />
-            <span className="text-stone-500 text-xs font-bold tracking-[0.2em]">AUGUST 2026</span>
+          <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+            <span className="text-amber-400 md:text-amber-600 text-xs font-bold tracking-[0.3em]">INSPIRE+ CAMP</span>
+            <div className="h-[1px] w-8 sm:w-12 bg-white/40 md:bg-stone-900/20" />
+            <span className="text-white/80 md:text-stone-500 text-xs font-bold tracking-[0.2em]">AUGUST 2026</span>
           </div>
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif leading-[0.85] tracking-tight text-stone-900">
+          <h1 className="text-[2.8rem] xs:text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif leading-[0.85] tracking-tight text-white md:text-stone-900">
             Camp<br/>
-            <span className="italic text-stone-500">2026</span>
+            <span className="italic text-white/70 md:text-stone-500">2026</span>
           </h1>
         </motion.div>
       </section>
@@ -217,11 +231,11 @@ export default function Camp() {
       </section>
 
       {/* THEME & ABOUT */}
-      <section id="about" className="py-32 px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-amber-600 mb-6">TEMA ANULUI</h2>
-            <h3 className="text-5xl md:text-7xl lg:text-8xl font-serif leading-tight">
+            <h3 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif leading-tight">
               Chemați <br/><span className="italic text-stone-400">să fim Lumină</span>
             </h3>
           </motion.div>
@@ -237,11 +251,11 @@ export default function Camp() {
       </section>
 
       {/* ACTIVITIES */}
-      <section id="conference" className="py-32 px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200 bg-white">
+      <section id="conference" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200 bg-white">
         <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-stone-400 mb-16 text-center">
           CE TE AȘTEAPTĂ
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
           {activities.map((item, i) => (
             <motion.div 
               key={item.id} 
@@ -313,9 +327,9 @@ export default function Camp() {
       </section>
 
       {/* REASONS TO COME */}
-      <section id="reasons" className="py-32 px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid grid-cols-2 gap-4 md:gap-6 relative">
+      <section id="reasons" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-24 items-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 relative">
             
             <motion.div 
               animate={{ y: [0, -12, 0] }} 
@@ -327,7 +341,7 @@ export default function Camp() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800" 
                 alt="Atmosfera 1" 
-                className="w-full h-64 md:h-80 object-cover cursor-pointer" 
+                className="w-full h-44 sm:h-56 md:h-80 object-cover cursor-pointer" 
               />
             </motion.div>
 
@@ -341,7 +355,7 @@ export default function Camp() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 src="https://images.unsplash.com/photo-1510511459019-5efa3facfa5b?auto=format&fit=crop&q=80&w=800" 
                 alt="Atmosfera 2" 
-                className="w-full h-64 md:h-80 object-cover cursor-pointer" 
+                className="w-full h-44 sm:h-56 md:h-80 object-cover cursor-pointer" 
               />
             </motion.div>
 
@@ -355,13 +369,13 @@ export default function Camp() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 src="https://images.unsplash.com/photo-1516027582531-1e9b2512f718?auto=format&fit=crop&q=80&w=1200" 
                 alt="Atmosfera 3" 
-                className="w-full h-48 md:h-64 object-cover cursor-pointer" 
+                className="w-full h-36 sm:h-48 md:h-64 object-cover cursor-pointer" 
               />
             </motion.div>
 
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2}>
-            <h3 className="text-4xl md:text-6xl font-serif mb-12 text-stone-900">Motive pentru <br/><span className="italic text-amber-500">care să vii</span></h3>
+            <h3 className="text-3xl sm:text-4xl md:text-6xl font-serif mb-8 sm:mb-12 text-stone-900">Motive pentru <br/><span className="italic text-amber-500">care să vii</span></h3>
             <ul className="space-y-8">
               {[
                 { title: 'Un reset necesar', desc: 'Ieși din agitația orașului pentru a respira aer curat și a asculta vocea lui Dumnezeu într-un cadru liniștit.' },
@@ -382,11 +396,11 @@ export default function Camp() {
       </section>
 
       {/* PACKING LIST */}
-      <section id="packing" className="py-32 px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200 bg-[#faf8f5]">
+      <section id="packing" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200 bg-[#faf8f5]">
         <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-stone-400 mb-16 text-center">
           CE SĂ IEI CU TINE
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {packingList.map((category, i) => (
             <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.1} className="p-8 rounded-3xl bg-white border border-stone-200 hover:border-amber-300 transition-colors group shadow-sm">
               <div className="text-amber-500 mb-8 transform group-hover:scale-110 transition-transform origin-left">{category.icon}</div>
@@ -404,25 +418,25 @@ export default function Camp() {
       </section>
 
       {/* LOGISTICS & INFO */}
-      <section id="give" className="py-32 px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200">
+      <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-200">
         <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-stone-400 mb-16 text-center">
           INFORMAȚII IMPORTANTE
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
           {/* Pricing */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="md:col-span-8 bg-white border border-stone-200 shadow-sm p-8 md:p-12 rounded-3xl relative overflow-hidden group">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="sm:col-span-12 md:col-span-8 bg-white border border-stone-200 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden group">
             <div className="relative z-10">
               <h3 className="text-3xl font-serif mb-8 text-stone-900">Costuri & Înscriere</h3>
-              <div className="flex flex-wrap gap-4 mb-10">
-                <div className="bg-[#faf8f5] rounded-2xl p-6 min-w-[160px] border border-stone-100">
+              <div className="flex flex-wrap gap-3 sm:gap-4 mb-8 sm:mb-10">
+                <div className="bg-[#faf8f5] rounded-2xl p-4 sm:p-6 min-w-[130px] sm:min-w-[160px] border border-stone-100">
                   <p className="text-xs text-stone-400 font-bold tracking-widest mb-2">INTEGRAL</p>
                   <p className="text-3xl font-bold text-stone-900">450 <span className="text-base text-stone-400 font-normal">RON</span></p>
                 </div>
-                <div className="bg-[#faf8f5] rounded-2xl p-6 min-w-[160px] border border-stone-100">
+                <div className="bg-[#faf8f5] rounded-2xl p-4 sm:p-6 min-w-[130px] sm:min-w-[160px] border border-stone-100">
                   <p className="text-xs text-stone-400 font-bold tracking-widest mb-2">DOAR SEARA</p>
                   <p className="text-3xl font-bold text-stone-900">50 <span className="text-base text-stone-400 font-normal">RON/zi</span></p>
                 </div>
-                <div className="bg-amber-50 rounded-2xl p-6 min-w-[160px] border border-stone-100 border-l-4 border-l-amber-500">
+                <div className="bg-amber-50 rounded-2xl p-4 sm:p-6 min-w-[130px] sm:min-w-[160px] border border-stone-100 border-l-4 border-l-amber-500">
                   <p className="text-xs text-amber-600 font-bold tracking-widest mb-2">AVANS (Rezervare)</p>
                   <p className="text-3xl font-bold text-stone-900">150 <span className="text-base text-stone-400 font-normal">RON</span></p>
                 </div>
@@ -439,7 +453,7 @@ export default function Camp() {
           </motion.div>
 
           {/* Transport */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.1} className="md:col-span-4 bg-white border border-stone-200 shadow-sm p-8 md:p-12 rounded-3xl flex flex-col justify-center">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.1} className="sm:col-span-12 md:col-span-4 bg-white border border-stone-200 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col justify-center">
             <Car className="text-amber-500 mb-6" size={40} />
             <h3 className="text-2xl font-serif mb-4 text-stone-900">Transport</h3>
             <p className="text-stone-600 text-sm leading-relaxed">
@@ -448,7 +462,7 @@ export default function Camp() {
           </motion.div>
 
           {/* Location */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="md:col-span-6 bg-white border border-stone-200 shadow-sm p-8 md:p-12 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-6 hover:border-amber-300 transition-colors">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="sm:col-span-6 bg-white border border-stone-200 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 hover:border-amber-300 transition-colors">
             <div>
               <MapPin className="text-amber-500 mb-6" size={40} />
               <h3 className="text-2xl font-serif mb-2 text-stone-900">Locație Tabără</h3>
@@ -460,7 +474,7 @@ export default function Camp() {
           </motion.div>
 
           {/* Contact */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="md:col-span-6 bg-white border border-stone-200 shadow-sm p-8 md:p-12 rounded-3xl">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="sm:col-span-6 bg-white border border-stone-200 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl">
             <h3 className="text-2xl font-serif mb-8 text-stone-900">Contact Oficial</h3>
             <div className="space-y-5">
               <a href="mailto:hello@inspireplus.ro" className="flex items-center gap-4 text-stone-700 hover:text-amber-600 transition-colors font-medium">
@@ -478,7 +492,7 @@ export default function Camp() {
       </section>
 
       {/* FAQ COMMUNITY STYLE */}
-      <section id="faq" className="py-32 overflow-hidden border-b border-stone-200 bg-[#faf8f5]">
+      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-stone-200 bg-[#faf8f5]">
         <div className="px-6 md:px-12 max-w-screen-2xl mx-auto mb-16">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center">
             <h2 className="text-4xl font-serif mb-4 text-stone-900">Întrebări frecvente</h2>
@@ -495,7 +509,7 @@ export default function Camp() {
               className="flex gap-6 w-max px-3"
             >
               {Array(4).fill(faqs).flat().map((faq, i) => (
-                <div key={i} className="w-[320px] md:w-[420px] shrink-0 bg-white p-6 md:p-8 rounded-3xl border border-stone-200 shadow-md hover:border-amber-300 transition-colors">
+                <div key={i} className="w-[280px] sm:w-[340px] md:w-[420px] shrink-0 bg-white p-5 md:p-8 rounded-3xl border border-stone-200 shadow-md hover:border-amber-300 transition-colors">
                   <div className="flex items-center gap-4 mb-4">
                     <img src={faq.avatar} alt="Avatar" className="w-10 h-10 rounded-full bg-stone-100" />
                     <div>
@@ -528,7 +542,7 @@ export default function Camp() {
               className="flex gap-6 w-max px-3"
             >
               {Array(4).fill([...faqs].reverse()).flat().map((faq, i) => (
-                <div key={i} className="w-[320px] md:w-[420px] shrink-0 bg-white p-6 md:p-8 rounded-3xl border border-stone-200 shadow-md hover:border-amber-300 transition-colors">
+                <div key={i} className="w-[280px] sm:w-[340px] md:w-[420px] shrink-0 bg-white p-5 md:p-8 rounded-3xl border border-stone-200 shadow-md hover:border-amber-300 transition-colors">
                   <div className="flex items-center gap-4 mb-4">
                     <img src={faq.avatar} alt="Avatar" className="w-10 h-10 rounded-full bg-stone-100" />
                     <div>
@@ -556,7 +570,7 @@ export default function Camp() {
       </section>
 
       {/* FINAL CTA & COUNTDOWN */}
-      <section className="relative py-48 overflow-hidden flex flex-col items-center justify-center text-center bg-white border-t border-stone-200">
+      <section className="relative py-24 sm:py-36 md:py-48 overflow-hidden flex flex-col items-center justify-center text-center bg-white border-t border-stone-200">
         <motion.div 
           className="absolute inset-0 w-full h-full opacity-[0.08]"
           style={{ y }}
@@ -580,7 +594,7 @@ export default function Camp() {
         <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-5xl">
           <CampRotatingCircle />
           
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif mt-12 mb-6 leading-none text-stone-900">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-serif mt-8 sm:mt-12 mb-4 sm:mb-6 leading-none text-stone-900">
             Ne vedem în <br/>
             <span className="italic text-amber-500">Valea Drăganului.</span>
           </h2>
@@ -588,14 +602,14 @@ export default function Camp() {
           {/* THE LIVE COUNTDOWN */}
           <CountdownTimer targetDate="2026-06-26T18:00:00" />
           
-          <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer" className="bg-stone-900 text-white px-12 py-5 rounded-full font-bold tracking-widest text-sm hover:bg-amber-400 hover:text-stone-900 transition-colors duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] mt-8">
+          <a href="https://docs.google.com/forms" target="_blank" rel="noopener noreferrer" className="bg-stone-900 text-white px-8 sm:px-12 py-4 sm:py-5 rounded-full font-bold tracking-widest text-xs sm:text-sm hover:bg-amber-400 hover:text-stone-900 transition-colors duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] mt-6 sm:mt-8">
             REZERVARE LOC TABĂRĂ
           </a>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="bg-[#faf8f5] border-t border-stone-200 px-8 md:px-16 py-16 flex flex-col md:flex-row justify-between items-start gap-12">
+      <footer id="contact" className="bg-[#faf8f5] border-t border-stone-200 px-5 sm:px-8 md:px-16 py-10 sm:py-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-12">
         <div className="max-w-xs">
           <div className="w-16 h-16 rounded-full border border-stone-300 flex items-center justify-center mb-8 hover:border-amber-500 hover:text-amber-500 transition-colors cursor-pointer text-stone-900">
             <span className="text-current font-serif text-base leading-none flex items-center">
@@ -607,7 +621,7 @@ export default function Camp() {
           <p className="text-stone-400 text-xs leading-relaxed">Creat pentru comunitate. O biserică relevantă pentru generația noastră.</p>
         </div>
 
-        <div className="flex flex-col items-start md:items-end gap-2 text-right">
+        <div className="flex flex-col items-start md:items-end gap-2 md:text-right">
           <a href="#" className="text-stone-500 hover:text-stone-900 text-xs font-bold tracking-widest transition-colors">INSTAGRAM</a>
           <a href="#" className="text-stone-500 hover:text-stone-900 text-xs font-bold tracking-widest transition-colors">FACEBOOK</a>
           <a href="#" className="text-stone-500 hover:text-stone-900 text-xs font-bold tracking-widest transition-colors">YOUTUBE</a>
