@@ -1,12 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, CreditCard, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle } from 'lucide-react';
 
 export default function RegistrationForm() {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get('status');
+    if (status === 'success') {
+      setIsSuccess(true);
+      setPaymentStatus('success');
+    } else if (status === 'cancel') {
+      setPaymentStatus('cancel');
+      setStep(2); // Keep them on the payment step to try again
+    }
+  }, []);
 
   const [formData, setFormData] = useState({
     nume: '',
@@ -45,7 +58,7 @@ export default function RegistrationForm() {
 
   const calculateTotal = () => {
     // Prețuri de bază, vor putea fi modificate ulterior
-    const PRET_INTEGRAL = 280;
+    const PRET_INTEGRAL = 450;
     const PRET_ZI = 0; // Pretul inca ramane de vazut
     const AVANS = 150;
 
@@ -74,15 +87,27 @@ export default function RegistrationForm() {
 
     setIsSubmitting(true);
 
-    // Simulate API call for Google Sheets / Stripe
-    // INSTRUCTIUNI PENTRU GOOGLE SHEETS:
-    // Aici se va face apelul POST catre webhook-ul de Google Apps Script.
-    // await fetch("https://script.google.com/macros/s/ID-UL_TAU/exec", { method: 'POST', body: JSON.stringify(formData) });
+    try {
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ formData }),
+      });
 
-    setTimeout(() => {
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'A apărut o eroare la crearea sesiunii de plată.');
+      }
+
+      const { url } = await response.json();
+      // Redirect to Stripe Checkout
+      window.location.href = url;
+    } catch (err: any) {
+      alert(err.message || 'Eroare la procesarea plății. Te rugăm să încerci din nou.');
       setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 2000);
+    }
   };
 
   if (isSuccess) {
@@ -92,8 +117,8 @@ export default function RegistrationForm() {
           <Check size={40} className="text-[#1A1E22]" />
         </div>
         <h3 className="text-3xl font-outfit tracking-tight text-stone-50 mb-4">Înscriere Finalizată!</h3>
-        <p className="text-stone-400">Te-ai înscris cu succes. Vei primi un email cu toate detaliile curând.</p>
-        <p className="text-stone-500 text-xs mt-8">Acesta este un mesaj de test.</p>
+        <p className="text-stone-400">Te-ai înscris cu succes. Tranzacția a fost procesată securizat și vei primi un email de confirmare în curând.</p>
+        <p className="text-stone-500 text-xs mt-8">Securizat prin Stripe. Îți mulțumim!</p>
       </div>
     );
   }
@@ -234,38 +259,57 @@ export default function RegistrationForm() {
               <span className="text-sm text-stone-300 pt-0.5">Am citit și sunt de acord cu <button type="button" onClick={() => setIsModalOpen(true)} className="text-amber-500 font-bold hover:underline">REGULAMENTUL</button> taberei.</span>
             </label>
 
-            {/* Mock Stripe Element */}
-            <div className="bg-[#1A1E22] border border-stone-800 p-4 sm:p-6 rounded-xl space-y-4 shadow-inner">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-xs text-stone-500 font-bold flex items-center gap-2"><CreditCard size={16} /> Plătește Online și Sigur prin Stripe.</span>
-                <div className="flex gap-1">
-                  <div className="w-8 h-5 bg-[#0e4595] rounded flex items-center justify-center font-bold text-white text-[8px] italic">VISA</div>
-                  <div className="w-8 h-5 bg-[#252525] rounded flex items-center justify-center relative overflow-hidden">
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#EB001B] absolute left-1 opacity-80 mix-blend-screen" />
-                    <div className="w-3.5 h-3.5 rounded-full bg-[#F79E1B] absolute right-1 opacity-80 mix-blend-screen" />
-                  </div>
+            {/* Alert for Cancelled Payment */}
+            {paymentStatus === 'cancel' && (
+              <div className="bg-red-500/10 border border-red-500/30 p-4 rounded-xl flex items-start gap-3 text-red-200 text-sm">
+                <AlertTriangle className="shrink-0 text-red-500 mt-0.5" size={18} />
+                <div>
+                  <p className="font-bold">Plata a fost anulată</p>
+                  <p className="text-red-300/80 text-xs">Tranzacția nu a fost finalizată și nu s-au retras bani de pe card. Te poți înregistra din nou folosind formularul de mai jos.</p>
                 </div>
               </div>
+            )}
 
-              <div className="space-y-4">
-                <div>
-                  <input type="text" placeholder="Card number" className="w-full bg-[#22272B] border border-stone-700 rounded-lg px-4 py-3 text-sm text-stone-200 focus:outline-none focus:border-amber-500 transition-colors font-mono placeholder:font-sans" />
+            {/* Secure Stripe Checkout Info Summary */}
+            <div className="bg-[#1A1E22] border border-stone-800 p-6 rounded-xl space-y-4 shadow-inner">
+              <div className="flex items-center justify-between border-b border-stone-800 pb-3">
+                <span className="text-xs text-stone-400 uppercase font-bold tracking-wider">Sumar Înscriere</span>
+                <span className="text-xs text-amber-500 font-bold flex items-center gap-1.5"><CreditCard size={14} /> Securizat prin Stripe</span>
+              </div>
+              
+              <div className="space-y-2 text-sm text-stone-300">
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Nume Participant:</span>
+                  <span className="font-semibold text-stone-200">{formData.nume}</span>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <input type="text" placeholder="MM / YY" className="w-full bg-[#22272B] border border-stone-700 rounded-lg px-4 py-3 text-sm text-stone-200 focus:outline-none focus:border-amber-500 transition-colors font-mono placeholder:font-sans" />
-                  <input type="text" placeholder="CVC" className="w-full bg-[#22272B] border border-stone-700 rounded-lg px-4 py-3 text-sm text-stone-200 focus:outline-none focus:border-amber-500 transition-colors font-mono placeholder:font-sans" />
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Email:</span>
+                  <span className="font-semibold text-stone-200">{formData.email}</span>
                 </div>
-                <select className="w-full bg-[#22272B] border border-stone-700 rounded-lg px-4 py-3 text-sm text-stone-400 focus:outline-none focus:border-amber-500 transition-colors appearance-none">
-                  <option>Romania</option>
-                  <option>Moldova</option>
-                  <option>Altă țară</option>
-                </select>
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Telefon:</span>
+                  <span className="font-semibold text-stone-200">{formData.telefon}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Cazare cabană:</span>
+                  <span className="font-semibold text-stone-200">{formData.cazareCabana ? 'Da' : 'Nu'}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Zile Participare:</span>
+                  <span className="font-semibold text-stone-200">
+                    {formData.zile === 'toate' ? 'Toată tabăra (6 zile)' : `Zile specifice (${formData.zileAlese.join(', ')})`}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-500">Tip Plată:</span>
+                  <span className="font-semibold text-amber-500">
+                    {formData.plata === 'avans' ? 'Avans (Se achită acum 150 RON)' : 'Integral (Se achită acum 450 RON)'}
+                  </span>
+                </div>
               </div>
 
               <p className="text-[10px] text-stone-500 pt-2 leading-relaxed">
-                By providing your card information, you allow INSPIRE LEADERS / LIDERI CARE INSPIRA to charge your card for future payments in accordance with their terms.
-                <br /><br />
-                <span className="text-amber-500/80">*Acesta este un preview vizual pentru demonstrație. Procesatorul real de plăți se va implementa în pasul următor folosind Stripe API.*</span>
+                Prin apăsarea butonului de înscriere de mai jos, vei fi redirecționat securizat către pagina de plată **Stripe** pentru a introduce datele cardului. După finalizarea plății, vei fi trimis înapoi pe acest site și înscrierea ta va fi salvată automat.
               </p>
             </div>
 

@@ -1,0 +1,88 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+  apiVersion: '2025-02-24.acacia',
+});
+
+// We need the raw body for Stripe webhook signature verification
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
+
+// Helper function to read the raw body
+const getRawBody = async (req: VercelRequest): Promise<Buffer> => {
+  return new Promise((resolve, reject) => {
+    let body = Buffer.from('');
+    req.on('data', (chunk) => {
+      body = Buffer.concat([body, chunk]);
+    });
+    req.on('end', () => {
+      resolve(body);
+    });
+    req.on('error', (err) => {
+      reject(err);
+    });
+  });
+};
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
+  const sig = req.headers['stripe-signature'];
+  const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
+
+  let event: Stripe.Event;
+
+  try {
+    const rawBody = await getRawBody(req);
+    event = stripe.webhooks.constructEvent(rawBody, sig as string, endpointSecret);
+  } catch (err: any) {
+    console.error('Webhook signature verification failed:', err.message);
+    return res.status(400).send(`Webhook Error: ${err.message}`);
+  }
+
+  // Handle the checkout.session.completed event
+  if (event.type === 'checkout.session.completed') {
+    const session = event.data.object as Stripe.Checkout.Session;
+    
+    // Retrieve the metadata we stored when creating the session
+    const metadata = session.metadata;
+    
+    if (metadata) {
+      console.log('Payment successful for:', metadata.email);
+      
+      // Send data to Google Sheets
+      const googleSheetsUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+      
+      if (googleSheetsUrl) {
+        try {
+          const response = await fetch(googleSheetsUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(metadata),
+          });
+          
+          if (!response.ok) {
+            console.error('Failed to send data to Google Sheets:', await response.text());
+          } else {
+            console.log('Successfully sent data to Google Sheets');
+          }
+        } catch (error) {
+          console.error('Error calling Google Sheets webhook:', error);
+        }
+      } else {
+        console.warn('GOOGLE_SHEETS_WEBHOOK_URL is not defined in environment variables');
+      }
+    }
+  }
+
+  // Return a 200 response to acknowledge receipt of the event
+  return res.status(200).json({ received: true });
+}
