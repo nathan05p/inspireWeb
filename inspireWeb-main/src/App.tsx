@@ -51,6 +51,7 @@ function App() {
       {!loading && (
         <Router>
           <AnimatedRoutes />
+        </Router>
       )}
       <SpeedInsights />
     </>
