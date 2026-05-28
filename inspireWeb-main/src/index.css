@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Unbounded:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C4CDC3;
+  --color-primary-dark: #9CB09A;
+  --color-slate: #2D3E40;
+  --color-accent: #E54B4B;
+  --font-serif: "Pavot", "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@font-face {
+  font-family: 'Pavot';
+  src: local('Pavot'), local('Pavot-Regular'), local('Pavot Regular'),
+       url('/fonts/Pavot.woff2') format('woff2'),
+       url('/fonts/Pavot.woff') format('woff'),
+       url('/fonts/Pavot.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-pavot {
+  font-family: "Pavot", "Playfair Display", serif;
+}
+
+.font-outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #C4CDC3;
+    color: #2D3E40;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::selection {
+    background-color: #E54B4B;
+    color: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Marquee no-wrap */
+.marquee-inner {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+/* Hide scrollbars globally */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2D3E4040; border-radius: 3px; }
