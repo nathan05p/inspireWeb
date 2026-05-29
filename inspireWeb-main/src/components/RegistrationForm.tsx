@@ -15,9 +15,11 @@ export default function RegistrationForm() {
     if (status === 'success') {
       setIsSuccess(true);
       setPaymentStatus('success');
+      window.history.replaceState({}, document.title, window.location.pathname);
     } else if (status === 'cancel') {
       setPaymentStatus('cancel');
       setStep(2); // Keep them on the payment step to try again
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, []);
 
@@ -37,6 +39,28 @@ export default function RegistrationForm() {
     cvc: '',
     country: 'Romania'
   });
+
+  const resetForm = () => {
+    setFormData({
+      nume: '',
+      varsta: '',
+      telefon: '',
+      email: '',
+      transport: 'Masina personala',
+      cazareCabana: false,
+      plata: 'integral',
+      zile: 'toate',
+      zileAlese: [],
+      acordRegulament: false,
+      cardNumber: '',
+      expDate: '',
+      cvc: '',
+      country: 'Romania'
+    });
+    setStep(1);
+    setIsSuccess(false);
+    setPaymentStatus(null);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const target = e.target as HTMLInputElement;
@@ -112,12 +136,20 @@ export default function RegistrationForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-[#22272B] border border-stone-800/50 p-8 md:p-12 rounded-3xl text-center shadow-xl">
-        <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
+      <div className="bg-[#22272B] border border-stone-800/50 p-8 md:p-12 rounded-3xl text-center shadow-xl flex flex-col items-center">
+        <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mb-6">
           <Check size={40} className="text-[#1A1E22]" />
         </div>
         <h3 className="text-3xl font-outfit tracking-tight text-stone-50 mb-4">Înscriere Finalizată!</h3>
-        <p className="text-stone-400">Te-ai înscris cu succes. Tranzacția a fost procesată securizat și vei primi un email de confirmare în curând.</p>
+        <p className="text-stone-400 mb-8">Te-ai înscris cu succes. Tranzacția a fost procesată securizat și vei primi un email de confirmare în curând.</p>
+        
+        <button 
+          onClick={resetForm}
+          className="bg-[#1A1E22] hover:bg-stone-800 text-stone-300 px-6 py-3 rounded-xl font-bold transition-colors border border-stone-700"
+        >
+          Înregistrează altă persoană
+        </button>
+
         <p className="text-stone-500 text-xs mt-8">Securizat prin Stripe. Îți mulțumim!</p>
       </div>
     );
