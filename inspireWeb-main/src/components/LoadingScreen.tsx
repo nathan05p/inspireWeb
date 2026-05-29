@@ -10,13 +10,13 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   useEffect(() => {
     // After entrance settles, hold briefly then exit
-    const holdTimer = setTimeout(() => setPhase('out'), 1800);
+    const holdTimer = setTimeout(() => setPhase('out'), 800);
     return () => clearTimeout(holdTimer);
   }, []);
 
   useEffect(() => {
     if (phase === 'out') {
-      const exitTimer = setTimeout(onComplete, 1000); // Wait for exit animations to finish
+      const exitTimer = setTimeout(onComplete, 750); // Wait for exit animations to finish
       return () => clearTimeout(exitTimer);
     }
   }, [phase, onComplete]);
@@ -33,7 +33,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             animate={{ y: 0 }}
             exit={{
               y: '-100%',
-              transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] },
+              transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1] },
             }}
           >
             {/* Center text */}
@@ -46,7 +46,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                   opacity: 1,
                   y: 0,
                   filter: 'blur(0px)',
-                  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 },
+                  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.05 },
                 }}
                 exit={{ opacity: 0 }}
                 className="flex items-baseline gap-[2px]"
@@ -69,7 +69,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 animate={{
                   width: 120,
                   opacity: 1,
-                  transition: { duration: 0.5, ease: 'easeOut', delay: 0.3 },
+                  transition: { duration: 0.3, ease: 'easeOut', delay: 0.15 },
                 }}
               >
                 <motion.div
@@ -77,7 +77,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                   initial={{ scaleX: 0 }}
                   animate={{
                     scaleX: 1,
-                    transition: { duration: 1.2, ease: [0.4, 0, 0.2, 1], delay: 0.4 },
+                    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1], delay: 0.2 },
                   }}
                 />
               </motion.div>
@@ -90,7 +90,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               animate={{
                 scale: 1,
                 opacity: 1,
-                transition: { duration: 0.4, delay: 0.6 },
+                transition: { duration: 0.2, delay: 0.2 },
               }}
             />
           </motion.div>
@@ -103,7 +103,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             animate={{ y: 0 }}
             exit={{
               y: '-100%',
-              transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1], delay: 0.08 },
+              transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1], delay: 0.05 },
             }}
           />
         </>
