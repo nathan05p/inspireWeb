@@ -61,18 +61,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       
       if (googleSheetsUrl) {
         try {
+          // Format data to prevent crashes in Google Apps Script
+          const formattedData = {
+            ...metadata,
+            // Ensure zileAlese is an array if the script calls .join on it, or just pass it as string and let the script handle it.
+            // Since the current Apps Script calls .join(), we must send an array.
+            zileAlese: metadata.zileAlese ? metadata.zileAlese.split(', ') : [],
+            cazareCabana: metadata.cazareCabana === 'Da',
+            stripe_session_id: session.id
+          };
+
           const response = await fetch(googleSheetsUrl, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(metadata),
+            body: JSON.stringify(formattedData),
           });
           
           if (!response.ok) {
-            console.error('Failed to send data to Google Sheets:', await response.text());
+            console.error('Failed to send data to Google Sheets, HTTP status:', response.status);
           } else {
-            console.log('Successfully sent data to Google Sheets');
+            const resultText = await response.text();
+            console.log('Google Sheets responded with:', resultText);
+            try {
+              const resultJson = JSON.parse(resultText);
+              if (resultJson.status === 'error') {
+                console.error('Google Apps Script internal error:', resultJson.message);
+              } else {
+                console.log('Successfully recorded in Google Sheets');
+              }
+            } catch (e) {
+              // It's possible the response wasn't JSON
+            }
           }
         } catch (error) {
           console.error('Error calling Google Sheets webhook:', error);
