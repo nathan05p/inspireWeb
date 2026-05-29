@@ -40,27 +40,20 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             <div className="relative flex flex-col items-center gap-6 select-none">
 
               {/* inspire+ text */}
-              <motion.div
-                initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
+              {/* logo image i+ */}
+              <motion.img
+                src="/logo.png"
+                alt="inspire+"
+                className="w-24 h-24 md:w-32 md:h-32 object-contain select-none pointer-events-none"
+                initial={{ opacity: 0, y: 18, filter: 'invert(1) blur(8px)' }}
                 animate={{
                   opacity: 1,
                   y: 0,
-                  filter: 'blur(0px)',
+                  filter: 'invert(1) blur(0px)',
                   transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.05 },
                 }}
                 exit={{ opacity: 0 }}
-                className="flex items-baseline gap-[2px]"
-              >
-                <span
-                  className="text-[#C4CDC3] text-5xl md:text-7xl font-pavot tracking-[0.08em] italic"
-                >
-                  inspire
-                </span>
-                <span className="text-[#E54B4B] text-5xl md:text-7xl font-bold leading-none font-pavot"
-                >
-                  +
-                </span>
-              </motion.div>
+              />
 
               {/* Thin progress line */}
               <motion.div
