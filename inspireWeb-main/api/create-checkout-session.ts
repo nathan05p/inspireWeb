@@ -15,8 +15,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Calculate amount based on the form data
     const PRET_INTEGRAL = 450;
-    const PRET_ZI = 0; // Pretul inca ramane de vazut
-    const AVANS = 150;
+    const PRET_ZI = 20; 
+    const AVANS = 180;
 
     let amount = 0;
     let description = '';

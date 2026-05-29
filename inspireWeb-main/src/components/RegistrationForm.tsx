@@ -65,10 +65,20 @@ export default function RegistrationForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const target = e.target as HTMLInputElement;
     const { name, value, type, checked } = target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    
+    setFormData(prev => {
+      const newFormData = {
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value
+      };
+      
+      // Dacă utilizatorul alege să vină mai puține zile, dar avea selectat "avans", îl mutăm automat pe "integral"
+      if (name === 'zile' && value === 'mai_putine' && prev.plata === 'avans') {
+        newFormData.plata = 'integral';
+      }
+      
+      return newFormData;
+    });
   };
 
   const handleDayToggle = (zi: string) => {
@@ -81,12 +91,14 @@ export default function RegistrationForm() {
   };
 
   const calculateTotal = () => {
-    // Prețuri de bază, vor putea fi modificate ulterior
+    // Prețuri
     const PRET_INTEGRAL = 450;
-    const PRET_ZI = 0; // Pretul inca ramane de vazut
-    const AVANS = 150;
+    const PRET_ZI = 20; 
+    const AVANS = 180;
 
     if (formData.plata === 'avans') return AVANS;
+    if (formData.plata === 'cash') return 0;
+
     if (formData.zile === 'toate') return PRET_INTEGRAL;
     if (formData.zile === 'mai_putine') return formData.zileAlese.length * PRET_ZI;
 
@@ -109,27 +121,48 @@ export default function RegistrationForm() {
       return;
     }
 
+    if (formData.zile === 'mai_putine' && formData.zileAlese.length === 0) {
+      alert("Te rugăm să selectezi zilele în care vei participa.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/create-checkout-session', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ formData }),
-      });
+      if (formData.plata === 'cash') {
+        // Send directly to our new submit-cash endpoint
+        const response = await fetch('/api/submit-cash', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ formData }),
+        });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'A apărut o eroare la crearea sesiunii de plată.');
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'A apărut o eroare la înregistrare.');
+        }
+
+        setIsSuccess(true);
+        setPaymentStatus('success');
+        setIsSubmitting(false);
+      } else {
+        // Redirect to Stripe
+        const response = await fetch('/api/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ formData }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || 'A apărut o eroare la crearea sesiunii de plată.');
+        }
+
+        const { url } = await response.json();
+        window.location.href = url;
       }
-
-      const { url } = await response.json();
-      // Redirect to Stripe Checkout
-      window.location.href = url;
     } catch (err: any) {
-      alert(err.message || 'Eroare la procesarea plății. Te rugăm să încerci din nou.');
+      alert(err.message || 'Eroare la procesare. Te rugăm să încerci din nou.');
       setIsSubmitting(false);
     }
   };
@@ -150,7 +183,9 @@ export default function RegistrationForm() {
           Înregistrează altă persoană
         </button>
 
-        <p className="text-stone-500 text-xs mt-8">Securizat prin Stripe. Îți mulțumim!</p>
+        <p className="text-stone-500 text-xs mt-8">
+          {formData.plata === 'cash' ? 'Înregistrare completă. Ne vedem în tabără!' : 'Securizat prin Stripe. Îți mulțumim!'}
+        </p>
       </div>
     );
   }
@@ -230,8 +265,11 @@ export default function RegistrationForm() {
             <div className="space-y-2">
               <label className="text-sm font-bold text-stone-400">Metodă de plată</label>
               <select name="plata" value={formData.plata} onChange={handleChange} className="w-full bg-[#1A1E22] border border-stone-800 rounded-xl px-4 py-3 text-stone-200 focus:outline-none focus:border-amber-500 transition-colors appearance-none">
-                <option value="integral">Vreau să plătesc integral (450 RON)</option>
-                <option value="avans">Vreau să plătesc avans (150 RON)</option>
+                <option value="integral">Plată online - Toată suma</option>
+                {formData.zile === 'toate' && (
+                  <option value="avans">Plată online - Doar avans (180 RON)</option>
+                )}
+                <option value="cash">Plată la InfoDesk (Cash) - 0 RON acum</option>
               </select>
             </div>
 
@@ -302,11 +340,13 @@ export default function RegistrationForm() {
               </div>
             )}
 
-            {/* Secure Stripe Checkout Info Summary */}
+            {/* Info Summary */}
             <div className="bg-[#1A1E22] border border-stone-800 p-6 rounded-xl space-y-4 shadow-inner">
               <div className="flex items-center justify-between border-b border-stone-800 pb-3">
                 <span className="text-xs text-stone-400 uppercase font-bold tracking-wider">Sumar Înscriere</span>
-                <span className="text-xs text-amber-500 font-bold flex items-center gap-1.5"><CreditCard size={14} /> Securizat prin Stripe</span>
+                {formData.plata !== 'cash' && (
+                  <span className="text-xs text-amber-500 font-bold flex items-center gap-1.5"><CreditCard size={14} /> Securizat prin Stripe</span>
+                )}
               </div>
               
               <div className="space-y-2 text-sm text-stone-300">
@@ -334,14 +374,19 @@ export default function RegistrationForm() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-stone-500">Tip Plată:</span>
-                  <span className="font-semibold text-amber-500">
-                    {formData.plata === 'avans' ? 'Avans (Se achită acum 150 RON)' : 'Integral (Se achită acum 450 RON)'}
+                  <span className="font-semibold text-amber-500 text-right">
+                    {formData.plata === 'avans' ? 'Avans online (Se achită acum 180 RON)' : 
+                     formData.plata === 'cash' ? 'Plată la InfoDesk (Se achită în tabără)' :
+                     `Integral online (Se achită acum ${calculateTotal()} RON)`}
                   </span>
                 </div>
               </div>
 
               <p className="text-[10px] text-stone-500 pt-2 leading-relaxed">
-                Prin apăsarea butonului de înscriere de mai jos, vei fi redirecționat securizat către pagina de plată **Stripe** pentru a introduce datele cardului. După finalizarea plății, vei fi trimis înapoi pe acest site și înscrierea ta va fi salvată automat.
+                {formData.plata === 'cash' 
+                  ? 'Prin apăsarea butonului de înscriere de mai jos, datele tale vor fi salvate și vei achita suma corespunzătoare la sosirea în tabără.'
+                  : 'Prin apăsarea butonului de înscriere de mai jos, vei fi redirecționat securizat către pagina de plată **Stripe** pentru a introduce datele cardului. După finalizarea plății, vei fi trimis înapoi pe acest site și înscrierea ta va fi salvată automat.'
+                }
               </p>
             </div>
 
