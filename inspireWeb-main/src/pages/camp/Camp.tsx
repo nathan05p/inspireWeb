@@ -293,11 +293,22 @@ export default function Camp() {
         {/* DESKTOP & MOBILE: Vimeo iframe */}
         <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
           <motion.div
-            className="absolute inset-0 w-[150vw] h-[150vh] -left-[25vw] -top-[25vh] md:w-[150vw] md:h-[150vh] md:-left-[25vw] md:-top-[25vh]"
-            initial={{ scale: 1.15, filter: 'blur(10px)' }}
+            className="absolute"
+            style={{
+              top: '50%',
+              left: '50%',
+              width: '100vw',
+              height: '56.25vw',
+              minHeight: '100svh',
+              minWidth: '177.77svh',
+              transform: 'translate(-50%, -50%)',
+            }}
+            initial={{ scale: 1.15, filter: 'blur(10px)', x: '-50%', y: '-50%' }}
             animate={{
               scale: isVideoLoaded ? 1 : 1.15,
-              filter: isVideoLoaded ? 'blur(0px)' : 'blur(10px)'
+              filter: isVideoLoaded ? 'blur(0px)' : 'blur(10px)',
+              x: '-50%',
+              y: '-50%'
             }}
             transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           >
