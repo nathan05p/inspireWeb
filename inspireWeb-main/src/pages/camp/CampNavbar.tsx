@@ -72,12 +72,12 @@ export default function CampNavbar() {
                 className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-baseline gap-0.5 text-stone-50 hover:text-amber-400 transition-colors"
               >
                 <span
-                  style={{ fontFamily: '"Outfit", sans-serif', fontSize: 'clamp(2.85rem, 6vw, 4.2rem)', fontStyle: 'italic', letterSpacing: '0.02em' }}
+                  style={{ fontFamily: '"Outfit", sans-serif', fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', fontStyle: 'italic', letterSpacing: '0.02em' }}
                 >
                   inspire
                 </span>
                 <span
-                  style={{ fontFamily: '"Inter", sans-serif', fontWeight: 900, fontSize: 'clamp(2.25rem, 4.5vw, 3.3rem)' }}
+                  style={{ fontFamily: '"Inter", sans-serif', fontWeight: 900, fontSize: 'clamp(1.5rem, 3vw, 2.2rem)' }}
                 >
                   +
                 </span>
