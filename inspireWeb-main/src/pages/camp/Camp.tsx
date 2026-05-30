@@ -214,13 +214,28 @@ function PhotoGallery() {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 sm:gap-6 overflow-x-auto px-4 sm:px-12 py-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="flex gap-4 sm:gap-8 overflow-x-auto px-4 sm:px-12 py-12 md:py-20 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
-        {galleryItems.map((src, i) => (
-          <div key={i} className="w-[280px] sm:w-[400px] h-[300px] sm:h-[450px] shrink-0 rounded-3xl overflow-hidden border border-stone-800/50 shadow-md">
-            <img src={src} alt={`Camp memory ${i}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-          </div>
-        ))}
+        {galleryItems.map((src, i) => {
+          const isLarge = i % 3 === 0;
+          const isLandscape = i % 3 === 1;
+
+          return (
+            <div 
+              key={i} 
+              className={`shrink-0 rounded-[2rem] overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_50px_-15px_rgba(245,158,11,0.2)] group/image relative ${
+                isLarge 
+                  ? "w-[300px] sm:w-[420px] h-[400px] sm:h-[550px] z-10" 
+                  : isLandscape 
+                    ? "w-[350px] sm:w-[480px] h-[250px] sm:h-[320px] translate-y-8 sm:translate-y-16 z-0" 
+                    : "w-[260px] sm:w-[320px] h-[280px] sm:h-[360px] -translate-y-8 sm:-translate-y-12 z-0"
+              }`}
+            >
+              <div className="absolute inset-0 bg-[#1A1E22]/10 group-hover/image:bg-transparent transition-colors duration-500 z-10" />
+              <img src={src} alt={`Camp memory ${i}`} className="w-full h-full object-cover scale-100 group-hover/image:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
