@@ -4,28 +4,28 @@ const expectData = [
   { 
     id: 'plenar', 
     title: 'Program Plenar', 
-    img: '/6.png',
+    img: '/new_icons/7.png',
     side: 'left' as const,
     desc: 'Bucură-te de sesiuni puternice cu închinare profundă și mesaje relevante. Vom explora împreună chemarea noastră și cum putem reflecta lumina în lumea de azi, printr-o perspectivă biblică.' 
   },
   { 
     id: 'activitati', 
     title: 'Activitati', 
-    img: '/7.png',
+    img: '/new_icons/8.png',
     side: 'right' as const,
     desc: 'De la competiții sportive, la momente artistice și provocări de echipă, activitățile noastre sunt create să aducă zâmbete, unitate și să te scoată din zona de confort într-un mod distractiv.' 
   },
   { 
     id: 'ateliere', 
     title: 'Ateliere', 
-    img: '/8.png',
+    img: '/new_icons/9.png',
     side: 'left' as const,
     desc: 'Participă la ateliere practice unde poți aprofunda domenii precum apologetica, muzica, media sau dezvoltarea personală, alături de mentori pregătiți să te ajute să crești.' 
   },
   { 
     id: 'comunitate', 
     title: 'Comunitate', 
-    img: '/9.png',
+    img: '/new_icons/10.png',
     side: 'right' as const,
     desc: 'Tabăra este despre oameni. Aici vei avea ocazia să cunoști tineri din toată țara, să legi prietenii autentice și să te simți parte dintr-o familie extinsă, unită de aceleași valori.' 
   },
@@ -72,7 +72,7 @@ export default function CampWhatToExpect() {
           </svg>
 
           {/* Items */}
-          <div className="flex flex-col gap-0">
+          <div className="flex flex-col gap-12 py-8 relative">
             {expectData.map((item) => {
               const imgLeft = item.side === 'left';
 
@@ -83,14 +83,12 @@ export default function CampWhatToExpect() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.6, type: 'spring', bounce: 0.2 }}
-                  className="relative flex items-center w-full min-h-[240px]"
+                  className={`relative flex flex-col ${
+                    imgLeft ? 'items-start pl-2' : 'items-end pr-2'
+                  } w-full`}
                 >
-                  {/* Image — left or right */}
-                  <div
-                    className={`absolute z-10 w-44 h-44 ${
-                      imgLeft ? 'left-0' : 'right-0'
-                    } top-1/2 -translate-y-1/2`}
-                  >
+                  {/* Image */}
+                  <div className={`z-10 w-44 h-44 ${imgLeft ? 'ml-4' : 'mr-4'}`}>
                     <img
                       src={item.img}
                       alt={item.title}
@@ -98,15 +96,15 @@ export default function CampWhatToExpect() {
                     />
                   </div>
 
-                  {/* Text — opposite side */}
+                  {/* Text — underneath */}
                   <div
-                    className={`z-20 w-1/2 ${
+                    className={`z-20 w-[85%] mt-4 ${
                       imgLeft
-                        ? 'ml-auto pl-2 pr-1 text-left'
-                        : 'mr-auto pr-2 pl-1 text-right'
+                        ? 'text-left pl-2'
+                        : 'text-right pr-2'
                     }`}
                   >
-                    <p className="text-stone-300 text-[12px] leading-relaxed font-light">
+                    <p className="text-stone-300 text-[14px] leading-relaxed font-light">
                       {item.desc}
                     </p>
                   </div>
