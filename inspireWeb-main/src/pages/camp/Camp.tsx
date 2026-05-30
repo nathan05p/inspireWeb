@@ -475,9 +475,16 @@ export default function Camp() {
 
                   {/* User Question */}
                   <div className="flex items-start gap-4">
-                    <div className="relative shrink-0">
+                    <div className="relative shrink-0 w-12 h-12 md:w-14 md:h-14">
                       <div className="absolute inset-0 bg-stone-500/20 rounded-full blur-md" />
-                      <img src={faq.avatar} alt={faq.user} className="relative w-12 h-12 md:w-14 md:h-14 rounded-full border border-stone-700/50 object-cover" />
+                      <div className="relative w-full h-full rounded-full border border-stone-700/50 bg-gradient-to-br from-stone-800 to-stone-900 flex items-center justify-center overflow-hidden shadow-inner">
+                        <span 
+                          className="text-stone-300 text-2xl md:text-3xl leading-none pt-1" 
+                          style={{ fontFamily: '"TheLetterEditorial", "Playfair Display", serif', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
+                        >
+                          {faq.user.charAt(0).toUpperCase()}
+                        </span>
+                      </div>
                     </div>
                     <div className="pt-1 w-full">
                       <div className="flex items-center justify-between mb-2">
