@@ -3,8 +3,8 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import Lenis from 'lenis';
 import {
   MapPin, Mail, Phone, AtSign, CheckCircle,
-  Tent, Mic, Utensils, Backpack,
-  Flame, Heart, Plus, BookOpen, Map, ChevronLeft, ChevronRight
+  Tent, Backpack,
+  Plus, BookOpen, Map, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import CampNavbar from './CampNavbar';
 import Marquee from '../../components/Marquee';
