@@ -9,6 +9,7 @@ import {
 import CampNavbar from './CampNavbar';
 import Marquee from '../../components/Marquee';
 import RegistrationForm from '../../components/RegistrationForm';
+import CampAteliere from './CampAteliere';
 
 
 const fadeUp = {
@@ -393,93 +394,7 @@ export default function Camp() {
         </div>
       </section>
 
-      {/* ATELIERE */}
-      <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-800/50 bg-[#1A1E22]">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-stone-500 mb-16 text-center uppercase">
-          Ateliere
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
-
-          {/* Atelier 1 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="group relative cursor-pointer flex flex-col h-full bg-[#22272B] rounded-3xl border border-stone-800/50 overflow-hidden hover:border-amber-400 transition-colors">
-            <div className="h-52 sm:h-64 overflow-hidden relative">
-              <img src="/poza.png" alt="Atelier 1" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col flex-1">
-              <p className="text-amber-500 text-xs font-bold tracking-widest mb-2 uppercase">CATEGORIE</p>
-              <h3 className="text-2xl sm:text-3xl font-outfit tracking-tight mb-3 text-stone-50">Titlu Secțiune</h3>
-              <p className="text-stone-300 leading-relaxed text-sm flex-1">Aici avem un text care reprezintă descrierea, acesta fiind un text de probă care va fi înlocuit ulterior.</p>
-            </div>
-          </motion.div>
-
-          {/* Atelier 2 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.1} className="group relative cursor-pointer flex flex-col h-full bg-[#22272B] rounded-3xl border border-stone-800/50 overflow-hidden hover:border-amber-400 transition-colors">
-            <div className="h-52 sm:h-64 overflow-hidden relative">
-              <img src="/poza.png" alt="Atelier 2" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col flex-1">
-              <p className="text-amber-500 text-xs font-bold tracking-widest mb-2 uppercase">CATEGORIE</p>
-              <h3 className="text-2xl sm:text-3xl font-outfit tracking-tight mb-3 text-stone-50">Titlu Secțiune</h3>
-              <p className="text-stone-300 leading-relaxed text-sm flex-1">Aici avem un text care reprezintă descrierea, acesta fiind un text de probă care va fi înlocuit ulterior.</p>
-            </div>
-          </motion.div>
-
-          {/* Atelier 3 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="group relative cursor-pointer flex flex-col h-full bg-[#22272B] rounded-3xl border border-stone-800/50 overflow-hidden hover:border-amber-400 transition-colors">
-            <div className="h-52 sm:h-64 overflow-hidden relative">
-              <img src="/poza.png" alt="Atelier 3" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col flex-1">
-              <p className="text-amber-500 text-xs font-bold tracking-widest mb-2 uppercase">CATEGORIE</p>
-              <h3 className="text-2xl sm:text-3xl font-outfit tracking-tight mb-3 text-stone-50">Titlu Secțiune</h3>
-              <p className="text-stone-300 leading-relaxed text-sm flex-1">Aici avem un text care reprezintă descrierea, acesta fiind un text de probă care va fi înlocuit ulterior.</p>
-            </div>
-          </motion.div>
-
-          {/* Atelier 4 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="group relative cursor-pointer flex flex-col h-full bg-[#22272B] rounded-3xl border border-stone-800/50 overflow-hidden hover:border-amber-400 transition-colors">
-            <div className="h-52 sm:h-64 overflow-hidden relative">
-              <img src="/poza.png" alt="Atelier 4" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col flex-1">
-              <p className="text-amber-500 text-xs font-bold tracking-widest mb-2 uppercase">CATEGORIE</p>
-              <h3 className="text-2xl sm:text-3xl font-outfit tracking-tight mb-3 text-stone-50">Titlu Secțiune</h3>
-              <p className="text-stone-300 leading-relaxed text-sm flex-1">Aici avem un text care reprezintă descrierea, acesta fiind un text de probă care va fi înlocuit ulterior.</p>
-            </div>
-          </motion.div>
-
-          {/* Atelier 5 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.4} className="group relative cursor-pointer flex flex-col h-full bg-[#22272B] rounded-3xl border border-stone-800/50 overflow-hidden hover:border-amber-400 transition-colors">
-            <div className="h-52 sm:h-64 overflow-hidden relative">
-              <img src="/poza.png" alt="Atelier 5" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col flex-1">
-              <p className="text-amber-500 text-xs font-bold tracking-widest mb-2 uppercase">CATEGORIE</p>
-              <h3 className="text-2xl sm:text-3xl font-outfit tracking-tight mb-3 text-stone-50">Titlu Secțiune</h3>
-              <p className="text-stone-300 leading-relaxed text-sm flex-1">Aici avem un text care reprezintă descrierea, acesta fiind un text de probă care va fi înlocuit ulterior.</p>
-            </div>
-          </motion.div>
-
-          {/* Atelier 6 */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.5} className="group relative cursor-pointer flex flex-col h-full bg-[#22272B] rounded-3xl border border-stone-800/50 overflow-hidden hover:border-amber-400 transition-colors">
-            <div className="h-52 sm:h-64 overflow-hidden relative">
-              <img src="/poza.png" alt="Atelier 6" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500" />
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col flex-1">
-              <p className="text-amber-500 text-xs font-bold tracking-widest mb-2 uppercase">CATEGORIE</p>
-              <h3 className="text-2xl sm:text-3xl font-outfit tracking-tight mb-3 text-stone-50">Titlu Secțiune</h3>
-              <p className="text-stone-300 leading-relaxed text-sm flex-1">Aici avem un text care reprezintă descrierea, acesta fiind un text de probă care va fi înlocuit ulterior.</p>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
+      <CampAteliere />
 
       {/* MARQUEE */}
       <section className="bg-[#1A1E22]mber-400 py-4 border-y border-amber-500/20 overflow-hidden relative z-20">

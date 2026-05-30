@@ -18,6 +18,16 @@ function doPost(e) {
       setupProfessionalHeaders(sheet);
     }
     
+    var numZile = data.zile === "toate" ? 6 : (data.zileAlese ? data.zileAlese.length : 0);
+    var tipPlataStr = "Necunoscut";
+    if (data.plata === "integral") {
+      tipPlataStr = "Integral (Online)";
+    } else if (data.plata === "avans") {
+      tipPlataStr = "Avans 180 RON (Online)";
+    } else if (data.plata === "cash") {
+      tipPlataStr = "⚠️ ACHITĂ LA INFODESK (" + numZile + " zile)";
+    }
+    
     // Prepare the values row
     var rowData = [
       new Date(), // Timestamp
@@ -27,8 +37,8 @@ function doPost(e) {
       data.varsta ? parseInt(data.varsta) : "",
       data.transport || "",
       data.cazareCabana ? "Da" : "Nu",
-      data.plata === "integral" ? "Integral (450 RON)" : "Avans (150 RON)",
-      data.amount_paid ? parseFloat(data.amount_paid) : 0, // Amount Paid in RON
+      tipPlataStr,
+      data.plata === "cash" ? 0 : (data.amount_paid ? parseFloat(data.amount_paid) : 0), // Amount Paid in RON
       data.zile === "toate" ? "Toate (6 zile)" : (data.zileAlese ? data.zileAlese.join(", ") : "Zile specifice"),
       data.stripe_session_id || ""
     ];
@@ -41,7 +51,7 @@ function doPost(e) {
     var range = sheet.getRange(lastRow, 1, 1, rowData.length);
     
     // Apply professional styles to the row
-    applyRowFormatting(sheet, range, lastRow);
+    applyRowFormatting(sheet, range, lastRow, data.plata);
     
     // Auto-fit columns
     for (var i = 1; i <= rowData.length; i++) {
@@ -88,17 +98,27 @@ function setupProfessionalHeaders(sheet) {
   sheet.setRowHeight(1, 32);
 }
 
-function applyRowFormatting(sheet, range, rowNum) {
+function applyRowFormatting(sheet, range, rowNum, tipPlata) {
   // Set Font Family & Size
   range.setFontFamily("Roboto");
   range.setFontSize(10);
   range.setVerticalAlignment("middle");
   
-  // Zebra striping (alternate row colors) for premium readability
-  if (rowNum % 2 === 0) {
+  // Row highlighting based on payment type
+  if (tipPlata === "cash") {
+    // Highlight cash payments with a noticeable yellow/orange background
+    range.setBackground("#FFF3CD"); 
+    range.setFontColor("#856404");
+    range.setFontWeight("bold");
+  } else if (rowNum % 2 === 0) {
+    // Zebra striping (alternate row colors) for premium readability
     range.setBackground("#F8F9FA"); // Very light gray
+    range.setFontColor("#000000");
+    range.setFontWeight("normal");
   } else {
     range.setBackground("#FFFFFF");
+    range.setFontColor("#000000");
+    range.setFontWeight("normal");
   }
   
   // Thin borders around cells
