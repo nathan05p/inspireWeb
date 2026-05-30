@@ -225,6 +225,49 @@ function PhotoGallery() {
     </div>
   );
 }
+const BackgroundWatermark = () => {
+  return (
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden select-none opacity-40">
+      {/* Watermark text items using stroke-only technique */}
+      <div 
+        className="absolute top-[5%] left-[5%] text-[6rem] sm:text-[8rem] md:text-[12rem] font-outfit font-black tracking-tight"
+        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.02)', color: 'transparent' }}
+      >
+        inspire+
+      </div>
+      <div 
+        className="absolute top-[20%] right-[-5%] text-[8rem] sm:text-[10rem] md:text-[16rem] font-outfit font-black tracking-tight"
+        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.015)', color: 'transparent' }}
+      >
+        inspire+
+      </div>
+      <div 
+        className="absolute top-[45%] left-[-10%] text-[10rem] sm:text-[12rem] md:text-[18rem] font-outfit font-black tracking-tight"
+        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.02)', color: 'transparent' }}
+      >
+        inspire+
+      </div>
+      <div 
+        className="absolute bottom-[25%] right-[5%] text-[5rem] sm:text-[7rem] md:text-[11rem] font-outfit font-black tracking-tight"
+        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.025)', color: 'transparent' }}
+      >
+        inspire+
+      </div>
+      <div 
+        className="absolute bottom-[-5%] left-[15%] text-[12rem] sm:text-[14rem] md:text-[22rem] font-outfit font-black tracking-tight"
+        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.015)', color: 'transparent' }}
+      >
+        inspire+
+      </div>
+      <div 
+        className="absolute top-[70%] right-[30%] text-[7rem] sm:text-[9rem] md:text-[13rem] font-outfit font-black tracking-tight"
+        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.02)', color: 'transparent' }}
+      >
+        inspire+
+      </div>
+    </div>
+  );
+};
 
 
 export default function Camp() {
@@ -300,6 +343,7 @@ export default function Camp() {
       className="relative z-10 bg-[#1A1E22] text-stone-50 min-h-screen overflow-x-hidden"
       style={{ fontFamily: '"Inter", sans-serif' }}
     >
+      <BackgroundWatermark />
       <CampNavbar />
 
       {/* HERO SECTION */}
@@ -444,7 +488,7 @@ export default function Camp() {
       </section>
 
       {/* FAQ COMMUNITY STYLE */}
-      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-stone-800/50 bg-[#1A1E22]">
+      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-stone-800/50">
         <div className="px-6 md:px-12 max-w-screen-2xl mx-auto mb-16 relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center">
             <h2 className="text-4xl font-outfit tracking-tight mb-4 text-stone-50">Întrebări frecvente</h2>
