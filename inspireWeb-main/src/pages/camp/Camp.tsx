@@ -361,7 +361,16 @@ export default function Camp() {
         </motion.div>
       </section>
 
-
+      {/* MARQUEE */}
+      <section className="bg-amber-500 py-3 overflow-hidden relative z-20 shadow-lg">
+        <Marquee
+          items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
+          speed={45}
+          separator="✦"
+          className="py-1"
+          itemClassName="text-xs md:text-sm font-black tracking-[0.25em] text-[#1A1E22] mr-8"
+        />
+      </section>
       {/* TEXT SECTION - QUOTE */}
       <section className="py-24 sm:py-32 px-6 relative flex justify-center text-center bg-[#1A1E22] border-b border-stone-800/50">
         <div className="max-w-3xl mx-auto">
@@ -381,17 +390,6 @@ export default function Camp() {
       </section>
 
       <CampAteliere />
-
-      {/* MARQUEE */}
-      <section className="bg-[#1A1E22]mber-400 py-4 border-y border-amber-500/20 overflow-hidden relative z-20">
-        <Marquee
-          items={Array(8).fill('INSPIRE+ CAMP 2026')}
-          speed={40}
-          separator="•"
-          className="py-1"
-          itemClassName="text-xs md:text-sm font-bold tracking-[0.3em] text-stone-50 mr-8"
-        />
-      </section>
 
       {/* VIZIUNE & ABOUT */}
       <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-800/50">
