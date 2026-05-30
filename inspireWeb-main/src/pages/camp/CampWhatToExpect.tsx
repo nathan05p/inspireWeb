@@ -43,7 +43,7 @@ export default function CampWhatToExpect() {
           viewport={{ once: true }}
           className="text-4xl sm:text-6xl md:text-7xl font-outfit font-bold tracking-tight text-stone-50"
         >
-          Ce te asteapta
+          inspire<span className="font-bold text-amber-500 not-italic">+</span> camp
         </motion.h2>
       </div>
 

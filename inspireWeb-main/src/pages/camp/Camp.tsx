@@ -389,6 +389,9 @@ export default function Camp() {
         </div>
       </section>
 
+      {/* WHAT TO EXPECT (inspire camp) */}
+      <CampWhatToExpect />
+
       <CampAteliere />
 
       {/* VIZIUNE & ABOUT */}
@@ -416,9 +419,6 @@ export default function Camp() {
           </motion.div>
         </div>
       </section>
-
-      {/* WHAT TO EXPECT (CE TE ASTEAPTA) */}
-      <CampWhatToExpect />
 
       {/* PHOTO GALLERY */}
       <section className="py-16 sm:py-24 md:py-32 bg-[#1A1E22] overflow-hidden border-b border-stone-800/50">
