@@ -29,6 +29,13 @@ const expectData = [
     side: 'right' as const,
     desc: 'Tabăra este despre oameni. Aici vei avea ocazia să cunoști tineri din toată țara, să legi prietenii autentice și să te simți parte dintr-o familie extinsă, unită de aceleași valori.' 
   },
+  { 
+    id: 'timp_liber', 
+    title: 'Timp Liber', 
+    img: '/new_icons/11.png',
+    side: 'left' as const,
+    desc: 'Momente speciale de relaxare în care poți lega prietenii de-o viață, te poți bucura de natură și poți împărtăși experiențe alături de ceilalți participanți.' 
+  },
 ];
 
 export default function CampWhatToExpect() {
