@@ -359,17 +359,16 @@ export default function Camp() {
             </motion.div>
           </div>
         </motion.div>
-      </section>
-
-      {/* MARQUEE */}
-      <section className="bg-[#1A1E22] py-4 border-y border-amber-500/20 overflow-hidden relative z-20">
-        <Marquee
-          items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
-          speed={40}
-          separator=""
-          className="py-1"
-          itemClassName="text-xs md:text-sm font-bold tracking-[0.3em] text-stone-50 mr-8"
-        />
+        {/* MARQUEE */}
+        <div className="absolute bottom-0 left-0 w-full bg-[#1A1E22] py-4 border-t border-amber-500/20 overflow-hidden z-20">
+          <Marquee
+            items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
+            speed={40}
+            separator=""
+            className="py-1"
+            itemClassName="text-xs md:text-sm font-bold tracking-[0.3em] text-stone-50 mr-8"
+          />
+        </div>
       </section>
       {/* TEXT SECTION - QUOTE */}
       <section className="py-24 sm:py-32 px-6 relative flex justify-center text-center bg-[#1A1E22] border-b border-stone-800/50">
