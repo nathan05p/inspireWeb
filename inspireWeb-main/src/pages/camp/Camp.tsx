@@ -468,37 +468,48 @@ export default function Camp() {
               {Array(6).fill(faqs).flat().map((faq, i) => (
                 <div
                   key={i}
-                  className="w-full shrink-0 bg-[#22272B] p-5 md:p-6 rounded-[2rem] border border-stone-800/50 shadow-lg flex flex-col gap-4 mx-auto max-w-2xl"
+                  className="w-full shrink-0 bg-gradient-to-b from-stone-800/30 to-stone-900/40 backdrop-blur-xl p-6 md:p-8 rounded-[2.5rem] border border-white/5 shadow-2xl flex flex-col gap-6 mx-auto max-w-2xl relative overflow-hidden group hover:border-white/10 transition-colors"
                 >
-                  {/* User Question Header */}
-                  <div className="flex items-start gap-3">
-                    <img src={faq.avatar} alt={faq.user} className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-stone-800 border border-stone-700 shrink-0" />
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold text-stone-200 text-sm md:text-base">{faq.user}</span>
-                        <span className="text-stone-500 text-xs">{faq.time}</span>
+                  {/* Subtle Top Glow */}
+                  <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-stone-500/20 to-transparent" />
+
+                  {/* User Question */}
+                  <div className="flex items-start gap-4">
+                    <div className="relative shrink-0">
+                      <div className="absolute inset-0 bg-stone-500/20 rounded-full blur-md" />
+                      <img src={faq.avatar} alt={faq.user} className="relative w-12 h-12 md:w-14 md:h-14 rounded-full border border-stone-700/50 object-cover" />
+                    </div>
+                    <div className="pt-1 w-full">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="font-medium text-stone-300 text-sm md:text-base tracking-wide">{faq.user}</span>
+                        <span className="text-stone-600 text-xs tracking-wider">{faq.time}</span>
                       </div>
-                      <p className="text-stone-300 text-[15px] sm:text-base mt-1 font-medium leading-snug">{faq.q}</p>
+                      <p className="text-stone-100 text-lg md:text-xl font-outfit font-light leading-snug">{faq.q}</p>
                     </div>
                   </div>
 
-                  {/* Staff Reply Thread */}
-                  <div className="ml-5 md:ml-6 pl-5 md:pl-6 border-l-2 border-stone-700/50">
-                    <div className="bg-[#1A1E22] p-5 md:p-6 rounded-2xl border border-stone-800/50 relative overflow-hidden group shadow-inner">
-                      {/* Accent Line */}
-                      <div className="absolute top-0 left-0 w-1.5 h-full bg-amber-500 opacity-90 rounded-l-2xl" />
-                      
-                      <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
-                        <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-amber-500/10 flex items-center justify-center border border-amber-500/20 shrink-0">
-                          <span className="text-amber-500 font-outfit tracking-tight text-[10px] md:text-xs italic font-bold">i+</span>
-                        </div>
-                        <span className="font-bold text-xs md:text-sm text-amber-500">inspire+ staff</span>
-                        <CheckCircle size={14} className="text-amber-500 shrink-0" />
-                        <div className="ml-auto px-2 py-0.5 rounded-full bg-stone-800/30 border border-stone-800/50 text-stone-400 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider hidden sm:block shrink-0">
-                          Răspuns Oficial
+                  {/* Connecting Line & Staff Reply */}
+                  <div className="relative ml-6 md:ml-7 pl-8 md:pl-10 mt-2">
+                    {/* Glowing Vertical Line */}
+                    <div className="absolute top-0 left-0 bottom-0 w-[1px] bg-gradient-to-b from-stone-700/50 via-amber-500/50 to-transparent" />
+                    
+                    <div className="flex items-start gap-4">
+                      <div className="relative shrink-0 mt-1">
+                        <div className="absolute inset-0 bg-amber-500/30 rounded-full blur-md" />
+                        <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#1A1E22] to-stone-900 border border-amber-500/40 flex items-center justify-center shadow-lg">
+                          <span className="text-amber-500 font-outfit tracking-tighter text-[10px] md:text-xs italic font-bold">i+</span>
                         </div>
                       </div>
-                      <p className="text-stone-300 text-sm md:text-[15px] leading-relaxed">{faq.a}</p>
+                      <div className="w-full">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="font-semibold text-xs md:text-sm text-amber-500 tracking-wide">inspire+ staff</span>
+                          <CheckCircle size={14} className="text-amber-500 shrink-0" />
+                          <div className="ml-auto px-2.5 py-1 rounded-full bg-amber-500/5 border border-amber-500/20 text-amber-500/80 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hidden sm:block backdrop-blur-sm">
+                            Răspuns Oficial
+                          </div>
+                        </div>
+                        <p className="text-stone-400 text-sm md:text-base leading-relaxed font-light">{faq.a}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
