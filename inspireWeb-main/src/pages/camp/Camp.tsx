@@ -226,45 +226,40 @@ function PhotoGallery() {
   );
 }
 const BackgroundWatermark = () => {
+  // Array of deterministic positions scattered across the entire page height (0% to 100%)
+  const items = [
+    { top: '2%', left: '-5%', size: 'clamp(8rem, 15vw, 14rem)', opacity: 0.04 },
+    { top: '9%', right: '-8%', size: 'clamp(10rem, 20vw, 22rem)', opacity: 0.03 },
+    { top: '16%', left: '12%', size: 'clamp(6rem, 12vw, 12rem)', opacity: 0.05 },
+    { top: '25%', right: '2%', size: 'clamp(8rem, 16vw, 16rem)', opacity: 0.04 },
+    { top: '34%', left: '-10%', size: 'clamp(12rem, 25vw, 26rem)', opacity: 0.02 },
+    { top: '42%', right: '-4%', size: 'clamp(7rem, 14vw, 14rem)', opacity: 0.05 },
+    { top: '50%', left: '8%', size: 'clamp(9rem, 18vw, 18rem)', opacity: 0.03 },
+    { top: '60%', right: '15%', size: 'clamp(6rem, 10vw, 10rem)', opacity: 0.06 },
+    { top: '70%', left: '-6%', size: 'clamp(14rem, 28vw, 30rem)', opacity: 0.02 },
+    { top: '80%', right: '-5%', size: 'clamp(8rem, 15vw, 15rem)', opacity: 0.04 },
+    { top: '88%', left: '18%', size: 'clamp(10rem, 18vw, 20rem)', opacity: 0.03 },
+    { top: '96%', right: '4%', size: 'clamp(7rem, 12vw, 13rem)', opacity: 0.05 },
+  ];
+
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden select-none opacity-40">
-      {/* Watermark text items using stroke-only technique */}
-      <div 
-        className="absolute top-[5%] left-[5%] text-[6rem] sm:text-[8rem] md:text-[12rem] font-outfit font-black tracking-tight"
-        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.02)', color: 'transparent' }}
-      >
-        inspire+
-      </div>
-      <div 
-        className="absolute top-[20%] right-[-5%] text-[8rem] sm:text-[10rem] md:text-[16rem] font-outfit font-black tracking-tight"
-        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.015)', color: 'transparent' }}
-      >
-        inspire+
-      </div>
-      <div 
-        className="absolute top-[45%] left-[-10%] text-[10rem] sm:text-[12rem] md:text-[18rem] font-outfit font-black tracking-tight"
-        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.02)', color: 'transparent' }}
-      >
-        inspire+
-      </div>
-      <div 
-        className="absolute bottom-[25%] right-[5%] text-[5rem] sm:text-[7rem] md:text-[11rem] font-outfit font-black tracking-tight"
-        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.025)', color: 'transparent' }}
-      >
-        inspire+
-      </div>
-      <div 
-        className="absolute bottom-[-5%] left-[15%] text-[12rem] sm:text-[14rem] md:text-[22rem] font-outfit font-black tracking-tight"
-        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.015)', color: 'transparent' }}
-      >
-        inspire+
-      </div>
-      <div 
-        className="absolute top-[70%] right-[30%] text-[7rem] sm:text-[9rem] md:text-[13rem] font-outfit font-black tracking-tight"
-        style={{ WebkitTextStroke: '2px rgba(255,255,255,0.02)', color: 'transparent' }}
-      >
-        inspire+
-      </div>
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+      {items.map((item, i) => (
+        <div 
+          key={i}
+          className="absolute whitespace-nowrap leading-none"
+          style={{ 
+            top: item.top, 
+            ...(item.left ? { left: item.left } : { right: item.right }),
+            fontSize: item.size,
+            fontFamily: '"TheLetterEditorial", "Playfair Display", serif',
+            WebkitTextStroke: `1px rgba(255, 255, 255, ${item.opacity})`, 
+            color: 'transparent' 
+          }}
+        >
+          inspire+
+        </div>
+      ))}
     </div>
   );
 };
