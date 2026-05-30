@@ -437,19 +437,35 @@ export default function Camp() {
                 <div
                   key={i}
                   onClick={() => setSelectedFaqIndex(i)}
-                  className="w-[300px] sm:w-[360px] md:w-[440px] shrink-0 bg-[#22272B] p-5 md:p-8 rounded-3xl border border-stone-800/50 shadow-md hover:border-amber-400 transition-colors cursor-pointer"
+                  className="w-[320px] sm:w-[380px] md:w-[460px] shrink-0 bg-[#22272B] p-5 md:p-6 rounded-3xl border border-stone-800/50 shadow-md hover:border-amber-500/30 transition-all cursor-pointer flex flex-col gap-4"
                 >
-                  <p className="text-base sm:text-lg font-medium leading-snug mb-8 text-stone-200">{faq.q}</p>
-
-                  <div className="p-4 sm:p-5 bg-[#1A1E22] rounded-2xl border-l-2 border-amber-400 relative">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-6 h-6 rounded-full bg-[#1A1E22] shadow-sm flex items-center justify-center border border-stone-800/50">
-                        <span className="text-stone-50 font-outfit tracking-tight text-[10px] italic font-bold">i+</span>
+                  {/* User Question Header */}
+                  <div className="flex items-start gap-3">
+                    <img src={faq.avatar} alt={faq.user} className="w-10 h-10 rounded-full bg-stone-800 border border-stone-700" />
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-stone-200 text-sm">{faq.user}</span>
+                        <span className="text-stone-500 text-xs">{faq.time}</span>
                       </div>
-                      <span className="font-bold text-sm text-stone-50">inspire+ staff</span>
-                      <CheckCircle size={14} className="text-amber-500 fill-amber-500/20" />
+                      <p className="text-stone-300 text-[15px] sm:text-base mt-1 font-medium leading-snug">{faq.q}</p>
                     </div>
-                    <p className="text-stone-400 text-xs sm:text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+
+                  {/* Staff Reply Thread */}
+                  <div className="ml-5 pl-5 border-l-2 border-stone-700/50">
+                    <div className="bg-[#1A1E22] p-4 rounded-2xl border border-stone-800/50 relative overflow-hidden group">
+                      {/* Accent Line */}
+                      <div className="absolute top-0 left-0 w-1 h-full bg-amber-500 opacity-80" />
+                      
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-5 h-5 rounded-full bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
+                          <span className="text-amber-500 font-outfit tracking-tight text-[9px] italic font-bold">i+</span>
+                        </div>
+                        <span className="font-bold text-xs text-amber-500">inspire+ staff</span>
+                        <CheckCircle size={12} className="text-amber-500" />
+                      </div>
+                      <p className="text-stone-400 text-xs sm:text-sm leading-relaxed line-clamp-3">{faq.a}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -468,30 +484,63 @@ export default function Camp() {
               onClick={() => setSelectedFaqIndex(null)}
             >
               <motion.div
-                initial={{ scale: 0.95, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.95, opacity: 0 }}
-                className="w-full max-w-lg bg-[#22272B] p-6 md:p-10 rounded-3xl border border-amber-400 shadow-[0_0_40px_rgba(251,191,36,0.15)] cursor-default relative"
+                initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                className="w-full max-w-2xl bg-[#22272B] p-6 md:p-8 rounded-[2rem] border border-stone-800 shadow-2xl cursor-default relative overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
+                {/* Glow effect */}
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
+
                 <button
                   onClick={() => setSelectedFaqIndex(null)}
-                  className="absolute top-4 right-4 w-10 h-10 bg-[#1A1E22] hover:bg-amber-400 hover:text-[#1A1E22] text-stone-50 rounded-full flex items-center justify-center transition-colors shadow-sm z-20 border border-stone-800/50"
+                  className="absolute top-4 right-4 w-10 h-10 bg-[#1A1E22] hover:bg-stone-800 text-stone-400 hover:text-stone-50 rounded-full flex items-center justify-center transition-colors shadow-sm z-20 border border-stone-800/50"
                 >
-                  <Plus size={20} className="rotate-45" />
+                  <Plus size={24} className="rotate-45" />
                 </button>
-                <p className="text-xl md:text-2xl font-medium leading-snug mb-8 mt-4 text-stone-100">{Array(4).fill(faqs).flat()[selectedFaqIndex].q}</p>
 
-                <div className="p-6 bg-[#1A1E22] rounded-2xl border-l-4 border-amber-400 relative">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-8 h-8 rounded-full bg-[#1A1E22] shadow-sm flex items-center justify-center border border-stone-800/50">
-                      <span className="text-stone-50 font-outfit tracking-tight text-xs italic font-bold">i+</span>
+                {/* User Question */}
+                <div className="flex items-start gap-4 mb-6 md:mb-8 pr-12">
+                  <img 
+                    src={Array(4).fill(faqs).flat()[selectedFaqIndex].avatar} 
+                    alt={Array(4).fill(faqs).flat()[selectedFaqIndex].user} 
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-stone-800 border border-stone-700 shrink-0" 
+                  />
+                  <div className="pt-1">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="font-semibold text-stone-100 text-base md:text-lg">{Array(4).fill(faqs).flat()[selectedFaqIndex].user}</span>
+                      <span className="text-stone-500 text-sm">{Array(4).fill(faqs).flat()[selectedFaqIndex].time}</span>
                     </div>
-                    <span className="font-bold text-base text-stone-50">inspire+ staff</span>
-                    <CheckCircle size={16} className="text-amber-500 fill-amber-500/20" />
+                    <p className="text-lg md:text-xl font-medium text-stone-200 leading-snug">
+                      {Array(4).fill(faqs).flat()[selectedFaqIndex].q}
+                    </p>
                   </div>
-                  <p className="text-stone-300 text-base leading-relaxed">{Array(4).fill(faqs).flat()[selectedFaqIndex].a}</p>
                 </div>
+
+                {/* Staff Reply */}
+                <div className="ml-6 md:ml-7 pl-6 md:pl-8 border-l-2 border-stone-700/50">
+                  <div className="bg-[#1A1E22] p-6 md:p-8 rounded-3xl border border-stone-800/50 relative shadow-inner">
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-amber-500 opacity-90 rounded-l-3xl" />
+                    
+                    <div className="flex items-center gap-3 mb-4 md:mb-5">
+                      <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
+                        <span className="text-amber-500 font-outfit tracking-tight text-xs italic font-bold">i+</span>
+                      </div>
+                      <span className="font-bold text-sm md:text-base text-amber-500">inspire+ staff</span>
+                      <CheckCircle size={16} className="text-amber-500" />
+                      
+                      <div className="ml-auto px-3 py-1 rounded-full bg-stone-800/30 border border-stone-800/50 text-stone-400 text-[10px] sm:text-xs font-semibold uppercase tracking-wider hidden sm:block">
+                        Răspuns Oficial
+                      </div>
+                    </div>
+                    
+                    <p className="text-stone-300 text-[15px] md:text-base leading-relaxed">
+                      {Array(4).fill(faqs).flat()[selectedFaqIndex].a}
+                    </p>
+                  </div>
+                </div>
+
               </motion.div>
             </motion.div>
           )}
