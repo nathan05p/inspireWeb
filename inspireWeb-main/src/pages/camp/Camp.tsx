@@ -323,11 +323,15 @@ export default function Camp() {
           {/* Text Container */}
           <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
             <motion.p
-              className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-outfit font-light tracking-wide leading-relaxed sm:leading-snug"
+              className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide leading-relaxed sm:leading-snug"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              style={{ textShadow: '0 4px 30px rgba(0,0,0,0.6)' }}
+              style={{ 
+                fontFamily: '"Black Mango", serif', 
+                fontWeight: 'bold',
+                textShadow: '0 4px 30px rgba(0,0,0,0.6)' 
+              }}
             >
               O generație mai aproape de cer,
               <br className="hidden md:block" />
