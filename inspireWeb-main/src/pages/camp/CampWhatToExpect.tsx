@@ -32,7 +32,7 @@ export default function CampWhatToExpect() {
           {/* Main vertical dashed line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px border-l-2 border-dashed border-stone-700/50 -translate-x-1/2 -z-10" />
 
-          {expectData.map((item, index) => {
+          {expectData.map((item) => {
             return (
               <motion.div 
                 key={item.id}
