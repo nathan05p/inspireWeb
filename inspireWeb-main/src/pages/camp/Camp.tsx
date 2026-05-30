@@ -362,13 +362,13 @@ export default function Camp() {
       </section>
 
       {/* MARQUEE */}
-      <section className="bg-amber-500 py-3 overflow-hidden relative z-20 shadow-lg">
+      <section className="bg-[#1A1E22] py-4 border-y border-amber-500/20 overflow-hidden relative z-20">
         <Marquee
           items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
-          speed={45}
-          separator="✦"
+          speed={40}
+          separator=""
           className="py-1"
-          itemClassName="text-xs md:text-sm font-black tracking-[0.25em] text-[#1A1E22] mr-8"
+          itemClassName="text-xs md:text-sm font-bold tracking-[0.3em] text-stone-50 mr-8"
         />
       </section>
       {/* TEXT SECTION - QUOTE */}
@@ -384,7 +384,7 @@ export default function Camp() {
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2}
             className="mt-6 text-stone-300 text-base sm:text-xl md:text-2xl font-outfit tracking-tight leading-relaxed italic"
           >
-            &ldquo;Mai aproape de cer, mai aproape de oameni și mai de folos Împărăției.&rdquo;
+            O generație mai aproape de cer, mai aproape de oameni și mai de folos Împărăției.
           </motion.p>
         </div>
       </section>
