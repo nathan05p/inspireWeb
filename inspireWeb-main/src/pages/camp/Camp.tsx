@@ -321,22 +321,17 @@ export default function Camp() {
           transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Text Container */}
-          <div className="max-w-4xl mx-auto flex flex-col items-center drop-shadow-2xl">
-            <motion.h2
-              className="text-3xl sm:text-4xl md:text-5xl font-outfit tracking-tight leading-snug text-white mb-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            >
-              inspire<span className="font-bold text-amber-500 not-italic">+</span>
-            </motion.h2>
+          <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
             <motion.p
-              className="text-white text-xl sm:text-3xl md:text-5xl font-outfit tracking-tight leading-relaxed md:leading-snug italic"
-              initial={{ opacity: 0, y: 10 }}
+              className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-outfit font-light tracking-wide leading-relaxed sm:leading-snug"
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              style={{ textShadow: '0 4px 30px rgba(0,0,0,0.6)' }}
             >
-              O generație mai aproape de cer, mai aproape de oameni și mai de folos Împărăției.
+              O generație mai aproape de cer,
+              <br className="hidden md:block" />
+              mai aproape de oameni și mai de folos Împărăției.
             </motion.p>
           </div>
         </motion.div>
