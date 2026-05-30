@@ -57,9 +57,9 @@ export default function CampWhatToExpect() {
       <div className="max-w-screen-xl mx-auto relative z-10">
 
         {/* ======================= */}
-        {/* MOBILE LAYOUT           */}
+        {/* UNIVERSAL LAYOUT        */}
         {/* ======================= */}
-        <div className="md:hidden relative px-2">
+        <div className="relative px-2 max-w-4xl mx-auto">
 
           {/* SVG snake path — drawn behind everything */}
           <svg
@@ -91,7 +91,7 @@ export default function CampWhatToExpect() {
                   className="relative flex items-center w-full px-4"
                 >
                   {/* Image - Left */}
-                  <div className="z-10 w-24 h-24 shrink-0 mr-5">
+                  <div className="z-10 w-24 h-24 md:w-32 md:h-32 shrink-0 mr-5 md:mr-8">
                     <img
                       src={item.img}
                       alt={item.title}
@@ -101,8 +101,8 @@ export default function CampWhatToExpect() {
 
                   {/* Text - Right */}
                   <div className="z-20 flex-1 text-left">
-                    <h3 className="text-amber-500 font-bold text-lg mb-1">{item.title}</h3>
-                    <p className="text-stone-300 text-[14px] leading-relaxed font-light">
+                    <h3 className="text-amber-500 font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
+                    <p className="text-stone-300 text-[14px] md:text-base leading-relaxed font-light">
                       {item.desc}
                     </p>
                   </div>
@@ -111,55 +111,6 @@ export default function CampWhatToExpect() {
             })}
           </div>
         </div>
-
-
-        {/* ========================= */}
-        {/* DESKTOP LAYOUT (Horizontal) */}
-        {/* ========================= */}
-        <div className="hidden md:flex relative w-full h-[700px] items-center justify-between px-8 lg:px-16">
-          
-          {/* SVG Wavy Dashed Line Background */}
-          <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 flex items-center justify-center overflow-visible">
-            <svg width="100%" height="100%" viewBox="0 0 1000 300" preserveAspectRatio="none" className="opacity-50">
-              <path 
-                d="M 50,150 Q 250,50 500,150 T 950,150" 
-                fill="none" 
-                stroke="#44403C" 
-                strokeWidth="2" 
-                strokeDasharray="8 8" 
-              />
-            </svg>
-          </div>
-
-          {expectData.map((item, index) => {
-            const isUp = index % 2 === 0;
-            
-            return (
-              <motion.div 
-                key={item.id}
-                initial={{ opacity: 0, scale: 0.8, y: isUp ? -50 : 50 }}
-                whileInView={{ opacity: 1, scale: 1, y: isUp ? -80 : 80 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: index * 0.15, type: "spring" }}
-                className="relative flex flex-col items-center w-[300px] group"
-              >
-                {/* PNG Image */}
-                <div className="relative w-80 h-80 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 cursor-default">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10 drop-shadow-xl" />
-                </div>
-                
-                {/* Desktop Text */}
-                <div className="px-2 w-full">
-                  <p className="text-stone-200 text-[15px] text-center leading-relaxed mt-2 opacity-90 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md font-light">
-                    {item.desc}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-
-        </div>
-
       </div>
     </section>
   );
