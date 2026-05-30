@@ -55,32 +55,8 @@ export default function CampNavbar() {
       >
         <div className="relative flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 md:py-5">
 
-          {/* Left: logo pill (hidden on scroll) */}
-          <AnimatePresence>
-            {!scrolled && (
-              <motion.div
-                key="logo-left"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.4 }}
-                className="flex items-center gap-3 sm:gap-6"
-              >
-                <a
-                  href="#"
-                  onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className="group"
-                >
-                  <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-stone-800 flex items-center justify-center hover:border-amber-500 hover:text-amber-500 transition-colors text-stone-50">
-                    <span className="text-current font-serif text-xs sm:text-sm leading-none flex items-center">
-                      <span className="italic tracking-tight">inspire</span>
-                      <span className="font-sans font-bold text-[9px] sm:text-[10px] ml-0.5 mt-1">+</span>
-                    </span>
-                  </div>
-                </a>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Spacer so center element stays truly centered */}
+          <div className="w-10 md:w-14" />
 
           {/* Center: inspire+ text - only when NOT scrolled */}
           <AnimatePresence>
