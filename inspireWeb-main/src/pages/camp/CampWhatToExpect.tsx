@@ -4,25 +4,29 @@ const expectData = [
   { 
     id: 'plenar', 
     title: 'Program Plenar', 
-    img: '/6.png', 
+    img: '/6.png',
+    side: 'left' as const,
     desc: 'Bucură-te de sesiuni puternice cu închinare profundă și mesaje relevante. Vom explora împreună chemarea noastră și cum putem reflecta lumina în lumea de azi, printr-o perspectivă biblică.' 
   },
   { 
     id: 'activitati', 
     title: 'Activitati', 
-    img: '/7.png', 
+    img: '/7.png',
+    side: 'right' as const,
     desc: 'De la competiții sportive, la momente artistice și provocări de echipă, activitățile noastre sunt create să aducă zâmbete, unitate și să te scoată din zona de confort într-un mod distractiv.' 
   },
   { 
     id: 'ateliere', 
     title: 'Ateliere', 
-    img: '/8.png', 
+    img: '/8.png',
+    side: 'left' as const,
     desc: 'Participă la ateliere practice unde poți aprofunda domenii precum apologetica, muzica, media sau dezvoltarea personală, alături de mentori pregătiți să te ajute să crești.' 
   },
   { 
     id: 'comunitate', 
     title: 'Comunitate', 
-    img: '/9.png', 
+    img: '/9.png',
+    side: 'right' as const,
     desc: 'Tabăra este despre oameni. Aici vei avea ocazia să cunoști tineri din toată țara, să legi prietenii autentice și să te simți parte dintr-o familie extinsă, unită de aceleași valori.' 
   },
 ];
@@ -46,61 +50,77 @@ export default function CampWhatToExpect() {
       <div className="max-w-screen-xl mx-auto relative z-10">
 
         {/* ======================= */}
-        {/* MOBILE LAYOUT (Vertical) */}
+        {/* MOBILE LAYOUT           */}
         {/* ======================= */}
-        <div className="md:hidden relative flex flex-col gap-8 py-10">
-          {/* Main vertical dashed line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px border-l-2 border-dashed border-stone-700/50 -translate-x-1/2 -z-10" />
+        <div className="md:hidden relative px-2">
 
-          {expectData.map((item, index) => {
-            const isEven = index % 2 === 0;
+          {/* SVG snake path — drawn behind everything */}
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none -z-10"
+            viewBox="0 0 320 1000"
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M 80,80 Q 280,200 240,350 Q 80,480 80,600 Q 80,720 240,800 Q 320,870 240,960"
+              fill="none"
+              stroke="#44403C"
+              strokeWidth="2"
+              strokeDasharray="8 8"
+              strokeLinecap="round"
+            />
+          </svg>
 
-            return (
-              <motion.div 
-                key={item.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
-                className="relative grid grid-cols-2 w-full min-h-[280px] items-center"
-              >
-                {/* Center Image */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-center items-center w-60 h-60 sm:w-72 sm:h-72 pointer-events-none">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-contain drop-shadow-xl" />
-                </div>
+          {/* Items */}
+          <div className="flex flex-col gap-0">
+            {expectData.map((item) => {
+              const imgLeft = item.side === 'left';
 
-                {/* Left Side (Text when index is odd) */}
-                <div className="px-2 text-right relative z-20">
-                  {!isEven && (
-                    <div className="pr-4 sm:pr-12 drop-shadow-md">
-                      <p className="text-stone-200 text-[13px] sm:text-base leading-relaxed font-light">
-                        {item.desc}
-                      </p>
-                    </div>
-                  )}
-                </div>
+              return (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.6, type: 'spring', bounce: 0.2 }}
+                  className="relative flex items-center w-full min-h-[240px]"
+                >
+                  {/* Image — left or right */}
+                  <div
+                    className={`absolute z-10 w-44 h-44 ${
+                      imgLeft ? 'left-0' : 'right-0'
+                    } top-1/2 -translate-y-1/2`}
+                  >
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="w-full h-full object-contain drop-shadow-xl"
+                    />
+                  </div>
 
-                {/* Right Side (Text when index is even) */}
-                <div className="px-2 text-left relative z-20">
-                  {isEven && (
-                    <div className="pl-4 sm:pl-12 drop-shadow-md">
-                      <p className="text-stone-200 text-[13px] sm:text-base leading-relaxed font-light">
-                        {item.desc}
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-              </motion.div>
-            );
-          })}
+                  {/* Text — opposite side */}
+                  <div
+                    className={`z-20 w-1/2 ${
+                      imgLeft
+                        ? 'ml-auto pl-2 pr-1 text-left'
+                        : 'mr-auto pr-2 pl-1 text-right'
+                    }`}
+                  >
+                    <p className="text-stone-300 text-[12px] leading-relaxed font-light">
+                      {item.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
 
         {/* ========================= */}
         {/* DESKTOP LAYOUT (Horizontal) */}
         {/* ========================= */}
-        <div className="hidden md:flex relative w-full h-[600px] items-center justify-between px-8 lg:px-16">
+        <div className="hidden md:flex relative w-full h-[700px] items-center justify-between px-8 lg:px-16">
           
           {/* SVG Wavy Dashed Line Background */}
           <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 flex items-center justify-center overflow-visible">
@@ -116,7 +136,6 @@ export default function CampWhatToExpect() {
           </div>
 
           {expectData.map((item, index) => {
-            // Alternating up and down positions
             const isUp = index % 2 === 0;
             
             return (
