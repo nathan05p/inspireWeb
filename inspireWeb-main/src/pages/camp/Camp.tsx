@@ -225,56 +225,6 @@ function PhotoGallery() {
     </div>
   );
 }
-const BackgroundWatermark = () => {
-  // Array of deterministic positions scattered across the entire page height (0% to 100%)
-  // Grouped logically around margins with smaller, more refined font sizes
-  const items = [
-    { top: '3%', left: '-2%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.05 },
-    { top: '5%', right: '-4%', size: 'clamp(6rem, 10vw, 12rem)', opacity: 0.04 },
-    { top: '12%', left: '8%', size: 'clamp(4rem, 6vw, 7rem)', opacity: 0.06 },
-    { top: '15%', right: '12%', size: 'clamp(5rem, 9vw, 10rem)', opacity: 0.04 },
-    
-    { top: '22%', left: '-5%', size: 'clamp(7rem, 12vw, 14rem)', opacity: 0.03 },
-    { top: '28%', right: '-1%', size: 'clamp(4rem, 7vw, 8rem)', opacity: 0.05 },
-    { top: '31%', left: '15%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.04 },
-    
-    { top: '38%', right: '-6%', size: 'clamp(8rem, 14vw, 16rem)', opacity: 0.02 },
-    { top: '44%', left: '-3%', size: 'clamp(6rem, 10vw, 11rem)', opacity: 0.04 },
-    { top: '48%', right: '8%', size: 'clamp(4rem, 6vw, 7rem)', opacity: 0.05 },
-    
-    { top: '55%', left: '5%', size: 'clamp(7rem, 11vw, 13rem)', opacity: 0.03 },
-    { top: '62%', right: '-4%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.04 },
-    { top: '66%', left: '-8%', size: 'clamp(8rem, 15vw, 18rem)', opacity: 0.02 },
-    
-    { top: '74%', right: '14%', size: 'clamp(4rem, 7vw, 8rem)', opacity: 0.06 },
-    { top: '79%', left: '-2%', size: 'clamp(6rem, 10vw, 12rem)', opacity: 0.04 },
-    { top: '83%', right: '-5%', size: 'clamp(7rem, 12vw, 14rem)', opacity: 0.03 },
-    
-    { top: '91%', left: '10%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.05 },
-    { top: '96%', right: '2%', size: 'clamp(6rem, 9vw, 11rem)', opacity: 0.04 },
-  ];
-
-  return (
-    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-      {items.map((item, i) => (
-        <div 
-          key={i}
-          className="absolute whitespace-nowrap leading-none"
-          style={{ 
-            top: item.top, 
-            ...(item.left ? { left: item.left } : { right: item.right }),
-            fontSize: item.size,
-            fontFamily: '"TheLetterEditorial", "Playfair Display", serif',
-            WebkitTextStroke: `1px rgba(255, 255, 255, ${item.opacity})`, 
-            color: 'transparent' 
-          }}
-        >
-          inspire+
-        </div>
-      ))}
-    </div>
-  );
-};
 
 
 export default function Camp() {
@@ -350,7 +300,6 @@ export default function Camp() {
       className="relative z-10 bg-[#1A1E22] text-stone-50 min-h-screen overflow-x-hidden"
       style={{ fontFamily: '"Inter", sans-serif' }}
     >
-      <BackgroundWatermark />
       <CampNavbar />
 
       {/* HERO SECTION */}
@@ -495,7 +444,7 @@ export default function Camp() {
       </section>
 
       {/* FAQ COMMUNITY STYLE */}
-      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-stone-800/50">
+      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-stone-800/50 bg-[#1A1E22]">
         <div className="px-6 md:px-12 max-w-screen-2xl mx-auto mb-16 relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center">
             <h2 className="text-4xl font-outfit tracking-tight mb-4 text-stone-50">Întrebări frecvente</h2>
