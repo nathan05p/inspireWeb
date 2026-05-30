@@ -10,6 +10,7 @@ import CampNavbar from './CampNavbar';
 import Marquee from '../../components/Marquee';
 import RegistrationForm from '../../components/RegistrationForm';
 import CampAteliere from './CampAteliere';
+import CampWhatToExpect from './CampWhatToExpect';
 
 
 const fadeUp = {
@@ -21,12 +22,7 @@ const fadeUp = {
   })
 };
 
-const activities = [
-  { id: "plenare", title: "Titlu Secțiune", desc: "Aici avem un text de probă pentru a exemplifica descrierea.", icon: <Mic size={28} />, img: "/poza.png", details: "Aici avem un text mai detaliat despre această secțiune, care va fi înlocuit curând cu informațiile reale." },
-  { id: "workshop", title: "Titlu Secțiune", desc: "Aici avem un text de probă pentru a exemplifica descrierea.", icon: <Flame size={28} />, img: "/poza.png", details: "Aici avem un text mai detaliat despre această secțiune, care va fi înlocuit curând cu informațiile reale." },
-  { id: "jocuri", title: "Titlu Secțiune", desc: "Aici avem un text de probă pentru a exemplifica descrierea.", icon: <Heart size={28} />, img: "/poza.png", details: "Aici avem un text mai detaliat despre această secțiune, care va fi înlocuit curând cu informațiile reale." },
-  { id: "mese", title: "Titlu Secțiune", desc: "Aici avem un text de probă pentru a exemplifica descrierea.", icon: <Utensils size={28} />, img: "/poza.png", details: "Aici avem un text mai detaliat despre această secțiune, care va fi înlocuit curând cu informațiile reale." },
-];
+
 
 const packingList = [
   { title: "Titlu Secțiune", icon: <Tent size={32} />, items: ["Aici avem un text", "Aici avem un text", "Aici avem un text", "Aici avem un text"] },
@@ -258,24 +254,14 @@ export default function Camp() {
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const heroRef = useRef<HTMLElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [selectedActivity, setSelectedActivity] = useState<string | null>(null);
+
   const [selectedFaqIndex, setSelectedFaqIndex] = useState<number | null>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVideoLoaded(true), 500);
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (selectedActivity) {
-        setSelectedActivity(null);
-      }
-    };
-    if (selectedActivity) {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-    }
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [selectedActivity]);
+
 
   return (
     <motion.div
@@ -427,81 +413,8 @@ export default function Camp() {
         </div>
       </section>
 
-      {/* ACTIVITIES */}
-      <section id="conference" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-800/50 bg-[#1A1E22]">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-stone-400 mb-16 text-center">
-          CE TE AȘTEAPTĂ
-        </motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
-          {activities.map((item, i) => (
-            <motion.div
-              key={item.id}
-              layoutId={`card-${item.id}`}
-              onClick={() => setSelectedActivity(item.id)}
-              initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.1}
-              className="bg-[#22272B] rounded-3xl overflow-hidden border border-stone-800/50 group hover:border-amber-400 transition-colors cursor-pointer"
-            >
-              <motion.div layoutId={`image-${item.id}`} className="h-48 overflow-hidden relative">
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
-                <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              </motion.div>
-              <motion.div layoutId={`content-${item.id}`} className="p-8">
-                <motion.div layoutId={`icon-${item.id}`} className="w-12 h-12 rounded-full bg-[#1A1E22] shadow-sm flex items-center justify-center text-amber-500 mb-6">
-                  {item.icon}
-                </motion.div>
-                <motion.h3 layoutId={`title-${item.id}`} className="text-xl font-outfit tracking-tight mb-3 text-stone-50">{item.title}</motion.h3>
-                <motion.p layoutId={`desc-${item.id}`} className="text-sm text-stone-400 leading-relaxed line-clamp-3">{item.desc}</motion.p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
-
-        <AnimatePresence>
-          {selectedActivity && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center px-6 bg-stone-900/20 backdrop-blur-md"
-              onClick={() => setSelectedActivity(null)}
-            >
-              {activities.filter(a => a.id === selectedActivity).map(item => (
-                <motion.div
-                  key={item.id}
-                  layoutId={`card-${item.id}`}
-                  className="bg-[#22272B] rounded-3xl overflow-hidden border border-stone-800/50 w-full max-w-2xl shadow-2xl cursor-default"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <motion.div layoutId={`image-${item.id}`} className="h-64 sm:h-80 overflow-hidden relative">
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
-                    <button
-                      onClick={() => setSelectedActivity(null)}
-                      className="absolute top-6 right-6 w-10 h-10 bg-[#1A1E22]/90 hover:bg-[#1A1E22]mber-400 hover:text-stone-50 rounded-full flex items-center justify-center transition-colors text-stone-300 shadow-sm backdrop-blur-md z-20"
-                    >
-                      <Plus size={20} className="rotate-45" />
-                    </button>
-                  </motion.div>
-                  <motion.div layoutId={`content-${item.id}`} className="p-8 md:p-12 relative">
-                    <motion.div layoutId={`icon-${item.id}`} className="absolute top-8 right-8 w-14 h-14 rounded-full bg-[#1A1E22]mber-50 dark:bg-[#1A1E22]mber-900/20 flex items-center justify-center text-amber-600">
-                      {item.icon}
-                    </motion.div>
-                    <motion.h3 layoutId={`title-${item.id}`} className="text-3xl md:text-4xl font-outfit tracking-tight mb-4 pr-20 text-stone-50">{item.title}</motion.h3>
-                    <motion.p layoutId={`desc-${item.id}`} className="text-lg text-stone-300 leading-relaxed mb-6 font-medium">{item.desc}</motion.p>
-                    <motion.p
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.2 }}
-                      className="text-stone-400 leading-relaxed"
-                    >
-                      {item.details}
-                    </motion.p>
-                  </motion.div>
-                </motion.div>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </section>
+      {/* WHAT TO EXPECT (CE TE ASTEAPTA) */}
+      <CampWhatToExpect />
 
       {/* PHOTO GALLERY */}
       <section className="py-16 sm:py-24 md:py-32 bg-[#1A1E22] overflow-hidden border-b border-stone-800/50">
