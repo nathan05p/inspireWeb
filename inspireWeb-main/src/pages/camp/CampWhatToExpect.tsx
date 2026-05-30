@@ -79,10 +79,8 @@ export default function CampWhatToExpect() {
           </svg>
 
           {/* Items */}
-          <div className="flex flex-col gap-12 py-8 relative">
+          <div className="flex flex-col gap-10 py-8 relative">
             {expectData.map((item) => {
-              const imgLeft = item.side === 'left';
-
               return (
                 <motion.div
                   key={item.id}
@@ -90,12 +88,10 @@ export default function CampWhatToExpect() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.6, type: 'spring', bounce: 0.2 }}
-                  className={`relative flex flex-col ${
-                    imgLeft ? 'items-start pl-2' : 'items-end pr-2'
-                  } w-full`}
+                  className="relative flex items-center w-full px-4"
                 >
-                  {/* Image */}
-                  <div className={`z-10 w-44 h-44 ${imgLeft ? 'ml-4' : 'mr-4'}`}>
+                  {/* Image - Left */}
+                  <div className="z-10 w-24 h-24 shrink-0 mr-5">
                     <img
                       src={item.img}
                       alt={item.title}
@@ -103,14 +99,9 @@ export default function CampWhatToExpect() {
                     />
                   </div>
 
-                  {/* Text — underneath */}
-                  <div
-                    className={`z-20 w-[85%] mt-4 ${
-                      imgLeft
-                        ? 'text-left pl-2'
-                        : 'text-right pr-2'
-                    }`}
-                  >
+                  {/* Text - Right */}
+                  <div className="z-20 flex-1 text-left">
+                    <h3 className="text-amber-500 font-bold text-lg mb-1">{item.title}</h3>
                     <p className="text-stone-300 text-[14px] leading-relaxed font-light">
                       {item.desc}
                     </p>
