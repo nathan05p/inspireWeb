@@ -5,32 +5,24 @@ const expectData = [
     id: 'plenar', 
     title: 'Program Plenar', 
     img: '/6.png', 
-    glow: 'bg-rose-500/40 shadow-[0_0_80px_rgba(244,63,94,0.4)]', 
-    glowColor: 'rgba(244,63,94,0.6)',
     desc: 'Bucură-te de sesiuni puternice cu închinare profundă și mesaje relevante. Vom explora împreună chemarea noastră și cum putem reflecta lumina în lumea de azi, printr-o perspectivă biblică.' 
   },
   { 
     id: 'activitati', 
     title: 'Activitati', 
     img: '/7.png', 
-    glow: 'bg-amber-500/40 shadow-[0_0_80px_rgba(245,158,11,0.4)]',
-    glowColor: 'rgba(245,158,11,0.6)', 
     desc: 'De la competiții sportive, la momente artistice și provocări de echipă, activitățile noastre sunt create să aducă zâmbete, unitate și să te scoată din zona de confort într-un mod distractiv.' 
   },
   { 
     id: 'ateliere', 
     title: 'Ateliere', 
     img: '/8.png', 
-    glow: 'bg-indigo-500/40 shadow-[0_0_80px_rgba(99,102,241,0.4)]',
-    glowColor: 'rgba(99,102,241,0.6)', 
     desc: 'Participă la ateliere practice unde poți aprofunda domenii precum apologetica, muzica, media sau dezvoltarea personală, alături de mentori pregătiți să te ajute să crești.' 
   },
   { 
     id: 'comunitate', 
     title: 'Comunitate', 
     img: '/9.png', 
-    glow: 'bg-cyan-500/40 shadow-[0_0_80px_rgba(6,182,212,0.4)]',
-    glowColor: 'rgba(6,182,212,0.6)', 
     desc: 'Tabăra este despre oameni. Aici vei avea ocazia să cunoști tineri din toată țara, să legi prietenii autentice și să te simți parte dintr-o familie extinsă, unită de aceleași valori.' 
   },
 ];
@@ -75,9 +67,8 @@ export default function CampWhatToExpect() {
                 
                 {/* Node (Center) */}
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <div className={`relative w-28 h-28 flex items-center justify-center rounded-full ${item.glow} transition-transform duration-500 hover:scale-110`}>
-                    <div className="absolute inset-0 rounded-full blur-xl bg-current opacity-20" style={{ color: item.glowColor }} />
-                    <img src={item.img} alt={item.title} className="w-16 h-16 object-contain relative z-10 drop-shadow-md" />
+                  <div className="relative w-40 h-40 flex items-center justify-center transition-transform duration-500 hover:scale-110">
+                    <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10" />
                   </div>
                   <h3 className="font-outfit font-bold text-2xl text-stone-50 mt-4 text-center whitespace-nowrap drop-shadow-md">
                     {item.title}
@@ -126,20 +117,19 @@ export default function CampWhatToExpect() {
                 whileInView={{ opacity: 1, scale: 1, y: isUp ? -80 : 80 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: index * 0.15, type: "spring" }}
-                className="relative flex flex-col items-center w-64 group"
+                className="relative flex flex-col items-center w-72 group"
               >
-                {/* Glow & Icon */}
-                <div className={`relative w-40 h-40 flex items-center justify-center rounded-full ${item.glow} transition-transform duration-500 group-hover:scale-110 cursor-default`}>
-                  <div className="absolute inset-0 rounded-full blur-2xl bg-current opacity-30" style={{ color: item.glowColor }} />
-                  <img src={item.img} alt={item.title} className="w-20 h-20 object-contain relative z-10 drop-shadow-lg transition-transform duration-500 group-hover:scale-110" />
+                {/* PNG Image */}
+                <div className="relative w-64 h-64 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 cursor-default">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10" />
                 </div>
                 
                 {/* Title */}
-                <h3 className="font-outfit font-bold text-3xl text-stone-50 mt-6 text-center drop-shadow-md">
+                <h3 className="font-outfit font-bold text-3xl text-stone-50 mt-4 text-center drop-shadow-md">
                   {item.title}
                 </h3>
                 
-                {/* Desktop Text (Hidden or subtle by default, can be shown here or on hover) */}
+                {/* Desktop Text */}
                 <p className="text-stone-300 text-sm text-center leading-relaxed mt-4 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
                   {item.desc}
                 </p>
