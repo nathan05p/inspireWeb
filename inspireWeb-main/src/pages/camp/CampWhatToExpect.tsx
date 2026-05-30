@@ -6,35 +6,35 @@ const expectData = [
     title: 'Închinare', 
     img: '/new_icons/11.png',
     side: 'left' as const,
-    desc: 'Bucură-te de sesiuni puternice cu închinare profundă și mesaje relevante. Vom explora împreună chemarea noastră și cum putem reflecta lumina în lumea de azi, printr-o perspectivă biblică.' 
+    desc: 'Momente de închinare centrate pe Cristos, care izvorăsc dintr-o inimă plină de pasiune pentru Dumnezeu - seri în care cânți, te rogi și primești Cuvânt împreună cu ceilalți.' 
   },
   { 
     id: 'activitati', 
     title: 'Activități', 
     img: '/new_icons/7.png',
     side: 'right' as const,
-    desc: 'De la competiții sportive, la momente artistice și provocări de echipă, activitățile noastre sunt create să aducă zâmbete, unitate și să te scoată din zona de confort într-un mod distractiv.' 
+    desc: 'Activități interactive, competiții și jocuri în care toți intră în joc - exact ce-ți trebuie ca să uiți de agitația orașului și să te distrezi pe bune.' 
   },
   { 
     id: 'ateliere', 
     title: 'Ateliere', 
     img: '/new_icons/9.png',
     side: 'left' as const,
-    desc: 'Participă la ateliere practice unde poți aprofunda domenii precum apologetica, muzica, media sau dezvoltarea personală, alături de mentori pregătiți să te ajute să crești.' 
+    desc: 'Ateliere gândite special pentru tine - idei practice care te echipează pentru a-ți împlinii chemarea și te ajută să trăiești cu o perspectivă eternă.' 
   },
   { 
     id: 'relatii', 
     title: 'Relații', 
     img: '/new_icons/8.png',
     side: 'right' as const,
-    desc: 'Tabăra este despre oameni. Aici vei avea ocazia să cunoști tineri din toată țara, să legi prietenii autentice și să te simți parte dintr-o familie extinsă, unită de aceleași valori.' 
+    desc: 'Cunoști tineri faini, îți faci prieteni noi și legi prietenii care nu se termină când se termină tabăra - relații care îți întăresc și credința.' 
   },
   { 
     id: 'natura', 
     title: 'Natură', 
     img: '/new_icons/10.png',
     side: 'left' as const,
-    desc: 'Momente speciale de relaxare în care poți lega prietenii de-o viață, te poți bucura de natură și poți împărtăși experiențe alături de ceilalți participanți.' 
+    desc: 'Te așteaptă o zonă superbă, la poalele munților Retezat — munte, aer curat și un decor care n-are nevoie de filtre.' 
   },
 ];
 
