@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp } from 'lucide-react';
+import { ChevronUp, Plus } from 'lucide-react';
 
 const ateliereData = [
   {
@@ -101,17 +101,29 @@ export default function CampAteliere() {
                   <motion.div 
                     layout
                     onClick={() => !isExpanded && toggleItem(atelier.id)}
-                    className={`flex-1 overflow-hidden rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#22272B] border-amber-500/40 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#22272B]/40'}`}
+                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#22272B] border-amber-500/40 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#22272B]/40'}`}
                   >
-                    {/* Header: Title & Close Button */}
-                    <motion.div layout className={`p-5 sm:p-8 flex items-center justify-between ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>
+                    {/* Header: Title & Close/Expand Button */}
+                    <motion.div layout className={`p-4 sm:p-6 lg:p-8 flex items-center justify-between gap-4 ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>
                       <motion.h3 
                         layout="position"
-                        className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 ${isExpanded ? 'text-3xl sm:text-5xl text-amber-500' : 'text-4xl sm:text-6xl lg:text-7xl text-stone-300 group-hover:text-stone-50'}`}
+                        className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 break-words flex-1 ${isExpanded ? 'text-3xl sm:text-4xl md:text-5xl text-amber-500' : 'text-3xl sm:text-5xl lg:text-6xl text-stone-300 group-hover:text-stone-50'}`}
                       >
                         {atelier.title}
                       </motion.h3>
                       
+                      {!isExpanded && (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-stone-800/50 flex items-center justify-center text-stone-500 group-hover:text-amber-500 group-hover:border-amber-500/50 transition-all shadow-sm"
+                          aria-label="Deschide atelier"
+                        >
+                          <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </motion.div>
+                      )}
+
                       {isExpanded && (
                         <motion.button
                           initial={{ opacity: 0, scale: 0.8, rotate: 180 }}
@@ -122,10 +134,10 @@ export default function CampAteliere() {
                             e.stopPropagation();
                             toggleItem(atelier.id);
                           }}
-                          className="shrink-0 w-12 h-12 rounded-full bg-[#1A1E22] border border-stone-800/80 flex items-center justify-center text-stone-400 hover:text-stone-50 hover:bg-stone-800 hover:border-stone-600 transition-all shadow-sm"
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1A1E22] border border-stone-800/80 flex items-center justify-center text-stone-400 hover:text-stone-50 hover:bg-stone-800 hover:border-stone-600 transition-all shadow-sm"
                           aria-label="Ascunde atelier"
                         >
-                          <ChevronUp size={24} />
+                          <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />
                         </motion.button>
                       )}
                     </motion.div>
@@ -138,14 +150,14 @@ export default function CampAteliere() {
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                          className="px-5 pb-8 sm:px-8 sm:pb-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start"
+                          className="px-4 pb-6 sm:px-6 sm:pb-8 lg:px-8 lg:pb-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start"
                         >
                           {/* Image */}
                           <motion.div 
                             initial={{ opacity: 0, scale: 0.95, filter: 'blur(5px)' }}
                             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                             transition={{ delay: 0.1, duration: 0.5 }}
-                            className="w-full md:w-5/12 shrink-0 overflow-hidden rounded-2xl h-56 md:h-64 border border-stone-800/80 shadow-md relative"
+                            className="w-full md:w-5/12 shrink-0 overflow-hidden rounded-2xl h-48 sm:h-56 md:h-64 border border-stone-800/80 shadow-md relative"
                           >
                             <div className="absolute inset-0 bg-stone-900/10 z-10 pointer-events-none" />
                             <img src={atelier.img} alt={atelier.title} className="w-full h-full object-cover" />
@@ -156,9 +168,9 @@ export default function CampAteliere() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2, duration: 0.5 }}
-                            className="flex-1 flex flex-col pt-2"
+                            className="flex-1 flex flex-col pt-0 md:pt-2"
                           >
-                            <p className="text-stone-300 text-base sm:text-lg leading-relaxed md:leading-loose">
+                            <p className="text-stone-300 text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose">
                               {atelier.desc}
                             </p>
                           </motion.div>
