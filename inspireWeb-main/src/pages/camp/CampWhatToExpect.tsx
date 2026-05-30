@@ -62,21 +62,23 @@ export default function CampWhatToExpect() {
         <div className="relative px-2 max-w-4xl mx-auto">
 
           {/* SVG snake path — drawn behind everything */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none -z-10"
-            viewBox="0 0 320 1000"
-            preserveAspectRatio="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M 80,80 Q 280,200 240,350 Q 80,480 80,600 Q 80,720 240,800 Q 320,870 240,960"
-              fill="none"
-              stroke="#44403C"
-              strokeWidth="2"
-              strokeDasharray="8 8"
-              strokeLinecap="round"
-            />
-          </svg>
+          <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 flex justify-center overflow-hidden">
+            <svg
+              className="w-full h-full max-w-sm opacity-60 md:opacity-100"
+              viewBox="0 0 320 1000"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M 80,80 Q 280,200 240,350 Q 80,480 80,600 Q 80,720 240,800 Q 320,870 240,960"
+                fill="none"
+                stroke="#44403C"
+                strokeWidth="2"
+                strokeDasharray="8 8"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
 
           {/* Items */}
           <div className="flex flex-col gap-10 py-8 relative">
