@@ -6,20 +6,14 @@ const ateliereData = [
   {
     id: 'apologetica',
     title: 'apologetica',
-    desc: 'Un atelier unde vom discuta și dezbate teme fundamentale ale credinței, cum să ne apărăm valorile și să răspundem întrebărilor dificile cu grație și adevăr. Aici vei găsi un spațiu deschis pentru gândire critică și aprofundare.',
+    desc: '🧠💬 „Cum știi că Dumnezeu există?”\n„De ce îngăduie răul?”\n„Cum poți crede într-o carte scrisă acum mii de ani?”\nÎntrebările vin. De la colegi, de pe internet, sau chiar din noi.\nȘi e ok — credința nu înseamnă să nu întrebi. Înseamnă să cauți răspunsuri reale.\n📚 În tabăra The Creator (15–20 iulie), vom avea un atelier special de apologetică — unde explorăm, discutăm și întărim credința pe o bază solidă.\n🎙 Gândire clară. Răspunsuri argumentate. Credință matură.\nDacă vrei să știi nu doar ce crezi, ci și de ce, atelierul ăsta e pentru tine.',
     img: 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop',
   },
   {
-    id: 'muzica',
-    title: 'muzica',
-    desc: 'Descoperă tainele închinării și ale muzicii creștine. Cum să conduci o biserică în închinare cu pasiune și excelență. Vom vorbi despre tehnici vocale, instrumente și inima unui închinător autentic.',
-    img: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=800&auto=format&fit=crop',
-  },
-  {
-    id: 'video',
-    title: 'video',
-    desc: 'Învață cum să captezi momentele importante prin obiectivul camerei. Editare, compoziție și storytelling vizual. Acest atelier este pentru toți pasionații de media care vor să spună povești cu impact.',
-    img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop',
+    id: 'leaders',
+    title: 'leaders',
+    desc: '🎯 Creat pentru a conduce.\nÎntr-o lume în care leadershipul înseamnă control, Dumnezeu caută lideri care slujesc.\n\nDacă simți că ai fost creat pentru mai mult, vino la atelierul de leadership din tabăra Inspire – The Creator.\n🔍 Identitate. 🔥 Influență. 🤝 Impact.',
+    img: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=800&auto=format&fit=crop',
   },
   {
     id: 'compozitie',
@@ -30,7 +24,7 @@ const ateliereData = [
   {
     id: 'living_free',
     title: 'living free',
-    desc: '🧠 Unele lucruri încep ca o distracție… și ajung să te țină captiv. Dependențele nu se văd mereu la exterior. Dar se simt. În suflet. În rușine. În izolare.\nÎn tabăra The Creator, avem un atelier special despre lupta împotriva dependențelor. Nu judecăm. Nu etichetăm. Doar vorbim sincer și vedem cum arată pașii spre o viață trăită cu adevărat liber.\n\nPentru că El este aproape de cei cu inima zdrobită și mântuiește pe cei cu duhul frânt. (Psalmul 34:18)',
+    desc: '🧠 Unele lucruri încep ca o distracție… și ajung să te țină captiv.\nDependențele nu se văd mereu la exterior. Dar se simt. În suflet. În rușine. În izolare.\nÎn tabăra The Creator, avem un atelier special despre lupta împotriva dependențelor.\nNu judecăm. Nu etichetăm. Doar vorbim sincer și vedem cum arată pașii spre o viață trăită cu adevărat liber.\n\nPentru că El este aproape de cei cu inima zdrobită și mântuiește pe cei cu duhul frânt. (Psalmul 34:18)',
     img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop',
   },
   {
@@ -190,7 +184,7 @@ export default function CampAteliere() {
                             transition={{ delay: 0.2, duration: 0.5 }}
                             className="flex-1 flex flex-col pt-0 md:pt-2"
                           >
-                            <p className="text-stone-300 text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose">
+                            <p className="text-stone-300 text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap">
                               {atelier.desc}
                             </p>
                           </motion.div>
