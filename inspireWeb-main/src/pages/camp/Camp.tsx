@@ -227,19 +227,31 @@ function PhotoGallery() {
 }
 const BackgroundWatermark = () => {
   // Array of deterministic positions scattered across the entire page height (0% to 100%)
+  // Grouped logically around margins with smaller, more refined font sizes
   const items = [
-    { top: '2%', left: '-5%', size: 'clamp(8rem, 15vw, 14rem)', opacity: 0.04 },
-    { top: '9%', right: '-8%', size: 'clamp(10rem, 20vw, 22rem)', opacity: 0.03 },
-    { top: '16%', left: '12%', size: 'clamp(6rem, 12vw, 12rem)', opacity: 0.05 },
-    { top: '25%', right: '2%', size: 'clamp(8rem, 16vw, 16rem)', opacity: 0.04 },
-    { top: '34%', left: '-10%', size: 'clamp(12rem, 25vw, 26rem)', opacity: 0.02 },
-    { top: '42%', right: '-4%', size: 'clamp(7rem, 14vw, 14rem)', opacity: 0.05 },
-    { top: '50%', left: '8%', size: 'clamp(9rem, 18vw, 18rem)', opacity: 0.03 },
-    { top: '60%', right: '15%', size: 'clamp(6rem, 10vw, 10rem)', opacity: 0.06 },
-    { top: '70%', left: '-6%', size: 'clamp(14rem, 28vw, 30rem)', opacity: 0.02 },
-    { top: '80%', right: '-5%', size: 'clamp(8rem, 15vw, 15rem)', opacity: 0.04 },
-    { top: '88%', left: '18%', size: 'clamp(10rem, 18vw, 20rem)', opacity: 0.03 },
-    { top: '96%', right: '4%', size: 'clamp(7rem, 12vw, 13rem)', opacity: 0.05 },
+    { top: '3%', left: '-2%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.05 },
+    { top: '5%', right: '-4%', size: 'clamp(6rem, 10vw, 12rem)', opacity: 0.04 },
+    { top: '12%', left: '8%', size: 'clamp(4rem, 6vw, 7rem)', opacity: 0.06 },
+    { top: '15%', right: '12%', size: 'clamp(5rem, 9vw, 10rem)', opacity: 0.04 },
+    
+    { top: '22%', left: '-5%', size: 'clamp(7rem, 12vw, 14rem)', opacity: 0.03 },
+    { top: '28%', right: '-1%', size: 'clamp(4rem, 7vw, 8rem)', opacity: 0.05 },
+    { top: '31%', left: '15%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.04 },
+    
+    { top: '38%', right: '-6%', size: 'clamp(8rem, 14vw, 16rem)', opacity: 0.02 },
+    { top: '44%', left: '-3%', size: 'clamp(6rem, 10vw, 11rem)', opacity: 0.04 },
+    { top: '48%', right: '8%', size: 'clamp(4rem, 6vw, 7rem)', opacity: 0.05 },
+    
+    { top: '55%', left: '5%', size: 'clamp(7rem, 11vw, 13rem)', opacity: 0.03 },
+    { top: '62%', right: '-4%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.04 },
+    { top: '66%', left: '-8%', size: 'clamp(8rem, 15vw, 18rem)', opacity: 0.02 },
+    
+    { top: '74%', right: '14%', size: 'clamp(4rem, 7vw, 8rem)', opacity: 0.06 },
+    { top: '79%', left: '-2%', size: 'clamp(6rem, 10vw, 12rem)', opacity: 0.04 },
+    { top: '83%', right: '-5%', size: 'clamp(7rem, 12vw, 14rem)', opacity: 0.03 },
+    
+    { top: '91%', left: '10%', size: 'clamp(5rem, 8vw, 9rem)', opacity: 0.05 },
+    { top: '96%', right: '2%', size: 'clamp(6rem, 9vw, 11rem)', opacity: 0.04 },
   ];
 
   return (
