@@ -62,28 +62,32 @@ export default function CampWhatToExpect() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
-                className="relative grid grid-cols-2 w-full min-h-[200px] items-center"
+                className="relative grid grid-cols-2 w-full min-h-[280px] items-center"
               >
                 {/* Center Image */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-center items-center w-40 h-40">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-contain drop-shadow-lg" />
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-center items-center w-60 h-60 sm:w-72 sm:h-72 pointer-events-none">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-contain drop-shadow-xl" />
                 </div>
 
                 {/* Left Side (Text when index is odd) */}
-                <div className="px-4 text-right pr-20">
+                <div className="px-2 text-right relative z-20">
                   {!isEven && (
-                    <p className="text-stone-300 text-xs leading-relaxed font-light">
-                      {item.desc}
-                    </p>
+                    <div className="pr-4 sm:pr-12 drop-shadow-md">
+                      <p className="text-stone-200 text-[13px] sm:text-base leading-relaxed font-light">
+                        {item.desc}
+                      </p>
+                    </div>
                   )}
                 </div>
 
                 {/* Right Side (Text when index is even) */}
-                <div className="px-4 text-left pl-20">
+                <div className="px-2 text-left relative z-20">
                   {isEven && (
-                    <p className="text-stone-300 text-xs leading-relaxed font-light">
-                      {item.desc}
-                    </p>
+                    <div className="pl-4 sm:pl-12 drop-shadow-md">
+                      <p className="text-stone-200 text-[13px] sm:text-base leading-relaxed font-light">
+                        {item.desc}
+                      </p>
+                    </div>
                   )}
                 </div>
 
@@ -122,17 +126,19 @@ export default function CampWhatToExpect() {
                 whileInView={{ opacity: 1, scale: 1, y: isUp ? -80 : 80 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: index * 0.15, type: "spring" }}
-                className="relative flex flex-col items-center w-72 group"
+                className="relative flex flex-col items-center w-[300px] group"
               >
                 {/* PNG Image */}
-                <div className="relative w-64 h-64 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 cursor-default">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10" />
+                <div className="relative w-80 h-80 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 cursor-default">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10 drop-shadow-xl" />
                 </div>
                 
                 {/* Desktop Text */}
-                <p className="text-stone-300 text-sm text-center leading-relaxed mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 px-4">
-                  {item.desc}
-                </p>
+                <div className="px-2 w-full">
+                  <p className="text-stone-200 text-[15px] text-center leading-relaxed mt-2 opacity-90 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md font-light">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             );
           })}
