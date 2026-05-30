@@ -328,8 +328,8 @@ export default function Camp() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ 
-                fontFamily: '"Black Mango", serif', 
-                fontWeight: 'bold',
+                fontFamily: '"TheLetterEditorial", serif', 
+                fontWeight: 'normal',
                 textShadow: '0 4px 30px rgba(0,0,0,0.6)' 
               }}
             >
