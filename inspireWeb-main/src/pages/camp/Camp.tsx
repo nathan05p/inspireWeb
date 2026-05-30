@@ -323,19 +323,18 @@ export default function Camp() {
           {/* Text Container */}
           <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
             <motion.p
-              className="text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl italic tracking-wide leading-relaxed sm:leading-snug"
+              className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight leading-[1.1] sm:leading-[1.1]"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ 
-                fontFamily: '"MADEKenfolg", sans-serif', 
+                fontFamily: '"TheLetterEditorial", "Playfair Display", serif', 
                 fontWeight: 'normal',
-                letterSpacing: '0.05em',
-                textShadow: '0 4px 30px rgba(0,0,0,0.6)' 
+                textShadow: '0 4px 40px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)' 
               }}
             >
               O generatie mai aproape de cer,
-              <br className="hidden md:block" />
+              <br className="hidden sm:block" />
               mai aproape de oameni si mai de folos Imparatiei.
             </motion.p>
           </div>
