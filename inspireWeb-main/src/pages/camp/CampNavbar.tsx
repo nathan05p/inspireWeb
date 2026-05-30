@@ -9,11 +9,11 @@ const navLinks = [
 
 const menuSections = {
   Despre: [
-    { label: 'Tema Anului', href: '#about' },
+    { label: 'Viziune', href: '#about' },
     { label: 'Motive să vii', href: '#reasons' }
   ],
   Detalii: [
-    { label: 'Ce te așteaptă', href: '#conference' },
+    { label: 'Ce te așteaptă', href: '#what-to-expect' },
     { label: 'Ce să iei cu tine', href: '#packing' }
   ],
   Logistică: [
@@ -29,19 +29,13 @@ const menuSections = {
 export default function CampNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  
-
-  
-
-  
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -59,52 +53,95 @@ export default function CampNavbar() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 md:py-5">
-          <div className="flex items-center gap-3 sm:gap-6">
-            <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="group">
-              <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-stone-800 flex items-center justify-center hover:border-amber-500 hover:text-amber-500 transition-colors text-stone-50">
-                <span className="text-current font-serif text-xs sm:text-sm leading-none flex items-center">
-                  <span className="italic tracking-tight">inspire</span>
-                  <span className="font-sans font-bold text-[9px] sm:text-[10px] ml-0.5 mt-1">+</span>
-                </span>
-              </div>
-            </a>
-          </div>
+        <div className="relative flex items-center justify-between px-4 sm:px-6 md:px-12 py-4 md:py-5">
 
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              link.href.startsWith('/') ? (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className="text-stone-300 hover:text-stone-50 text-[11px] font-bold tracking-[0.2em] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ) : (
+          {/* Left: logo pill (hidden on scroll) */}
+          <AnimatePresence>
+            {!scrolled && (
+              <motion.div
+                key="logo-left"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4 }}
+                className="flex items-center gap-3 sm:gap-6"
+              >
                 <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-stone-300 hover:text-stone-50 text-[11px] font-bold tracking-[0.2em] transition-colors"
+                  href="#"
+                  onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className="group"
                 >
-                  {link.label}
+                  <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-full border border-stone-800 flex items-center justify-center hover:border-amber-500 hover:text-amber-500 transition-colors text-stone-50">
+                    <span className="text-current font-serif text-xs sm:text-sm leading-none flex items-center">
+                      <span className="italic tracking-tight">inspire</span>
+                      <span className="font-sans font-bold text-[9px] sm:text-[10px] ml-0.5 mt-1">+</span>
+                    </span>
+                  </div>
                 </a>
-              )
-            ))}
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="text-stone-50 text-[11px] font-bold tracking-[0.2em] border-b-2 border-stone-800 hover:border-amber-500 hover:border-amber-500 hover:text-amber-500 hover:text-amber-500 transition-all flex items-center gap-2 pb-0.5"
-            >
-              MENU
-            </button>
-            
-          </nav>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-          <div className="flex md:hidden items-center gap-4">
-            
+          {/* Center: inspire+ text - only when NOT scrolled */}
+          <AnimatePresence>
+            {!scrolled && (
+              <motion.a
+                key="center-logo"
+                href="#"
+                onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.4 }}
+                className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-baseline gap-0.5 text-stone-50 hover:text-amber-400 transition-colors"
+              >
+                <span
+                  style={{ fontFamily: '"Outfit", sans-serif', fontSize: 'clamp(0.95rem, 2vw, 1.4rem)', fontStyle: 'italic', letterSpacing: '0.02em' }}
+                >
+                  inspire
+                </span>
+                <span
+                  style={{ fontFamily: '"Inter", sans-serif', fontWeight: 900, fontSize: 'clamp(0.75rem, 1.5vw, 1.1rem)' }}
+                >
+                  +
+                </span>
+              </motion.a>
+            )}
+          </AnimatePresence>
+
+          {/* Right: nav links + hamburger */}
+          <div className="flex items-center gap-4 ml-auto">
+            <nav className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                link.href.startsWith('/') ? (
+                  <Link
+                    key={link.label}
+                    to={link.href}
+                    className="text-stone-300 hover:text-stone-50 text-[11px] font-bold tracking-[0.2em] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-stone-300 hover:text-stone-50 text-[11px] font-bold tracking-[0.2em] transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                )
+              ))}
+              <button
+                onClick={() => setMenuOpen(true)}
+                className="text-stone-50 text-[11px] font-bold tracking-[0.2em] border-b-2 border-stone-800 hover:border-amber-500 hover:text-amber-500 transition-all flex items-center gap-2 pb-0.5"
+              >
+                MENU
+              </button>
+            </nav>
+
             <button
               onClick={() => setMenuOpen(true)}
-              className="text-stone-50 p-2 -mr-2"
+              className="flex md:hidden text-stone-50 p-2 -mr-2"
               aria-label="Deschide meniu"
             >
               <Menu size={22} />
@@ -134,7 +171,7 @@ export default function CampNavbar() {
               </button>
             </div>
 
-            {/* Menu sections — 1 col on mobile, 2 on sm, 4 on md+ */}
+            {/* Menu sections */}
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0 overflow-y-auto">
               {Object.entries(menuSections).map(([section, links], si) => (
                 <motion.div
@@ -150,7 +187,7 @@ export default function CampNavbar() {
                       <li key={link.label}>
                         <a
                           href={link.href}
-                          className="text-stone-50 text-xl md:text-2xl font-serif hover:text-amber-500 hover:text-amber-500 transition-colors"
+                          className="text-stone-50 text-xl md:text-2xl font-serif hover:text-amber-500 transition-colors"
                           onClick={() => setMenuOpen(false)}
                         >
                           {link.label}

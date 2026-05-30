@@ -24,15 +24,21 @@ const ateliereData = [
   {
     id: 'compozitie',
     title: 'compoziție',
-    desc: 'Învață despre compoziția vizuală, cum să aranjezi elementele pentru a crea impact și claritate în mesajul transmis. De la reguli de bază în fotografie și design, până la crearea unor experiențe vizuale remarcabile.',
+    desc: 'Explorează lumea sunetelor și a creației muzicale. Vei descoperi cum să transformi o idee într-o piesă completă, cum funcționează armoniile și ce înseamnă să compui cu inima.',
     img: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop',
   },
   {
     id: 'living_free',
     title: 'living free',
-    desc: 'Un atelier despre eliberare, consiliere și trăirea unei vieți pline de bucurie și fără compromisuri. Aici abordăm sănătatea emoțională și mentală dintr-o perspectivă biblică și practică.',
+    desc: '🧠 Unele lucruri încep ca o distracție… și ajung să te țină captiv. Dependențele nu se văd mereu la exterior. Dar se simt. În suflet. În rușine. În izolare.\nÎn tabăra The Creator, avem un atelier special despre lupta împotriva dependențelor. Nu judecăm. Nu etichetăm. Doar vorbim sincer și vedem cum arată pașii spre o viață trăită cu adevărat liber.\n\nPentru că El este aproape de cei cu inima zdrobită și mântuiește pe cei cu duhul frânt. (Psalmul 34:18)',
     img: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop',
-  }
+  },
+  {
+    id: 'creative_video',
+    title: 'creative video',
+    desc: '🎥 Imaginile vorbesc mai tare decât cuvintele. În atelierul de creative video vei învăța să captezi momente cu impact, să le editezi cu viziune și să spui povești care contează.\nDe la telefon la ecran mare — oricine poate deveni un povestitor vizual. Hai să descoperim împreună cum.',
+    img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop',
+  },
 ];
 
 export default function CampAteliere() {
@@ -59,15 +65,29 @@ export default function CampAteliere() {
             >
               Ateliere
             </motion.h2>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-stone-400 mt-6 text-base sm:text-lg max-w-sm"
+              className="mt-6 space-y-4 max-w-sm"
             >
-              Explorează lista de ateliere și alege-l pe cel care rezonează cu pasiunile și chemarea ta. Apasă pe un titlu pentru detalii.
-            </motion.p>
+              <p className="text-amber-500 text-sm font-bold tracking-[0.2em] uppercase">
+                inspire+ 2026 — the Creator
+              </p>
+              <p className="text-stone-400 text-base sm:text-lg leading-relaxed">
+                🤩 Știm că fiecare adolescent sau tânăr este unic și prețios, având daruri și abilități care trebuie descoperite, iar mai apoi șlefuite.
+              </p>
+              <p className="text-stone-400 text-sm sm:text-base leading-relaxed">
+                Ne dorim ca inspire+ să fie un mediu pus la dispoziția celor care-și doresc să fie inspirați și echipați pentru a-și folosi abilitățile în slujba Regelui Cristos.
+              </p>
+              <p className="text-stone-400 text-sm sm:text-base leading-relaxed">
+                🌄 Am pregătit pentru tine câteva ateliere, care te pot ajuta să-ți descoperi potențialul și să începi să-ți cultivi viziunea.
+              </p>
+              <p className="text-stone-500 text-sm italic">
+                Apasă pe un titlu pentru detalii.
+              </p>
+            </motion.div>
           </div>
         </div>
 

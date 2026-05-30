@@ -362,20 +362,20 @@ export default function Camp() {
       </section>
 
 
-      {/* TEXT SECTION RANDOM */}
+      {/* TEXT SECTION - QUOTE */}
       <section className="py-24 sm:py-32 px-6 relative flex justify-center text-center bg-[#1A1E22] border-b border-stone-800/50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <motion.h2
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-            className="text-xl sm:text-3xl md:text-4xl font-outfit tracking-tight leading-snug tracking-wide text-stone-50 uppercase"
+            className="text-2xl sm:text-4xl md:text-5xl font-outfit tracking-tight leading-snug text-stone-50"
           >
-            AICI ESTE O ZONĂ DE TEXT RANDOM PENTRU A PUTEA INSERA ORICE MESAJ SE DOREȘTE, FIE EL UN VERSET SAU UN GÂND. TEXTUL POATE FI MODIFICAT.
+            inspire<span className="font-bold not-italic">+</span>
           </motion.h2>
           <motion.p
             initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2}
-            className="mt-6 text-stone-400 text-sm sm:text-base italic font-outfit tracking-tight"
+            className="mt-6 text-stone-300 text-base sm:text-xl md:text-2xl font-outfit tracking-tight leading-relaxed italic"
           >
-            Subtitlu sau referință
+            &ldquo;Mai aproape de cer, mai aproape de oameni și mai de folos Împărăției.&rdquo;
           </motion.p>
         </div>
       </section>
@@ -393,21 +393,27 @@ export default function Camp() {
         />
       </section>
 
-      {/* THEME & ABOUT */}
+      {/* VIZIUNE & ABOUT */}
       <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-stone-800/50">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-amber-600 mb-6">TEMA ANULUI</h2>
+            <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-amber-600 mb-6">VIZIUNE</h2>
             <h3 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit tracking-tight leading-tight">
-              Chemați <br /><span className="italic text-stone-400">să fim Lumină</span>
+              The <br /><span className="italic text-stone-400">Creator</span>
             </h3>
           </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-stone-300 leading-relaxed text-lg md:text-xl space-y-6">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-stone-300 leading-relaxed text-base md:text-lg space-y-5">
             <p>
-              Tabăra inspire+ nu este doar o simplă ieșire la munte. Este locul unde zgomotul orașului se oprește și începe conectarea reală – cu Dumnezeu și cu oamenii din jurul tău.
+              👑 Titlul taberei <strong className="text-stone-50">inspire+</strong> din acest an este <strong className="text-stone-50">the Creator</strong> și este dedicată glorificării Celui care a creat atât întregul univers, cât și inimile noastre.
             </p>
             <p>
-              Anul acesta ne concentrăm pe chemarea noastră de a aduce lumină acolo unde este întuneric. Te așteaptă zile pline de mesaje profunde, închinare sinceră, distracție fără limite și prietenii care vor dura o viață.
+              Vrem să-L descoperim pe Dumnezeu așa cum ni Se descoperă în Biblie și în tot ce ne înconjoară — un Dumnezeu real, atotputernic, infinit și totuși aproape de noi — și să înțelegem că El nu este doar Creatorul lumii, ci și un Tată care ne cheamă la o relație sinceră, vie și personală cu El.
+            </p>
+            <p>🌱 Vino să cunoști tineri faini, să îți faci prieteni noi și să trăiești o experiență care îți va întări relațiile și credința.</p>
+            <p>🎉 Am pregătit pentru tine ateliere interactive, momente de închinare și devoționale, seminare, activități sportive și recreative.</p>
+            <p className="text-stone-50 font-semibold">
+              Te așteaptăm cu brațele deschise! 🤗<br />
+              <span className="font-normal text-stone-300">Nu veni singur, adu-ți și un prieten și hai să trăim împreună o tabără de neuitat! 🤩</span>
             </p>
           </motion.div>
         </div>
