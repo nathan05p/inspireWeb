@@ -320,47 +320,28 @@ export default function Camp() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          {/* Text Container aligned to content width */}
-          <div className="flex flex-col items-stretch w-fit max-w-full">
-            <h1
-              className="uppercase leading-none text-white whitespace-nowrap"
-              style={{
-                fontFamily: '"Bebas Neue", sans-serif',
-                fontSize: 'clamp(4rem, 14vw, 18rem)',
-                textShadow: '0 0 80px rgba(255,255,255,0.4), 0 0 20px rgba(255,255,255,0.2)',
-                letterSpacing: '0.04em',
-              }}
+          {/* Text Container */}
+          <div className="max-w-4xl mx-auto flex flex-col items-center drop-shadow-2xl">
+            <motion.h2
+              className="text-3xl sm:text-4xl md:text-5xl font-outfit tracking-tight leading-snug text-white mb-6"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
-              KINGDOM CULTURE
-            </h1>
-
-            <motion.div
-              className="flex items-center justify-between w-full mt-1 sm:mt-2 px-1 sm:px-2"
+              inspire<span className="font-bold text-amber-500 not-italic">+</span>
+            </motion.h2>
+            <motion.p
+              className="text-white text-xl sm:text-3xl md:text-5xl font-outfit tracking-tight leading-relaxed md:leading-snug italic"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span
-                className="text-white font-bold tracking-[0.2em] sm:tracking-[0.35em] uppercase"
-                style={{ fontSize: 'clamp(0.875rem, 2vw, 2.5rem)', textShadow: '0 0 20px rgba(255,255,255,0.3)' }}
-              >
-                INSPIRE+ CAMP
-              </span>
-              <span
-                className="text-white font-black tracking-[0.2em] sm:tracking-[0.3em]"
-                style={{
-                  fontFamily: '"Inter", sans-serif',
-                  fontSize: 'clamp(1rem, 2.2vw, 2.75rem)',
-                  textShadow: '0 0 20px rgba(255,255,255,0.3)'
-                }}
-              >
-                2026
-              </span>
-            </motion.div>
+              O generație mai aproape de cer, mai aproape de oameni și mai de folos Împărăției.
+            </motion.p>
           </div>
         </motion.div>
         {/* MARQUEE */}
-        <div className="absolute bottom-0 left-0 w-full bg-[#1A1E22] py-4 border-t border-amber-500/20 overflow-hidden z-20">
+        <div className="absolute bottom-0 left-0 w-full bg-[#1A1E22] py-3 sm:py-4 border-y border-amber-500/20 z-20">
           <Marquee
             items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
             speed={40}
@@ -370,23 +351,7 @@ export default function Camp() {
           />
         </div>
       </section>
-      {/* TEXT SECTION - QUOTE */}
-      <section className="py-24 sm:py-32 px-6 relative flex justify-center text-center bg-[#1A1E22] border-b border-stone-800/50">
-        <div className="max-w-3xl mx-auto">
-          <motion.h2
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-            className="text-2xl sm:text-4xl md:text-5xl font-outfit tracking-tight leading-snug text-stone-50"
-          >
-            inspire<span className="font-bold not-italic">+</span>
-          </motion.h2>
-          <motion.p
-            initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2}
-            className="mt-6 text-stone-300 text-base sm:text-xl md:text-2xl font-outfit tracking-tight leading-relaxed italic"
-          >
-            O generație mai aproape de cer, mai aproape de oameni și mai de folos Împărăției.
-          </motion.p>
-        </div>
-      </section>
+
 
       {/* WHAT TO EXPECT (inspire camp) */}
       <CampWhatToExpect />
