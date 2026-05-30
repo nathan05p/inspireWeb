@@ -48,7 +48,7 @@ export default function CampWhatToExpect() {
         {/* ======================= */}
         {/* MOBILE LAYOUT (Vertical) */}
         {/* ======================= */}
-        <div className="md:hidden relative flex flex-col gap-24">
+        <div className="md:hidden relative flex flex-col gap-8 py-10">
           {/* Main vertical dashed line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px border-l-2 border-dashed border-stone-700/50 -translate-x-1/2 -z-10" />
 
@@ -62,24 +62,29 @@ export default function CampWhatToExpect() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, type: "spring", bounce: 0.2 }}
-                className={`relative flex w-full items-center ${isEven ? 'flex-row' : 'flex-row-reverse'}`}
+                className="relative grid grid-cols-2 w-full min-h-[200px] items-center"
               >
-                
-                {/* Node (Center) */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                  <div className="relative w-40 h-40 flex items-center justify-center transition-transform duration-500 hover:scale-110">
-                    <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10" />
-                  </div>
-                  <h3 className="font-outfit font-bold text-2xl text-stone-50 mt-4 text-center whitespace-nowrap drop-shadow-md">
-                    {item.title}
-                  </h3>
+                {/* Center Image */}
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex justify-center items-center w-40 h-40">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-contain drop-shadow-lg" />
                 </div>
 
-                {/* Text (Side) */}
-                <div className="w-1/2 px-4 pt-32 pb-4">
-                  <p className={`text-stone-300 text-sm leading-relaxed ${isEven ? 'text-right pr-4' : 'text-left pl-4'}`}>
-                    {item.desc}
-                  </p>
+                {/* Left Side (Text when index is odd) */}
+                <div className="px-4 text-right pr-20">
+                  {!isEven && (
+                    <p className="text-stone-300 text-xs leading-relaxed font-light">
+                      {item.desc}
+                    </p>
+                  )}
+                </div>
+
+                {/* Right Side (Text when index is even) */}
+                <div className="px-4 text-left pl-20">
+                  {isEven && (
+                    <p className="text-stone-300 text-xs leading-relaxed font-light">
+                      {item.desc}
+                    </p>
+                  )}
                 </div>
 
               </motion.div>
@@ -124,13 +129,8 @@ export default function CampWhatToExpect() {
                   <img src={item.img} alt={item.title} className="w-full h-full object-contain relative z-10" />
                 </div>
                 
-                {/* Title */}
-                <h3 className="font-outfit font-bold text-3xl text-stone-50 mt-4 text-center drop-shadow-md">
-                  {item.title}
-                </h3>
-                
                 {/* Desktop Text */}
-                <p className="text-stone-300 text-sm text-center leading-relaxed mt-4 opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-stone-300 text-sm text-center leading-relaxed mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 px-4">
                   {item.desc}
                 </p>
               </motion.div>
