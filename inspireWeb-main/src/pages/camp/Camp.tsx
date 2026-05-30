@@ -255,6 +255,36 @@ export default function Camp() {
   const heroRef = useRef<HTMLElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
+  const faqScrollRef = useRef<HTMLDivElement>(null);
+  const [isFaqHovered, setIsFaqHovered] = useState(false);
+
+  useEffect(() => {
+    let animationFrameId: number;
+    let lastTime = performance.now();
+
+    const scroll = (time: number) => {
+      if (faqScrollRef.current && !isFaqHovered) {
+        const delta = time - lastTime;
+        if (delta > 16) {
+          faqScrollRef.current.scrollTop += 0.5;
+          lastTime = time;
+
+          const { scrollTop, scrollHeight, clientHeight } = faqScrollRef.current;
+          // Jump to top seamlessly when reaching the bottom
+          if (scrollTop + clientHeight >= scrollHeight - 20) {
+            faqScrollRef.current.scrollTop = 0;
+          }
+        }
+      } else {
+        lastTime = time;
+      }
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isFaqHovered]);
+
   useEffect(() => {
     setTimeout(() => setIsVideoLoaded(true), 500);
   }, []);
@@ -426,8 +456,16 @@ export default function Camp() {
           {/* FAQ VERTICAL WHEEL STYLE */}
           <div className="relative w-full max-w-3xl mx-auto h-[500px] sm:h-[600px]" style={{ maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}>
             {/* Scrollable Container */}
-            <div className="absolute inset-0 overflow-y-auto flex flex-col gap-6 px-2 sm:px-4 py-16 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-              {Array(3).fill(faqs).flat().map((faq, i) => (
+            <div 
+              ref={faqScrollRef}
+              onMouseEnter={() => setIsFaqHovered(true)}
+              onMouseLeave={() => setIsFaqHovered(false)}
+              onTouchStart={() => setIsFaqHovered(true)}
+              onTouchEnd={() => setIsFaqHovered(false)}
+              data-lenis-prevent="true"
+              className="absolute inset-0 overflow-y-auto flex flex-col gap-6 px-2 sm:px-4 py-16 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            >
+              {Array(6).fill(faqs).flat().map((faq, i) => (
                 <div
                   key={i}
                   className="w-full shrink-0 bg-[#22272B] p-5 md:p-6 rounded-[2rem] border border-stone-800/50 shadow-lg flex flex-col gap-4 mx-auto max-w-2xl"
