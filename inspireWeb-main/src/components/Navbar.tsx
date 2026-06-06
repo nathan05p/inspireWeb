@@ -39,14 +39,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
           <div className="flex items-center gap-6">
             <Link to="/home" className="group">
-              <div className="w-14 h-14 rounded-full border border-stone-900 flex items-center justify-center hover:border-amber-500 hover:text-amber-500 transition-colors text-stone-900">
+              <div className="w-14 h-14 rounded-full border border-slate-900 flex items-center justify-center hover:border-accent hover:text-accent transition-colors text-slate-900">
                 <span className="text-current font-serif text-sm leading-none flex items-center">
                   <span className="italic tracking-tight">inspire</span>
                   <span className="font-sans font-bold text-[10px] ml-0.5 mt-1">+</span>
                 </span>
               </div>
             </Link>
-            <Link to="/" className="text-stone-500 text-[10px] font-bold tracking-[0.2em] hover:text-stone-900 transition-colors hidden md:block uppercase">
+            <Link to="/" className="text-slate-500 text-[10px] font-bold tracking-[0.2em] hover:text-slate-900 transition-colors hidden md:block uppercase">
               ← TABĂRA INSPIRE+
             </Link>
           </div>
@@ -57,7 +57,7 @@ export default function Navbar() {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="text-stone-600 hover:text-stone-900 text-[11px] font-bold tracking-[0.2em] transition-colors"
+                  className="text-slate-600 hover:text-slate-900 text-[11px] font-bold tracking-[0.2em] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-stone-600 hover:text-stone-900 text-[11px] font-bold tracking-[0.2em] transition-colors"
+                  className="text-slate-600 hover:text-slate-900 text-[11px] font-bold tracking-[0.2em] transition-colors"
                 >
                   {link.label}
                 </a>
@@ -73,13 +73,13 @@ export default function Navbar() {
             ))}
             <button
               onClick={() => setMenuOpen(true)}
-              className="text-stone-900 text-[11px] font-bold tracking-[0.2em] border-b-2 border-stone-900 hover:border-amber-500 hover:text-amber-500 transition-all flex items-center gap-2 pb-0.5"
+              className="text-slate-900 text-[11px] font-bold tracking-[0.2em] border-b-2 border-slate-900 hover:border-accent hover:text-accent transition-all flex items-center gap-2 pb-0.5"
             >
               MENU
             </button>
           </nav>
 
-          <button onClick={() => setMenuOpen(true)} className="md:hidden text-stone-900">
+          <button onClick={() => setMenuOpen(true)} className="md:hidden text-slate-900">
             <Menu size={24} />
           </button>
         </div>
@@ -94,9 +94,9 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex justify-between items-center px-8 md:px-16 py-6 border-b border-stone-200">
-              <span className="text-stone-400 text-xs tracking-widest">NAVIGATION</span>
-              <button onClick={() => setMenuOpen(false)} className="text-stone-900 hover:text-amber-500 transition-colors">
+            <div className="flex justify-between items-center px-8 md:px-16 py-6 border-b border-slate-200">
+              <span className="text-slate-400 text-xs tracking-widest">NAVIGATION</span>
+              <button onClick={() => setMenuOpen(false)} className="text-slate-900 hover:text-accent transition-colors">
                 <X size={28} />
               </button>
             </div>
@@ -105,18 +105,18 @@ export default function Navbar() {
               {Object.entries(menuSections).map(([section, links], si) => (
                 <motion.div
                   key={section}
-                  className="border-r border-stone-200 last:border-r-0 px-8 md:px-12 py-12"
+                  className="border-r border-slate-200 last:border-r-0 px-8 md:px-12 py-12"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: si * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <p className="text-stone-400 text-[10px] tracking-[0.25em] font-bold mb-8">{section.toUpperCase()}</p>
+                  <p className="text-slate-400 text-[10px] tracking-[0.25em] font-bold mb-8">{section.toUpperCase()}</p>
                   <ul className="flex flex-col gap-5">
                     {links.map((link) => (
                       <li key={link}>
                         <Link
                           to={`/home/${link.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="text-stone-900 text-xl md:text-2xl font-serif hover:text-amber-500 transition-colors"
+                          className="text-slate-900 text-xl md:text-2xl font-serif hover:text-accent transition-colors"
                           onClick={() => setMenuOpen(false)}
                         >
                           {link}
@@ -128,12 +128,12 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="px-8 md:px-16 py-6 border-t border-stone-200 flex items-center justify-between">
-              <p className="text-stone-400 text-xs tracking-widest">INSPIRE+ COMMUNITY</p>
+            <div className="px-8 md:px-16 py-6 border-t border-slate-200 flex items-center justify-between">
+              <p className="text-slate-400 text-xs tracking-widest">INSPIRE+ COMMUNITY</p>
               <Link
                 to="/home/about"
                 onClick={() => setMenuOpen(false)}
-                className="text-amber-500 text-xs tracking-widest font-bold hover:text-amber-600 transition-colors"
+                className="text-accent text-xs tracking-widest font-bold hover:text-accent transition-colors"
               >
                 VISIT OFFICIAL SITE →
               </Link>

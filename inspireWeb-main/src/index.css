@@ -2,10 +2,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #C4CDC3;
-  --color-primary-dark: #9CB09A;
-  --color-slate: #2D3E40;
-  --color-accent: #E54B4B;
+  --color-primary: #DEE0DB;
+  --color-primary-dark: #7A91A7;
+  --color-slate: #121C26;
+  --color-accent: #41607A;
   --font-serif: "Pavot", "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 }
@@ -84,8 +84,8 @@
 
   body {
     font-family: "Inter", sans-serif;
-    background-color: #C4CDC3;
-    color: #2D3E40;
+    background-color: #DEE0DB;
+    color: #121C26;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
@@ -94,7 +94,7 @@
   }
 
   ::selection {
-    background-color: #E54B4B;
+    background-color: #41607A;
     color: white;
   }
 

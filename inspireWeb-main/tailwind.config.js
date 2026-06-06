@@ -12,14 +12,21 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: '#C4CDC3', // Sage
-          dark: '#9CB09A',
+          DEFAULT: '#DEE0DB', // Lightest Deep Sea
+          dark: '#7A91A7',    // Light Deep Sea
         },
         slate: {
-          DEFAULT: '#2D3E40', // Deep Slate
+          DEFAULT: '#121C26', // Darkest Deep Sea
         },
         accent: {
-          DEFAULT: '#E54B4B', // Coral Red
+          DEFAULT: '#41607A', // Medium Deep Sea
+        },
+        deepsea: {
+          900: '#121C26',
+          700: '#202D3B',
+          500: '#41607A',
+          300: '#7A91A7',
+          100: '#DEE0DB',
         }
       },
       fontFamily: {

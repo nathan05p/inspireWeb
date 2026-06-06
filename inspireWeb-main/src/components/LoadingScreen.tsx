@@ -28,7 +28,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           {/* Main overlay — slides UP to reveal page */}
           <motion.div
             key="loader-panel"
-            className="fixed inset-0 z-[200] bg-[#1A1E22] flex items-center justify-center"
+            className="fixed inset-0 z-[200] bg-[#121C26] flex items-center justify-center"
             initial={{ y: 0 }}
             animate={{ y: 0 }}
             exit={{
