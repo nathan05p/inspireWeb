@@ -365,19 +365,16 @@ export default function Camp() {
         >
           {/* Text Container */}
           <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
-            <motion.p
-              className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight leading-[1.1] sm:leading-[1.1] text-center"
+            <motion.h1
+              className="text-white text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] tracking-tight leading-[0.95] sm:leading-[0.95] text-center"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              style={{ 
-                fontFamily: '"TheLetterEditorial", "Playfair Display", serif', 
-                fontWeight: 'normal',
-                textShadow: '0 4px 40px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)' 
-              }}
+              style={{ fontFamily: '"outfit", sans-serif', textShadow: '0 4px 40px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)' }}
             >
-              The Cross
-            </motion.p>
+              O generație mai aproape <br />
+              <span className="italic text-deepsea-300">de inima Lui.</span>
+            </motion.h1>
           </div>
         </motion.div>
         {/* MARQUEE */}
@@ -404,21 +401,24 @@ export default function Camp() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
             <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-deepsea-300 mb-6">VIZIUNE</h2>
             <h3 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit tracking-tight leading-tight">
-              The <br /><span className="italic text-slate-400">Creator</span>
+              The <br /><span className="italic text-slate-400">Cross</span>
             </h3>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-slate-300 leading-relaxed text-base md:text-lg space-y-5">
             <p>
-              👑 Titlul taberei <strong className="text-slate-50">inspire+</strong> din acest an este <strong className="text-slate-50">the Creator</strong> și este dedicată glorificării Celui care a creat atât întregul univers, cât și inimile noastre.
+              👑 Titlul taberei <strong className="text-slate-50">inspire+</strong> din acest an este <strong className="text-slate-50">The Cross</strong> și este dedicată celebrării modului în care Dumnezeu a ales să-și exprime dragostea nemărginită pentru noi. Vrem să redescoperim frumusețea, valoarea și profunzimea momentului care a adus cerul mai aproape.
             </p>
             <p>
-              Vrem să-L descoperim pe Dumnezeu așa cum ni Se descoperă în Biblie și în tot ce ne înconjoară — un Dumnezeu real, atotputernic, infinit și totuși aproape de noi — și să înțelegem că El nu este doar Creatorul lumii, ci și un Tată care ne cheamă la o relație sinceră, vie și personală cu El.
+              🌱 𝗘𝘃𝗲𝗻𝗶𝗺𝗲𝗻𝘁𝗲𝗹𝗲 𝗶𝗻𝘀𝗽𝗶𝗿𝗲+ sunt dedicate tinerilor și adolescenților creștini, care vor să cultive Cultura Împărăției și doresc glorificarea lui Dumnezeu, prin mijloace relevante și creative, depășind barierele confesionale.
             </p>
-            <p>🌱 Vino să cunoști tineri faini, să îți faci prieteni noi și să trăiești o experiență care îți va întări relațiile și credința.</p>
-            <p>🎉 Am pregătit pentru tine ateliere interactive, momente de închinare și devoționale, seminare, activități sportive și recreative.</p>
+            <p>
+              🎉 În acest scop, pregătim pentru tine ateliere, momente de închinare și devoționale, seminare, activități sportive și recreative. Prin toate, ne dorim să înțelegem tot mai clar care ne este chemarea și cum putem, fiecare dintre noi, să fim mai de folos Împărăției.
+            </p>
+            <p>
+              Vino să cunoști tineri faini, să îți faci prieteni noi și să trăiești o experiență care îți va întări relațiile și credința.
+            </p>
             <p className="text-slate-50 font-semibold">
-              Te așteaptăm cu brațele deschise! 🤗<br />
-              <span className="font-normal text-slate-300">Nu veni singur, adu-ți și un prieten și hai să trăim împreună o tabără de neuitat! 🤩</span>
+              Nu veni singur, adu-ți și un prieten și hai să trăim împreună o tabără de neuitat! 🤩
             </p>
           </motion.div>
         </div>
