@@ -97,7 +97,7 @@ export default function CampWhatToExpect() {
                     <img
                       src={item.img}
                       alt={item.title}
-                      className={`w-full h-full object-contain drop-shadow-xl ${item.id === 'ateliere' ? 'scale-[1.35] lg:scale-[1.45]' : ''}`}
+                      className="w-full h-full object-contain drop-shadow-xl"
                     />
                   </div>
 
