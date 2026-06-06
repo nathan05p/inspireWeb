@@ -27,6 +27,10 @@ export default {
           500: '#41607A',
           300: '#7A91A7',
           100: '#DEE0DB',
+        },
+        mocha: {
+          accent: '#A93219',
+          light: '#DFE3CD'
         }
       },
       fontFamily: {
