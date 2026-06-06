@@ -28,8 +28,8 @@ export default {
           300: '#7A91A7',
           100: '#DEE0DB',
         },
-        theme: {
-          accent: '#3C6E71',
+        camp: {
+          accent: '#E07A5F',
         }
       },
       fontFamily: {

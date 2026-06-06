@@ -40,7 +40,7 @@ export default function CampAteliere() {
   };
 
   return (
-    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#284B63]/50 bg-[#353535]">
+    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#2E3632]/50 bg-[#181C1A]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
         
         {/* Left Column - Sticky Title */}
@@ -50,7 +50,7 @@ export default function CampAteliere() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-outfit font-bold tracking-tight text-[#FFFFFF] leading-none"
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-outfit font-bold tracking-tight text-[#F4F1DE] leading-none"
             >
               Ateliere
             </motion.h2>
@@ -61,16 +61,16 @@ export default function CampAteliere() {
               transition={{ delay: 0.1 }}
               className="mt-6 space-y-4 max-w-sm"
             >
-              <p className="text-theme-accent text-sm font-bold tracking-[0.2em] uppercase">
+              <p className="text-camp-accent text-sm font-bold tracking-[0.2em] uppercase">
                 inspire+ 2026 — The Cross
               </p>
-              <p className="text-[#D9D9D9] text-base sm:text-lg leading-relaxed">
+              <p className="text-[#9CAAA1] text-base sm:text-lg leading-relaxed">
                 Știm că fiecare adolescent sau tânăr este unic și prețios, având daruri și abilități care trebuie descoperite, iar mai apoi șlefuite.
               </p>
-              <p className="text-[#D9D9D9] text-sm sm:text-base leading-relaxed">
+              <p className="text-[#9CAAA1] text-sm sm:text-base leading-relaxed">
                 Ne dorim ca inspire+ să fie un mediu pus la dispoziția celor care-și doresc să fie inspirați și echipați pentru a-și folosi abilitățile în slujba Regelui Cristos.
               </p>
-              <p className="text-[#FFFFFF]0 text-sm italic mt-4">
+              <p className="text-[#F4F1DE]0 text-sm italic mt-4">
                 Apasă pe un titlu pentru detalii.
               </p>
             </motion.div>
@@ -98,7 +98,7 @@ export default function CampAteliere() {
                 >
                   {/* Connection Node and Horizontal Line */}
                   <div className="hidden sm:flex items-start shrink-0 w-16 pt-6 relative z-10">
-                    <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-500 relative bg-[#353535] mx-auto ${isExpanded ? 'border-theme-accent shadow-[0_0_10px_rgba(245,158,11,0.5)]' : 'border-[#3C6E71] group-hover:border-[#3C6E71]'}`} />
+                    <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-500 relative bg-[#181C1A] mx-auto ${isExpanded ? 'border-camp-accent shadow-[0_0_10px_rgba(245,158,11,0.5)]' : 'border-[#38423E] group-hover:border-[#38423E]'}`} />
                     {/* Horizontal connection line to the card */}
                     <div className="absolute left-1/2 right-[-1rem] top-[30px] w-full border-t-2 border-dashed border-slate-700/50 -z-10" />
                   </div>
@@ -107,13 +107,13 @@ export default function CampAteliere() {
                   <motion.div 
                     layout
                     onClick={() => !isExpanded && toggleItem(atelier.id)}
-                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#284B63] border-theme-accent/40 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#284B63]/40'}`}
+                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#232926] border-camp-accent/40 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#232926]/40'}`}
                   >
                     {/* Header: Title & Close/Expand Button */}
                     <motion.div layout className={`p-4 sm:p-6 lg:p-8 flex items-center justify-between gap-4 ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>
                       <motion.h3 
                         layout="position"
-                        className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 break-words flex-1 ${isExpanded ? 'text-3xl sm:text-4xl md:text-5xl text-theme-accent' : 'text-3xl sm:text-5xl lg:text-6xl text-[#D9D9D9] group-hover:text-[#FFFFFF]'}`}
+                        className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 break-words flex-1 ${isExpanded ? 'text-3xl sm:text-4xl md:text-5xl text-camp-accent' : 'text-3xl sm:text-5xl lg:text-6xl text-[#9CAAA1] group-hover:text-[#F4F1DE]'}`}
                       >
                         {atelier.title}
                       </motion.h3>
@@ -123,7 +123,7 @@ export default function CampAteliere() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#284B63]/50 flex items-center justify-center text-[#FFFFFF]0 group-hover:text-theme-accent group-hover:border-theme-accent/50 transition-all shadow-sm"
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#2E3632]/50 flex items-center justify-center text-[#F4F1DE]0 group-hover:text-camp-accent group-hover:border-camp-accent/50 transition-all shadow-sm"
                           aria-label="Deschide atelier"
                         >
                           <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -140,7 +140,7 @@ export default function CampAteliere() {
                             e.stopPropagation();
                             toggleItem(atelier.id);
                           }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#353535] border border-[#284B63]/80 flex items-center justify-center text-[#D9D9D9] hover:text-[#FFFFFF] hover:bg-[#284B63] hover:border-[#3C6E71] transition-all shadow-sm"
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#181C1A] border border-[#2E3632]/80 flex items-center justify-center text-[#9CAAA1] hover:text-[#F4F1DE] hover:bg-[#232926] hover:border-[#38423E] transition-all shadow-sm"
                           aria-label="Ascunde atelier"
                         >
                           <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -165,7 +165,7 @@ export default function CampAteliere() {
                             transition={{ delay: 0.2, duration: 0.5 }}
                             className="flex-1 flex flex-col pt-0 md:pt-2"
                           >
-                            <p className="text-[#D9D9D9] text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap">
+                            <p className="text-[#9CAAA1] text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap">
                               {atelier.desc}
                             </p>
                           </motion.div>
