@@ -380,7 +380,7 @@ export default function Camp() {
         {/* MARQUEE */}
         <div className="absolute bottom-0 left-0 w-full bg-[#0A111F] py-3 sm:py-4 border-y border-deepsea-300/20 z-20">
           <Marquee
-            items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
+            items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CROSS')}
             speed={40}
             separator=""
             className="py-1"
@@ -626,7 +626,6 @@ export default function Camp() {
             </span>
           </div>
           <p className="text-[#A0C4D8] text-[10px] tracking-[0.3em] font-bold uppercase mb-2">inspire+ Timișoara</p>
-          <p className="text-[#A0C4D8] text-xs leading-relaxed">Creat pentru comunitate. O biserică relevantă pentru generația noastră.</p>
         </div>
 
         <div className="flex flex-col items-start md:items-end gap-2 md:text-right">
