@@ -436,7 +436,7 @@ export default function Camp() {
 
       {/* PACKING LIST */}
       <section id="packing" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#082E5C]/50 bg-[#0A111F]">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-[#A0C4D8] mb-16 text-center">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-3xl md:text-4xl tracking-widest font-serif font-bold text-white mb-16 text-center">
           CE SĂ IEI CU TINE
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">

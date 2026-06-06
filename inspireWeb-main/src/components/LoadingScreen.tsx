@@ -45,11 +45,11 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 src="/logo.png"
                 alt="inspire+"
                 className="w-24 h-24 md:w-32 md:h-32 object-contain select-none pointer-events-none"
-                initial={{ opacity: 0, y: 18, filter: 'invert(1) blur(8px)' }}
+                initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
                 animate={{
                   opacity: 1,
                   y: 0,
-                  filter: 'invert(1) blur(0px)',
+                  filter: 'blur(0px)',
                   transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.05 },
                 }}
                 exit={{ opacity: 0 }}
