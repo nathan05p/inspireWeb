@@ -50,7 +50,7 @@ export default function CampWhatToExpect() {
           viewport={{ once: true }}
           className="text-4xl sm:text-6xl md:text-7xl font-outfit font-bold tracking-tight text-slate-50"
         >
-          inspire<span className="font-bold text-accent not-italic">+</span> camp
+          inspire<span className="font-bold text-deepsea-300 not-italic">+</span> camp
         </motion.h2>
       </div>
 
@@ -103,7 +103,7 @@ export default function CampWhatToExpect() {
 
                   {/* Text - Right */}
                   <div className="z-20 flex-1 text-left">
-                    <h3 className="text-accent font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
+                    <h3 className="text-deepsea-300 font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
                     <p className="text-slate-300 text-[14px] md:text-base leading-relaxed font-light">
                       {item.desc}
                     </p>

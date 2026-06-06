@@ -69,7 +69,7 @@ export default function CampNavbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4 }}
-                className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-baseline gap-0.5 text-slate-50 hover:text-accent transition-colors"
+                className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-baseline gap-0.5 text-slate-50 hover:text-deepsea-300 transition-colors"
               >
                 <span
                   style={{ fontFamily: '"Outfit", sans-serif', fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', fontStyle: 'italic', letterSpacing: '0.02em' }}
@@ -109,7 +109,7 @@ export default function CampNavbar() {
               ))}
               <button
                 onClick={() => setMenuOpen(true)}
-                className="text-slate-50 text-[11px] font-bold tracking-[0.2em] border-b-2 border-slate-800 hover:border-accent hover:text-accent transition-all flex items-center gap-2 pb-0.5"
+                className="text-slate-50 text-[11px] font-bold tracking-[0.2em] border-b-2 border-slate-800 hover:border-deepsea-300 hover:text-deepsea-300 transition-all flex items-center gap-2 pb-0.5"
               >
                 MENU
               </button>
@@ -140,7 +140,7 @@ export default function CampNavbar() {
               <span className="text-slate-400 text-xs tracking-widest">NAVIGATION</span>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="text-slate-50 hover:text-accent transition-colors p-1"
+                className="text-slate-50 hover:text-deepsea-300 transition-colors p-1"
                 aria-label="Închide meniu"
               >
                 <X size={26} />
@@ -163,7 +163,7 @@ export default function CampNavbar() {
                       <li key={link.label}>
                         <a
                           href={link.href}
-                          className="text-slate-50 text-xl md:text-2xl font-serif hover:text-accent transition-colors"
+                          className="text-slate-50 text-xl md:text-2xl font-serif hover:text-deepsea-300 transition-colors"
                           onClick={() => setMenuOpen(false)}
                         >
                           {link.label}

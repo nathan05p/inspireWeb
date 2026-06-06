@@ -123,7 +123,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
         <div key={unit} className="flex flex-col items-center flex-1">
           <div className="bg-[#121C26] border border-slate-800/50 shadow-sm rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-2 sm:mb-4 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-b from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-outfit tracking-tight text-accent font-bold tabular-nums">
+            <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-outfit tracking-tight text-deepsea-300 font-bold tabular-nums">
               {value.toString().padStart(2, '0')}
             </span>
           </div>
@@ -381,7 +381,7 @@ export default function Camp() {
           </div>
         </motion.div>
         {/* MARQUEE */}
-        <div className="absolute bottom-0 left-0 w-full bg-[#121C26] py-3 sm:py-4 border-y border-accent/20 z-20">
+        <div className="absolute bottom-0 left-0 w-full bg-[#121C26] py-3 sm:py-4 border-y border-deepsea-300/20 z-20">
           <Marquee
             items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
             speed={40}
@@ -402,7 +402,7 @@ export default function Camp() {
       <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-slate-800/50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-accent mb-6">VIZIUNE</h2>
+            <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-deepsea-300 mb-6">VIZIUNE</h2>
             <h3 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit tracking-tight leading-tight">
               The <br /><span className="italic text-slate-400">Creator</span>
             </h3>
@@ -427,7 +427,7 @@ export default function Camp() {
       {/* PHOTO GALLERY */}
       <section className="py-16 sm:py-24 md:py-32 bg-[#121C26] overflow-hidden border-b border-slate-800/50">
         <div className="mb-12 sm:mb-16 text-center px-4 relative z-10">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-outfit tracking-tight text-slate-50 mb-4">Amintiri din <span className="italic text-accent">anii trecuți</span></motion.h2>
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-outfit tracking-tight text-slate-50 mb-4">Amintiri din <span className="italic text-deepsea-300">anii trecuți</span></motion.h2>
           <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.1} className="text-slate-400 text-xs tracking-[0.3em] uppercase font-bold">GALERIE FOTO INSPIRE+ CAMP</motion.p>
         </div>
 
@@ -441,8 +441,8 @@ export default function Camp() {
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {packingList.map((category, i) => (
-            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.1} className="p-8 rounded-3xl bg-[#202D3B] border border-slate-800/50 hover:border-accent transition-colors group shadow-sm">
-              <div className="text-accent mb-8 transform group-hover:scale-110 transition-transform origin-left">{category.icon}</div>
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.1} className="p-8 rounded-3xl bg-[#202D3B] border border-slate-800/50 hover:border-deepsea-300 transition-colors group shadow-sm">
+              <div className="text-deepsea-300 mb-8 transform group-hover:scale-110 transition-transform origin-left">{category.icon}</div>
               <h3 className="text-lg font-bold mb-6 pb-4 border-b border-slate-800/50 text-slate-50">{category.title}</h3>
               <ul className="space-y-3">
                 {category.items.map((item, j) => (
@@ -516,15 +516,15 @@ export default function Camp() {
                     <div className="flex items-start gap-4">
                       <div className="relative shrink-0 mt-1">
                         <div className="absolute inset-0 bg-accent/30 rounded-full blur-md" />
-                        <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#121C26] to-slate-900 border border-accent/40 flex items-center justify-center shadow-lg">
-                          <span className="text-accent font-outfit tracking-tighter text-[10px] md:text-xs italic font-bold">i+</span>
+                        <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#121C26] to-slate-900 border border-deepsea-300/40 flex items-center justify-center shadow-lg">
+                          <span className="text-deepsea-300 font-outfit tracking-tighter text-[10px] md:text-xs italic font-bold">i+</span>
                         </div>
                       </div>
                       <div className="w-full">
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="font-semibold text-xs md:text-sm text-accent tracking-wide">inspire+ staff</span>
-                          <CheckCircle size={14} className="text-accent shrink-0" />
-                          <div className="ml-auto px-2.5 py-1 rounded-full bg-accent/5 border border-accent/20 text-accent/80 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hidden sm:block backdrop-blur-sm">
+                          <span className="font-semibold text-xs md:text-sm text-deepsea-300 tracking-wide">inspire+ staff</span>
+                          <CheckCircle size={14} className="text-deepsea-300 shrink-0" />
+                          <div className="ml-auto px-2.5 py-1 rounded-full bg-accent/5 border border-deepsea-300/20 text-deepsea-300/80 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hidden sm:block backdrop-blur-sm">
                             Răspuns Oficial
                           </div>
                         </div>
@@ -551,13 +551,13 @@ export default function Camp() {
           </motion.div>
 
           {/* Location */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="sm:col-span-6 bg-[#202D3B] border border-slate-800/50 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 hover:border-accent transition-colors">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="sm:col-span-6 bg-[#202D3B] border border-slate-800/50 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 hover:border-deepsea-300 transition-colors">
             <div>
-              <MapPin className="text-accent mb-6" size={40} />
+              <MapPin className="text-deepsea-300 mb-6" size={40} />
               <h3 className="text-2xl font-outfit tracking-tight mb-2 text-slate-50">Locație Tabără</h3>
               <p className="text-slate-300">Aici avem un text locația taberei</p>
             </div>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="shrink-0 w-16 h-16 rounded-full border border-slate-800/50 flex items-center justify-center hover:border-accent hover:text-accent transition-colors text-slate-50">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="shrink-0 w-16 h-16 rounded-full border border-slate-800/50 flex items-center justify-center hover:border-deepsea-300 hover:text-deepsea-300 transition-colors text-slate-50">
               <Map size={24} />
             </a>
           </motion.div>
@@ -566,13 +566,13 @@ export default function Camp() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="sm:col-span-6 bg-[#202D3B] border border-slate-800/50 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl">
             <h3 className="text-2xl font-outfit tracking-tight mb-8 text-slate-50">Contact Oficial</h3>
             <div className="space-y-5">
-              <a href="mailto:hello@inspireplus.ro" className="flex items-center gap-4 text-slate-300 hover:text-accent transition-colors font-medium">
+              <a href="mailto:hello@inspireplus.ro" className="flex items-center gap-4 text-slate-300 hover:text-deepsea-300 transition-colors font-medium">
                 <Mail size={20} className="text-slate-400" /> hello@inspireplus.ro
               </a>
-              <a href="tel:+40700000000" className="flex items-center gap-4 text-slate-300 hover:text-accent transition-colors font-medium">
+              <a href="tel:+40700000000" className="flex items-center gap-4 text-slate-300 hover:text-deepsea-300 transition-colors font-medium">
                 <Phone size={20} className="text-slate-400" /> +40 700 000 000
               </a>
-              <a href="#" className="flex items-center gap-4 text-slate-300 hover:text-accent transition-colors font-medium">
+              <a href="#" className="flex items-center gap-4 text-slate-300 hover:text-deepsea-300 transition-colors font-medium">
                 <AtSign size={20} className="text-slate-400" /> @inspireplus.tm
               </a>
             </div>
@@ -607,7 +607,7 @@ export default function Camp() {
 
           <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit tracking-tight mt-8 sm:mt-12 mb-2 leading-none text-slate-50">
             Ne vedem in <br />
-            <span className="italic text-accent">Tabara!</span>
+            <span className="italic text-deepsea-300">Tabara!</span>
           </h2>
           <p className="text-xl sm:text-2xl text-slate-300 mb-8 font-outfit font-light tracking-wide">22-26 iulie</p>
 
@@ -619,7 +619,7 @@ export default function Camp() {
       {/* FOOTER */}
       <footer id="contact" className="bg-[#121C26] border-t border-slate-800/50 px-5 sm:px-8 md:px-16 py-10 sm:py-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-12">
         <div className="max-w-xs">
-          <div className="w-16 h-16 rounded-full border border-slate-300 flex items-center justify-center mb-8 hover:border-accent hover:text-accent transition-colors cursor-pointer text-slate-50">
+          <div className="w-16 h-16 rounded-full border border-slate-300 flex items-center justify-center mb-8 hover:border-deepsea-300 hover:text-deepsea-300 transition-colors cursor-pointer text-slate-50">
             <span className="text-current font-outfit tracking-tight text-base leading-none flex items-center">
               <span className="italic tracking-tight">inspire</span>
               <span className="font-sans font-bold text-xs ml-0.5 mt-1">+</span>
