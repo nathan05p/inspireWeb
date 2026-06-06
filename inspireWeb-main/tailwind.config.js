@@ -27,9 +27,6 @@ export default {
           500: '#41607A',
           300: '#7A91A7',
           100: '#DEE0DB',
-        },
-        camp: {
-          accent: '#E07A5F',
         }
       },
       fontFamily: {
