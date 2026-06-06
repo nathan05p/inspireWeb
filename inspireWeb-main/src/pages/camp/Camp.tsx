@@ -85,7 +85,7 @@ function CampRotatingCircle() {
           </text>
         </svg>
       </motion.div>
-      <div className="w-16 h-16 rounded-full bg-[#0F120A]mber-400 flex items-center justify-center text-[#E8ECD7]">
+      <div className="w-16 h-16 rounded-full bg-[#353535]mber-400 flex items-center justify-center text-[#FFFFFF]">
         <Tent size={24} />
       </div>
     </div>
@@ -121,13 +121,13 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
     <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-8 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-4xl mx-auto px-4">
       {Object.entries(timeLeft).map(([unit, value]) => (
         <div key={unit} className="flex flex-col items-center flex-1">
-          <div className="bg-[#0F120A] border border-[#262E1A]/50 shadow-sm rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-2 sm:mb-4 relative overflow-hidden group">
+          <div className="bg-[#353535] border border-[#284B63]/50 shadow-sm rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-2 sm:mb-4 relative overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-b from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-outfit tracking-tight text-mocha-accent font-bold tabular-nums">
+            <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-outfit tracking-tight text-theme-accent font-bold tabular-nums">
               {value.toString().padStart(2, '0')}
             </span>
           </div>
-          <span className="text-[10px] md:text-xs tracking-[0.3em] font-bold uppercase text-[#9CA691]">
+          <span className="text-[10px] md:text-xs tracking-[0.3em] font-bold uppercase text-[#D9D9D9]">
             {unit === 'days' ? 'Zile' : unit === 'hours' ? 'Ore' : unit === 'minutes' ? 'Min' : 'Sec'}
           </span>
         </div>
@@ -198,7 +198,7 @@ function PhotoGallery() {
       <div className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-8 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button
           onClick={scrollLeft}
-          className="w-12 h-12 rounded-full bg-[#0F120A]/90 backdrop-blur border border-slate-700 text-[#E8ECD7] flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-colors shadow-xl"
+          className="w-12 h-12 rounded-full bg-[#353535]/90 backdrop-blur border border-slate-700 text-[#FFFFFF] flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-colors shadow-xl"
         >
           <ChevronLeft size={24} />
         </button>
@@ -206,7 +206,7 @@ function PhotoGallery() {
       <div className="absolute top-1/2 -translate-y-1/2 right-4 sm:right-8 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <button
           onClick={scrollRight}
-          className="w-12 h-12 rounded-full bg-[#0F120A]/90 backdrop-blur border border-slate-700 text-[#E8ECD7] flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-colors shadow-xl"
+          className="w-12 h-12 rounded-full bg-[#353535]/90 backdrop-blur border border-slate-700 text-[#FFFFFF] flex items-center justify-center hover:bg-accent hover:text-slate-900 transition-colors shadow-xl"
         >
           <ChevronRight size={24} />
         </button>
@@ -231,7 +231,7 @@ function PhotoGallery() {
                     : "w-[260px] sm:w-[320px] h-[280px] sm:h-[360px] -translate-y-8 sm:-translate-y-12 z-0"
               }`}
             >
-              <div className="absolute inset-0 bg-[#0F120A]/10 group-hover/image:bg-transparent transition-colors duration-500 z-10" />
+              <div className="absolute inset-0 bg-[#353535]/10 group-hover/image:bg-transparent transition-colors duration-500 z-10" />
               <img src={src} alt={`Camp memory ${i}`} className="w-full h-full object-cover scale-100 group-hover/image:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
             </div>
           );
@@ -312,7 +312,7 @@ export default function Camp() {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="relative z-10 bg-[#0F120A] text-[#E8ECD7] min-h-screen overflow-x-hidden"
+      className="relative z-10 bg-[#353535] text-[#FFFFFF] min-h-screen overflow-x-hidden"
       style={{ fontFamily: '"Inter", sans-serif' }}
     >
       <CampNavbar />
@@ -353,8 +353,8 @@ export default function Camp() {
         </div>
 
         {/* OVERLAYS */}
-        <div className="absolute inset-0 bg-[#0F120A]/40 z-0 pointer-events-none mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F120A]/30 via-transparent to-[#0F120A] z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#353535]/40 z-0 pointer-events-none mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#353535]/30 via-transparent to-[#353535] z-0 pointer-events-none" />
 
         {/* MAIN TITLE BLOCK */}
         <motion.div
@@ -373,18 +373,18 @@ export default function Camp() {
               style={{ fontFamily: '"outfit", sans-serif', textShadow: '0 4px 40px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)' }}
             >
               O generație mai aproape de cer, <br className="hidden md:block" />
-              mai aproape de oameni și <span className="italic text-mocha-accent">mai de folos Împărăției.</span>
+              mai aproape de oameni și <span className="italic text-theme-accent">mai de folos Împărăției.</span>
             </motion.h1>
           </div>
         </motion.div>
         {/* MARQUEE */}
-        <div className="absolute bottom-0 left-0 w-full bg-[#0F120A] py-3 sm:py-4 border-y border-mocha-accent/20 z-20">
+        <div className="absolute bottom-0 left-0 w-full bg-[#353535] py-3 sm:py-4 border-y border-theme-accent/20 z-20">
           <Marquee
             items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CREATOR')}
             speed={40}
             separator=""
             className="py-1"
-            itemClassName="text-xs md:text-sm font-bold tracking-[0.3em] text-[#E8ECD7] mr-8"
+            itemClassName="text-xs md:text-sm font-bold tracking-[0.3em] text-[#FFFFFF] mr-8"
           />
         </div>
       </section>
@@ -396,17 +396,17 @@ export default function Camp() {
       <CampAteliere />
 
       {/* VIZIUNE & ABOUT */}
-      <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#262E1A]/50">
+      <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#284B63]/50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-mocha-accent mb-6">VIZIUNE</h2>
+            <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-theme-accent mb-6">VIZIUNE</h2>
             <h3 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit tracking-tight leading-tight">
-              The <br /><span className="italic text-[#9CA691]">Cross</span>
+              The <br /><span className="italic text-[#D9D9D9]">Cross</span>
             </h3>
           </motion.div>
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-[#BCC5B1] leading-relaxed text-base md:text-lg space-y-5">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-[#D9D9D9] leading-relaxed text-base md:text-lg space-y-5">
             <p>
-              👑 Titlul taberei <strong className="text-[#E8ECD7]">inspire+</strong> din acest an este <strong className="text-[#E8ECD7]">The Cross</strong> și este dedicată celebrării modului în care Dumnezeu a ales să-și exprime dragostea nemărginită pentru noi. Vrem să redescoperim frumusețea, valoarea și profunzimea momentului care a adus cerul mai aproape.
+              👑 Titlul taberei <strong className="text-[#FFFFFF]">inspire+</strong> din acest an este <strong className="text-[#FFFFFF]">The Cross</strong> și este dedicată celebrării modului în care Dumnezeu a ales să-și exprime dragostea nemărginită pentru noi. Vrem să redescoperim frumusețea, valoarea și profunzimea momentului care a adus cerul mai aproape.
             </p>
             <p>
               🌱 𝗘𝘃𝗲𝗻𝗶𝗺𝗲𝗻𝘁𝗲𝗹𝗲 𝗶𝗻𝘀𝗽𝗶𝗿𝗲+ sunt dedicate tinerilor și adolescenților creștini, care vor să cultive Cultura Împărăției și doresc glorificarea lui Dumnezeu, prin mijloace relevante și creative, depășind barierele confesionale.
@@ -417,7 +417,7 @@ export default function Camp() {
             <p>
               Vino să cunoști tineri faini, să îți faci prieteni noi și să trăiești o experiență care îți va întări relațiile și credința.
             </p>
-            <p className="text-[#E8ECD7] font-semibold">
+            <p className="text-[#FFFFFF] font-semibold">
               Nu veni singur, adu-ți și un prieten și hai să trăim împreună o tabără de neuitat! 🤩
             </p>
           </motion.div>
@@ -425,28 +425,28 @@ export default function Camp() {
       </section>
 
       {/* PHOTO GALLERY */}
-      <section className="py-16 sm:py-24 md:py-32 bg-[#0F120A] overflow-hidden border-b border-[#262E1A]/50">
+      <section className="py-16 sm:py-24 md:py-32 bg-[#353535] overflow-hidden border-b border-[#284B63]/50">
         <div className="mb-12 sm:mb-16 text-center px-4 relative z-10">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-outfit tracking-tight text-[#E8ECD7] mb-4">Amintiri din <span className="italic text-mocha-accent">anii trecuți</span></motion.h2>
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.1} className="text-[#9CA691] text-xs tracking-[0.3em] uppercase font-bold">GALERIE FOTO INSPIRE+ CAMP</motion.p>
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-outfit tracking-tight text-[#FFFFFF] mb-4">Amintiri din <span className="italic text-theme-accent">anii trecuți</span></motion.h2>
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.1} className="text-[#D9D9D9] text-xs tracking-[0.3em] uppercase font-bold">GALERIE FOTO INSPIRE+ CAMP</motion.p>
         </div>
 
         <PhotoGallery />
       </section>
 
       {/* PACKING LIST */}
-      <section id="packing" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#262E1A]/50 bg-[#0F120A]">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-[#9CA691] mb-16 text-center">
+      <section id="packing" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#284B63]/50 bg-[#353535]">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-[#D9D9D9] mb-16 text-center">
           CE SĂ IEI CU TINE
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {packingList.map((category, i) => (
-            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.1} className="p-8 rounded-3xl bg-[#181D10] border border-[#262E1A]/50 hover:border-mocha-accent transition-colors group shadow-sm">
-              <div className="text-mocha-accent mb-8 transform group-hover:scale-110 transition-transform origin-left">{category.icon}</div>
-              <h3 className="text-lg font-bold mb-6 pb-4 border-b border-[#262E1A]/50 text-[#E8ECD7]">{category.title}</h3>
+            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.1} className="p-8 rounded-3xl bg-[#284B63] border border-[#284B63]/50 hover:border-theme-accent transition-colors group shadow-sm">
+              <div className="text-theme-accent mb-8 transform group-hover:scale-110 transition-transform origin-left">{category.icon}</div>
+              <h3 className="text-lg font-bold mb-6 pb-4 border-b border-[#284B63]/50 text-[#FFFFFF]">{category.title}</h3>
               <ul className="space-y-3">
                 {category.items.map((item, j) => (
-                  <li key={j} className="flex items-center gap-3 text-sm text-[#BCC5B1]">
+                  <li key={j} className="flex items-center gap-3 text-sm text-[#D9D9D9]">
                     <div className="w-1.5 h-1.5 rounded-full bg-slate-300" /> {item}
                   </li>
                 ))}
@@ -457,11 +457,11 @@ export default function Camp() {
       </section>
 
       {/* FAQ COMMUNITY STYLE */}
-      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-[#262E1A]/50 bg-[#0F120A]">
+      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-[#284B63]/50 bg-[#353535]">
         <div className="px-6 md:px-12 max-w-screen-2xl mx-auto mb-16 relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center">
-            <h2 className="text-4xl font-outfit tracking-tight mb-4 text-[#E8ECD7]">Întrebări frecvente</h2>
-            <p className="text-[#9CA691]">Răspunsuri direct din comunitate.</p>
+            <h2 className="text-4xl font-outfit tracking-tight mb-4 text-[#FFFFFF]">Întrebări frecvente</h2>
+            <p className="text-[#D9D9D9]">Răspunsuri direct din comunitate.</p>
           </motion.div>
         </div>
 
@@ -481,7 +481,7 @@ export default function Camp() {
               {Array(6).fill(faqs).flat().map((faq, i) => (
                 <div
                   key={i}
-                  className="w-full shrink-0 bg-gradient-to-b from-slate-800/30 to-[#0a0c07]/40 backdrop-blur-xl p-6 md:p-8 rounded-[2.5rem] border border-white/5 shadow-2xl flex flex-col gap-6 mx-auto max-w-2xl relative overflow-hidden group hover:border-white/10 transition-colors"
+                  className="w-full shrink-0 bg-gradient-to-b from-slate-800/30 to-[#353535]/40 backdrop-blur-xl p-6 md:p-8 rounded-[2.5rem] border border-white/5 shadow-2xl flex flex-col gap-6 mx-auto max-w-2xl relative overflow-hidden group hover:border-white/10 transition-colors"
                 >
                   {/* Subtle Top Glow */}
                   <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-500/20 to-transparent" />
@@ -490,9 +490,9 @@ export default function Camp() {
                   <div className="flex items-start gap-4">
                     <div className="relative shrink-0 w-12 h-12 md:w-14 md:h-14">
                       <div className="absolute inset-0 bg-slate-500/20 rounded-full blur-md" />
-                      <div className="relative w-full h-full rounded-full border border-slate-700/50 bg-gradient-to-br from-slate-800 to-[#0a0c07] flex items-center justify-center overflow-hidden shadow-inner">
+                      <div className="relative w-full h-full rounded-full border border-slate-700/50 bg-gradient-to-br from-slate-800 to-[#353535] flex items-center justify-center overflow-hidden shadow-inner">
                         <span 
-                          className="text-[#BCC5B1] text-2xl md:text-3xl leading-none pt-1" 
+                          className="text-[#D9D9D9] text-2xl md:text-3xl leading-none pt-1" 
                           style={{ fontFamily: '"TheLetterEditorial", "Playfair Display", serif', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
                         >
                           {faq.user.charAt(0).toUpperCase()}
@@ -501,7 +501,7 @@ export default function Camp() {
                     </div>
                     <div className="pt-1 w-full">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="font-medium text-[#BCC5B1] text-sm md:text-base tracking-wide">{faq.user}</span>
+                        <span className="font-medium text-[#D9D9D9] text-sm md:text-base tracking-wide">{faq.user}</span>
                         <span className="text-slate-600 text-xs tracking-wider">{faq.time}</span>
                       </div>
                       <p className="text-slate-100 text-lg md:text-xl font-outfit font-light leading-snug">{faq.q}</p>
@@ -516,19 +516,19 @@ export default function Camp() {
                     <div className="flex items-start gap-4">
                       <div className="relative shrink-0 mt-1">
                         <div className="absolute inset-0 bg-accent/30 rounded-full blur-md" />
-                        <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#0F120A] to-[#0a0c07] border border-mocha-accent/40 flex items-center justify-center shadow-lg">
-                          <span className="text-mocha-accent font-outfit tracking-tighter text-[10px] md:text-xs italic font-bold">i+</span>
+                        <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#353535] to-[#353535] border border-theme-accent/40 flex items-center justify-center shadow-lg">
+                          <span className="text-theme-accent font-outfit tracking-tighter text-[10px] md:text-xs italic font-bold">i+</span>
                         </div>
                       </div>
                       <div className="w-full">
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="font-semibold text-xs md:text-sm text-mocha-accent tracking-wide">inspire+ staff</span>
-                          <CheckCircle size={14} className="text-mocha-accent shrink-0" />
-                          <div className="ml-auto px-2.5 py-1 rounded-full bg-accent/5 border border-mocha-accent/20 text-mocha-accent/80 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hidden sm:block backdrop-blur-sm">
+                          <span className="font-semibold text-xs md:text-sm text-theme-accent tracking-wide">inspire+ staff</span>
+                          <CheckCircle size={14} className="text-theme-accent shrink-0" />
+                          <div className="ml-auto px-2.5 py-1 rounded-full bg-accent/5 border border-theme-accent/20 text-theme-accent/80 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hidden sm:block backdrop-blur-sm">
                             Răspuns Oficial
                           </div>
                         </div>
-                        <p className="text-[#9CA691] text-sm md:text-base leading-relaxed font-light">{faq.a}</p>
+                        <p className="text-[#D9D9D9] text-sm md:text-base leading-relaxed font-light">{faq.a}</p>
                       </div>
                     </div>
                   </div>
@@ -540,8 +540,8 @@ export default function Camp() {
       </section>
 
       {/* LOGISTICS & INFO */}
-      <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#262E1A]/50">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-[#9CA691] mb-16 text-center">
+      <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#284B63]/50">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-[#D9D9D9] mb-16 text-center">
           INFORMAȚII IMPORTANTE
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
@@ -551,29 +551,29 @@ export default function Camp() {
           </motion.div>
 
           {/* Location */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="sm:col-span-6 bg-[#181D10] border border-[#262E1A]/50 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 hover:border-mocha-accent transition-colors">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="sm:col-span-6 bg-[#284B63] border border-[#284B63]/50 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 hover:border-theme-accent transition-colors">
             <div>
-              <MapPin className="text-mocha-accent mb-6" size={40} />
-              <h3 className="text-2xl font-outfit tracking-tight mb-2 text-[#E8ECD7]">Locație Tabără</h3>
-              <p className="text-[#BCC5B1]">Aici avem un text locația taberei</p>
+              <MapPin className="text-theme-accent mb-6" size={40} />
+              <h3 className="text-2xl font-outfit tracking-tight mb-2 text-[#FFFFFF]">Locație Tabără</h3>
+              <p className="text-[#D9D9D9]">Aici avem un text locația taberei</p>
             </div>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="shrink-0 w-16 h-16 rounded-full border border-[#262E1A]/50 flex items-center justify-center hover:border-mocha-accent hover:text-mocha-accent transition-colors text-[#E8ECD7]">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="shrink-0 w-16 h-16 rounded-full border border-[#284B63]/50 flex items-center justify-center hover:border-theme-accent hover:text-theme-accent transition-colors text-[#FFFFFF]">
               <Map size={24} />
             </a>
           </motion.div>
 
           {/* Contact */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="sm:col-span-6 bg-[#181D10] border border-[#262E1A]/50 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl">
-            <h3 className="text-2xl font-outfit tracking-tight mb-8 text-[#E8ECD7]">Contact Oficial</h3>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="sm:col-span-6 bg-[#284B63] border border-[#284B63]/50 shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl">
+            <h3 className="text-2xl font-outfit tracking-tight mb-8 text-[#FFFFFF]">Contact Oficial</h3>
             <div className="space-y-5">
-              <a href="mailto:hello@inspireplus.ro" className="flex items-center gap-4 text-[#BCC5B1] hover:text-mocha-accent transition-colors font-medium">
-                <Mail size={20} className="text-[#9CA691]" /> hello@inspireplus.ro
+              <a href="mailto:hello@inspireplus.ro" className="flex items-center gap-4 text-[#D9D9D9] hover:text-theme-accent transition-colors font-medium">
+                <Mail size={20} className="text-[#D9D9D9]" /> hello@inspireplus.ro
               </a>
-              <a href="tel:+40700000000" className="flex items-center gap-4 text-[#BCC5B1] hover:text-mocha-accent transition-colors font-medium">
-                <Phone size={20} className="text-[#9CA691]" /> +40 700 000 000
+              <a href="tel:+40700000000" className="flex items-center gap-4 text-[#D9D9D9] hover:text-theme-accent transition-colors font-medium">
+                <Phone size={20} className="text-[#D9D9D9]" /> +40 700 000 000
               </a>
-              <a href="#" className="flex items-center gap-4 text-[#BCC5B1] hover:text-mocha-accent transition-colors font-medium">
-                <AtSign size={20} className="text-[#9CA691]" /> @inspireplus.tm
+              <a href="#" className="flex items-center gap-4 text-[#D9D9D9] hover:text-theme-accent transition-colors font-medium">
+                <AtSign size={20} className="text-[#D9D9D9]" /> @inspireplus.tm
               </a>
             </div>
           </motion.div>
@@ -581,7 +581,7 @@ export default function Camp() {
       </section>
 
       {/* FINAL CTA & COUNTDOWN */}
-      <section className="relative py-24 sm:py-36 md:py-48 overflow-hidden flex flex-col items-center justify-center text-center bg-[#0F120A] border-t border-[#262E1A]/50">
+      <section className="relative py-24 sm:py-36 md:py-48 overflow-hidden flex flex-col items-center justify-center text-center bg-[#353535] border-t border-[#284B63]/50">
         <motion.div
           className="absolute inset-0 w-full h-full opacity-[0.08]"
           style={{ y }}
@@ -597,19 +597,19 @@ export default function Camp() {
             transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
             className="flex whitespace-nowrap"
           >
-            <h1 className="text-[15vw] font-outfit tracking-tight leading-none mr-12 text-[#E8ECD7]">INSPIRAȚIE • NATURĂ • COMUNITATE •</h1>
-            <h1 className="text-[15vw] font-outfit tracking-tight leading-none mr-12 text-[#E8ECD7]">INSPIRAȚIE • NATURĂ • COMUNITATE •</h1>
+            <h1 className="text-[15vw] font-outfit tracking-tight leading-none mr-12 text-[#FFFFFF]">INSPIRAȚIE • NATURĂ • COMUNITATE •</h1>
+            <h1 className="text-[15vw] font-outfit tracking-tight leading-none mr-12 text-[#FFFFFF]">INSPIRAȚIE • NATURĂ • COMUNITATE •</h1>
           </motion.div>
         </div>
 
         <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-5xl">
           <CampRotatingCircle />
 
-          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit tracking-tight mt-8 sm:mt-12 mb-2 leading-none text-[#E8ECD7]">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-outfit tracking-tight mt-8 sm:mt-12 mb-2 leading-none text-[#FFFFFF]">
             Ne vedem in <br />
-            <span className="italic text-mocha-accent">Tabara!</span>
+            <span className="italic text-theme-accent">Tabara!</span>
           </h2>
-          <p className="text-xl sm:text-2xl text-[#BCC5B1] mb-8 font-outfit font-light tracking-wide">22-26 iulie</p>
+          <p className="text-xl sm:text-2xl text-[#D9D9D9] mb-8 font-outfit font-light tracking-wide">22-26 iulie</p>
 
           {/* THE LIVE COUNTDOWN */}
           <CountdownTimer targetDate="2026-07-22T00:00:00" />
@@ -617,23 +617,23 @@ export default function Camp() {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="bg-[#0F120A] border-t border-[#262E1A]/50 px-5 sm:px-8 md:px-16 py-10 sm:py-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-12">
+      <footer id="contact" className="bg-[#353535] border-t border-[#284B63]/50 px-5 sm:px-8 md:px-16 py-10 sm:py-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-12">
         <div className="max-w-xs">
-          <div className="w-16 h-16 rounded-full border border-[#BCC5B1] flex items-center justify-center mb-8 hover:border-mocha-accent hover:text-mocha-accent transition-colors cursor-pointer text-[#E8ECD7]">
+          <div className="w-16 h-16 rounded-full border border-[#D9D9D9] flex items-center justify-center mb-8 hover:border-theme-accent hover:text-theme-accent transition-colors cursor-pointer text-[#FFFFFF]">
             <span className="text-current font-outfit tracking-tight text-base leading-none flex items-center">
               <span className="italic tracking-tight">inspire</span>
               <span className="font-sans font-bold text-xs ml-0.5 mt-1">+</span>
             </span>
           </div>
-          <p className="text-[#9CA691] text-[10px] tracking-[0.3em] font-bold uppercase mb-2">inspire+ Timișoara</p>
-          <p className="text-[#9CA691] text-xs leading-relaxed">Creat pentru comunitate. O biserică relevantă pentru generația noastră.</p>
+          <p className="text-[#D9D9D9] text-[10px] tracking-[0.3em] font-bold uppercase mb-2">inspire+ Timișoara</p>
+          <p className="text-[#D9D9D9] text-xs leading-relaxed">Creat pentru comunitate. O biserică relevantă pentru generația noastră.</p>
         </div>
 
         <div className="flex flex-col items-start md:items-end gap-2 md:text-right">
-          <a href="#" className="text-[#9CA691] hover:text-[#E8ECD7] text-xs font-bold tracking-widest transition-colors">INSTAGRAM</a>
-          <a href="#" className="text-[#9CA691] hover:text-[#E8ECD7] text-xs font-bold tracking-widest transition-colors">FACEBOOK</a>
-          <a href="#" className="text-[#9CA691] hover:text-[#E8ECD7] text-xs font-bold tracking-widest transition-colors">YOUTUBE</a>
-          <p className="text-[#9CA691] text-xs mt-4">© {new Date().getFullYear()} inspire+ Timișoara</p>
+          <a href="#" className="text-[#D9D9D9] hover:text-[#FFFFFF] text-xs font-bold tracking-widest transition-colors">INSTAGRAM</a>
+          <a href="#" className="text-[#D9D9D9] hover:text-[#FFFFFF] text-xs font-bold tracking-widest transition-colors">FACEBOOK</a>
+          <a href="#" className="text-[#D9D9D9] hover:text-[#FFFFFF] text-xs font-bold tracking-widest transition-colors">YOUTUBE</a>
+          <p className="text-[#D9D9D9] text-xs mt-4">© {new Date().getFullYear()} inspire+ Timișoara</p>
         </div>
       </footer>
     </motion.div>

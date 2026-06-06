@@ -28,9 +28,8 @@ export default {
           300: '#7A91A7',
           100: '#DEE0DB',
         },
-        mocha: {
-          accent: '#A93219',
-          light: '#DFE3CD'
+        theme: {
+          accent: '#3C6E71',
         }
       },
       fontFamily: {
