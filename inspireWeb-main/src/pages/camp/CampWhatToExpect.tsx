@@ -11,7 +11,7 @@ const expectData = [
   { 
     id: 'activitati', 
     title: 'Activități', 
-    img: '/new_icons/7.png',
+    img: '/new_icons/12.png',
     side: 'right' as const,
     desc: 'Activități interactive, competiții și jocuri în care toți intră în joc - exact ce-ți trebuie ca să uiți de agitația orașului și să te distrezi pe bune.' 
   },
