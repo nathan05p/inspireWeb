@@ -93,7 +93,7 @@ export default function CampWhatToExpect() {
                   className="relative flex items-center w-full px-4"
                 >
                   {/* Image - Left */}
-                  <div className="z-10 w-24 h-24 md:w-32 md:h-32 shrink-0 mr-5 md:mr-8">
+                  <div className="z-10 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 shrink-0 mr-4 sm:mr-6 md:mr-10">
                     <img
                       src={item.img}
                       alt={item.title}
