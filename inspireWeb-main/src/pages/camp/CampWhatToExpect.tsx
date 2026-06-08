@@ -40,7 +40,7 @@ const expectData = [
 
 export default function CampWhatToExpect() {
   return (
-    <section id="what-to-expect" className="py-20 sm:py-32 px-4 sm:px-6 relative bg-[#0A111F] overflow-hidden border-b border-[#082E5C]/50">
+    <section id="what-to-expect" className="py-20 sm:py-32 px-4 sm:px-6 relative bg-[#0E0C0A] overflow-hidden border-b border-[#E8681A]/10">
       
       {/* Title */}
       <div className="max-w-screen-xl mx-auto text-center mb-16 sm:mb-24 relative z-10">
@@ -50,7 +50,7 @@ export default function CampWhatToExpect() {
           viewport={{ once: true }}
           className="text-4xl sm:text-6xl md:text-7xl font-outfit font-bold tracking-tight text-white"
         >
-          inspire<span className="font-bold text-deepsea-300 not-italic">+</span> camp
+          inspire<span className="font-bold text-[#E8681A] italic">+</span><span className="italic">camp</span>
         </motion.h2>
       </div>
 
@@ -93,7 +93,7 @@ export default function CampWhatToExpect() {
                   className="relative flex items-center w-full px-4"
                 >
                   {/* Image - Left */}
-                  <div className="z-10 w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 shrink-0 mr-4 sm:mr-6 md:mr-10">
+                  <div className="z-10 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 shrink-0 mr-4 sm:mr-6 md:mr-10">
                     <img
                       src={item.img}
                       alt={item.title}
@@ -103,8 +103,8 @@ export default function CampWhatToExpect() {
 
                   {/* Text - Right */}
                   <div className="z-20 flex-1 text-left">
-                    <h3 className="text-deepsea-300 font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
-                    <p className="text-[#E0F0F8] text-[14px] md:text-base leading-relaxed font-light">
+                    <h3 className="text-[#E8681A] font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
+                    <p className="text-[#C9A882] text-[14px] md:text-base leading-relaxed font-light">
                       {item.desc}
                     </p>
                   </div>

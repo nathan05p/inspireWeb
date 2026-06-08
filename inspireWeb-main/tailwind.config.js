@@ -12,20 +12,20 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: '#DEE0DB', // Lightest Deep Sea
-          dark: '#7A91A7',    // Light Deep Sea
+          DEFAULT: '#F5E6D3',
+          dark: '#C4703A',
         },
         slate: {
-          DEFAULT: '#121C26', // Darkest Deep Sea
+          DEFAULT: '#12100E',
         },
         accent: {
-          DEFAULT: '#41607A', // Medium Deep Sea
+          DEFAULT: '#E8681A',
         },
         deepsea: {
-          900: '#0A111F',
-          700: '#052243',
-          500: '#0B4372',
-          300: '#1583A6',
+          900: '#0E0C0A',
+          700: '#1C1308',
+          500: '#3A1F00',
+          300: '#E8681A',
           100: '#FFFFFF',
         }
       },
