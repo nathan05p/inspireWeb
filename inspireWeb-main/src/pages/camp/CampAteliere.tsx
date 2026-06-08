@@ -40,7 +40,7 @@ export default function CampAteliere() {
   };
 
   return (
-    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10 bg-[#0E0C0A]">
+    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10 bg-[#0A0A0A]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
         
         {/* Left Column - Sticky Title */}
@@ -64,13 +64,13 @@ export default function CampAteliere() {
               <p className="text-[#FA9339] text-sm font-bold tracking-[0.2em] uppercase">
                 inspire+ 2026 — The Cross
               </p>
-              <p className="text-[#C9A882] text-base sm:text-lg leading-relaxed">
+              <p className="text-[#D4D4D4] text-base sm:text-lg leading-relaxed">
                 Știm că fiecare adolescent sau tânăr este unic și prețios, având daruri și abilități care trebuie descoperite, iar mai apoi șlefuite.
               </p>
-              <p className="text-[#C9A882] text-sm sm:text-base leading-relaxed">
+              <p className="text-[#D4D4D4] text-sm sm:text-base leading-relaxed">
                 Ne dorim ca inspire+ să fie un mediu pus la dispoziția celor care-și doresc să fie inspirați și echipați pentru a-și folosi abilitățile în slujba Regelui Cristos.
               </p>
-              <p className="text-[#8A6040] text-sm italic mt-4">
+              <p className="text-[#737373] text-sm italic mt-4">
                 Apasă pe un titlu pentru detalii.
               </p>
             </motion.div>
@@ -98,7 +98,7 @@ export default function CampAteliere() {
                 >
                   {/* Connection Node and Horizontal Line */}
                   <div className="hidden sm:flex items-start shrink-0 w-16 pt-6 relative z-10">
-                    <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-500 relative bg-[#0E0C0A] mx-auto ${isExpanded ? 'border-[#FA9339] shadow-[0_0_10px_rgba(232,104,26,0.5)]' : 'border-[#3A1F00] group-hover:border-[#FA9339]/50'}`} />
+                    <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-500 relative bg-[#0A0A0A] mx-auto ${isExpanded ? 'border-[#FA9339] shadow-[0_0_10px_rgba(232,104,26,0.5)]' : 'border-[#262626] group-hover:border-[#FA9339]/50'}`} />
                     {/* Horizontal connection line to the card */}
                     <div className="absolute left-1/2 right-[-1rem] top-[30px] w-full border-t-2 border-dashed border-[#FA9339]/15 -z-10" />
                   </div>
@@ -107,7 +107,7 @@ export default function CampAteliere() {
                   <motion.div 
                     layout
                     onClick={() => !isExpanded && toggleItem(atelier.id)}
-                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#1C1308] border-[#FA9339]/30 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#1C1308]/60'}`}
+                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#171717] border-[#FA9339]/30 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#171717]/60'}`}
                   >
                     {/* Header: Title & Close/Expand Button */}
                     <motion.div layout className={`p-4 sm:p-6 lg:p-8 flex items-center justify-between gap-4 ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>
@@ -123,7 +123,7 @@ export default function CampAteliere() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#3A1F00]/50 flex items-center justify-center text-[#8A6040] group-hover:text-[#FA9339] group-hover:border-[#FA9339]/40 transition-all shadow-sm"
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#262626]/50 flex items-center justify-center text-[#737373] group-hover:text-[#FA9339] group-hover:border-[#FA9339]/40 transition-all shadow-sm"
                           aria-label="Deschide atelier"
                         >
                           <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -140,7 +140,7 @@ export default function CampAteliere() {
                             e.stopPropagation();
                             toggleItem(atelier.id);
                           }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0E0C0A] border border-[#3A1F00]/50 flex items-center justify-center text-[#8A6040] hover:text-white hover:bg-[#1C1308] hover:border-[#FA9339]/30 transition-all shadow-sm"
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0A0A0A] border border-[#262626]/50 flex items-center justify-center text-[#737373] hover:text-white hover:bg-[#171717] hover:border-[#FA9339]/30 transition-all shadow-sm"
                           aria-label="Ascunde atelier"
                         >
                           <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -165,7 +165,7 @@ export default function CampAteliere() {
                             transition={{ delay: 0.2, duration: 0.5 }}
                             className="flex-1 flex flex-col pt-0 md:pt-2"
                           >
-                            <p className="text-[#C9A882] text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap">
+                            <p className="text-[#D4D4D4] text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap">
                               {atelier.desc}
                             </p>
                           </motion.div>

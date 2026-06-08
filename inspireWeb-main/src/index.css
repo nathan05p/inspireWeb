@@ -120,7 +120,7 @@
 
   body {
     font-family: "Inter", sans-serif;
-    background-color: #0E0C0A;
+    background-color: #0A0A0A;
     color: #F5E6D3;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -131,7 +131,7 @@
 
   ::selection {
     background-color: #FA9339;
-    color: #0E0C0A;
+    color: #0A0A0A;
   }
 
   h1, h2, h3, h4, h5, h6 {

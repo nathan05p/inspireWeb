@@ -169,21 +169,21 @@ export default function RegistrationForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-[#1C1308] border border-[#FA9339]/20 p-8 md:p-12 rounded-3xl text-center shadow-xl flex flex-col items-center">
+      <div className="bg-[#171717] border border-[#FA9339]/20 p-8 md:p-12 rounded-3xl text-center shadow-xl flex flex-col items-center">
         <div className="w-20 h-20 bg-[#FA9339] rounded-full flex items-center justify-center mb-6">
-          <Check size={40} className="text-[#0E0C0A]" />
+          <Check size={40} className="text-[#0A0A0A]" />
         </div>
         <h3 className="text-3xl font-outfit tracking-tight text-white mb-4">Înscriere Finalizată!</h3>
-        <p className="text-[#C9A882] mb-8">Te-ai înscris cu succes. Tranzacția a fost procesată securizat și vei primi un email de confirmare în curând.</p>
+        <p className="text-[#D4D4D4] mb-8">Te-ai înscris cu succes. Tranzacția a fost procesată securizat și vei primi un email de confirmare în curând.</p>
         
         <button 
           onClick={resetForm}
-          className="bg-[#0E0C0A] hover:bg-[#1C1308] text-[#C9A882] px-6 py-3 rounded-xl font-bold transition-colors border border-[#FA9339]/20"
+          className="bg-[#0A0A0A] hover:bg-[#171717] text-[#D4D4D4] px-6 py-3 rounded-xl font-bold transition-colors border border-[#FA9339]/20"
         >
           Înregistrează altă persoană
         </button>
 
-        <p className="text-[#8A6040] text-xs mt-8">
+        <p className="text-[#737373] text-xs mt-8">
           {formData.plata === 'cash' ? 'Înregistrare completă. Ne vedem în tabără!' : 'Securizat prin Stripe. Îți mulțumim!'}
         </p>
       </div>
@@ -191,13 +191,13 @@ export default function RegistrationForm() {
   }
 
   return (
-    <div className="bg-[#1A1208] border border-[#FA9339]/15 p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
+    <div className="bg-[#121212] border border-[#FA9339]/15 p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
       <h3 className="text-3xl font-outfit tracking-tight mb-8 text-white">Înscrieri</h3>
 
       {/* Progress */}
       <div className="flex gap-2 mb-8">
-        <div className={`h-1 flex-1 rounded-full ${step >= 1 ? 'bg-[#FA9339]' : 'bg-[#0E0C0A]'}`} />
-        <div className={`h-1 flex-1 rounded-full ${step >= 2 ? 'bg-[#FA9339]' : 'bg-[#0E0C0A]'}`} />
+        <div className={`h-1 flex-1 rounded-full ${step >= 1 ? 'bg-[#FA9339]' : 'bg-[#0A0A0A]'}`} />
+        <div className={`h-1 flex-1 rounded-full ${step >= 2 ? 'bg-[#FA9339]' : 'bg-[#0A0A0A]'}`} />
       </div>
 
       <AnimatePresence mode="wait">
@@ -210,26 +210,26 @@ export default function RegistrationForm() {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-bold text-[#B08060]">Numele tău</label>
-                <input required type="text" name="nume" value={formData.nume} onChange={handleChange} className="w-full bg-[#0E0C0A] border border-[#3A1F00] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
+                <label className="text-sm font-bold text-[#A3A3A3]">Numele tău</label>
+                <input required type="text" name="nume" value={formData.nume} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-bold text-[#B08060]">Vârsta ta</label>
-                <input required type="number" name="varsta" value={formData.varsta} onChange={handleChange} className="w-full bg-[#0E0C0A] border border-[#3A1F00] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
+                <label className="text-sm font-bold text-[#A3A3A3]">Vârsta ta</label>
+                <input required type="number" name="varsta" value={formData.varsta} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-bold text-[#B08060]">Numărul de telefon</label>
-                <input required type="tel" name="telefon" value={formData.telefon} onChange={handleChange} className="w-full bg-[#0E0C0A] border border-[#3A1F00] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
+                <label className="text-sm font-bold text-[#A3A3A3]">Numărul de telefon</label>
+                <input required type="tel" name="telefon" value={formData.telefon} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-bold text-[#B08060]">Adresa de Email</label>
-                <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full bg-[#0E0C0A] border border-[#3A1F00] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
+                <label className="text-sm font-bold text-[#A3A3A3]">Adresa de Email</label>
+                <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors" />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-[#B08060]">Modalitate de Transport</label>
-              <select name="transport" value={formData.transport} onChange={handleChange} className="w-full bg-[#0E0C0A] border border-[#3A1F00] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors appearance-none">
+              <label className="text-sm font-bold text-[#A3A3A3]">Modalitate de Transport</label>
+              <select name="transport" value={formData.transport} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors appearance-none">
                 <option value="Masina personala">Mașină personală</option>
                 <option value="Caut loc">Caut un loc în mașină</option>
                 <option value="Descurcaret">Ma descurc</option>
@@ -238,19 +238,19 @@ export default function RegistrationForm() {
 
             <div className="pt-4 pb-2 border-t border-[#FA9339]/10">
               <label className="flex items-start gap-3 cursor-pointer group w-fit">
-                <div className="relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border border-[#3A1F00] bg-[#0E0C0A] group-hover:border-[#FA9339] transition-colors shrink-0">
+                <div className="relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border border-[#262626] bg-[#0A0A0A] group-hover:border-[#FA9339] transition-colors shrink-0">
                   <input type="checkbox" name="cazareCabana" checked={formData.cazareCabana} onChange={handleChange} className="peer sr-only" />
                   <Check size={14} className={`text-[#FA9339] transition-opacity ${formData.cazareCabana ? 'opacity-100' : 'opacity-0'}`} />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-[#C9A882]">Cazare la cabane (opțional)</p>
-                  <p className="text-xs text-[#8A6040]">Doresc informații despre posibilitatea cazării la cabane.</p>
+                  <p className="text-sm font-bold text-[#D4D4D4]">Cazare la cabane (opțional)</p>
+                  <p className="text-xs text-[#737373]">Doresc informații despre posibilitatea cazării la cabane.</p>
                 </div>
               </label>
             </div>
 
             <div className="flex justify-end pt-4">
-              <button type="submit" className="flex items-center gap-2 bg-[#FA9339] text-[#0E0C0A] px-8 py-4 rounded-xl font-bold hover:bg-[#D45A10] transition-colors">
+              <button type="submit" className="flex items-center gap-2 bg-[#FA9339] text-[#0A0A0A] px-8 py-4 rounded-xl font-bold hover:bg-[#D45A10] transition-colors">
                 Mergi mai departe <ChevronRight size={18} />
               </button>
             </div>
@@ -263,8 +263,8 @@ export default function RegistrationForm() {
             className="space-y-6"
           >
             <div className="space-y-2">
-              <label className="text-sm font-bold text-[#B08060]">Metodă de plată</label>
-              <select name="plata" value={formData.plata} onChange={handleChange} className="w-full bg-[#0E0C0A] border border-[#3A1F00] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors appearance-none">
+              <label className="text-sm font-bold text-[#A3A3A3]">Metodă de plată</label>
+              <select name="plata" value={formData.plata} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors appearance-none">
                 <option value="integral">Plată online - Toată suma</option>
                 {formData.zile === 'toate' && (
                   <option value="avans">Plată online - Doar avans (180 RON)</option>
@@ -274,15 +274,15 @@ export default function RegistrationForm() {
             </div>
 
             <div className="space-y-4">
-              <label className="text-sm font-bold text-[#B08060]">Participarea în Tabără *</label>
+              <label className="text-sm font-bold text-[#A3A3A3]">Participarea în Tabără *</label>
               <div className="flex flex-col sm:flex-row gap-4">
                 <label className="flex items-center gap-3 cursor-pointer w-fit">
                   <input type="radio" name="zile" value="toate" checked={formData.zile === 'toate'} onChange={handleChange} className="accent-[#FA9339] w-4 h-4" />
-                  <span className="text-[#C9A882] text-sm font-medium">Particip toată tabăra (6 zile)</span>
+                  <span className="text-[#D4D4D4] text-sm font-medium">Particip toată tabăra (6 zile)</span>
                 </label>
                 <label className="flex items-center gap-3 cursor-pointer w-fit">
                   <input type="radio" name="zile" value="mai_putine" checked={formData.zile === 'mai_putine'} onChange={handleChange} className="accent-[#FA9339] w-4 h-4" />
-                  <span className="text-[#C9A882] text-sm font-medium">Vin mai puține zile</span>
+                  <span className="text-[#D4D4D4] text-sm font-medium">Vin mai puține zile</span>
                 </label>
               </div>
 
@@ -294,11 +294,11 @@ export default function RegistrationForm() {
                     exit={{ opacity: 0, height: 0 }}
                     className="pt-2 overflow-hidden"
                   >
-                    <label className="text-sm font-bold text-[#B08060] block mb-3">Alege zilele în care vei fi în tabără *</label>
+                    <label className="text-sm font-bold text-[#A3A3A3] block mb-3">Alege zilele în care vei fi în tabără *</label>
                     <div className="flex flex-wrap gap-4">
                       {['Marți', 'Mie.', 'Joi', 'Vin.', 'Sâm', 'Dum.'].map(zi => (
                         <label key={zi} className="flex items-center gap-2 cursor-pointer">
-                          <div className="relative flex items-center justify-center w-5 h-5 rounded border border-[#3A1F00] bg-[#0E0C0A] hover:border-[#FA9339] transition-colors shrink-0">
+                          <div className="relative flex items-center justify-center w-5 h-5 rounded border border-[#262626] bg-[#0A0A0A] hover:border-[#FA9339] transition-colors shrink-0">
                             <input
                               type="checkbox"
                               checked={formData.zileAlese.includes(zi)}
@@ -307,7 +307,7 @@ export default function RegistrationForm() {
                             />
                             <Check size={12} className={`text-[#FA9339] transition-opacity ${formData.zileAlese.includes(zi) ? 'opacity-100' : 'opacity-0'}`} />
                           </div>
-                          <span className="text-[#C9A882] text-sm font-medium">{zi}</span>
+                          <span className="text-[#D4D4D4] text-sm font-medium">{zi}</span>
                         </label>
                       ))}
                     </div>
@@ -318,15 +318,15 @@ export default function RegistrationForm() {
 
             <div className="py-6 border-y border-[#FA9339]/10 flex justify-between items-center">
               <span className="text-3xl font-bold text-[#FA9339]">{calculateTotal()}.00</span>
-              <span className="text-[#B08060] font-bold">RON</span>
+              <span className="text-[#A3A3A3] font-bold">RON</span>
             </div>
 
             <label className="flex items-start gap-3 cursor-pointer group w-fit">
-              <div className="relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border border-[#3A1F00] bg-[#0E0C0A] group-hover:border-[#FA9339] transition-colors shrink-0">
+              <div className="relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border border-[#262626] bg-[#0A0A0A] group-hover:border-[#FA9339] transition-colors shrink-0">
                 <input type="checkbox" required name="acordRegulament" checked={formData.acordRegulament} onChange={handleChange} className="peer sr-only" />
                 <Check size={14} className={`text-[#FA9339] transition-opacity ${formData.acordRegulament ? 'opacity-100' : 'opacity-0'}`} />
               </div>
-              <span className="text-sm text-[#C9A882] pt-0.5">Am citit și sunt de acord cu <button type="button" onClick={() => setIsModalOpen(true)} className="text-[#FA9339] font-bold hover:underline">REGULAMENTUL</button> taberei.</span>
+              <span className="text-sm text-[#D4D4D4] pt-0.5">Am citit și sunt de acord cu <button type="button" onClick={() => setIsModalOpen(true)} className="text-[#FA9339] font-bold hover:underline">REGULAMENTUL</button> taberei.</span>
             </label>
 
             {/* Alert for Cancelled Payment */}
@@ -341,39 +341,39 @@ export default function RegistrationForm() {
             )}
 
             {/* Info Summary */}
-            <div className="bg-[#0E0C0A] border border-[#3A1F00] p-6 rounded-xl space-y-4 shadow-inner">
+            <div className="bg-[#0A0A0A] border border-[#262626] p-6 rounded-xl space-y-4 shadow-inner">
               <div className="flex items-center justify-between border-b border-[#FA9339]/10 pb-3">
-                <span className="text-xs text-[#B08060] uppercase font-bold tracking-wider">Sumar Înscriere</span>
+                <span className="text-xs text-[#A3A3A3] uppercase font-bold tracking-wider">Sumar Înscriere</span>
                 {formData.plata !== 'cash' && (
                   <span className="text-xs text-[#FA9339] font-bold flex items-center gap-1.5"><CreditCard size={14} /> Securizat prin Stripe</span>
                 )}
               </div>
               
-              <div className="space-y-2 text-sm text-[#C9A882]">
+              <div className="space-y-2 text-sm text-[#D4D4D4]">
                 <div className="flex justify-between">
-                  <span className="text-[#8A6040]">Nume Participant:</span>
+                  <span className="text-[#737373]">Nume Participant:</span>
                   <span className="font-semibold text-white">{formData.nume}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8A6040]">Email:</span>
+                  <span className="text-[#737373]">Email:</span>
                   <span className="font-semibold text-white">{formData.email}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8A6040]">Telefon:</span>
+                  <span className="text-[#737373]">Telefon:</span>
                   <span className="font-semibold text-white">{formData.telefon}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8A6040]">Cazare cabană:</span>
+                  <span className="text-[#737373]">Cazare cabană:</span>
                   <span className="font-semibold text-white">{formData.cazareCabana ? 'Da' : 'Nu'}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8A6040]">Zile Participare:</span>
+                  <span className="text-[#737373]">Zile Participare:</span>
                   <span className="font-semibold text-white">
                     {formData.zile === 'toate' ? 'Toată tabăra (6 zile)' : `Zile specifice (${formData.zileAlese.join(', ')})`}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-[#8A6040]">Tip Plată:</span>
+                  <span className="text-[#737373]">Tip Plată:</span>
                   <span className="font-semibold text-[#FA9339] text-right">
                     {formData.plata === 'avans' ? 'Avans online (Se achită acum 180 RON)' : 
                      formData.plata === 'cash' ? 'Plată la InfoDesk (Se achită în tabără)' :
@@ -382,7 +382,7 @@ export default function RegistrationForm() {
                 </div>
               </div>
 
-              <p className="text-[10px] text-[#8A6040] pt-2 leading-relaxed">
+              <p className="text-[10px] text-[#737373] pt-2 leading-relaxed">
                 {formData.plata === 'cash' 
                   ? 'Prin apăsarea butonului de înscriere de mai jos, datele tale vor fi salvate și vei achita suma corespunzătoare la sosirea în tabără.'
                   : 'Prin apăsarea butonului de înscriere de mai jos, vei fi redirecționat securizat către pagina de plată **Stripe** pentru a introduce datele cardului. După finalizarea plății, vei fi trimis înapoi pe acest site și înscrierea ta va fi salvată automat.'
@@ -391,10 +391,10 @@ export default function RegistrationForm() {
             </div>
 
             <div className="flex flex-col-reverse sm:flex-row justify-between pt-4 gap-4">
-              <button type="button" onClick={handlePrev} className="flex items-center justify-center gap-2 text-[#B08060] hover:text-white px-4 py-4 font-bold transition-colors">
+              <button type="button" onClick={handlePrev} className="flex items-center justify-center gap-2 text-[#A3A3A3] hover:text-white px-4 py-4 font-bold transition-colors">
                 <ChevronLeft size={18} /> Pasul Anterior
               </button>
-              <button disabled={isSubmitting} type="submit" className="flex items-center justify-center gap-2 bg-[#FA9339] text-[#0E0C0A] px-8 py-4 rounded-xl font-bold hover:bg-[#D45A10] transition-colors disabled:opacity-50">
+              <button disabled={isSubmitting} type="submit" className="flex items-center justify-center gap-2 bg-[#FA9339] text-[#0A0A0A] px-8 py-4 rounded-xl font-bold hover:bg-[#D45A10] transition-colors disabled:opacity-50">
                 {isSubmitting ? 'Se procesează...' : 'Înscrie-te în tabără!'}
               </button>
             </div>
@@ -415,13 +415,13 @@ export default function RegistrationForm() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-[#1A1208] border border-[#FA9339]/20 p-6 sm:p-8 rounded-3xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto"
+              className="bg-[#121212] border border-[#FA9339]/20 p-6 sm:p-8 rounded-3xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto"
             >
               <h3 className="text-2xl font-outfit font-bold text-[#FA9339] mb-2">Avem standarde, nu reguli!</h3>
-              <p className="text-[#B08060] text-sm mb-6">
+              <p className="text-[#A3A3A3] text-sm mb-6">
                 Fiecare participant al taberei Inspire+ 2026 își asumă faptul că va respecta următoarele standarde:
               </p>
-              <div className="space-y-4 text-[#C9A882] text-sm leading-relaxed">
+              <div className="space-y-4 text-[#D4D4D4] text-sm leading-relaxed">
                 <ul className="space-y-4">
                   {[
                     "Toţi participanţii sunt aşteptaţi să fie prezenţi la programele plenare.",
@@ -441,7 +441,7 @@ export default function RegistrationForm() {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 p-4 bg-[#0E0C0A] rounded-xl border-l-4 border-[#FA9339] text-[#B08060] text-xs leading-relaxed">
+                <div className="mt-6 p-4 bg-[#0A0A0A] rounded-xl border-l-4 border-[#FA9339] text-[#A3A3A3] text-xs leading-relaxed">
                   <span className="font-bold text-white">NOTĂ ADIŢIONALĂ: </span>
                   Nerespectarea regulilor şi îndrumărilor liderilor, urmată de un eventual accident, nu va atrage responsabilitatea organizatorilor.
                 </div>
@@ -450,7 +450,7 @@ export default function RegistrationForm() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="bg-[#0E0C0A] text-[#C9A882] px-6 py-3 rounded-xl font-bold hover:bg-[#1C1308] hover:text-white transition-colors border border-[#FA9339]/20"
+                  className="bg-[#0A0A0A] text-[#D4D4D4] px-6 py-3 rounded-xl font-bold hover:bg-[#171717] hover:text-white transition-colors border border-[#FA9339]/20"
                 >
                   Am înțeles
                 </button>

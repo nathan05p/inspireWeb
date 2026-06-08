@@ -40,7 +40,7 @@ const expectData = [
 
 export default function CampWhatToExpect() {
   return (
-    <section id="what-to-expect" className="py-20 sm:py-32 px-4 sm:px-6 relative bg-[#0E0C0A] overflow-hidden border-b border-[#FA9339]/10">
+    <section id="what-to-expect" className="py-20 sm:py-32 px-4 sm:px-6 relative bg-[#0A0A0A] overflow-hidden border-b border-[#FA9339]/10">
       
       {/* Title */}
       <div className="max-w-screen-xl mx-auto text-center mb-16 sm:mb-24 relative z-10">
@@ -104,7 +104,7 @@ export default function CampWhatToExpect() {
                   {/* Text - Right */}
                   <div className="z-20 flex-1 text-left">
                     <h3 className="text-[#FA9339] font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
-                    <p className="text-[#C9A882] text-[14px] md:text-base leading-relaxed font-light">
+                    <p className="text-[#D4D4D4] text-[14px] md:text-base leading-relaxed font-light">
                       {item.desc}
                     </p>
                   </div>
