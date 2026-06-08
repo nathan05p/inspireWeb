@@ -392,7 +392,7 @@ export default function Camp() {
           </div>
         </motion.div>
         {/* MARQUEE */}
-        <div className="absolute bottom-0 left-0 w-full bg-[#0E0C0A] py-3 sm:py-4 z-20">
+        <div className="absolute bottom-0 left-0 w-full bg-[#0E0C0A] py-3 sm:py-4 border-y border-[#FA9339]/40 z-20">
           <Marquee
             items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CROSS')}
             speed={40}
