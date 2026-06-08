@@ -40,7 +40,7 @@ export default function CampAteliere() {
   };
 
   return (
-    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#E8681A]/10 bg-[#0E0C0A]">
+    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10 bg-[#0E0C0A]">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
         
         {/* Left Column - Sticky Title */}
@@ -61,7 +61,7 @@ export default function CampAteliere() {
               transition={{ delay: 0.1 }}
               className="mt-6 space-y-4 max-w-sm"
             >
-              <p className="text-[#E8681A] text-sm font-bold tracking-[0.2em] uppercase">
+              <p className="text-[#FA9339] text-sm font-bold tracking-[0.2em] uppercase">
                 inspire+ 2026 — The Cross
               </p>
               <p className="text-[#C9A882] text-base sm:text-lg leading-relaxed">
@@ -80,7 +80,7 @@ export default function CampAteliere() {
         {/* Right Column - Interactive List */}
         <div className="lg:col-span-8 relative">
           {/* Main vertical dashed line connecting all items */}
-          <div className="absolute left-[27px] sm:left-[35px] top-12 bottom-12 w-px border-l-2 border-dashed border-[#E8681A]/15 hidden sm:block" />
+          <div className="absolute left-[27px] sm:left-[35px] top-12 bottom-12 w-px border-l-2 border-dashed border-[#FA9339]/15 hidden sm:block" />
 
           <div className="flex flex-col gap-6 sm:gap-8">
             {ateliereData.map((atelier, i) => {
@@ -98,22 +98,22 @@ export default function CampAteliere() {
                 >
                   {/* Connection Node and Horizontal Line */}
                   <div className="hidden sm:flex items-start shrink-0 w-16 pt-6 relative z-10">
-                    <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-500 relative bg-[#0E0C0A] mx-auto ${isExpanded ? 'border-[#E8681A] shadow-[0_0_10px_rgba(232,104,26,0.5)]' : 'border-[#3A1F00] group-hover:border-[#E8681A]/50'}`} />
+                    <div className={`w-4 h-4 rounded-full border-2 transition-colors duration-500 relative bg-[#0E0C0A] mx-auto ${isExpanded ? 'border-[#FA9339] shadow-[0_0_10px_rgba(232,104,26,0.5)]' : 'border-[#3A1F00] group-hover:border-[#FA9339]/50'}`} />
                     {/* Horizontal connection line to the card */}
-                    <div className="absolute left-1/2 right-[-1rem] top-[30px] w-full border-t-2 border-dashed border-[#E8681A]/15 -z-10" />
+                    <div className="absolute left-1/2 right-[-1rem] top-[30px] w-full border-t-2 border-dashed border-[#FA9339]/15 -z-10" />
                   </div>
 
                   {/* Content Container */}
                   <motion.div 
                     layout
                     onClick={() => !isExpanded && toggleItem(atelier.id)}
-                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#1C1308] border-[#E8681A]/30 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#1C1308]/60'}`}
+                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#1C1308] border-[#FA9339]/30 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#1C1308]/60'}`}
                   >
                     {/* Header: Title & Close/Expand Button */}
                     <motion.div layout className={`p-4 sm:p-6 lg:p-8 flex items-center justify-between gap-4 ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>
                       <motion.h3 
                         layout="position"
-                        className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 break-words flex-1 ${isExpanded ? 'text-3xl sm:text-4xl md:text-5xl text-[#E8681A]' : 'text-3xl sm:text-5xl lg:text-6xl text-[#F5E6D3] group-hover:text-white'}`}
+                        className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 break-words flex-1 ${isExpanded ? 'text-3xl sm:text-4xl md:text-5xl text-[#FA9339]' : 'text-3xl sm:text-5xl lg:text-6xl text-[#F5E6D3] group-hover:text-white'}`}
                       >
                         {atelier.title}
                       </motion.h3>
@@ -123,7 +123,7 @@ export default function CampAteliere() {
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#3A1F00]/50 flex items-center justify-center text-[#8A6040] group-hover:text-[#E8681A] group-hover:border-[#E8681A]/40 transition-all shadow-sm"
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#3A1F00]/50 flex items-center justify-center text-[#8A6040] group-hover:text-[#FA9339] group-hover:border-[#FA9339]/40 transition-all shadow-sm"
                           aria-label="Deschide atelier"
                         >
                           <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -140,7 +140,7 @@ export default function CampAteliere() {
                             e.stopPropagation();
                             toggleItem(atelier.id);
                           }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0E0C0A] border border-[#3A1F00]/50 flex items-center justify-center text-[#8A6040] hover:text-white hover:bg-[#1C1308] hover:border-[#E8681A]/30 transition-all shadow-sm"
+                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0E0C0A] border border-[#3A1F00]/50 flex items-center justify-center text-[#8A6040] hover:text-white hover:bg-[#1C1308] hover:border-[#FA9339]/30 transition-all shadow-sm"
                           aria-label="Ascunde atelier"
                         >
                           <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />

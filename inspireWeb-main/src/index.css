@@ -5,7 +5,7 @@
   --color-primary: #F5E6D3;
   --color-primary-dark: #C4703A;
   --color-slate: #12100E;
-  --color-accent: #E8681A;
+  --color-accent: #FA9339;
   --font-serif: "Pavot", "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 }
@@ -35,6 +35,24 @@
        url('/fonts/Flaviotte.woff') format('woff'),
        url('/fonts/Flaviotte.ttf') format('truetype');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDSans';
+  src: url('/fonts/BDSans-Thin.woff2') format('woff2'),
+       url('/fonts/BDSans-Thin.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BDSans';
+  src: url('/fonts/BDSans-Regular.woff2') format('woff2'),
+       url('/fonts/BDSans-Regular.woff') format('woff');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -112,7 +130,7 @@
   }
 
   ::selection {
-    background-color: #E8681A;
+    background-color: #FA9339;
     color: #0E0C0A;
   }
 
@@ -155,4 +173,4 @@ html.lenis, html.lenis body {
 /* Hide scrollbars globally */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #E8681A30; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #FA933930; border-radius: 3px; }

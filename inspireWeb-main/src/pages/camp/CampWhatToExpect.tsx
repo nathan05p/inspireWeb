@@ -40,7 +40,7 @@ const expectData = [
 
 export default function CampWhatToExpect() {
   return (
-    <section id="what-to-expect" className="py-20 sm:py-32 px-4 sm:px-6 relative bg-[#0E0C0A] overflow-hidden border-b border-[#E8681A]/10">
+    <section id="what-to-expect" className="py-20 sm:py-32 px-4 sm:px-6 relative bg-[#0E0C0A] overflow-hidden border-b border-[#FA9339]/10">
       
       {/* Title */}
       <div className="max-w-screen-xl mx-auto text-center mb-16 sm:mb-24 relative z-10">
@@ -50,7 +50,7 @@ export default function CampWhatToExpect() {
           viewport={{ once: true }}
           className="text-4xl sm:text-6xl md:text-7xl font-outfit font-bold tracking-tight text-white"
         >
-          inspire<span className="font-bold text-[#E8681A] italic">+</span><span className="italic">camp</span>
+          inspire<span className="font-bold text-[#FA9339] italic">+</span><span className="italic">camp</span>
         </motion.h2>
       </div>
 
@@ -103,7 +103,7 @@ export default function CampWhatToExpect() {
 
                   {/* Text - Right */}
                   <div className="z-20 flex-1 text-left">
-                    <h3 className="text-[#E8681A] font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
+                    <h3 className="text-[#FA9339] font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
                     <p className="text-[#C9A882] text-[14px] md:text-base leading-relaxed font-light">
                       {item.desc}
                     </p>
