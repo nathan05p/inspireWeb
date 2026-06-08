@@ -364,16 +364,29 @@ export default function Camp() {
           transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Text Container */}
-          <div className="max-w-4xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
+          <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
             <motion.h1
-              className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] sm:leading-[1.1] text-center"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              style={{ fontFamily: '"outfit", sans-serif', textShadow: '0 4px 40px rgba(0,0,0,0.8), 0 2px 10px rgba(0,0,0,0.5)' }}
+              style={{
+                fontFamily: '"BDScript", cursive',
+                fontSize: 'clamp(2rem, 6vw, 5.5rem)',
+                lineHeight: 1.15,
+                textShadow: '0 4px 40px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.6)',
+                color: 'white',
+                fontWeight: 400,
+                letterSpacing: '0.01em',
+              }}
             >
-              O generație mai aproape de cer, <br className="hidden md:block" />
-              mai aproape de oameni și <span className="italic text-deepsea-300">mai de folos Împărăției.</span>
+              O generație mai aproape de cer,{' '}
+              <br className="hidden sm:block" />
+              mai aproape de oameni{' '}
+              <br className="hidden sm:block" />
+              și{' '}
+              <span style={{ color: '#E8681A' }}>
+                mai de folos Împărăției.
+              </span>
             </motion.h1>
           </div>
         </motion.div>
