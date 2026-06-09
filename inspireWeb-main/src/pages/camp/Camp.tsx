@@ -643,6 +643,9 @@ export default function Camp() {
           {/* THE LIVE COUNTDOWN */}
           <CountdownTimer targetDate="2026-07-22T00:00:00" />
         </div>
+
+        {/* Gradient transition to footer */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-64 bg-gradient-to-b from-transparent to-[#141414] pointer-events-none z-10" />
       </section>
 
       {/* FOOTER */}
@@ -650,8 +653,8 @@ export default function Camp() {
         {/* Container with proper height */}
         <div className="relative min-h-[420px] sm:min-h-[500px] md:min-h-[520px]">
           
-          {/* SVG arc decoration - anchored bottom-left, extends off-screen */}
-          <div className="absolute -bottom-[250px] -left-[250px] sm:-bottom-[300px] sm:-left-[300px] md:-bottom-[320px] md:-left-[320px] w-[700px] h-[700px] sm:w-[900px] sm:h-[900px] md:w-[1000px] md:h-[1000px] pointer-events-none">
+          {/* SVG arc decoration - centered exactly on the bottom-left corner */}
+          <div className="absolute -bottom-[250px] -left-[250px] sm:-bottom-[350px] sm:-left-[350px] md:-bottom-[450px] md:-left-[450px] w-[500px] h-[500px] sm:w-[700px] sm:h-[700px] md:w-[900px] md:h-[900px] pointer-events-none">
             <svg viewBox="0 0 200 200" className="w-full h-full">
               {/* Dashed circle - inner */}
               <circle
