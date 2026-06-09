@@ -4,7 +4,8 @@ import Lenis from 'lenis';
 import {
   MapPin, Mail, Phone, AtSign, CheckCircle,
   Tent, Backpack,
-  Plus, BookOpen, Map, ChevronLeft, ChevronRight
+  Plus, BookOpen, Map, ChevronLeft, ChevronRight,
+  Instagram, Facebook
 } from 'lucide-react';
 import CampNavbar from './CampNavbar';
 import Marquee from '../../components/Marquee';
@@ -78,9 +79,9 @@ function CampRotatingCircle() {
             d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
             fill="transparent"
           />
-          <text className="text-[10.5px] font-bold tracking-[0.2em] uppercase" fill="#FFFFFF">
+          <text className="text-[8.5px] font-bold tracking-[0.2em] uppercase" fill="#FFFFFF">
             <textPath href="#textPathCamp" startOffset="0%">
-              • INSPIRE+ THE CROSS • INSPIRE+ THE CROSS •
+              • INSPIRE+ THE CROSS • INSPIRE+ THE CROSS 
             </textPath>
           </text>
         </svg>
@@ -638,22 +639,48 @@ export default function Camp() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer id="contact" className="bg-[#0A0A0A] border-t border-[#FA9339]/15 px-5 sm:px-8 md:px-16 py-10 sm:py-16 flex flex-col md:flex-row justify-between items-start gap-8 sm:gap-12">
-        <div className="max-w-xs">
-          <div className="w-16 h-16 rounded-full border border-[#FA9339]/40 flex items-center justify-center mb-8 hover:border-[#FA9339] hover:text-[#FA9339] transition-colors cursor-pointer text-white">
-            <span className="text-current font-outfit tracking-tight text-base leading-none flex items-center">
-              <span className="italic tracking-tight">inspire</span>
-              <span className="font-sans font-bold text-xs ml-0.5 mt-1">+</span>
-            </span>
-          </div>
-          <p className="text-[#A3A3A3] text-[10px] tracking-[0.3em] font-bold uppercase mb-2">inspire+</p>
+      {/* FOOTER - Redesigned Arc Layout */}
+      <footer id="contact" className="relative bg-[#111111] overflow-hidden min-h-[350px] sm:min-h-[450px] flex items-end p-8 sm:p-12 pb-10 sm:pb-16">
+        {/* Giant curved text and dashed line */}
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] pointer-events-none">
+          <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+            {/* Dashed line */}
+            <path
+              d="M 0,35 A 65,65 0 0,1 65,100"
+              fill="transparent"
+              stroke="#ffffff"
+              strokeWidth="0.8"
+              strokeDasharray="3 3"
+            />
+            {/* Text arc path */}
+            <path
+              id="footerArc"
+              d="M 0,12 A 88,88 0 0,1 88,100"
+              fill="transparent"
+            />
+            <text className="text-[17px] sm:text-[18px] font-black font-outfit uppercase" fill="#ffffff" style={{ letterSpacing: '0.15em' }}>
+              <textPath href="#footerArc" startOffset="6%">
+                I N S P I R E +
+              </textPath>
+            </text>
+          </svg>
         </div>
 
-        <div className="flex flex-col items-start md:items-end gap-2 md:text-right">
-          <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="text-[#A3A3A3] hover:text-[#FA9339] text-xs font-bold tracking-widest transition-colors">INSTAGRAM</a>
-          <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="text-[#A3A3A3] hover:text-[#FA9339] text-xs font-bold tracking-widest transition-colors">FACEBOOK</a>
-          <p className="text-[#A3A3A3] text-xs mt-4">© {new Date().getFullYear()} inspire+</p>
+        <div className="relative z-10 w-full flex justify-between items-end">
+          {/* Social Links - Inside the circle */}
+          <div className="flex flex-col gap-4 pl-6 sm:pl-10 pb-6 sm:pb-10">
+            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-[#FA9339] transition-colors group">
+              <Instagram size={22} className="group-hover:scale-110 transition-transform" />
+              <span className="text-xs sm:text-sm font-outfit font-medium tracking-widest mt-0.5">INSTAGRAM</span>
+            </a>
+            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-[#FA9339] transition-colors group">
+              <Facebook size={22} className="group-hover:scale-110 transition-transform" />
+              <span className="text-xs sm:text-sm font-outfit font-medium tracking-widest mt-0.5">FACEBOOK</span>
+            </a>
+          </div>
+
+          {/* Copyright */}
+          <p className="text-[#A3A3A3] text-sm sm:text-lg md:text-xl font-medium tracking-wide">© 2026 inspire+</p>
         </div>
       </footer>
     </motion.div>
