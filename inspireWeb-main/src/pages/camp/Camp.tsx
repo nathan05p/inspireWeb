@@ -86,7 +86,7 @@ function CampRotatingCircle() {
         </svg>
       </motion.div>
       <div className="w-16 h-16 rounded-full bg-[#171717] border border-[#FA9339]/30 flex items-center justify-center text-[#FA9339]">
-        <Tent size={24} />
+        <span className="font-outfit font-bold text-2xl">i+</span>
       </div>
     </div>
   );
@@ -603,41 +603,20 @@ export default function Camp() {
 
       {/* FINAL CTA & COUNTDOWN */}
       <section className="relative py-16 sm:py-24 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center bg-[#0A0A0A] border-t border-[#FA9339]/10">
-        {/* Animated Gradient Background */}
-        <div className="absolute inset-0 animate-gradient-move" style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #1A0F05 25%, #0A0A0A 50%, #0F0A04 75%, #0A0A0A 100%)', backgroundSize: '400% 400%' }} />
+        {/* Animated Gradient Background matching the image */}
+        <div className="absolute inset-0 bg-[#A65A20] animate-gradient-move opacity-90" 
+             style={{ 
+               backgroundImage: `
+                 radial-gradient(circle at 15% 15%, #FFD480 0%, transparent 60%),
+                 radial-gradient(circle at 85% 15%, #534568 0%, transparent 50%),
+                 radial-gradient(circle at 50% 85%, #D87A30 0%, transparent 70%),
+                 radial-gradient(circle at 20% 80%, #C96825 0%, transparent 60%)
+               `,
+               backgroundSize: '200% 200%' 
+             }} />
         
-        {/* Glow Blob 1 */}
-        <motion.div
-          className="absolute w-[500px] h-[500px] rounded-full opacity-[0.07] pointer-events-none blur-[120px]"
-          style={{ background: 'radial-gradient(circle, #FA9339 0%, transparent 70%)' }}
-          animate={{
-            x: [0, 80, -60, 0],
-            y: [0, -50, 30, 0],
-          }}
-          transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
-        />
-        {/* Glow Blob 2 */}
-        <motion.div
-          className="absolute w-[400px] h-[400px] rounded-full opacity-[0.05] pointer-events-none blur-[100px]"
-          style={{ background: 'radial-gradient(circle, #C4703A 0%, transparent 70%)', right: '10%', bottom: '10%' }}
-          animate={{
-            x: [0, -70, 50, 0],
-            y: [0, 60, -40, 0],
-          }}
-          transition={{ repeat: Infinity, duration: 16, ease: "easeInOut" }}
-        />
-
-        {/* Slow moving text background */}
-        <div className="absolute top-[40%] left-0 w-[200vw] -translate-y-1/2 pointer-events-none opacity-[0.03] flex">
-          <motion.div
-            animate={{ x: [0, -1000] }}
-            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-            className="flex whitespace-nowrap"
-          >
-            <h1 className="text-[15vw] font-outfit tracking-tight leading-none mr-12 text-[#FA9339]">INSPIRAȚIE • NATURĂ • COMUNITATE •</h1>
-            <h1 className="text-[15vw] font-outfit tracking-tight leading-none mr-12 text-[#FA9339]">INSPIRAȚIE • NATURĂ • COMUNITATE •</h1>
-          </motion.div>
-        </div>
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-black/30" />
 
         <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-5xl">
           <CampRotatingCircle />
