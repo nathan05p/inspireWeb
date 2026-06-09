@@ -142,25 +142,40 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
   );
 }
 
+import photo1 from "../../assets/gallery/photo_1.jpg";
+import photo2 from "../../assets/gallery/photo_2.jpg";
+import photo3 from "../../assets/gallery/photo_3.jpg";
+import photo4 from "../../assets/gallery/photo_4.jpg";
+import photo5 from "../../assets/gallery/photo_5.jpg";
+import photo6 from "../../assets/gallery/photo_6.jpg";
+import photo7 from "../../assets/gallery/photo_7.jpg";
+import photo8 from "../../assets/gallery/photo_8.jpg";
+import photo9 from "../../assets/gallery/photo_9.jpg";
+import photo10 from "../../assets/gallery/photo_10.jpg";
+import photo11 from "../../assets/gallery/photo_11.jpg";
+import photo12 from "../../assets/gallery/photo_12.jpg";
+import photo13 from "../../assets/gallery/photo_13.jpg";
+import photo14 from "../../assets/gallery/photo_14.jpg";
+
 function PhotoGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   const images = [
-    "/gallery/optimized/photo_1.jpg",
-    "/gallery/optimized/photo_2.jpg",
-    "/gallery/optimized/photo_3.jpg",
-    "/gallery/optimized/photo_4.jpg",
-    "/gallery/optimized/photo_5.jpg",
-    "/gallery/optimized/photo_6.jpg",
-    "/gallery/optimized/photo_7.jpg",
-    "/gallery/optimized/photo_8.jpg",
-    "/gallery/optimized/photo_9.jpg",
-    "/gallery/optimized/photo_10.jpg",
-    "/gallery/optimized/photo_11.jpg",
-    "/gallery/optimized/photo_12.jpg",
-    "/gallery/optimized/photo_13.jpg",
-    "/gallery/optimized/photo_14.jpg",
+    photo1,
+    photo2,
+    photo3,
+    photo4,
+    photo5,
+    photo6,
+    photo7,
+    photo8,
+    photo9,
+    photo10,
+    photo11,
+    photo12,
+    photo13,
+    photo14,
   ];
 
   // Duplicate the array multiple times to simulate infinite scroll
