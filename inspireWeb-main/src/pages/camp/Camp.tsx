@@ -118,12 +118,12 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-8 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-4xl mx-auto px-4">
+    <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-20 lg:gap-24 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-4xl mx-auto px-4">
       {Object.entries(timeLeft).map(([unit, value]) => (
-        <div key={unit} className="flex flex-col items-center flex-1">
-          <div className="bg-[#121212] rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-3 sm:mb-4">
+        <div key={unit} className="flex flex-col items-center">
+          <div className="flex items-center justify-center mb-3 sm:mb-5">
             <span 
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight font-bold tabular-nums"
+              className="text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] tracking-tight font-bold tabular-nums leading-none"
               style={{ 
                 fontFamily: '"Unbounded", sans-serif',
                 WebkitTextStroke: '2px rgba(255, 255, 255, 0.9)', 
@@ -133,7 +133,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
               {value.toString().padStart(2, '0')}
             </span>
           </div>
-          <span className="text-[10px] md:text-xs tracking-[0.3em] font-bold uppercase text-[#FA9339]">
+          <span className="text-xs md:text-sm tracking-[0.4em] font-bold uppercase text-[#FA9339]">
             {unit === 'days' ? 'Zile' : unit === 'hours' ? 'Ore' : unit === 'minutes' ? 'Min' : 'Sec'}
           </span>
         </div>
