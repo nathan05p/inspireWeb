@@ -345,7 +345,6 @@ export default function Camp() {
 
 
   const heroRef = useRef<HTMLElement>(null);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const faqScrollRef = useRef<HTMLDivElement>(null);
   const [isFaqHovered, setIsFaqHovered] = useState(false);
@@ -376,10 +375,6 @@ export default function Camp() {
     animationFrameId = requestAnimationFrame(scroll);
     return () => cancelAnimationFrame(animationFrameId);
   }, [isFaqHovered]);
-
-  useEffect(() => {
-    setTimeout(() => setIsVideoLoaded(true), 500);
-  }, []);
 
 
 
@@ -737,7 +732,7 @@ export default function Camp() {
             </svg>
           </div>
 
-          {/* Social links - absolutely positioned inside the curve */}
+          {/* Social links & Copyright - absolutely positioned inside the curve */}
           <div className="absolute bottom-12 left-12 sm:bottom-20 sm:left-20 md:bottom-24 md:left-24 flex flex-col gap-6 sm:gap-8 z-20">
             <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white hover:text-[#FA9339] transition-colors group">
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
@@ -747,15 +742,9 @@ export default function Camp() {
               <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               <span className="text-[15px] sm:text-[17px] md:text-lg font-outfit font-medium tracking-[0.2em]">FACEBOOK</span>
             </a>
-          </div>
-
-          {/* Content layer for remaining items */}
-          <div className="relative z-10 h-full flex flex-col justify-end min-h-[420px] sm:min-h-[500px] md:min-h-[520px] px-8 sm:px-12 md:px-16 pb-10 sm:pb-14">
             
-            <div className="flex justify-end items-end w-full h-full">
-              {/* Copyright - bottom right */}
-              <p className="text-[#777777] text-sm sm:text-base font-outfit tracking-wide mt-auto">© 2026 inspire+</p>
-            </div>
+            {/* Copyright integrated smoothly into the bottom left section */}
+            <p className="text-[#777777] text-sm sm:text-base font-outfit tracking-wide mt-2">© 2026 inspire+</p>
           </div>
 
         </div>
