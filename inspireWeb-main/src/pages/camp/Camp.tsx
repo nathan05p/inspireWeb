@@ -705,46 +705,54 @@ export default function Camp() {
       {/* FOOTER */}
       <footer id="contact" className="relative bg-[#141414] overflow-hidden">
         {/* Container with proper height */}
-        <div className="relative min-h-[420px] sm:min-h-[500px] md:min-h-[520px]">
+        <div className="relative min-h-[420px] sm:min-h-[500px] md:min-h-[600px]">
           
           {/* SVG arc decoration - centered exactly on the bottom-left corner */}
-          <div className="absolute -bottom-[350px] -left-[350px] sm:-bottom-[450px] sm:-left-[450px] md:-bottom-[550px] md:-left-[550px] w-[700px] h-[700px] sm:w-[900px] sm:h-[900px] md:w-[1100px] md:h-[1100px] pointer-events-none">
-            <svg viewBox="0 0 200 200" className="w-full h-full">
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] pointer-events-none">
+            <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
               {/* Dashed circle - inner */}
               <circle
-                cx="100" cy="100" r="72"
+                cx="0" cy="100" r="55"
                 fill="transparent"
                 stroke="#ffffff"
-                strokeWidth="0.6"
-                strokeDasharray="5 5"
+                strokeWidth="0.4"
+                strokeDasharray="2.5 2.5"
               />
               {/* Text arc path - outer */}
               <path
                 id="footerTextArc"
-                d="M 100,100 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0"
+                d="M 0,25 A 75,75 0 0,1 75,100"
                 fill="transparent"
               />
-              <text fill="#ffffff" fontSize="15" fontWeight="800" fontFamily="Outfit, sans-serif" letterSpacing="0.25em">
-                <textPath href="#footerTextArc" startOffset="22%">
-                  INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp;
+              <text fill="#ffffff" fontSize="11" fontWeight="900" fontFamily='"BDSans", "Outfit", sans-serif' letterSpacing="0.2em">
+                <textPath href="#footerTextArc" startOffset="6%">
+                  INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp; INSPIRE+
                 </textPath>
               </text>
             </svg>
           </div>
 
           {/* Social links & Copyright - absolutely positioned inside the curve */}
-          <div className="absolute bottom-12 left-12 sm:bottom-20 sm:left-20 md:bottom-24 md:left-24 flex flex-col gap-6 sm:gap-8 z-20">
-            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white hover:text-[#FA9339] transition-colors group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              <span className="text-[15px] sm:text-[17px] md:text-lg font-outfit font-medium tracking-[0.2em]">INSTAGRAM</span>
-            </a>
-            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white hover:text-[#FA9339] transition-colors group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              <span className="text-[15px] sm:text-[17px] md:text-lg font-outfit font-medium tracking-[0.2em]">FACEBOOK</span>
+          <div className="absolute bottom-12 left-10 sm:bottom-16 sm:left-14 md:bottom-20 md:left-20 flex flex-col gap-8 sm:gap-10 z-20">
+            
+            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-start gap-2 text-white hover:text-[#FA9339] transition-colors group">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform origin-left"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <span className="text-[14px] sm:text-[16px] md:text-[18px] font-outfit font-light tracking-[0.2em] mt-1">INSTAGRAM</span>
             </a>
             
-            {/* Copyright integrated smoothly into the bottom left section */}
-            <p className="text-[#777777] text-sm sm:text-base font-outfit tracking-wide mt-2">© 2026 inspire+</p>
+            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex flex-col items-start gap-2 text-white hover:text-[#FA9339] transition-colors group">
+              {/* Using a solid circle Facebook icon to match the user's reference */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 group-hover:scale-110 transition-transform origin-left text-white group-hover:text-[#FA9339]">
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
+              </svg>
+              <span className="text-[14px] sm:text-[16px] md:text-[18px] font-outfit font-light tracking-[0.2em] mt-1">FACEBOOK</span>
+            </a>
+            
+          </div>
+          
+          {/* Copyright moved to bottom right to allow clean social links inside curve */}
+          <div className="absolute bottom-10 right-10 z-20">
+             <p className="text-[#555555] text-xs sm:text-sm font-outfit tracking-wider">© 2026 inspire+</p>
           </div>
 
         </div>
