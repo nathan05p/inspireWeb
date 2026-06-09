@@ -191,7 +191,7 @@ export default function RegistrationForm() {
   }
 
   return (
-    <div className="bg-[#121212] border border-[#FA9339]/15 p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
+    <div className="bg-[#121212] border border-[#E0873C]/12 p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
       <h3 className="text-3xl font-outfit tracking-tight mb-8 text-white">Înscrieri</h3>
 
       {/* Progress */}

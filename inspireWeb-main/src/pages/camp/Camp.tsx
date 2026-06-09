@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import {
   MapPin, Mail, Phone, AtSign, CheckCircle,
@@ -80,7 +80,7 @@ function CampRotatingCircle() {
           />
           <text className="text-[10.5px] font-bold tracking-[0.2em] uppercase" fill="#FA9339">
             <textPath href="#textPathCamp" startOffset="0%">
-              • INSPIRE PLUS • TIMISOARA • CAMP 2026
+              • INSPIRE+ CAMP • INSPIRE+ CAMP •
             </textPath>
           </text>
         </svg>
@@ -265,8 +265,8 @@ export default function Camp() {
     };
   }, []);
 
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+
+
   const heroRef = useRef<HTMLElement>(null);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
@@ -375,7 +375,7 @@ export default function Camp() {
                 lineHeight: 1.4,
                 textShadow: '0 4px 40px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.6)',
                 color: 'white',
-                fontWeight: 300,
+                fontWeight: 500,
                 letterSpacing: '0.1em',
                 textTransform: 'uppercase'
               }}
@@ -392,13 +392,19 @@ export default function Camp() {
           </div>
         </motion.div>
         {/* MARQUEE */}
-        <div className="absolute bottom-0 left-0 w-full bg-[#0A0A0A] py-3 sm:py-4 border-y border-[#FA9339]/40 z-20">
+        <div className="absolute bottom-0 left-0 w-full bg-black py-3 sm:py-4 border-y border-[#FA9339]/50 z-20">
           <Marquee
-            items={Array(10).fill('INSPIRE+ CAMP 2026 • THE CROSS')}
+            items={Array(10).fill(null).map((_, i) => (
+              <span key={i} className="inline-flex items-center gap-3">
+                <span className="italic font-light">INSPIRE+ CAMP 2026</span>
+                <span className="text-[#FA9339]/40">•</span>
+                <span className="font-semibold tracking-wider">THE CROSS</span>
+              </span>
+            ))}
             speed={40}
-            separator=""
+            separator="•"
             className="py-1"
-            itemClassName="text-xs md:text-sm font-bold tracking-[0.3em] text-[#FA9339] mr-8"
+            itemClassName="text-xs md:text-sm tracking-[0.3em] text-white mr-8"
           />
         </div>
       </section>
@@ -555,9 +561,9 @@ export default function Camp() {
       </section>
 
       {/* LOGISTICS & INFO */}
-      <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-sm md:text-base tracking-[0.3em] font-bold text-[#FA9339] mb-16 text-center">
-          INFORMAȚII IMPORTANTE
+      <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#E0873C]/10">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-outfit font-bold tracking-tight text-white mb-12 sm:mb-16 text-center uppercase">
+          INFORMAȚII <span className="italic text-[#E0873C]">IMPORTANTE</span>
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
           {/* Registration Form */}
@@ -596,14 +602,30 @@ export default function Camp() {
       </section>
 
       {/* FINAL CTA & COUNTDOWN */}
-      <section className="relative py-24 sm:py-36 md:py-48 overflow-hidden flex flex-col items-center justify-center text-center bg-[#0A0A0A] border-t border-[#FA9339]/10">
+      <section className="relative py-16 sm:py-24 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center bg-[#0A0A0A] border-t border-[#FA9339]/10">
+        {/* Animated Gradient Background */}
+        <div className="absolute inset-0 animate-gradient-move" style={{ background: 'linear-gradient(135deg, #0A0A0A 0%, #1A0F05 25%, #0A0A0A 50%, #0F0A04 75%, #0A0A0A 100%)', backgroundSize: '400% 400%' }} />
+        
+        {/* Glow Blob 1 */}
         <motion.div
-          className="absolute inset-0 w-full h-full opacity-[0.06]"
-          style={{ y }}
-        >
-          <img src="/poza.png" alt="Background" className="w-full h-full object-cover grayscale" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-transparent to-[#0A0A0A]" />
-        </motion.div>
+          className="absolute w-[500px] h-[500px] rounded-full opacity-[0.07] pointer-events-none blur-[120px]"
+          style={{ background: 'radial-gradient(circle, #FA9339 0%, transparent 70%)' }}
+          animate={{
+            x: [0, 80, -60, 0],
+            y: [0, -50, 30, 0],
+          }}
+          transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
+        />
+        {/* Glow Blob 2 */}
+        <motion.div
+          className="absolute w-[400px] h-[400px] rounded-full opacity-[0.05] pointer-events-none blur-[100px]"
+          style={{ background: 'radial-gradient(circle, #C4703A 0%, transparent 70%)', right: '10%', bottom: '10%' }}
+          animate={{
+            x: [0, -70, 50, 0],
+            y: [0, 60, -40, 0],
+          }}
+          transition={{ repeat: Infinity, duration: 16, ease: "easeInOut" }}
+        />
 
         {/* Slow moving text background */}
         <div className="absolute top-[40%] left-0 w-[200vw] -translate-y-1/2 pointer-events-none opacity-[0.03] flex">

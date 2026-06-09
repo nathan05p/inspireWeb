@@ -174,3 +174,16 @@ html.lenis, html.lenis body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #FA933930; border-radius: 3px; }
+
+/* Animated gradient for final CTA section */
+@keyframes gradient-move {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 50% 100%; }
+  75% { background-position: 0% 50%; }
+  100% { background-position: 0% 0%; }
+}
+
+.animate-gradient-move {
+  animation: gradient-move 20s ease infinite;
+}

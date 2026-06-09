@@ -107,7 +107,7 @@ export default function CampAteliere() {
                   <motion.div 
                     layout
                     onClick={() => !isExpanded && toggleItem(atelier.id)}
-                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#171717] border-[#FA9339]/30 shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#171717]/60'}`}
+                    className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#1A1A1A] border-[#2A2A2A] shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#171717]/60'}`}
                   >
                     {/* Header: Title & Close/Expand Button */}
                     <motion.div layout className={`p-4 sm:p-6 lg:p-8 flex items-center justify-between gap-4 ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>

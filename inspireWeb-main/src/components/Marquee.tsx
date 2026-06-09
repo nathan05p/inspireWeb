@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import { useRef, type ReactNode } from 'react';
 import { motion, useAnimationFrame, useMotionValue } from 'framer-motion';
 
 interface MarqueeProps {
-  items: string[];
+  items: ReactNode[];
   speed?: number;
   separator?: string;
   className?: string;
