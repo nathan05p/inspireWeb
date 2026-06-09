@@ -86,7 +86,7 @@ function CampRotatingCircle() {
         </svg>
       </motion.div>
       <div className="w-16 h-16 rounded-full bg-[#121212] flex items-center justify-center">
-        <img src="/logo.png" alt="i+" className="w-8 h-8 object-contain" style={{ filter: 'invert(1) brightness(2)' }} />
+        <img src="/logo.png" alt="i+" className="w-8 h-8 object-contain" style={{ filter: 'brightness(2)' }} />
       </div>
     </div>
   );
