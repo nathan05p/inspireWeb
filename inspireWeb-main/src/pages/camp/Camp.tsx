@@ -78,15 +78,15 @@ function CampRotatingCircle() {
             d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
             fill="transparent"
           />
-          <text className="text-[10.5px] font-bold tracking-[0.2em] uppercase" fill="#FA9339">
+          <text className="text-[10.5px] font-bold tracking-[0.2em] uppercase" fill="#FFFFFF">
             <textPath href="#textPathCamp" startOffset="0%">
               • INSPIRE+ CAMP • INSPIRE+ CAMP •
             </textPath>
           </text>
         </svg>
       </motion.div>
-      <div className="w-16 h-16 rounded-full bg-[#171717] border border-[#FA9339]/30 flex items-center justify-center text-[#FA9339]">
-        <span className="font-outfit font-bold text-2xl">i+</span>
+      <div className="w-16 h-16 rounded-full bg-[#121212] flex items-center justify-center">
+        <img src="/logo.png" alt="i+" className="w-8 h-8 object-contain" style={{ filter: 'invert(1) brightness(2)' }} />
       </div>
     </div>
   );
@@ -121,9 +121,8 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
     <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-8 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-4xl mx-auto px-4">
       {Object.entries(timeLeft).map(([unit, value]) => (
         <div key={unit} className="flex flex-col items-center flex-1">
-          <div className="bg-[#121212] border border-[#FA9339]/20 shadow-sm rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-2 sm:mb-4 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FA9339]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <span className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-outfit tracking-tight text-white font-bold tabular-nums">
+          <div className="bg-[#121212] rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-3 sm:mb-4">
+            <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-outfit tracking-tight text-white font-bold tabular-nums">
               {value.toString().padStart(2, '0')}
             </span>
           </div>
@@ -602,21 +601,21 @@ export default function Camp() {
       </section>
 
       {/* FINAL CTA & COUNTDOWN */}
-      <section className="relative py-16 sm:py-24 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center bg-[#0A0A0A] border-t border-[#FA9339]/10">
-        {/* Animated Gradient Background matching the image */}
-        <div className="absolute inset-0 bg-[#A65A20] animate-gradient-move opacity-90" 
+      <section className="relative py-16 sm:py-24 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center bg-[#1A1A1A]">
+        {/* Animated Gradient Background matching the darker, moodier image */}
+        <div className="absolute inset-0 bg-[#2A1D1A] animate-gradient-move opacity-90" 
              style={{ 
                backgroundImage: `
-                 radial-gradient(circle at 15% 15%, #FFD480 0%, transparent 60%),
-                 radial-gradient(circle at 85% 15%, #534568 0%, transparent 50%),
-                 radial-gradient(circle at 50% 85%, #D87A30 0%, transparent 70%),
-                 radial-gradient(circle at 20% 80%, #C96825 0%, transparent 60%)
+                 radial-gradient(circle at 0% 50%, #684120 0%, transparent 60%),
+                 radial-gradient(circle at 100% 50%, #2A2136 0%, transparent 60%),
+                 radial-gradient(circle at 50% 0%, #4A331E 0%, transparent 50%),
+                 radial-gradient(circle at 50% 100%, #1D141C 0%, transparent 50%)
                `,
-               backgroundSize: '200% 200%' 
+               backgroundSize: '150% 150%' 
              }} />
         
         {/* Dark overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/20" />
 
         <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-5xl">
           <CampRotatingCircle />
