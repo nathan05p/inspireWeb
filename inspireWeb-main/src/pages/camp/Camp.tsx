@@ -716,7 +716,7 @@ export default function Camp() {
                 fill="transparent"
                 stroke="#ffffff"
                 strokeWidth="0.4"
-                strokeDasharray="2.5 2.5"
+                strokeDasharray="4 4"
               />
               {/* Text arc path - outer */}
               <path
@@ -724,8 +724,8 @@ export default function Camp() {
                 d="M 0,25 A 75,75 0 0,1 75,100"
                 fill="transparent"
               />
-              <text fill="#ffffff" fontSize="11" fontWeight="900" fontFamily='"BDSans", "Outfit", sans-serif' letterSpacing="0.2em">
-                <textPath href="#footerTextArc" startOffset="6%">
+              <text fill="#ffffff" fontSize="13" fontWeight="900" fontFamily='"BDSans", "Outfit", sans-serif' letterSpacing="0.25em">
+                <textPath href="#footerTextArc" startOffset="1.5%">
                   INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp; INSPIRE+
                 </textPath>
               </text>
@@ -733,19 +733,19 @@ export default function Camp() {
           </div>
 
           {/* Social links & Copyright - absolutely positioned inside the curve */}
-          <div className="absolute bottom-12 left-10 sm:bottom-16 sm:left-14 md:bottom-20 md:left-20 flex flex-col gap-8 sm:gap-10 z-20">
+          <div className="absolute bottom-16 left-12 sm:bottom-24 sm:left-16 md:bottom-28 md:left-24 flex flex-col gap-8 sm:gap-10 z-20">
             
-            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-start gap-2 text-white hover:text-[#FA9339] transition-colors group">
+            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-start gap-1.5 text-white hover:text-[#FA9339] transition-colors group">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform origin-left"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              <span className="text-[14px] sm:text-[16px] md:text-[18px] font-outfit font-light tracking-[0.2em] mt-1">INSTAGRAM</span>
+              <span className="text-[14px] sm:text-[16px] md:text-[17px] font-outfit font-light tracking-[0.2em] translate-x-[3px]">INSTAGRAM</span>
             </a>
             
-            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex flex-col items-start gap-2 text-white hover:text-[#FA9339] transition-colors group">
+            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex flex-col items-start gap-1.5 text-white hover:text-[#FA9339] transition-colors group">
               {/* Using a solid circle Facebook icon to match the user's reference */}
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 group-hover:scale-110 transition-transform origin-left text-white group-hover:text-[#FA9339]">
                 <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
               </svg>
-              <span className="text-[14px] sm:text-[16px] md:text-[18px] font-outfit font-light tracking-[0.2em] mt-1">FACEBOOK</span>
+              <span className="text-[14px] sm:text-[16px] md:text-[17px] font-outfit font-light tracking-[0.2em] translate-x-[3px]">FACEBOOK</span>
             </a>
             
           </div>
