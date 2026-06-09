@@ -147,13 +147,20 @@ function PhotoGallery() {
   const [isHovered, setIsHovered] = useState(false);
 
   const images = [
-    "/poza.png",
-    "/poza.png",
-    "/poza.png",
-    "/poza.png",
-    "/poza.png",
-    "/poza.png",
-    "/poza.png",
+    "/gallery/optimized/photo_1.jpg",
+    "/gallery/optimized/photo_2.jpg",
+    "/gallery/optimized/photo_3.jpg",
+    "/gallery/optimized/photo_4.jpg",
+    "/gallery/optimized/photo_5.jpg",
+    "/gallery/optimized/photo_6.jpg",
+    "/gallery/optimized/photo_7.jpg",
+    "/gallery/optimized/photo_8.jpg",
+    "/gallery/optimized/photo_9.jpg",
+    "/gallery/optimized/photo_10.jpg",
+    "/gallery/optimized/photo_11.jpg",
+    "/gallery/optimized/photo_12.jpg",
+    "/gallery/optimized/photo_13.jpg",
+    "/gallery/optimized/photo_14.jpg",
   ];
 
   // Duplicate the array multiple times to simulate infinite scroll
