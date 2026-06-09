@@ -167,6 +167,11 @@ import photo21 from "../../assets/gallery/photo_21.jpg";
 function PhotoGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  
+  // Refs for drag-to-scroll functionality
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
 
   const images = [
     photo1,
@@ -200,7 +205,8 @@ function PhotoGallery() {
     let lastTime = performance.now();
 
     const scroll = (time: number) => {
-      if (scrollRef.current && !isHovered) {
+      // Pause auto-scroll when hovered or actively dragging
+      if (scrollRef.current && !isHovered && !isDraggingRef.current) {
         const delta = time - lastTime;
         if (delta > 16) {
           scrollRef.current.scrollLeft += 0.5;
@@ -225,6 +231,31 @@ function PhotoGallery() {
   const scrollRight = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+    }
+  };
+
+  // Drag to scroll handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDraggingRef.current = true;
+    startXRef.current = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    scrollLeftRef.current = scrollRef.current?.scrollLeft || 0;
+  };
+
+  const handleMouseLeave = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDraggingRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - (scrollRef.current?.offsetLeft || 0);
+    const walk = (x - startXRef.current) * 2; // Scroll speed multiplier
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollLeftRef.current - walk;
     }
   };
 
@@ -256,7 +287,11 @@ function PhotoGallery() {
 
       <div
         ref={scrollRef}
-        className="flex gap-4 sm:gap-8 overflow-x-auto px-4 sm:px-12 py-12 md:py-20 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+        className="flex gap-4 sm:gap-8 overflow-x-auto px-4 sm:px-12 py-12 md:py-20 items-center [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] cursor-grab active:cursor-grabbing select-none"
       >
         {galleryItems.map((src, i) => {
           const isLarge = i % 3 === 0;
@@ -362,36 +397,31 @@ export default function Camp() {
       {/* HERO SECTION */}
       <section ref={heroRef} className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-[#0A0A0A]">
 
-        {/* DESKTOP & MOBILE: Vimeo iframe */}
-        <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+        {/* DESKTOP & MOBILE: Animated Moving Gradient Background */}
+        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none bg-[#0A0A0A]">
           <motion.div
-            className="absolute"
+            className="absolute -inset-[50%] opacity-60"
             style={{
-              top: '50%',
-              left: '50%',
-              width: '100vw',
-              height: '56.25vw',
-              minHeight: '100svh',
-              minWidth: '177.77svh',
-              transform: 'translate(-50%, -50%)',
+              background: 'radial-gradient(circle at 50% 50%, #FA9339 0%, transparent 40%), radial-gradient(circle at 80% 20%, #684120 0%, transparent 40%), radial-gradient(circle at 20% 80%, #3a1c00 0%, transparent 50%)',
+              filter: 'blur(80px)'
             }}
-            initial={{ scale: 1.15, filter: 'blur(10px)', x: '-50%', y: '-50%' }}
             animate={{
-              scale: isVideoLoaded ? 1 : 1.15,
-              filter: isVideoLoaded ? 'blur(0px)' : 'blur(10px)',
-              x: '-50%',
-              y: '-50%'
+              transform: [
+                'rotate(0deg) scale(1)',
+                'rotate(90deg) scale(1.1)',
+                'rotate(180deg) scale(1)',
+                'rotate(270deg) scale(1.2)',
+                'rotate(360deg) scale(1)'
+              ]
             }}
-            transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <iframe
-              src="https://player.vimeo.com/video/368732047?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1"
-              allow="autoplay; fullscreen; picture-in-picture"
-              className="w-full h-full object-cover opacity-80"
-              style={{ border: 'none' }}
-              title="Camp Background"
-            />
-          </motion.div>
+            transition={{
+              duration: 30,
+              ease: "linear",
+              repeat: Infinity
+            }}
+          />
+          {/* Overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-[#0A0A0A]/40 backdrop-blur-[60px]" />
         </div>
 
         {/* OVERLAYS */}
