@@ -122,7 +122,14 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
       {Object.entries(timeLeft).map(([unit, value]) => (
         <div key={unit} className="flex flex-col items-center flex-1">
           <div className="bg-[#121212] rounded-3xl w-full aspect-square max-w-[72px] sm:max-w-[100px] md:max-w-[120px] flex items-center justify-center mb-3 sm:mb-4">
-            <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-outfit tracking-tight text-white font-bold tabular-nums">
+            <span 
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight font-bold tabular-nums"
+              style={{ 
+                fontFamily: '"Unbounded", sans-serif',
+                WebkitTextStroke: '2px rgba(255, 255, 255, 0.9)', 
+                color: 'transparent' 
+              }}
+            >
               {value.toString().padStart(2, '0')}
             </span>
           </div>
