@@ -716,7 +716,7 @@ export default function Camp() {
 
           {/* CENTER: LOGO & COPYRIGHT */}
           <div className="flex-1 flex flex-col items-center justify-center gap-3">
-            <h2 className="text-white text-4xl sm:text-5xl font-sans font-bold italic tracking-tight">
+            <h2 className="text-white text-3xl sm:text-4xl font-sans font-bold italic tracking-tight">
               inspire+
             </h2>
             <p className="text-[#666666] text-xs sm:text-sm font-outfit tracking-wider">
