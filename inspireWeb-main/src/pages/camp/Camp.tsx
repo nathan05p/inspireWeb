@@ -156,6 +156,13 @@ import photo11 from "../../assets/gallery/photo_11.jpg";
 import photo12 from "../../assets/gallery/photo_12.jpg";
 import photo13 from "../../assets/gallery/photo_13.jpg";
 import photo14 from "../../assets/gallery/photo_14.jpg";
+import photo15 from "../../assets/gallery/photo_15.jpg";
+import photo16 from "../../assets/gallery/photo_16.jpg";
+import photo17 from "../../assets/gallery/photo_17.jpg";
+import photo18 from "../../assets/gallery/photo_18.jpg";
+import photo19 from "../../assets/gallery/photo_19.jpg";
+import photo20 from "../../assets/gallery/photo_20.jpg";
+import photo21 from "../../assets/gallery/photo_21.jpg";
 
 function PhotoGallery() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -176,6 +183,13 @@ function PhotoGallery() {
     photo12,
     photo13,
     photo14,
+    photo15,
+    photo16,
+    photo17,
+    photo18,
+    photo19,
+    photo20,
+    photo21,
   ];
 
   // Duplicate the array multiple times to simulate infinite scroll
