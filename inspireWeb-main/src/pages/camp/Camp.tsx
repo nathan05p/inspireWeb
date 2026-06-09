@@ -133,7 +133,7 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
               {value.toString().padStart(2, '0')}
             </span>
           </div>
-          <span className="text-xs md:text-sm tracking-[0.4em] font-bold uppercase text-[#FA9339]">
+          <span className="text-xs md:text-sm tracking-[0.4em] font-bold uppercase text-[#D6B598] opacity-80">
             {unit === 'days' ? 'Zile' : unit === 'hours' ? 'Ore' : unit === 'minutes' ? 'Min' : 'Sec'}
           </span>
         </div>
