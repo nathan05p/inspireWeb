@@ -638,48 +638,62 @@ export default function Camp() {
         </div>
       </section>
 
-      {/* FOOTER - Redesigned Arc Layout */}
-      <footer id="contact" className="relative bg-[#151515] overflow-hidden min-h-[350px] sm:min-h-[450px] flex items-end p-8 sm:p-12 pb-10 sm:pb-16">
-        {/* Giant curved text and dashed line */}
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] pointer-events-none">
-          <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
-            {/* Dashed line */}
-            <path
-              d="M 0,30 A 70,70 0 0,1 70,100"
-              fill="transparent"
-              stroke="#ffffff"
-              strokeWidth="1"
-              strokeDasharray="4 4"
-            />
-            {/* Text arc path */}
-            <path
-              id="footerArc"
-              d="M 0,12 A 88,88 0 0,1 88,100"
-              fill="transparent"
-            />
-            <text fill="#ffffff" fontSize="18" fontWeight="900" fontFamily="Outfit, sans-serif" letterSpacing="0.05em">
-              <textPath href="#footerArc" startOffset="4%">
-                I N S P I R E +
-              </textPath>
-            </text>
-          </svg>
-        </div>
-
-        <div className="relative z-10 w-full flex justify-between items-end">
-          {/* Social Links - Inside the circle */}
-          <div className="flex flex-col gap-5 pl-4 sm:pl-10 pb-2 sm:pb-6">
-            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white hover:text-[#FA9339] transition-colors group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:scale-110 transition-transform"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              <span className="text-sm sm:text-[15px] font-outfit font-light tracking-[0.2em] mt-0.5">INSTAGRAM</span>
-            </a>
-            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-white hover:text-[#FA9339] transition-colors group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:scale-110 transition-transform"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              <span className="text-sm sm:text-[15px] font-outfit font-light tracking-[0.2em] mt-0.5">FACEBOOK</span>
-            </a>
+      {/* FOOTER */}
+      <footer id="contact" className="relative bg-[#141414] overflow-hidden">
+        {/* Container with proper height */}
+        <div className="relative min-h-[420px] sm:min-h-[500px] md:min-h-[520px]">
+          
+          {/* SVG arc decoration - anchored bottom-left, extends off-screen */}
+          <div className="absolute -bottom-[250px] -left-[250px] sm:-bottom-[300px] sm:-left-[300px] md:-bottom-[320px] md:-left-[320px] w-[700px] h-[700px] sm:w-[900px] sm:h-[900px] md:w-[1000px] md:h-[1000px] pointer-events-none">
+            <svg viewBox="0 0 200 200" className="w-full h-full">
+              {/* Dashed circle - inner */}
+              <circle
+                cx="100" cy="100" r="72"
+                fill="transparent"
+                stroke="#ffffff"
+                strokeWidth="0.6"
+                strokeDasharray="5 5"
+              />
+              {/* Text arc path - outer */}
+              <path
+                id="footerTextArc"
+                d="M 100,100 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0"
+                fill="transparent"
+              />
+              <text fill="#ffffff" fontSize="15" fontWeight="800" fontFamily="Outfit, sans-serif" letterSpacing="0.25em">
+                <textPath href="#footerTextArc" startOffset="0%">
+                  INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp; INSPIRE+ &nbsp; &nbsp;
+                </textPath>
+              </text>
+            </svg>
           </div>
 
-          {/* Copyright */}
-          <p className="text-[#888888] text-base sm:text-xl font-outfit font-light tracking-wide">© 2026 inspire+</p>
+          {/* Content layer */}
+          <div className="relative z-10 h-full flex flex-col justify-end min-h-[420px] sm:min-h-[500px] md:min-h-[520px] px-8 sm:px-12 md:px-16 pb-10 sm:pb-14">
+            
+            {/* Social links */}
+            <div className="flex flex-col gap-5 mb-auto pt-16 sm:pt-20">
+              {/* Empty space to push links down into visible arc area */}
+            </div>
+
+            <div className="flex justify-between items-end w-full">
+              {/* Social links - bottom left, inside the visible arc */}
+              <div className="flex flex-col gap-4">
+                <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-[#FA9339] transition-colors group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  <span className="text-[13px] sm:text-sm font-outfit font-medium tracking-[0.15em]">INSTAGRAM</span>
+                </a>
+                <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-[#FA9339] transition-colors group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  <span className="text-[13px] sm:text-sm font-outfit font-medium tracking-[0.15em]">FACEBOOK</span>
+                </a>
+              </div>
+
+              {/* Copyright - bottom right */}
+              <p className="text-[#777777] text-sm sm:text-base font-outfit tracking-wide">© 2026 inspire+</p>
+            </div>
+          </div>
+
         </div>
       </footer>
     </motion.div>
