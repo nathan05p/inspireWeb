@@ -584,7 +584,7 @@ export default function Camp() {
               <h3 className="text-2xl font-outfit tracking-tight mb-2 text-white">Locație Tabără</h3>
               <p className="text-[#D4D4D4]">Aici avem un text locația taberei</p>
             </div>
-            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="shrink-0 w-16 h-16 rounded-full border border-[#FA9339]/30 flex items-center justify-center hover:border-[#FA9339] hover:text-[#FA9339] transition-colors text-white">
+            <a href="https://maps.app.goo.gl/mU8jparFzLbJEbLW8" target="_blank" rel="noopener noreferrer" className="shrink-0 w-16 h-16 rounded-full border border-[#FA9339]/30 flex items-center justify-center hover:border-[#FA9339] hover:text-[#FA9339] transition-colors text-white">
               <Map size={24} />
             </a>
           </motion.div>
