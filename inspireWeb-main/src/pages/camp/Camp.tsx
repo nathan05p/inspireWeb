@@ -716,9 +716,8 @@ export default function Camp() {
 
           {/* CENTER: LOGO & COPYRIGHT */}
           <div className="flex-1 flex flex-col items-center justify-center gap-3">
-            <h2 className="text-white flex items-center justify-center leading-none">
-              <span className="font-serif italic tracking-tight text-4xl sm:text-5xl">inspire</span>
-              <span className="font-sans font-bold text-2xl sm:text-3xl ml-1 mt-2">+</span>
+            <h2 className="text-white text-4xl sm:text-5xl font-bold italic tracking-tight">
+              inspire+
             </h2>
             <p className="text-[#666666] text-xs sm:text-sm font-outfit tracking-wider">
               © 2026 inspire+
