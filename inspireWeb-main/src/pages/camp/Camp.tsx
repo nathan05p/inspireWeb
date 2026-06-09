@@ -118,12 +118,12 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
 
   return (
-    <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-20 lg:gap-24 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-4xl mx-auto px-4">
+    <div className="flex items-center justify-center gap-2 xs:gap-4 sm:gap-10 md:gap-16 lg:gap-24 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-5xl mx-auto px-2 sm:px-4">
       {Object.entries(timeLeft).map(([unit, value]) => (
         <div key={unit} className="flex flex-col items-center">
-          <div className="flex items-center justify-center mb-3 sm:mb-5">
+          <div className="flex items-center justify-center mb-2 sm:mb-4">
             <span 
-              className="text-6xl sm:text-8xl md:text-[10rem] lg:text-[12rem] tracking-tight font-bold tabular-nums leading-none"
+              className="text-[2.5rem] xs:text-5xl sm:text-7xl md:text-8xl lg:text-[10rem] xl:text-[12rem] tracking-tight font-bold tabular-nums leading-none"
               style={{ 
                 fontFamily: '"Unbounded", sans-serif',
                 WebkitTextStroke: '2px rgba(255, 255, 255, 0.9)', 
