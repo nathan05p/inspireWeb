@@ -177,7 +177,7 @@ export default function CampNavbar() {
 
             {/* Menu footer */}
             <div className="px-5 sm:px-8 md:px-16 py-5 border-t border-[#082E5C] flex items-center justify-center shrink-0">
-              <p className="text-[#A0C4D8] text-xs tracking-widest text-center">INSPIRE+ TIMIȘOARA</p>
+              <p className="text-[#A0C4D8] text-xs tracking-widest text-center">INSPIRE+</p>
             </div>
           </motion.div>
         )}

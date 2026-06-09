@@ -80,7 +80,7 @@ function CampRotatingCircle() {
           />
           <text className="text-[10.5px] font-bold tracking-[0.2em] uppercase" fill="#FFFFFF">
             <textPath href="#textPathCamp" startOffset="0%">
-              • INSPIRE+ CAMP • INSPIRE+ CAMP •
+              • INSPIRE+ THE CROSS • INSPIRE+ THE CROSS •
             </textPath>
           </text>
         </svg>
@@ -647,14 +647,13 @@ export default function Camp() {
               <span className="font-sans font-bold text-xs ml-0.5 mt-1">+</span>
             </span>
           </div>
-          <p className="text-[#A3A3A3] text-[10px] tracking-[0.3em] font-bold uppercase mb-2">inspire+ Timișoara</p>
+          <p className="text-[#A3A3A3] text-[10px] tracking-[0.3em] font-bold uppercase mb-2">inspire+</p>
         </div>
 
         <div className="flex flex-col items-start md:items-end gap-2 md:text-right">
-          <a href="#" className="text-[#A3A3A3] hover:text-[#FA9339] text-xs font-bold tracking-widest transition-colors">INSTAGRAM</a>
-          <a href="#" className="text-[#A3A3A3] hover:text-[#FA9339] text-xs font-bold tracking-widest transition-colors">FACEBOOK</a>
-          <a href="#" className="text-[#A3A3A3] hover:text-[#FA9339] text-xs font-bold tracking-widest transition-colors">YOUTUBE</a>
-          <p className="text-[#A3A3A3] text-xs mt-4">© {new Date().getFullYear()} inspire+ Timișoara</p>
+          <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="text-[#A3A3A3] hover:text-[#FA9339] text-xs font-bold tracking-widest transition-colors">INSTAGRAM</a>
+          <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="text-[#A3A3A3] hover:text-[#FA9339] text-xs font-bold tracking-widest transition-colors">FACEBOOK</a>
+          <p className="text-[#A3A3A3] text-xs mt-4">© {new Date().getFullYear()} inspire+</p>
         </div>
       </footer>
     </motion.div>
