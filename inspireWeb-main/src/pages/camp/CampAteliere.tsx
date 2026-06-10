@@ -6,31 +6,26 @@ const ateliereData = [
   {
     id: 'living_free',
     title: 'living free',
-    preview: 'Unele lucruri încep ca o distracție și ajung să te țină captiv...',
     desc: 'Unele lucruri încep ca o distracție și ajung să te țină captiv. Dependențele nu se văd mereu pe dinafară — dar se simt: în rușine, în izolare în negare. Un atelier despre libertate îți arată, fără judecată și fără etichete, cum arată pașii spre o viață trăită cu adevărat liber de orice fel de dependențe.',
   },
   {
     id: 'apologetica',
     title: 'apologetică',
-    preview: '„Cum știi că Dumnezeu există?” „De ce îngăduie răul?”...',
     desc: '„Cum știi că Dumnezeu există?" „De ce îngăduie răul?" Întrebările vin — de la colegi, de pe internet, din tine. Și e normal: credința nu înseamnă să nu întrebi, ci să cauți răspunsuri reale. Un atelier de apologetică te ajută să-ți așezi credința pe o bază solidă — explorezi întrebările grele, discuți deschis și pleci cu argumente care au sens.',
   },
   {
     id: 'compozitie',
     title: 'compoziție',
-    preview: 'Fiecare cântec începe cu o idee - poate chiar cu a ta...',
     desc: 'Fiecare cântec începe cu o idee - poate chiar cu a ta. Un atelier de compoziție te ajută să transformi un gând, o emoție sau o rugăciune într-o piesă - de la versuri și melodie până la structură - și să descoperi cum se naște un cântec care-L glorifică pe Creator.',
   },
   {
     id: 'leadership',
     title: 'leadership',
-    preview: 'Creat ca să conduci. Într-o lume în care leadershipul se confundă cu controlul...',
     desc: 'Creat ca să conduci. Într-o lume în care leadershipul se confundă cu controlul, Dumnezeu caută lideri care inspiră. Un atelier de leadership te ajută să descoperi ce înseamnă să conduci după modelul Lui — pornind de la cine ești și de la viziunea pe care El o pune în inima ta.',
   },
   {
     id: 'creative_video',
     title: 'creative video',
-    preview: 'Ai mereu la îndemână un instrument cu care poți spune povești care contează...',
     desc: 'Ai mereu la îndemână un instrument cu care poți spune povești care contează. Un atelier de video creativ te învață să filmezi, să montezi și să transformi o idee într-un clip care prinde — și să-ți pui creativitatea în slujba unui mesaj care merită spus.',
   },
 ];
@@ -154,40 +149,22 @@ export default function CampAteliere() {
                         )}
                       </div>
                       
-                      {!isExpanded && (
-                        <motion.div className="relative pr-14 overflow-hidden whitespace-nowrap">
-                          <p className="text-[#A3A3A3] text-sm sm:text-base font-light italic truncate">
-                            {atelier.preview}
-                          </p>
-                          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent group-hover:from-[#171717] group-hover:via-[#171717]/80 transition-colors duration-500" />
-                        </motion.div>
-                      )}
-                    </motion.div>
-
-                    {/* Expanded Content */}
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                          className="px-4 pb-6 sm:px-6 sm:pb-8 lg:px-8 lg:pb-10 flex flex-col md:flex-row gap-6 md:gap-8 items-start"
+                      <motion.div layout className={`relative overflow-hidden ${isExpanded ? 'mt-4' : 'pr-14 whitespace-nowrap'}`}>
+                        <motion.p 
+                          layout="position"
+                          className={isExpanded 
+                            ? "text-[#D4D4D4] text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap"
+                            : "text-[#A3A3A3] text-sm sm:text-base font-light italic truncate"
+                          }
                         >
-                          {/* Description */}
-                          <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
-                            className="flex-1 flex flex-col pt-0 md:pt-2"
-                          >
-                            <p className="text-[#D4D4D4] text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap">
-                              {atelier.desc}
-                            </p>
-                          </motion.div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                          {atelier.desc}
+                        </motion.p>
+                        
+                        {!isExpanded && (
+                          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent group-hover:from-[#171717] group-hover:via-[#171717]/80 transition-colors duration-500 pointer-events-none" />
+                        )}
+                      </motion.div>
+                    </motion.div>
                   </motion.div>
                 </motion.div>
               );
