@@ -70,12 +70,12 @@ export default function CampNavbar() {
                 className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-baseline gap-0.5 text-white hover:text-deepsea-300 transition-colors"
               >
                 <span
-                  style={{ fontFamily: '"Outfit", sans-serif', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontStyle: 'normal', letterSpacing: '0.02em' }}
+                  style={{ fontFamily: '"League Spartan", sans-serif', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontStyle: 'normal', letterSpacing: '0.02em' }}
                 >
                   inspire
                 </span>
                 <span
-                  style={{ fontFamily: '"Inter", sans-serif', fontWeight: 'normal', fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
+                  style={{ fontFamily: '"League Spartan", sans-serif', fontWeight: 'normal', fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}
                 >
                   +
                 </span>
