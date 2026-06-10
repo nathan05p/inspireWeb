@@ -409,12 +409,15 @@ export default function RegistrationForm() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            onClick={() => setIsModalOpen(false)}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              data-lenis-prevent="true"
               className="bg-[#121212] border border-[#FA9339]/20 p-6 sm:p-8 rounded-3xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto"
             >
               <h3 className="text-2xl font-outfit font-bold text-[#FA9339] mb-2">Avem standarde, nu reguli!</h3>

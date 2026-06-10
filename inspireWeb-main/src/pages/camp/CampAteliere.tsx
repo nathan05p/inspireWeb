@@ -1,32 +1,37 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp, Plus } from 'lucide-react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 const ateliereData = [
   {
     id: 'living_free',
     title: 'living free',
-    desc: '🕊 Living Free\nUnele lucruri încep ca o distracție și ajung să te țină captiv. Dependențele nu se văd mereu pe dinafară — dar se simt: în rușine, în izolare în negare. Un atelier despre libertate îți arată, fără judecată și fără etichete, cum arată pașii spre o viață trăită cu adevărat liber de orice fel de dependențe.',
+    preview: 'Unele lucruri încep ca o distracție și ajung să te țină captiv...',
+    desc: 'Unele lucruri încep ca o distracție și ajung să te țină captiv. Dependențele nu se văd mereu pe dinafară — dar se simt: în rușine, în izolare în negare. Un atelier despre libertate îți arată, fără judecată și fără etichete, cum arată pașii spre o viață trăită cu adevărat liber de orice fel de dependențe.',
   },
   {
     id: 'apologetica',
     title: 'apologetică',
-    desc: '🧠 Apologetică\n„Cum știi că Dumnezeu există?" „De ce îngăduie răul?" Întrebările vin — de la colegi, de pe internet, din tine. Și e normal: credința nu înseamnă să nu întrebi, ci să cauți răspunsuri reale. Un atelier de apologetică te ajută să-ți așezi credința pe o bază solidă — explorezi întrebările grele, discuți deschis și pleci cu argumente care au sens.',
+    preview: '„Cum știi că Dumnezeu există?” „De ce îngăduie răul?”...',
+    desc: '„Cum știi că Dumnezeu există?" „De ce îngăduie răul?" Întrebările vin — de la colegi, de pe internet, din tine. Și e normal: credința nu înseamnă să nu întrebi, ci să cauți răspunsuri reale. Un atelier de apologetică te ajută să-ți așezi credința pe o bază solidă — explorezi întrebările grele, discuți deschis și pleci cu argumente care au sens.',
   },
   {
     id: 'compozitie',
     title: 'compoziție',
-    desc: '🎵 Compoziție\nFiecare cântec începe cu o idee - poate chiar cu a ta. Un atelier de compoziție te ajută să transformi un gând, o emoție sau o rugăciune într-o piesă - de la versuri și melodie până la structură - și să descoperi cum se naște un cântec care-L glorifică pe Creator.',
+    preview: 'Fiecare cântec începe cu o idee - poate chiar cu a ta...',
+    desc: 'Fiecare cântec începe cu o idee - poate chiar cu a ta. Un atelier de compoziție te ajută să transformi un gând, o emoție sau o rugăciune într-o piesă - de la versuri și melodie până la structură - și să descoperi cum se naște un cântec care-L glorifică pe Creator.',
   },
   {
     id: 'leadership',
     title: 'leadership',
-    desc: '🎯 Leadership\nCreat ca să conduci. Într-o lume în care leadershipul se confundă cu controlu, Dumnezeu caută lideri care inspiră. Un atelier de leadership te ajută să descoperi ce înseamnă să conduci după modelul Lui — pornind de la cine ești și de la viziunea pe care El o pune în inima ta.',
+    preview: 'Creat ca să conduci. Într-o lume în care leadershipul se confundă cu controlul...',
+    desc: 'Creat ca să conduci. Într-o lume în care leadershipul se confundă cu controlul, Dumnezeu caută lideri care inspiră. Un atelier de leadership te ajută să descoperi ce înseamnă să conduci după modelul Lui — pornind de la cine ești și de la viziunea pe care El o pune în inima ta.',
   },
   {
     id: 'creative_video',
     title: 'creative video',
-    desc: '🎬 Creative Video\nAi mereu la îndemână un instrument cu care poți spune povești care contează. Un atelier de video creativ te învață să filmezi, să montezi și să transformi o idee într-un clip care prinde — și să-ți pui creativitatea în slujba unui mesaj care merită spus.',
+    preview: 'Ai mereu la îndemână un instrument cu care poți spune povești care contează...',
+    desc: 'Ai mereu la îndemână un instrument cu care poți spune povești care contează. Un atelier de video creativ te învață să filmezi, să montezi și să transformi o idee într-un clip care prinde — și să-ți pui creativitatea în slujba unui mesaj care merită spus.',
   },
 ];
 
@@ -110,41 +115,52 @@ export default function CampAteliere() {
                     className={`flex-1 overflow-hidden rounded-3xl sm:rounded-[2rem] border transition-all duration-500 ${isExpanded ? 'bg-[#1A1A1A] border-[#2A2A2A] shadow-2xl' : 'bg-transparent border-transparent cursor-pointer hover:bg-[#171717]/60'}`}
                   >
                     {/* Header: Title & Close/Expand Button */}
-                    <motion.div layout className={`p-4 sm:p-6 lg:p-8 flex items-center justify-between gap-4 ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>
-                      <motion.h3 
-                        layout="position"
-                        className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 break-words flex-1 ${isExpanded ? 'text-3xl sm:text-4xl md:text-5xl text-[#FA9339]' : 'text-3xl sm:text-5xl lg:text-6xl text-[#F5E6D3] group-hover:text-white'}`}
-                      >
-                        {atelier.title}
-                      </motion.h3>
+                    <motion.div layout className={`p-4 sm:p-6 lg:p-8 flex flex-col gap-2 ${isExpanded ? 'pb-4 sm:pb-6' : ''}`}>
+                      <div className="flex items-center justify-between gap-4 w-full">
+                        <motion.h3 
+                          layout="position"
+                          className={`font-outfit font-bold tracking-tight lowercase transition-colors duration-500 break-words flex-1 ${isExpanded ? 'text-3xl sm:text-4xl md:text-5xl text-[#FA9339]' : 'text-3xl sm:text-5xl lg:text-6xl text-[#F5E6D3] group-hover:text-white'}`}
+                        >
+                          {atelier.title}
+                        </motion.h3>
+                        
+                        {!isExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#262626]/50 flex items-center justify-center text-[#737373] group-hover:text-[#FA9339] group-hover:border-[#FA9339]/40 transition-all shadow-sm"
+                            aria-label="Deschide atelier"
+                          >
+                            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6" />
+                          </motion.div>
+                        )}
+
+                        {isExpanded && (
+                          <motion.button
+                            initial={{ opacity: 0, scale: 0.8, rotate: 180 }}
+                            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                            exit={{ opacity: 0, scale: 0.8, rotate: -180 }}
+                            transition={{ duration: 0.4 }}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleItem(atelier.id);
+                            }}
+                            className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0A0A0A] border border-[#262626]/50 flex items-center justify-center text-[#737373] hover:text-white hover:bg-[#171717] hover:border-[#FA9339]/30 transition-all shadow-sm"
+                            aria-label="Ascunde atelier"
+                          >
+                            <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />
+                          </motion.button>
+                        )}
+                      </div>
                       
                       {!isExpanded && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-[#262626]/50 flex items-center justify-center text-[#737373] group-hover:text-[#FA9339] group-hover:border-[#FA9339]/40 transition-all shadow-sm"
-                          aria-label="Deschide atelier"
-                        >
-                          <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <motion.div className="relative pr-14 overflow-hidden whitespace-nowrap">
+                          <p className="text-[#A3A3A3] text-sm sm:text-base font-light italic truncate">
+                            {atelier.preview}
+                          </p>
+                          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent group-hover:from-[#171717] group-hover:via-[#171717]/80 transition-colors duration-500" />
                         </motion.div>
-                      )}
-
-                      {isExpanded && (
-                        <motion.button
-                          initial={{ opacity: 0, scale: 0.8, rotate: 180 }}
-                          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                          exit={{ opacity: 0, scale: 0.8, rotate: -180 }}
-                          transition={{ duration: 0.4 }}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            toggleItem(atelier.id);
-                          }}
-                          className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#0A0A0A] border border-[#262626]/50 flex items-center justify-center text-[#737373] hover:text-white hover:bg-[#171717] hover:border-[#FA9339]/30 transition-all shadow-sm"
-                          aria-label="Ascunde atelier"
-                        >
-                          <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />
-                        </motion.button>
                       )}
                     </motion.div>
 

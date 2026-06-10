@@ -2,6 +2,13 @@ import { motion } from 'framer-motion';
 
 const expectData = [
   { 
+    id: 'natura', 
+    title: 'Natură', 
+    img: '/new_icons/11.png',
+    side: 'left' as const,
+    desc: 'Te așteaptă o zonă superbă, la poalele munților Retezat — munte, aer curat și un decor care n-are nevoie de filtre.' 
+  },
+  { 
     id: 'inchinare', 
     title: 'Închinare', 
     img: '/new_icons/12.png',
@@ -29,13 +36,6 @@ const expectData = [
     side: 'right' as const,
     desc: 'Cunoști tineri faini, îți faci prieteni noi și legi prietenii care nu se termină când se termină tabăra - relații care îți întăresc și credința.' 
   },
-  { 
-    id: 'natura', 
-    title: 'Natură', 
-    img: '/new_icons/11.png',
-    side: 'left' as const,
-    desc: 'Te așteaptă o zonă superbă, la poalele munților Retezat — munte, aer curat și un decor care n-are nevoie de filtre.' 
-  },
 ];
 
 export default function CampWhatToExpect() {
@@ -50,7 +50,7 @@ export default function CampWhatToExpect() {
           viewport={{ once: true }}
           className="text-4xl sm:text-6xl md:text-7xl font-outfit font-bold tracking-tight text-white"
         >
-          inspire<span className="font-bold text-[#FA9339] italic">+</span><span className="italic">camp</span>
+          inspire<span className="font-bold text-[#FA9339] italic">+</span> <span className="italic">Camp</span>
         </motion.h2>
       </div>
 
@@ -93,7 +93,7 @@ export default function CampWhatToExpect() {
                   className="relative flex items-center w-full px-4"
                 >
                   {/* Image - Left */}
-                  <div className="z-10 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 shrink-0 mr-4 sm:mr-6 md:mr-10">
+                  <div className="z-10 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 mr-4 sm:mr-6 md:mr-10">
                     <img
                       src={item.img}
                       alt={item.title}

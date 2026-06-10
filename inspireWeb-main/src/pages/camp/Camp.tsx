@@ -391,7 +391,7 @@ export default function Camp() {
       <CampNavbar />
 
       {/* HERO SECTION */}
-      <section ref={heroRef} className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-[#0A0A0A]">
+      <section ref={heroRef} className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-[#1A0B05]">
 
         {/* INTERACTIVE BACKGROUND */}
         <InteractiveBackground />
@@ -420,13 +420,16 @@ export default function Camp() {
                 textTransform: 'uppercase'
               }}
             >
-              O generație mai aproape de cer,{' '}
-              <br className="hidden sm:block" />
-              mai aproape de oameni{' '}
-              <br className="hidden sm:block" />
-              și{' '}
+              MAI APROAPE DE CER,{' '}
+              <br />
+              MAI APROAPE DE{' '}
+              <br />
+              OAMENI{' '}
+              <br />
+              ȘI MAI DE FOLOS{' '}
+              <br />
               <span style={{ color: '#FA9339' }}>
-                mai de folos Împărăției.
+                IMPĂRĂȚIEI
               </span>
             </motion.h1>
           </div>
@@ -453,13 +456,10 @@ export default function Camp() {
       {/* WHAT TO EXPECT (inspire camp) */}
       <CampWhatToExpect />
 
-      <CampAteliere />
-
-      {/* VIZIUNE & ABOUT */}
+      {/* THE CROSS / ABOUT */}
       <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h2 className="text-sm md:text-base tracking-[0.3em] font-bold text-[#FA9339] mb-6">VIZIUNE</h2>
             <h3 className="font-outfit tracking-tight leading-none">
               <span className="block text-3xl sm:text-4xl md:text-5xl text-[#A3A3A3] font-light tracking-[0.15em] uppercase mb-2">The</span>
               <span className="block text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold italic text-white leading-none" style={{ textShadow: '0 0 60px rgba(232,104,26,0.25)' }}>Cross</span>
@@ -467,23 +467,19 @@ export default function Camp() {
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-[#D4D4D4] leading-relaxed text-base md:text-lg space-y-5">
             <p>
-              👑 Titlul taberei <strong className="text-white">inspire+</strong> din acest an este <strong className="text-[#FA9339]">The Cross</strong> și este dedicată celebrării modului în care Dumnezeu a ales să-și exprime dragostea nemărginită pentru noi. Vrem să redescoperim frumusețea, valoarea și profunzimea momentului care a adus cerul mai aproape.
-            </p>
-            <p>
-              🌱 <em>Evenimentele inspire+</em> sunt dedicate tinerilor și adolescenților creștini, care vor să cultive Cultura Împărăției și doresc glorificarea lui Dumnezeu, prin mijloace relevante și creative, depășind barierele confesionale.
-            </p>
-            <p>
-              🎉 În acest scop, pregătim pentru tine ateliere, momente de închinare și devoționale, seminare, activități sportive și recreative. Prin toate, ne dorim să înțelegem tot mai clar care ne este chemarea și cum putem, fiecare dintre noi, să fim mai de folos Împărăției.
+              Titlul taberei <strong className="text-white">inspire+</strong> din acest an este <strong className="text-[#FA9339]">The Cross</strong> și este dedicată celebrării modului în care Dumnezeu a ales să-și exprime dragostea nemărginită pentru noi. Vrem să redescoperim frumusețea, valoarea și profunzimea momentului care a adus cerul mai aproape.
             </p>
             <p>
               Vino să cunoști tineri faini, să îți faci prieteni noi și să trăiești o experiență care îți va întări relațiile și credința.
             </p>
             <p className="text-white font-semibold">
-              Nu veni singur, adu-ți și un prieten și hai să trăim împreună o tabără de neuitat! 🤩
+              Nu veni singur, adu-ți și un prieten și hai să trăim împreună o tabără de neuitat!
             </p>
           </motion.div>
         </div>
       </section>
+
+      <CampAteliere />
 
       {/* PHOTO GALLERY */}
       <section className="py-16 sm:py-24 md:py-32 bg-[#0A0A0A] overflow-hidden border-b border-[#FA9339]/10">
@@ -542,7 +538,7 @@ export default function Camp() {
               {Array(6).fill(faqs).flat().map((faq, i) => (
                 <div
                   key={i}
-                  className="w-full shrink-0 bg-gradient-to-b from-[#171717]/60 to-[#0A0A0A]/80 backdrop-blur-xl p-6 md:p-8 rounded-[2.5rem] border border-[#FA9339]/8 shadow-2xl flex flex-col gap-6 mx-auto max-w-2xl relative overflow-hidden group hover:border-[#FA9339]/20 transition-colors"
+                  className="w-full shrink-0 bg-gradient-to-b from-[#2A211D]/80 to-[#171717]/90 backdrop-blur-xl p-6 md:p-8 rounded-[2.5rem] border border-[#FA9339]/8 shadow-2xl flex flex-col gap-6 mx-auto max-w-2xl relative overflow-hidden group hover:border-[#FA9339]/20 transition-colors"
                 >
                   {/* Subtle Top Glow */}
                   <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FA9339]/20 to-transparent" />
@@ -563,7 +559,6 @@ export default function Camp() {
                     <div className="pt-1 w-full">
                       <div className="flex items-center justify-between mb-2">
                         <span className="font-medium text-[#D4D4D4] text-sm md:text-base tracking-wide">{faq.user}</span>
-                        <span className="text-[#5A3820] text-xs tracking-wider">{faq.time}</span>
                       </div>
                       <p className="text-white text-lg md:text-xl font-outfit font-light leading-snug">{faq.q}</p>
                     </div>
@@ -597,14 +592,17 @@ export default function Camp() {
               ))}
             </div>
           </div>
+
+          <div className="mt-12 flex justify-center relative z-10">
+            <a href="#give" className="px-8 py-4 bg-[#FA9339] text-[#0A0A0A] font-bold font-outfit uppercase tracking-widest rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(250,147,57,0.4)]">
+              Înscrie-te acum
+            </a>
+          </div>
         </div>
       </section>
 
       {/* LOGISTICS & INFO */}
       <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#E0873C]/10">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-outfit font-bold tracking-tight text-white mb-12 sm:mb-16 text-center uppercase">
-          INFORMAȚII <span className="italic text-[#E0873C]">IMPORTANTE</span>
-        </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
           {/* Registration Form */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="sm:col-span-12">
@@ -627,11 +625,11 @@ export default function Camp() {
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="sm:col-span-6 bg-[#121212] shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl hover:bg-[#221508] transition-colors">
             <h3 className="text-2xl font-outfit tracking-tight mb-8 text-white">Contact Oficial</h3>
             <div className="space-y-5">
-              <a href="mailto:hello@inspireplus.ro" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
-                <Mail size={20} className="text-[#FA9339]" /> hello@inspireplus.ro
+              <a href="mailto:office@inspiretm.org" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
+                <Mail size={20} className="text-[#FA9339]" /> office@inspiretm.org
               </a>
-              <a href="tel:+40700000000" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
-                <Phone size={20} className="text-[#FA9339]" /> +40 700 000 000
+              <a href="tel:0767031518" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
+                <Phone size={20} className="text-[#FA9339]" /> 0767 031 518
               </a>
               <a href="#" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
                 <AtSign size={20} className="text-[#FA9339]" /> @inspireplus.tm
@@ -676,34 +674,34 @@ export default function Camp() {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="w-full bg-[#141414] py-12 sm:py-16 px-6 sm:px-12 md:px-20 border-t border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 md:gap-0">
+      <footer id="contact" className="w-full bg-[#141414] py-8 sm:py-16 px-4 sm:px-12 md:px-20 border-t border-white/5">
+        <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-2 sm:gap-4 md:gap-0">
           
           {/* LEFT: INSTAGRAM */}
-          <div className="flex-1 flex justify-center md:justify-start">
-            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-[#FA9339] transition-colors group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              <span className="text-[14px] sm:text-[15px] font-outfit font-light tracking-[0.2em] uppercase">INSTAGRAM</span>
+          <div className="flex-1 flex justify-start">
+            <a href="https://www.instagram.com/inspiretm.community/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-3 text-white hover:text-[#FA9339] transition-colors group">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 group-hover:scale-110 transition-transform sm:w-[32px] sm:h-[32px]"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              <span className="hidden xs:block text-[10px] sm:text-[15px] font-outfit font-light tracking-[0.1em] sm:tracking-[0.2em] uppercase">INSTAGRAM</span>
             </a>
           </div>
 
           {/* CENTER: LOGO & COPYRIGHT */}
-          <div className="flex-1 flex flex-col items-center justify-center gap-3">
-            <h2 className="text-white text-3xl sm:text-4xl font-sans font-bold italic tracking-tight">
+          <div className="flex-1 flex flex-col items-center justify-center gap-1 sm:gap-3">
+            <h2 className="text-white text-xl sm:text-3xl md:text-4xl font-sans font-bold italic tracking-tight">
               inspire+
             </h2>
-            <p className="text-[#666666] text-xs sm:text-sm font-outfit tracking-wider">
+            <p className="text-[#666666] text-[9px] sm:text-xs md:text-sm font-outfit tracking-wider text-center">
               © 2026 inspire+
             </p>
           </div>
 
           {/* RIGHT: FACEBOOK */}
-          <div className="flex-1 flex justify-center md:justify-end">
-            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white hover:text-[#FA9339] transition-colors group">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 group-hover:scale-110 transition-transform text-white group-hover:text-[#FA9339]">
+          <div className="flex-1 flex justify-end">
+            <a href="https://www.facebook.com/asociatia.inspire" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 sm:gap-3 text-white hover:text-[#FA9339] transition-colors group">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 group-hover:scale-110 transition-transform text-white group-hover:text-[#FA9339] sm:w-[32px] sm:h-[32px]">
                 <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z"/>
               </svg>
-              <span className="text-[14px] sm:text-[15px] font-outfit font-light tracking-[0.2em] uppercase">FACEBOOK</span>
+              <span className="hidden xs:block text-[10px] sm:text-[15px] font-outfit font-light tracking-[0.1em] sm:tracking-[0.2em] uppercase">FACEBOOK</span>
             </a>
           </div>
 

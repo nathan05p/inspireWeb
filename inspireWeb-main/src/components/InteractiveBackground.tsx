@@ -157,12 +157,12 @@ const InteractiveBackground: React.FC = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#0A0A0A]">
+    <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#1A0B05]">
       {/* 1. Base Animated Gradient */}
       <motion.div
-        className="absolute -inset-[50%] opacity-50 pointer-events-none"
+        className="absolute -inset-[50%] opacity-70 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, #FA9339 0%, transparent 40%), radial-gradient(circle at 80% 20%, #684120 0%, transparent 40%), radial-gradient(circle at 20% 80%, #3a1c00 0%, transparent 50%)',
+          background: 'radial-gradient(circle at 50% 50%, #FA9339 0%, transparent 40%), radial-gradient(circle at 80% 20%, #B93815 0%, transparent 40%), radial-gradient(circle at 20% 80%, #5B1E05 0%, transparent 50%)',
           filter: 'blur(80px)'
         }}
         animate={{
@@ -195,7 +195,7 @@ const InteractiveBackground: React.FC = () => {
       />
 
       {/* 3. Dark Overlay to maintain text contrast */}
-      <div className="absolute inset-0 bg-[#0A0A0A]/40 backdrop-blur-[40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[#1A0B05]/40 backdrop-blur-[40px] pointer-events-none" />
 
       {/* 4. Interactive Particles Canvas */}
       <canvas
@@ -204,8 +204,8 @@ const InteractiveBackground: React.FC = () => {
       />
       
       {/* 5. Additional Overlays for contrast */}
-      <div className="absolute inset-0 bg-[#0A111F]/40 pointer-events-none mix-blend-overlay" />
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0A111F]/30 via-transparent to-[#0A111F]" />
+      <div className="absolute inset-0 bg-[#1A0B05]/30 pointer-events-none mix-blend-overlay" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#1A0B05]/20 via-transparent to-[#1A0B05]" />
     </div>
   );
 };
