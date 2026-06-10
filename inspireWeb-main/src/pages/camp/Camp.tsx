@@ -11,6 +11,7 @@ import Marquee from '../../components/Marquee';
 import RegistrationForm from '../../components/RegistrationForm';
 import CampAteliere from './CampAteliere';
 import CampWhatToExpect from './CampWhatToExpect';
+import InteractiveBackground from '../../components/InteractiveBackground';
 
 
 const fadeUp = {
@@ -392,36 +393,8 @@ export default function Camp() {
       {/* HERO SECTION */}
       <section ref={heroRef} className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-[#0A0A0A]">
 
-        {/* DESKTOP & MOBILE: Animated Moving Gradient Background */}
-        <div className="absolute inset-0 w-full h-full z-0 overflow-hidden pointer-events-none bg-[#0A0A0A]">
-          <motion.div
-            className="absolute -inset-[50%] opacity-60"
-            style={{
-              background: 'radial-gradient(circle at 50% 50%, #FA9339 0%, transparent 40%), radial-gradient(circle at 80% 20%, #684120 0%, transparent 40%), radial-gradient(circle at 20% 80%, #3a1c00 0%, transparent 50%)',
-              filter: 'blur(80px)'
-            }}
-            animate={{
-              transform: [
-                'rotate(0deg) scale(1)',
-                'rotate(90deg) scale(1.1)',
-                'rotate(180deg) scale(1)',
-                'rotate(270deg) scale(1.2)',
-                'rotate(360deg) scale(1)'
-              ]
-            }}
-            transition={{
-              duration: 30,
-              ease: "linear",
-              repeat: Infinity
-            }}
-          />
-          {/* Overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-[#0A0A0A]/40 backdrop-blur-[60px]" />
-        </div>
-
-        {/* OVERLAYS */}
-        <div className="absolute inset-0 bg-[#0A111F]/40 z-0 pointer-events-none mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A111F]/30 via-transparent to-[#0A111F] z-0 pointer-events-none" />
+        {/* INTERACTIVE BACKGROUND */}
+        <InteractiveBackground />
 
         {/* MAIN TITLE BLOCK */}
         <motion.div
