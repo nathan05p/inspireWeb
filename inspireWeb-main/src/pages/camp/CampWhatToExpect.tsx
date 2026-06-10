@@ -114,6 +114,12 @@ export default function CampWhatToExpect() {
           </div>
         </div>
       </div>
+
+      <div className="mt-12 sm:mt-16 flex justify-center relative z-20">
+        <a href="#give" className="px-8 py-4 bg-[#FA9339] text-[#0A0A0A] font-bold font-outfit uppercase tracking-widest rounded-full hover:bg-white hover:scale-105 transition-all shadow-[0_0_20px_rgba(250,147,57,0.4)]">
+          Înscrie-te acum
+        </a>
+      </div>
     </section>
   );
 }
