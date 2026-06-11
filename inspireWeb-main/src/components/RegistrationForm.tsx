@@ -92,15 +92,24 @@ export default function RegistrationForm() {
 
   const calculateTotal = () => {
     // Prețuri
-    const PRET_INTEGRAL = 450;
-    const PRET_ZI = 20; 
-    const AVANS = 180;
+    const PRET_INTEGRAL = 290;
+    const AVANS = 100;
+    
+    const PRETURI_ZILE: Record<string, number> = {
+      'Miercuri': 45,
+      'Joi': 70,
+      'Vineri': 70,
+      'Sâmbătă': 70,
+      'Duminică': 40
+    };
 
     if (formData.plata === 'avans') return AVANS;
     if (formData.plata === 'cash') return 0;
 
     if (formData.zile === 'toate') return PRET_INTEGRAL;
-    if (formData.zile === 'mai_putine') return formData.zileAlese.length * PRET_ZI;
+    if (formData.zile === 'mai_putine') {
+      return formData.zileAlese.reduce((sum, zi) => sum + (PRETURI_ZILE[zi] || 0), 0);
+    }
 
     return 0;
   };
@@ -267,7 +276,7 @@ export default function RegistrationForm() {
               <select name="plata" value={formData.plata} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors appearance-none">
                 <option value="integral">Plată online - Toată suma</option>
                 {formData.zile === 'toate' && (
-                  <option value="avans">Plată online - Doar avans (180 RON)</option>
+                  <option value="avans">Plată online - Doar avans (100 RON)</option>
                 )}
                 <option value="cash">Plată la InfoDesk (Cash) - 0 RON acum</option>
               </select>
@@ -278,7 +287,7 @@ export default function RegistrationForm() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <label className="flex items-center gap-3 cursor-pointer w-fit">
                   <input type="radio" name="zile" value="toate" checked={formData.zile === 'toate'} onChange={handleChange} className="accent-[#FA9339] w-4 h-4" />
-                  <span className="text-[#D4D4D4] text-sm font-medium">Particip toată tabăra (6 zile)</span>
+                  <span className="text-[#D4D4D4] text-sm font-medium">Particip toată tabăra (5 zile)</span>
                 </label>
                 <label className="flex items-center gap-3 cursor-pointer w-fit">
                   <input type="radio" name="zile" value="mai_putine" checked={formData.zile === 'mai_putine'} onChange={handleChange} className="accent-[#FA9339] w-4 h-4" />
@@ -296,7 +305,7 @@ export default function RegistrationForm() {
                   >
                     <label className="text-sm font-bold text-[#A3A3A3] block mb-3">Alege zilele în care vei fi în tabără *</label>
                     <div className="flex flex-wrap gap-4">
-                      {['Marți', 'Mie.', 'Joi', 'Vin.', 'Sâm', 'Dum.'].map(zi => (
+                      {['Miercuri', 'Joi', 'Vineri', 'Sâmbătă', 'Duminică'].map(zi => (
                         <label key={zi} className="flex items-center gap-2 cursor-pointer">
                           <div className="relative flex items-center justify-center w-5 h-5 rounded border border-[#262626] bg-[#0A0A0A] hover:border-[#FA9339] transition-colors shrink-0">
                             <input
@@ -369,13 +378,13 @@ export default function RegistrationForm() {
                 <div className="flex justify-between">
                   <span className="text-[#737373]">Zile Participare:</span>
                   <span className="font-semibold text-white">
-                    {formData.zile === 'toate' ? 'Toată tabăra (6 zile)' : `Zile specifice (${formData.zileAlese.join(', ')})`}
+                    {formData.zile === 'toate' ? 'Toată tabăra (5 zile)' : `Zile specifice (${formData.zileAlese.join(', ')})`}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-[#737373]">Tip Plată:</span>
                   <span className="font-semibold text-[#FA9339] text-right">
-                    {formData.plata === 'avans' ? 'Avans online (Se achită acum 180 RON)' : 
+                    {formData.plata === 'avans' ? 'Avans online (Se achită acum 100 RON)' : 
                      formData.plata === 'cash' ? 'Plată la InfoDesk (Se achită în tabără)' :
                      `Integral online (Se achită acum ${calculateTotal()} RON)`}
                   </span>

@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2025-02-24.acacia',
+  apiVersion: '2025-02-24.acacia' as any,
 });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -14,9 +14,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { formData } = req.body;
 
     // Calculate amount based on the form data
-    const PRET_INTEGRAL = 450;
-    const PRET_ZI = 20; 
-    const AVANS = 180;
+    const PRET_INTEGRAL = 290;
+    const AVANS = 100;
+    
+    const PRETURI_ZILE: Record<string, number> = {
+      'Miercuri': 45,
+      'Joi': 70,
+      'Vineri': 70,
+      'Sâmbătă': 70,
+      'Duminică': 40
+    };
 
     let amount = 0;
     let description = '';
@@ -28,8 +35,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       amount = PRET_INTEGRAL;
       description = 'Taxă Integrală Inspire+ Camp 2026';
     } else if (formData.zile === 'mai_putine') {
-      amount = formData.zileAlese.length * PRET_ZI;
-      description = `Inspire+ Camp 2026 - Zile Alese (${formData.zileAlese.join(', ')})`;
+      const selectedDays = formData.zileAlese || [];
+      amount = selectedDays.reduce((sum: number, zi: string) => sum + (PRETURI_ZILE[zi] || 0), 0);
+      description = `Inspire+ Camp 2026 - Zile Alese (${selectedDays.join(', ')})`;
       // Prevent 0 amount for stripe
       if (amount === 0) {
         amount = PRET_INTEGRAL; // Fallback or handle differently
