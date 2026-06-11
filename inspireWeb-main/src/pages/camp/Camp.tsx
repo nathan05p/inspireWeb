@@ -564,7 +564,7 @@ export default function Camp() {
       </section>
 
       {/* LOGISTICS & INFO */}
-      <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#E0873C]/10">
+      <section id="give" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
           {/* Registration Form */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="sm:col-span-12">
@@ -617,6 +617,9 @@ export default function Camp() {
         
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-black/20" />
+
+        {/* Gradient transition from the section above */}
+        <div className="absolute top-0 left-0 right-0 h-48 sm:h-64 bg-gradient-to-t from-transparent to-[#0A0A0A] pointer-events-none z-10" />
 
         <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-5xl">
           <CampRotatingCircle />
