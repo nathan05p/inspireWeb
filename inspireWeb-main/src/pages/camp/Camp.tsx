@@ -572,16 +572,21 @@ export default function Camp() {
           </motion.div>
 
           {/* Cabin Accommodation Info - Small Section */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="sm:col-span-12 bg-[#121212] border border-[#FA9339]/20 shadow-sm p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row md:items-center gap-4 sm:gap-6 mt-4 mb-2">
-            <div className="w-12 h-12 bg-[#1A1A1A] rounded-2xl flex items-center justify-center shrink-0 border border-[#262626]">
-              <Home className="text-[#FA9339]" size={24} />
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="sm:col-span-12 bg-[#121212] border border-[#FA9339]/20 shadow-sm p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 mt-4 mb-2 hover:bg-[#221508] transition-colors">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 sm:gap-6">
+              <div className="w-12 h-12 bg-[#1A1A1A] rounded-2xl flex items-center justify-center shrink-0 border border-[#262626]">
+                <Home className="text-[#FA9339]" size={24} />
+              </div>
+              <div>
+                <h3 className="text-xl font-outfit tracking-tight mb-1 text-white">Cazarea la Cabană</h3>
+                <p className="text-[#D4D4D4] text-sm md:text-base leading-relaxed">
+                  Dacă dorești informații despre posibilitatea cazării la cabane, te rugăm să ne contactezi la numărul de telefon alăturat.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-outfit tracking-tight mb-1 text-white">Cazarea la Cabană</h3>
-              <p className="text-[#D4D4D4] text-sm md:text-base leading-relaxed">
-                Dacă dorești informații despre posibilitatea cazarii la cabane, te rugăm să bifezi în formularul de înscriere și te vom contacta noi.
-              </p>
-            </div>
+            <a href="tel:+40726606501" className="shrink-0 flex items-center justify-center gap-2 bg-[#FA9339]/10 text-[#FA9339] px-6 py-4 rounded-xl font-bold hover:bg-[#FA9339]/20 transition-colors border border-[#FA9339]/20 w-full md:w-auto">
+              <Phone size={18} /> +40 726 606 501
+            </a>
           </motion.div>
 
           {/* Location */}

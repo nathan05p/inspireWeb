@@ -7,6 +7,8 @@ export default function RegistrationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
+  const [hasReadRules, setHasReadRules] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
 
   useEffect(() => {
@@ -138,38 +140,20 @@ export default function RegistrationForm() {
     setIsSubmitting(true);
 
     try {
-      if (formData.plata === 'cash') {
-        // Send directly to our new submit-cash endpoint
-        const response = await fetch('/api/submit-cash', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ formData }),
-        });
+      // Redirect to Stripe
+      const response = await fetch('/api/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formData }),
+      });
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'A apărut o eroare la înregistrare.');
-        }
-
-        setIsSuccess(true);
-        setPaymentStatus('success');
-        setIsSubmitting(false);
-      } else {
-        // Redirect to Stripe
-        const response = await fetch('/api/create-checkout-session', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ formData }),
-        });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'A apărut o eroare la crearea sesiunii de plată.');
-        }
-
-        const { url } = await response.json();
-        window.location.href = url;
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'A apărut o eroare la crearea sesiunii de plată.');
       }
+
+      const { url } = await response.json();
+      window.location.href = url;
     } catch (err: any) {
       alert(err.message || 'Eroare la procesare. Te rugăm să încerci din nou.');
       setIsSubmitting(false);
@@ -193,7 +177,7 @@ export default function RegistrationForm() {
         </button>
 
         <p className="text-[#737373] text-xs mt-8">
-          {formData.plata === 'cash' ? 'Înregistrare completă. Ne vedem în tabără!' : 'Securizat prin Stripe. Îți mulțumim!'}
+          Securizat prin Stripe. Îți mulțumim!
         </p>
       </div>
     );
@@ -245,18 +229,7 @@ export default function RegistrationForm() {
               </select>
             </div>
 
-            <div className="pt-4 pb-2 border-t border-[#FA9339]/10">
-              <label className="flex items-start gap-3 cursor-pointer group w-fit">
-                <div className="relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border border-[#262626] bg-[#0A0A0A] group-hover:border-[#FA9339] transition-colors shrink-0">
-                  <input type="checkbox" name="cazareCabana" checked={formData.cazareCabana} onChange={handleChange} className="peer sr-only" />
-                  <Check size={14} className={`text-[#FA9339] transition-opacity ${formData.cazareCabana ? 'opacity-100' : 'opacity-0'}`} />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-[#D4D4D4]">Cazare la cabane (opțional)</p>
-                  <p className="text-xs text-[#737373]">Doresc informații despre posibilitatea cazării la cabane.</p>
-                </div>
-              </label>
-            </div>
+
 
             <div className="flex justify-end pt-4">
               <button type="submit" className="flex items-center gap-2 bg-[#FA9339] text-[#0A0A0A] px-8 py-4 rounded-xl font-bold hover:bg-[#D45A10] transition-colors">
@@ -279,7 +252,6 @@ export default function RegistrationForm() {
                   {formData.zile === 'toate' && (
                     <option value="avans">Plată online - Doar avans (100 RON)</option>
                   )}
-                  <option value="cash">Plată la InfoDesk (Cash) - 0 RON acum</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#737373]">
                   <ChevronDown size={20} />
@@ -335,13 +307,28 @@ export default function RegistrationForm() {
               <span className="text-[#A3A3A3] font-bold">RON</span>
             </div>
 
-            <label className="flex items-start gap-3 cursor-pointer group w-fit">
-              <div className="relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border border-[#262626] bg-[#0A0A0A] group-hover:border-[#FA9339] transition-colors shrink-0">
+            <label 
+              className="flex items-start gap-3 cursor-pointer group w-fit"
+              onClick={(e) => {
+                if (!hasReadRules) {
+                  e.preventDefault();
+                  setIsModalOpen(true);
+                }
+              }}
+            >
+              <div className={`relative flex items-center justify-center w-6 h-6 mt-0.5 rounded border transition-colors shrink-0 ${hasReadRules ? 'border-[#262626] bg-[#0A0A0A] group-hover:border-[#FA9339]' : 'border-red-500/50 bg-red-500/10'}`}>
                 <input type="checkbox" required name="acordRegulament" checked={formData.acordRegulament} onChange={handleChange} className="peer sr-only" />
                 <Check size={14} className={`text-[#FA9339] transition-opacity ${formData.acordRegulament ? 'opacity-100' : 'opacity-0'}`} />
               </div>
-              <span className="text-sm text-[#D4D4D4] pt-0.5">Am citit și sunt de acord cu <button type="button" onClick={() => setIsModalOpen(true)} className="text-[#FA9339] font-bold hover:underline">REGULAMENTUL</button> taberei.</span>
+              <span className="text-sm text-[#D4D4D4] pt-0.5">
+                Am citit și sunt de acord cu <button type="button" onClick={(e) => { e.preventDefault(); e.stopPropagation(); setIsModalOpen(true); }} className="text-[#FA9339] font-bold hover:underline">REGULAMENTUL</button> taberei.
+              </span>
             </label>
+            {!hasReadRules && (
+              <p className="text-xs text-red-400 mt-1">
+                * Te rugăm să citești regulamentul dând click mai sus pentru a putea bifa.
+              </p>
+            )}
 
             {/* Alert for Cancelled Payment */}
             {paymentStatus === 'cancel' && (
@@ -358,9 +345,7 @@ export default function RegistrationForm() {
             <div className="bg-[#0A0A0A] border border-[#262626] p-6 rounded-xl space-y-4 shadow-inner">
               <div className="flex items-center justify-between border-b border-[#FA9339]/10 pb-3">
                 <span className="text-xs text-[#A3A3A3] uppercase font-bold tracking-wider">Sumar Înscriere</span>
-                {formData.plata !== 'cash' && (
-                  <span className="text-xs text-[#FA9339] font-bold flex items-center gap-1.5"><CreditCard size={14} /> Securizat prin Stripe</span>
-                )}
+                <span className="text-xs text-[#FA9339] font-bold flex items-center gap-1.5"><CreditCard size={14} /> Securizat prin Stripe</span>
               </div>
               
               <div className="space-y-2 text-sm text-[#D4D4D4]">
@@ -376,10 +361,7 @@ export default function RegistrationForm() {
                   <span className="text-[#737373]">Telefon:</span>
                   <span className="font-semibold text-white">{formData.telefon}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-[#737373]">Cazare cabană:</span>
-                  <span className="font-semibold text-white">{formData.cazareCabana ? 'Da' : 'Nu'}</span>
-                </div>
+
                 <div className="flex justify-between">
                   <span className="text-[#737373]">Zile Participare:</span>
                   <span className="font-semibold text-white">
@@ -390,17 +372,13 @@ export default function RegistrationForm() {
                   <span className="text-[#737373]">Tip Plată:</span>
                   <span className="font-semibold text-[#FA9339] text-right">
                     {formData.plata === 'avans' ? 'Avans online (Se achită acum 100 RON)' : 
-                     formData.plata === 'cash' ? 'Plată la InfoDesk (Se achită în tabără)' :
                      `Integral online (Se achită acum ${calculateTotal()} RON)`}
                   </span>
                 </div>
               </div>
 
               <p className="text-[10px] text-[#737373] pt-2 leading-relaxed">
-                {formData.plata === 'cash' 
-                  ? 'Prin apăsarea butonului de înscriere de mai jos, datele tale vor fi salvate și vei achita suma corespunzătoare la sosirea în tabără.'
-                  : 'Prin apăsarea butonului de înscriere de mai jos, vei fi redirecționat securizat către pagina de plată **Stripe** pentru a introduce datele cardului. După finalizarea plății, vei fi trimis înapoi pe acest site și înscrierea ta va fi salvată automat.'
-                }
+                Prin apăsarea butonului de înscriere de mai jos, vei fi redirecționat securizat către pagina de plată **Stripe** pentru a introduce datele cardului. După finalizarea plății, vei fi trimis înapoi pe acest site și înscrierea ta va fi salvată automat.
               </p>
             </div>
 
@@ -432,7 +410,13 @@ export default function RegistrationForm() {
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
               data-lenis-prevent="true"
-              className="bg-[#121212] border border-[#FA9339]/20 p-6 sm:p-8 rounded-3xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto"
+              onScroll={(e) => {
+                const target = e.target as HTMLDivElement;
+                if (target.scrollHeight - target.scrollTop - target.clientHeight < 50) {
+                  setHasScrolledToBottom(true);
+                }
+              }}
+              className="bg-[#121212] border border-[#FA9339]/20 p-6 sm:p-8 rounded-3xl shadow-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto relative"
             >
               <h3 className="text-2xl font-outfit font-bold text-[#FA9339] mb-2">Avem standarde, nu reguli!</h3>
               <p className="text-[#A3A3A3] text-sm mb-6">
@@ -463,13 +447,29 @@ export default function RegistrationForm() {
                   Nerespectarea regulilor şi îndrumărilor liderilor, urmată de un eventual accident, nu va atrage responsabilitatea organizatorilor.
                 </div>
               </div>
-              <div className="mt-8 flex justify-end">
+              <div className="mt-8 flex flex-col-reverse sm:flex-row justify-end gap-3 sm:gap-4 sticky bottom-0 bg-gradient-to-t from-[#121212] via-[#121212] to-transparent pt-6 pb-2">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="bg-[#0A0A0A] text-[#D4D4D4] px-6 py-3 rounded-xl font-bold hover:bg-[#171717] hover:text-white transition-colors border border-[#FA9339]/20"
+                  className="bg-transparent text-[#D4D4D4] px-6 py-3 rounded-xl font-bold hover:text-white transition-colors"
                 >
-                  Am înțeles
+                  Închide
+                </button>
+                <button
+                  type="button"
+                  disabled={!hasScrolledToBottom}
+                  onClick={() => {
+                    setHasReadRules(true);
+                    setFormData(prev => ({ ...prev, acordRegulament: true }));
+                    setIsModalOpen(false);
+                  }}
+                  className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
+                    hasScrolledToBottom 
+                      ? 'bg-[#FA9339] text-[#0A0A0A] hover:bg-[#D45A10] shadow-[0_0_20px_rgba(250,147,57,0.3)] scale-100' 
+                      : 'bg-[#262626] text-[#737373] cursor-not-allowed scale-95'
+                  }`}
+                >
+                  {hasScrolledToBottom ? 'Sunt de acord' : 'Citește până jos...'}
                 </button>
               </div>
             </motion.div>
