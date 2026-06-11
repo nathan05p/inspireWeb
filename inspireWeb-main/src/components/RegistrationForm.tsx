@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle } from 'lucide-react';
+import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle, ChevronDown } from 'lucide-react';
 
 export default function RegistrationForm() {
   const [step, setStep] = useState(1);
@@ -273,13 +273,18 @@ export default function RegistrationForm() {
           >
             <div className="space-y-2">
               <label className="text-sm font-bold text-[#A3A3A3]">Metodă de plată</label>
-              <select name="plata" value={formData.plata} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors appearance-none">
-                <option value="integral">Plată online - Toată suma</option>
-                {formData.zile === 'toate' && (
-                  <option value="avans">Plată online - Doar avans (100 RON)</option>
-                )}
-                <option value="cash">Plată la InfoDesk (Cash) - 0 RON acum</option>
-              </select>
+              <div className="relative">
+                <select name="plata" value={formData.plata} onChange={handleChange} className="w-full bg-[#0A0A0A] border border-[#262626] rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#FA9339] transition-colors appearance-none pr-10">
+                  <option value="integral">Plată online - Toată suma</option>
+                  {formData.zile === 'toate' && (
+                    <option value="avans">Plată online - Doar avans (100 RON)</option>
+                  )}
+                  <option value="cash">Plată la InfoDesk (Cash) - 0 RON acum</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[#737373]">
+                  <ChevronDown size={20} />
+                </div>
+              </div>
             </div>
 
             <div className="space-y-4">
