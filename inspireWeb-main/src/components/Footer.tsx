@@ -96,7 +96,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-primary/10 pt-6 flex flex-col md:flex-row justify-between items-start md:items-center text-xs text-primary/40 gap-2">
-          <p>© {new Date().getFullYear()} inspire+ Timișoara · Created for the community.</p>
+          <p className="flex items-center gap-1 flex-wrap">
+            © {new Date().getFullYear()} 
+            <span className="inline-flex items-center text-primary/60">
+              <span className="font-serif italic tracking-tight text-[13px]">inspire</span>
+              <span className="font-sans font-bold text-[9px] ml-[1px] mt-[1px]">+</span>
+            </span>
+            Timișoara · Created for the community.
+          </p>
           <div className="flex gap-6">
             <Link to="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link to="#" className="hover:text-primary transition-colors">Cookie Policy</Link>
