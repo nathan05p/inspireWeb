@@ -404,7 +404,7 @@ export default function Camp() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                fontFamily: '"BDScript", cursive',
+                fontFamily: '"BDSans", sans-serif',
                 fontSize: 'clamp(1.05rem, 5.5vw, 3.5rem)',
                 lineHeight: 1.4,
                 textShadow: '0 4px 40px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.6)',
