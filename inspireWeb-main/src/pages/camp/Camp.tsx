@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import {
   MapPin, Mail, Phone, AtSign, CheckCircle,
-  Map, ChevronLeft, ChevronRight, Home
+  Map, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import CampNavbar from './CampNavbar';
 import Marquee from '../../components/Marquee';
