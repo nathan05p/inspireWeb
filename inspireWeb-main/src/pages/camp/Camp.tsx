@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import {
   MapPin, Mail, Phone, AtSign, CheckCircle,
-  Map, ChevronLeft, ChevronRight
+  Map, ChevronLeft, ChevronRight, Home
 } from 'lucide-react';
 import CampNavbar from './CampNavbar';
 import Marquee from '../../components/Marquee';
@@ -596,6 +596,17 @@ export default function Camp() {
               <a href="#" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
                 <AtSign size={20} className="text-[#FA9339]" /> @inspireplus.tm
               </a>
+            </div>
+          </motion.div>
+
+          {/* Cabin Accommodation Info */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.4} className="sm:col-span-12 bg-[#121212] shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 hover:bg-[#221508] transition-colors mt-2 sm:mt-0">
+            <div>
+              <Home className="text-[#FA9339] mb-4 sm:mb-6" size={40} />
+              <h3 className="text-2xl sm:text-3xl font-outfit tracking-tight mb-3 text-white">Cazarea la Cabană</h3>
+              <p className="text-[#D4D4D4] text-base md:text-lg max-w-4xl leading-relaxed">
+                Dacă dorești informații despre posibilitatea cazarii la cabane, te rugăm să bifezi în formularul de înscriere și te vom contacta noi.
+              </p>
             </div>
           </motion.div>
         </div>
