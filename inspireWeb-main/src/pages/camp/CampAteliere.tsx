@@ -64,10 +64,10 @@ export default function CampAteliere() {
               <p className="text-[#FA9339] text-sm font-bold tracking-[0.2em] uppercase">
                 inspire+ 2026 — The Cross
               </p>
-              <p className="text-[#D4D4D4] text-base sm:text-lg leading-relaxed">
+              <p className="text-[#D4D4D4] text-base sm:text-lg leading-relaxed line-clamp-2">
                 Știm că fiecare adolescent sau tânăr este unic și prețios, având daruri și abilități care trebuie descoperite, iar mai apoi șlefuite.
               </p>
-              <p className="text-[#D4D4D4] text-sm sm:text-base leading-relaxed">
+              <p className="text-[#D4D4D4] text-sm sm:text-base leading-relaxed line-clamp-2">
                 Ne dorim ca inspire+ să fie un mediu pus la dispoziția celor care-și doresc să fie inspirați și echipați pentru a-și folosi abilitățile în slujba Regelui Cristos.
               </p>
               <p className="text-[#737373] text-sm italic mt-4">
@@ -149,12 +149,12 @@ export default function CampAteliere() {
                         )}
                       </div>
                       
-                      <motion.div layout className={`relative overflow-hidden ${isExpanded ? 'mt-4' : 'pr-14 whitespace-nowrap'}`}>
+                      <motion.div layout className={`relative overflow-hidden ${isExpanded ? 'mt-4' : 'pr-14'}`}>
                         <motion.p 
                           layout="position"
                           className={isExpanded 
                             ? "text-[#D4D4D4] text-sm sm:text-base md:text-lg leading-relaxed md:leading-loose whitespace-pre-wrap"
-                            : "text-[#A3A3A3] text-sm sm:text-base font-light italic truncate"
+                            : "text-[#A3A3A3] text-sm sm:text-base font-light italic line-clamp-2"
                           }
                         >
                           {atelier.desc}

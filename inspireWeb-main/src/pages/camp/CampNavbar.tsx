@@ -8,20 +8,14 @@ const navLinks = [
 ];
 
 const menuSections = {
-  Despre: [
-    { label: 'The Cross', href: '#about' },
-  ],
-  Detalii: [
-    { label: 'Ce te așteaptă', href: '#what-to-expect' },
-    { label: 'Ce să iei cu tine', href: '#packing' }
-  ],
-  Logistică: [
-    { label: 'Întrebări Frecvente', href: '#faq' }
-  ],
-  Contact: [
-    { label: 'Contact Oficial', href: '#contact' },
-    { label: 'Înscriere', href: '#give' }
-  ],
+  'Navigație': [
+    { label: 'Înscrieri', href: '#give' },
+    { label: 'Despre tabără', href: '#about' },
+    { label: 'Tema', href: '#about' },
+    { label: 'Ateliere', href: '#ateliere' },
+    { label: 'Întrebări frecvente', href: '#faq' },
+    { label: 'Contact', href: '#contact' },
+  ]
 };
 
 export default function CampNavbar() {
@@ -46,7 +40,7 @@ export default function CampNavbar() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#0A111F]/90 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#0A0A0A]/90 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -67,7 +61,7 @@ export default function CampNavbar() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.4 }}
-                className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-baseline gap-0.5 text-white hover:text-deepsea-300 transition-colors"
+                className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex items-baseline gap-0.5 text-white hover:text-[#FA9339] transition-colors"
               >
                 <span
                   style={{ fontFamily: '"League Spartan", sans-serif', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontStyle: 'normal', letterSpacing: '0.02em' }}
@@ -91,7 +85,7 @@ export default function CampNavbar() {
                   <Link
                     key={link.label}
                     to={link.href}
-                    className="text-[#E0F0F8] hover:text-white text-[11px] font-bold tracking-[0.2em] transition-colors"
+                    className="text-[#D4D4D4] hover:text-white text-[11px] font-bold tracking-[0.2em] transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -99,7 +93,7 @@ export default function CampNavbar() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-[#E0F0F8] hover:text-white text-[11px] font-bold tracking-[0.2em] transition-colors"
+                    className="text-[#D4D4D4] hover:text-white text-[11px] font-bold tracking-[0.2em] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -107,7 +101,7 @@ export default function CampNavbar() {
               ))}
               <button
                 onClick={() => setMenuOpen(true)}
-                className="text-white text-[11px] font-bold tracking-[0.2em] border-b-2 border-[#082E5C] hover:border-deepsea-300 hover:text-deepsea-300 transition-all flex items-center gap-2 pb-0.5"
+                className="text-white text-[11px] font-bold tracking-[0.2em] border-b-2 border-[#FA9339]/10 hover:border-[#FA9339] hover:text-[#FA9339] transition-all flex items-center gap-2 pb-0.5"
               >
                 MENU
               </button>
@@ -127,18 +121,18 @@ export default function CampNavbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[100] bg-[#0A111F] flex flex-col"
+            className="fixed inset-0 z-[100] bg-[#0A0A0A] flex flex-col"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Menu header */}
-            <div className="flex justify-between items-center px-5 sm:px-8 md:px-16 py-5 border-b border-[#082E5C] shrink-0">
-              <span className="text-[#A0C4D8] text-xs tracking-widest">NAVIGATION</span>
+            <div className="flex justify-between items-center px-5 sm:px-8 md:px-16 py-5 border-b border-[#FA9339]/10 shrink-0">
+              <span className="text-[#A3A3A3] text-xs tracking-widest">NAVIGATION</span>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="text-white hover:text-deepsea-300 transition-colors p-1"
+                className="text-white hover:text-[#FA9339] transition-colors p-1"
                 aria-label="Închide meniu"
               >
                 <X size={26} />
@@ -150,18 +144,18 @@ export default function CampNavbar() {
               {Object.entries(menuSections).map(([section, links], si) => (
                 <motion.div
                   key={section}
-                  className="border-b sm:border-b-0 sm:border-r border-[#082E5C] last:border-0 px-5 sm:px-8 md:px-12 py-8 md:py-12"
+                  className="border-b sm:border-b-0 sm:border-r border-[#FA9339]/10 last:border-0 px-5 sm:px-8 md:px-12 py-8 md:py-12"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: si * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <p className="text-[#A0C4D8] text-[10px] tracking-[0.25em] font-bold mb-6 md:mb-8">{section.toUpperCase()}</p>
+                  <p className="text-[#A3A3A3] text-[10px] tracking-[0.25em] font-bold mb-6 md:mb-8">{section.toUpperCase()}</p>
                   <ul className="flex flex-col gap-4 sm:gap-5">
                     {links.map((link) => (
                       <li key={link.label}>
                         <a
                           href={link.href}
-                          className="text-white text-xl md:text-2xl font-serif hover:text-deepsea-300 transition-colors"
+                          className="text-white text-xl md:text-2xl font-serif hover:text-[#FA9339] transition-colors"
                           onClick={() => setMenuOpen(false)}
                         >
                           {link.label}
@@ -174,8 +168,8 @@ export default function CampNavbar() {
             </div>
 
             {/* Menu footer */}
-            <div className="px-5 sm:px-8 md:px-16 py-5 border-t border-[#082E5C] flex items-center justify-center shrink-0">
-              <p className="text-[#A0C4D8] text-xs tracking-widest text-center">INSPIRE+</p>
+            <div className="px-5 sm:px-8 md:px-16 py-5 border-t border-[#FA9339]/10 flex items-center justify-center shrink-0">
+              <p className="text-[#A3A3A3] text-xs tracking-widest text-center">INSPIRE+</p>
             </div>
           </motion.div>
         )}

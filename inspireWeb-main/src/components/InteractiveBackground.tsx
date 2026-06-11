@@ -1,6 +1,90 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
+const SeamlessVideo: React.FC<{ src: string }> = ({ src }) => {
+  const video1Ref = useRef<HTMLVideoElement>(null);
+  const video2Ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v1 = video1Ref.current;
+    const v2 = video2Ref.current;
+    if (!v1 || !v2) return;
+
+    let animationFrameId: number;
+    const crossfadeDuration = 2.0; // 2 seconds crossfade for super smooth transition
+    let activeVideo = 1;
+
+    // We must ensure the videos are ready to play
+    v1.play().catch(() => {});
+    v2.pause();
+    v2.style.opacity = '0';
+    v1.style.opacity = '1';
+
+    const loop = () => {
+      const active = activeVideo === 1 ? v1 : v2;
+      const inactive = activeVideo === 1 ? v2 : v1;
+
+      if (active.duration) {
+        const timeLeft = active.duration - active.currentTime;
+        
+        if (timeLeft <= crossfadeDuration) {
+          // Start the other video to crossfade
+          if (inactive.paused) {
+            inactive.currentTime = 0;
+            inactive.play().catch(() => {});
+          }
+          
+          // Calculate opacity (1 down to 0 for active, 0 up to 1 for inactive)
+          const opacity = timeLeft / crossfadeDuration;
+          active.style.opacity = Math.max(0, opacity).toString();
+          inactive.style.opacity = Math.min(1, 1 - opacity).toString();
+
+          if (timeLeft <= 0.05) {
+            active.pause();
+            active.currentTime = 0;
+            active.style.opacity = '0';
+            inactive.style.opacity = '1';
+            activeVideo = activeVideo === 1 ? 2 : 1;
+          }
+        } else {
+          // Make sure active is fully visible
+          active.style.opacity = '1';
+          inactive.style.opacity = '0';
+        }
+      }
+      animationFrameId = requestAnimationFrame(loop);
+    };
+
+    animationFrameId = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return (
+    <>
+      <video
+        ref={video1Ref}
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        src={src}
+      />
+      <video
+        ref={video2Ref}
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+        style={{ opacity: 0 }}
+        src={src}
+      />
+    </>
+  );
+};
+
 const InteractiveBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -158,28 +242,8 @@ const InteractiveBackground: React.FC = () => {
 
   return (
     <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#1A0B05]">
-      {/* 1. Base Animated Gradient */}
-      <motion.div
-        className="absolute -inset-[50%] opacity-70 pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at 50% 50%, #FA9339 0%, transparent 40%), radial-gradient(circle at 80% 20%, #B93815 0%, transparent 40%), radial-gradient(circle at 20% 80%, #5B1E05 0%, transparent 50%)',
-          filter: 'blur(80px)'
-        }}
-        animate={{
-          transform: [
-            'rotate(0deg) scale(1)',
-            'rotate(90deg) scale(1.1)',
-            'rotate(180deg) scale(1)',
-            'rotate(270deg) scale(1.2)',
-            'rotate(360deg) scale(1)'
-          ]
-        }}
-        transition={{
-          duration: 30,
-          ease: "linear",
-          repeat: Infinity
-        }}
-      />
+      {/* 1. Base Video Background */}
+      <SeamlessVideo src="/Gradient.mp4" />
       
       {/* 2. Interactive Cursor Blob */}
       <motion.div
@@ -195,7 +259,7 @@ const InteractiveBackground: React.FC = () => {
       />
 
       {/* 3. Dark Overlay to maintain text contrast */}
-      <div className="absolute inset-0 bg-[#1A0B05]/40 backdrop-blur-[40px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[#1A0B05]/40 pointer-events-none" />
 
       {/* 4. Interactive Particles Canvas */}
       <canvas

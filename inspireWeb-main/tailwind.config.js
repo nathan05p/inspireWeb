@@ -32,6 +32,7 @@ export default {
       fontFamily: {
         serif: ['Playfair Display', 'serif'],
         sans: ['Inter', 'sans-serif'],
+        spartan: ['"League Spartan"', 'sans-serif'],
       }
     },
   },

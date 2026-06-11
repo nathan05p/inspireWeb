@@ -90,23 +90,27 @@ export default function CampWhatToExpect() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.6, type: 'spring', bounce: 0.2 }}
-                  className="relative flex items-center w-full px-4"
+                  className="relative flex flex-col w-full px-4"
                 >
-                  {/* Image - Left */}
-                  <div className="z-10 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 mr-4 sm:mr-6 md:mr-10">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-contain drop-shadow-xl"
-                    />
+                  {/* Title */}
+                  <div className="z-20 text-left mb-1 md:mb-2 ml-[4rem] sm:ml-[5.5rem] md:ml-[7.5rem]">
+                    <h3 className="text-[#FA9339] font-bold text-lg md:text-2xl">{item.title}</h3>
                   </div>
-
-                  {/* Text - Right */}
-                  <div className="z-20 flex-1 text-left">
-                    <h3 className="text-[#FA9339] font-bold text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h3>
-                    <p className="text-[#D4D4D4] text-[14px] md:text-base leading-relaxed font-light">
-                      {item.desc}
-                    </p>
+                  
+                  {/* Icon and Paragraph centered */}
+                  <div className="flex items-center w-full">
+                    <div className="z-10 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 shrink-0 mr-4 sm:mr-6 md:mr-10">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full h-full object-contain drop-shadow-xl"
+                      />
+                    </div>
+                    <div className="z-20 flex-1 text-left">
+                      <p className="text-[#D4D4D4] text-[14px] md:text-base leading-relaxed font-light">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               );
