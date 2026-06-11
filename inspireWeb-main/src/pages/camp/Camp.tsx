@@ -30,7 +30,7 @@ const faqs = [
   {
     user: "Andrei M.", time: "acum 2 ore", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Andrei",
     q: "Ce este inclus în prețul taberei?",
-    a: "Prețul de 280 lei include doar înscrierea și participarea în tabără, precum și toate activitățile desfășurate. Nu sunt incluse mâncarea și transportul până în tabără."
+    a: "Prețul de 290 lei include doar înscrierea și participarea în tabără, precum și toate activitățile desfășurate. Nu sunt incluse mâncarea și transportul până în tabără."
   },
   {
     user: "Elena", time: "acum 5 ore", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
