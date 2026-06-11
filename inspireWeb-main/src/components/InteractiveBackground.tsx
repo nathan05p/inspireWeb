@@ -66,6 +66,7 @@ const SeamlessVideo: React.FC<{ src: string }> = ({ src }) => {
     <>
       <video
         ref={video1Ref}
+        autoPlay
         muted
         playsInline
         preload="auto"
@@ -74,6 +75,7 @@ const SeamlessVideo: React.FC<{ src: string }> = ({ src }) => {
       />
       <video
         ref={video2Ref}
+        autoPlay
         muted
         playsInline
         preload="auto"
@@ -258,9 +260,8 @@ const InteractiveBackground: React.FC = () => {
         }}
       />
 
-      {/* 3. Dark Overlay to maintain text contrast */}
-      <div className="absolute inset-0 bg-[#1A0B05]/40 pointer-events-none" />
-
+      {/* 3. Dark Overlay removed to let video shine */}
+      
       {/* 4. Interactive Particles Canvas */}
       <canvas
         ref={canvasRef}
