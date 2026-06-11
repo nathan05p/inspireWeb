@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle } from 'lucide-react';
+import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle, Home } from 'lucide-react';
 
 export default function RegistrationForm() {
   const [step, setStep] = useState(1);
@@ -234,6 +234,14 @@ export default function RegistrationForm() {
                 <option value="Caut loc">Caut un loc în mașină</option>
                 <option value="Descurcaret">Ma descurc</option>
               </select>
+            </div>
+
+            <div className="bg-[#1A1A1A] border border-[#FA9339]/20 p-4 rounded-xl flex gap-3 items-start">
+              <Home className="text-[#FA9339] shrink-0 mt-0.5" size={20} />
+              <p className="text-sm text-[#D4D4D4] leading-relaxed">
+                <span className="font-bold text-white block mb-1">Cazarea la Cabană</span>
+                Dacă dorești informații despre posibilitatea cazarii la cabane, te rugăm să bifezi în formularul de înscriere și te vom contacta noi.
+              </p>
             </div>
 
             <div className="pt-4 pb-2 border-t border-[#FA9339]/10">
