@@ -28,7 +28,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           {/* Main overlay — slides UP to reveal page */}
           <motion.div
             key="loader-panel"
-            className="fixed inset-0 z-[200] bg-[#121C26] flex items-center justify-center"
+            className="fixed inset-0 z-[200] bg-gradient-to-br from-[#FA9339]/20 to-[#0A0A0A] bg-[#0A0A0A] flex items-center justify-center"
             initial={{ y: 0 }}
             animate={{ y: 0 }}
             exit={{
@@ -45,11 +45,11 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 src="/logo.png"
                 alt="inspire+"
                 className="w-24 h-24 md:w-32 md:h-32 object-contain select-none pointer-events-none"
-                initial={{ opacity: 0, y: 18, filter: 'blur(8px) brightness(0) invert(1)' }}
+                style={{ filter: 'brightness(0) invert(1)' }}
+                initial={{ opacity: 0, y: 18 }}
                 animate={{
                   opacity: 1,
                   y: 0,
-                  filter: 'blur(0px) brightness(0) invert(1)',
                   transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.05 },
                 }}
                 exit={{ opacity: 0 }}
@@ -57,7 +57,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
               {/* Thin progress line */}
               <motion.div
-                className="h-[1px] bg-[#C4CDC3]/20 rounded-full overflow-hidden"
+                className="h-[1px] bg-[#FA9339]/20 rounded-full overflow-hidden"
                 initial={{ width: 0, opacity: 0 }}
                 animate={{
                   width: 120,
@@ -66,7 +66,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 }}
               >
                 <motion.div
-                  className="h-full bg-[#C4CDC3]/60 origin-left"
+                  className="h-full bg-[#FA9339]/60 origin-left"
                   initial={{ scaleX: 0 }}
                   animate={{
                     scaleX: 1,
@@ -78,7 +78,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
             {/* Small red dot — bottom left decorative */}
             <motion.div
-              className="absolute bottom-10 left-10 w-2 h-2 rounded-full bg-[#E54B4B]"
+              className="absolute bottom-10 left-10 w-2 h-2 rounded-full bg-[#FA9339]"
               initial={{ scale: 0, opacity: 0 }}
               animate={{
                 scale: 1,
@@ -91,7 +91,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           {/* Secondary panel — slides up with slight delay for layered effect */}
           <motion.div
             key="loader-panel-2"
-            className="fixed inset-0 z-[190] bg-[#C4CDC3]"
+            className="fixed inset-0 z-[190] bg-[#FA9339]"
             initial={{ y: 0 }}
             animate={{ y: 0 }}
             exit={{

@@ -14,11 +14,11 @@ import InteractiveBackground from '../../components/InteractiveBackground';
 
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const, delay }
+    transition: { duration: 0.6, ease: 'easeOut', delay }
   })
 };
 
@@ -393,16 +393,16 @@ export default function Camp() {
         {/* MAIN TITLE BLOCK */}
         <motion.div
           className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-8"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
         >
           {/* Text Container */}
           <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
               style={{
                 fontFamily: '"BDSans", sans-serif',
                 fontSize: 'clamp(1.05rem, 5.5vw, 3.5rem)',

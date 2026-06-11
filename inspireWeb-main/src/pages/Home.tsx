@@ -6,11 +6,11 @@ import Marquee from '../components/Marquee';
 import ServicesGrid from '../components/ServicesGrid';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 30 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as const, delay },
+    transition: { duration: 0.6, ease: 'easeOut', delay },
   }),
 };
 
