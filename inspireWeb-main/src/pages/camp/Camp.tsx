@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import {
   MapPin, Mail, Phone, AtSign, CheckCircle,
-  Tent, Backpack,
-  Plus, BookOpen, Map, ChevronLeft, ChevronRight
+  Map, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import CampNavbar from './CampNavbar';
 import Marquee from '../../components/Marquee';
@@ -25,12 +24,7 @@ const fadeUp = {
 
 
 
-const packingList = [
-  { title: "Titlu Secțiune", icon: <Tent size={32} />, items: ["Aici avem un text", "Aici avem un text", "Aici avem un text", "Aici avem un text"] },
-  { title: "Titlu Secțiune", icon: <Backpack size={32} />, items: ["Aici avem un text", "Aici avem un text", "Aici avem un text", "Aici avem un text"] },
-  { title: "Titlu Secțiune", icon: <Plus size={32} />, items: ["Aici avem un text", "Aici avem un text", "Aici avem un text", "Aici avem un text"] },
-  { title: "Titlu Secțiune", icon: <BookOpen size={32} />, items: ["Aici avem un text", "Aici avem un text", "Aici avem un text", "Aici avem un text"] },
-];
+
 
 const faqs = [
   {
@@ -410,27 +404,20 @@ export default function Camp() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{
-                fontFamily: '"BDSans", sans-serif',
-                fontSize: 'clamp(1.5rem, 4vw, 3.5rem)',
+                fontFamily: '"BDScript", cursive',
+                fontSize: 'clamp(1.05rem, 5.5vw, 3.5rem)',
                 lineHeight: 1.4,
                 textShadow: '0 4px 40px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.6)',
                 color: 'white',
-                fontWeight: 500,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase'
+                fontWeight: 'bold',
+                letterSpacing: '0.05em',
+                whiteSpace: 'nowrap',
               }}
             >
-              MAI APROAPE DE CER,{' '}
-              <br />
-              MAI APROAPE DE{' '}
-              <br />
-              OAMENI{' '}
-              <br />
-              ȘI MAI DE FOLOS{' '}
-              <br />
-              <span style={{ color: '#FA9339' }}>
-                IMPĂRĂȚIEI
-              </span>
+              MAI APROAPE DE CER,<br/>
+              MAI APROAPE DE OAMENI<br/>
+              ȘI MAI DE FOLOS <br/>
+              <span className="text-[#FA9339]">IMPĂRĂȚIEI</span>
             </motion.h1>
           </div>
         </motion.div>
@@ -491,27 +478,7 @@ export default function Camp() {
         <PhotoGallery />
       </section>
 
-      {/* PACKING LIST */}
-      <section id="packing" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10 bg-[#0A0A0A]">
-        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-3xl md:text-4xl tracking-widest font-serif font-bold text-white mb-16 text-center">
-          CE SĂ IEI CU TINE
-        </motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {packingList.map((category, i) => (
-            <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i * 0.1} className="p-8 rounded-3xl bg-[#121212] hover:bg-[#221508] transition-colors group shadow-sm">
-              <div className="text-[#FA9339] mb-8 transform group-hover:scale-110 transition-transform origin-left">{category.icon}</div>
-              <h3 className="text-lg font-bold mb-6 pb-4 border-b border-[#FA9339]/15 text-white">{category.title}</h3>
-              <ul className="space-y-3">
-                {category.items.map((item, j) => (
-                  <li key={j} className="flex items-center gap-3 text-sm text-[#E0F0F8]">
-                    <div className="w-1.5 h-1.5 rounded-full bg-slate-300" /> {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+
 
       {/* FAQ COMMUNITY STYLE */}
       <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-[#FA9339]/10 bg-[#0A0A0A]">
