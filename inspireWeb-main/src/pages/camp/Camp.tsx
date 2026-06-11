@@ -491,7 +491,7 @@ export default function Camp() {
 
         <div className="flex flex-col gap-6 w-full relative z-10">
           {/* FAQ VERTICAL WHEEL STYLE */}
-          <div className="relative w-full max-w-3xl mx-auto h-[500px] sm:h-[600px]" style={{ maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}>
+          <div className="relative w-full max-w-3xl mx-auto h-[380px] sm:h-[600px] px-4 sm:px-0" style={{ maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)', WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)' }}>
             {/* Scrollable Container */}
             <div 
               ref={faqScrollRef}
@@ -500,23 +500,23 @@ export default function Camp() {
               onTouchStart={() => setIsFaqHovered(true)}
               onTouchEnd={() => setIsFaqHovered(false)}
               data-lenis-prevent="true"
-              className="absolute inset-0 overflow-y-auto flex flex-col gap-6 px-2 sm:px-4 py-16 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className="absolute inset-0 overflow-y-auto flex flex-col gap-4 sm:gap-6 px-2 sm:px-4 py-8 sm:py-16 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
               {Array(6).fill(faqs).flat().map((faq, i) => (
                 <div
                   key={i}
-                  className="w-full shrink-0 bg-gradient-to-b from-[#2A211D]/80 to-[#171717]/90 backdrop-blur-xl p-6 md:p-8 rounded-[2.5rem] border border-[#FA9339]/8 shadow-2xl flex flex-col gap-6 mx-auto max-w-2xl relative overflow-hidden group hover:border-[#FA9339]/20 transition-colors"
+                  className="w-full shrink-0 bg-gradient-to-b from-[#2A211D]/80 to-[#171717]/90 backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-[1.5rem] sm:rounded-[2.5rem] border border-[#FA9339]/8 shadow-2xl flex flex-col gap-4 sm:gap-6 mx-auto max-w-2xl relative overflow-hidden group hover:border-[#FA9339]/20 transition-colors"
                 >
                   {/* Subtle Top Glow */}
                   <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#FA9339]/20 to-transparent" />
 
                   {/* User Question */}
-                  <div className="flex items-start gap-4">
-                    <div className="relative shrink-0 w-12 h-12 md:w-14 md:h-14">
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <div className="relative shrink-0 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
                       <div className="absolute inset-0 bg-[#FA9339]/10 rounded-full blur-md" />
                       <div className="relative w-full h-full rounded-full border border-[#FA9339]/20 bg-gradient-to-br from-[#171717] to-[#0A0A0A] flex items-center justify-center overflow-hidden shadow-inner">
                         <span 
-                          className="text-[#D4D4D4] text-2xl md:text-3xl leading-none pt-1" 
+                          className="text-[#D4D4D4] text-xl sm:text-2xl md:text-3xl leading-none pt-1" 
                           style={{ fontFamily: '"TheLetterEditorial", "Playfair Display", serif', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}
                         >
                           {faq.user.charAt(0).toUpperCase()}
@@ -524,34 +524,34 @@ export default function Camp() {
                       </div>
                     </div>
                     <div className="pt-1 w-full">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-medium text-[#D4D4D4] text-sm md:text-base tracking-wide">{faq.user}</span>
+                      <div className="flex items-center justify-between mb-1 sm:mb-2">
+                        <span className="font-medium text-[#D4D4D4] text-xs sm:text-sm md:text-base tracking-wide">{faq.user}</span>
                       </div>
-                      <p className="text-white text-lg md:text-xl font-outfit font-light leading-snug">{faq.q}</p>
+                      <p className="text-white text-base sm:text-lg md:text-xl font-outfit font-light leading-snug">{faq.q}</p>
                     </div>
                   </div>
 
                   {/* Connecting Line & Staff Reply */}
-                  <div className="relative ml-6 md:ml-7 pl-8 md:pl-10 mt-2">
+                  <div className="relative ml-5 sm:ml-6 md:ml-7 pl-6 sm:pl-8 md:pl-10 mt-1 sm:mt-2">
                     {/* Glowing Vertical Line */}
                     <div className="absolute top-0 left-0 bottom-0 w-[1px] bg-gradient-to-b from-[#FA9339]/30 via-[#FA9339]/20 to-transparent" />
                     
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div className="relative shrink-0 mt-1">
                         <div className="absolute inset-0 bg-[#FA9339]/20 rounded-full blur-md" />
-                        <div className="relative w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#171717] to-[#0A0A0A] border border-[#FA9339]/30 flex items-center justify-center shadow-lg">
-                          <span className="text-[#FA9339] font-outfit tracking-tighter text-[10px] md:text-xs italic font-bold">i+</span>
+                        <div className="relative w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[#171717] to-[#0A0A0A] border border-[#FA9339]/30 flex items-center justify-center shadow-lg">
+                          <span className="text-[#FA9339] font-outfit tracking-tighter text-[9px] sm:text-[10px] md:text-xs italic font-bold">i+</span>
                         </div>
                       </div>
                       <div className="w-full">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="font-semibold text-xs md:text-sm text-[#FA9339] tracking-wide">inspire+ staff</span>
-                          <CheckCircle size={14} className="text-[#FA9339] shrink-0" />
-                          <div className="ml-auto px-2.5 py-1 rounded-full bg-[#FA9339]/5 border border-[#FA9339]/20 text-[#FA9339]/80 text-[9px] md:text-[10px] font-bold uppercase tracking-widest hidden sm:block backdrop-blur-sm">
+                        <div className="flex items-center gap-2 sm:gap-3 mb-1 sm:mb-2">
+                          <span className="font-semibold text-[10px] sm:text-xs md:text-sm text-[#FA9339] tracking-wide">inspire+ staff</span>
+                          <CheckCircle size={12} className="text-[#FA9339] shrink-0 sm:w-[14px] sm:h-[14px]" />
+                          <div className="ml-auto px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-[#FA9339]/5 border border-[#FA9339]/20 text-[#FA9339]/80 text-[8px] sm:text-[9px] md:text-[10px] font-bold uppercase tracking-widest hidden xs:block backdrop-blur-sm">
                             Răspuns Oficial
                           </div>
                         </div>
-                        <p className="text-[#A3A3A3] text-sm md:text-base leading-relaxed font-light">{faq.a}</p>
+                        <p className="text-[#A3A3A3] text-xs sm:text-sm md:text-base leading-relaxed font-light">{faq.a}</p>
                       </div>
                     </div>
                   </div>
