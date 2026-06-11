@@ -62,7 +62,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 animate={{
                   width: 120,
                   opacity: 1,
-                  transition: { duration: 0.3, ease: 'easeOut', delay: 0.15 },
+                  transition: { duration: 0.3, ease: 'easeOut' as const, delay: 0.15 },
                 }}
               >
                 <motion.div

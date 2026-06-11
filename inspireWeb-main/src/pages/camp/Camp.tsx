@@ -18,7 +18,7 @@ const fadeUp = {
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: 'easeOut', delay }
+    transition: { duration: 0.6, ease: 'easeOut' as const, delay }
   })
 };
 
@@ -395,14 +395,14 @@ export default function Camp() {
           className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 sm:px-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' as const }}
         >
           {/* Text Container */}
           <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' }}
+              transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' as const }}
               style={{
                 fontFamily: '"BDSans", sans-serif',
                 fontSize: 'clamp(1.05rem, 5.5vw, 3.5rem)',
