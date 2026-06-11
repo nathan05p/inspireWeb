@@ -18,6 +18,12 @@ export default function RegistrationForm() {
       setIsSuccess(true);
       setPaymentStatus('success');
       window.history.replaceState({}, document.title, window.location.pathname);
+      
+      // Auto-scroll la secțiunea formularului ca userul să vadă mesajul de succes
+      setTimeout(() => {
+        document.getElementById('registration-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 500);
+      
     } else if (status === 'cancel') {
       setPaymentStatus('cancel');
       setStep(2); // Keep them on the payment step to try again
@@ -162,7 +168,7 @@ export default function RegistrationForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-[#171717] border border-[#FA9339]/20 p-8 md:p-12 rounded-3xl text-center shadow-xl flex flex-col items-center">
+      <div id="registration-form" className="bg-[#171717] border border-[#FA9339]/20 p-8 md:p-12 rounded-3xl text-center shadow-xl flex flex-col items-center">
         <div className="w-20 h-20 bg-[#FA9339] rounded-full flex items-center justify-center mb-6">
           <Check size={40} className="text-[#0A0A0A]" />
         </div>
@@ -173,7 +179,7 @@ export default function RegistrationForm() {
           onClick={resetForm}
           className="bg-[#0A0A0A] hover:bg-[#171717] text-[#D4D4D4] px-6 py-3 rounded-xl font-bold transition-colors border border-[#FA9339]/20"
         >
-          Înregistrează altă persoană
+          Revino la înregistrare
         </button>
 
         <p className="text-[#737373] text-xs mt-8">
@@ -184,7 +190,7 @@ export default function RegistrationForm() {
   }
 
   return (
-    <div className="bg-[#121212] border border-[#E0873C]/12 p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
+    <div id="registration-form" className="bg-[#121212] border border-[#E0873C]/12 p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
       <h3 className="text-3xl font-outfit tracking-tight mb-8 text-white">Înscrieri</h3>
 
       {/* Progress */}
