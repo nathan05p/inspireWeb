@@ -422,7 +422,7 @@ export default function Camp() {
           </div>
         </motion.div>
         {/* MARQUEE */}
-        <div className="absolute bottom-0 left-0 w-full bg-black py-3 sm:py-4 border-y border-[#FA9339]/50 z-20">
+        <div className="absolute bottom-0 left-0 w-full bg-black py-3 sm:py-4 border-t border-t-[#1A0B05] border-b border-b-[#0A0A0A] z-20">
           <Marquee
             items={Array(10).fill(null).map((_, i) => (
               <span key={i} className="inline-flex items-center gap-3">
