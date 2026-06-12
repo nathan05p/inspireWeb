@@ -604,16 +604,13 @@ export default function Camp() {
 
           {/* Contact */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.3} className="sm:col-span-6 bg-[#121212] shadow-sm p-6 sm:p-8 md:p-12 rounded-3xl hover:bg-[#221508] transition-colors">
-            <h3 className="text-2xl font-outfit tracking-tight mb-8 text-white">Contact Oficial</h3>
+            <h3 className="text-2xl font-outfit tracking-tight mb-8 text-white">Contact</h3>
             <div className="space-y-5">
               <a href="mailto:office@inspiretm.org" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
                 <Mail size={20} className="text-[#FA9339]" /> office@inspiretm.org
               </a>
               <a href="tel:0767031518" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
                 <Phone size={20} className="text-[#FA9339]" /> 0767 031 518
-              </a>
-              <a href="#" className="flex items-center gap-4 text-[#D4D4D4] hover:text-[#FA9339] transition-colors font-medium">
-                <AtSign size={20} className="text-[#FA9339]" /> @inspireplus.tm
               </a>
             </div>
           </motion.div>
