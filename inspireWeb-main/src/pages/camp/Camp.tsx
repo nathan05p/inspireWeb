@@ -453,7 +453,8 @@ export default function Camp() {
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-[#D4D4D4] leading-relaxed text-base md:text-lg space-y-5">
             <p>
-              Titlul taberei <strong className="text-white">inspire+</strong> din acest an este <strong className="text-[#FA9339]">The Cross</strong> și este dedicată celebrării modului în care Dumnezeu a ales să-și exprime dragostea nemărginită pentru noi. Vrem să redescoperim frumusețea, valoarea și profunzimea momentului care a adus cerul mai aproape.
+              Titlul taberei <strong className="text-white">inspire+</strong> din acest an este <strong className="text-[#FA9339]">The Cross</strong> și este dedicată celebrării modului în care Dumnezeu a ales să-și exprime dragostea nemărginită pentru noi. 
+              Vrem să redescoperim frumusețea, valoarea și profunzimea momentului care a adus cerul mai aproape de noi și ne-a deschis calea înapoi spre Dumnezeu.
             </p>
             <p>
               Vino să cunoști tineri faini, să îți faci prieteni noi și să trăiești o experiență care îți va întări relațiile și credința.
