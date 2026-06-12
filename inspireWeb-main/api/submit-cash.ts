@@ -50,13 +50,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         console.error('Google Apps Script internal error:', resultJson.message);
         return res.status(500).json({ error: 'Eroare internă în salvarea datelor.' });
       }
-    } catch (e) {
-      // It's possible the response wasn't JSON
+    } catch {
+      console.error('Email confirmation error (non-fatal)');
     }
 
     return res.status(200).json({ success: true });
-  } catch (error: any) {
-    console.error('Error submitting cash registration:', error);
-    return res.status(500).json({ error: error.message || 'Internal server error' });
+  } catch (error: unknown) {
+    console.error('Cash submission error:', error);
+    return res.status(500).json({ error: (error as Error).message || 'Internal server error' });
   }
 }

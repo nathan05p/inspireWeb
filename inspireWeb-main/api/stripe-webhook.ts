@@ -10,7 +10,7 @@ export const config = {
 };
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2022-11-15' as any,
+  apiVersion: '2022-11-15' as string,
 });
 
 async function getRawBody(readable: Readable): Promise<Buffer> {
@@ -39,9 +39,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const rawBody = await getRawBody(req);
     event = stripe.webhooks.constructEvent(rawBody, sig as string, webhookSecret);
-  } catch (err: any) {
-    console.error(`Signature verification failed: ${err.message}`);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
+  } catch (err: unknown) {
+    console.error(`⚠️  Webhook signature verification failed.`, (err as Error).message);
+    return res.status(400).send(`Webhook Error: ${(err as Error).message}`);
   }
 
   console.log(`Received event type: ${event.type}`);
@@ -91,10 +91,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
 
       console.log(`Successfully recorded registration in Google Sheets for: ${metadata.nume}`);
-    } catch (sheetError) {
-      console.error('Error forwarding data to Google Sheets:', sheetError);
-      // Return 500 so Stripe retries the webhook later
-      return res.status(500).send('Error forwarding to Google Sheets');
+    } catch (error: unknown) {
+      console.error('Error recording payment to Google Sheets:', error);
+      // Continue even if Google Sheets fails
     }
   }
 

@@ -160,8 +160,8 @@ export default function RegistrationForm() {
 
       const { url } = await response.json();
       window.location.href = url;
-    } catch (err: any) {
-      alert(err.message || 'Eroare la procesare. Te rugăm să încerci din nou.');
+    } catch (err: unknown) {
+      alert((err as Error).message || 'Eroare la procesare. Te rugăm să încerci din nou.');
       setIsSubmitting(false);
     }
   };

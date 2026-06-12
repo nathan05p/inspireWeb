@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2025-02-24.acacia' as any,
+  apiVersion: '2022-11-15' as string,
 });
 
 // We need the raw body for Stripe webhook signature verification
@@ -41,9 +41,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const rawBody = await getRawBody(req);
     event = stripe.webhooks.constructEvent(rawBody, sig as string, endpointSecret);
-  } catch (err: any) {
-    console.error('Webhook signature verification failed:', err.message);
-    return res.status(400).send(`Webhook Error: ${err.message}`);
+  } catch (err: unknown) {
+    console.error(`⚠️  Webhook signature verification failed.`, (err as Error).message);
+    return res.status(400).send(`Webhook Error: ${(err as Error).message}`);
   }
 
   // Handle the checkout.session.completed event
@@ -91,12 +91,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               } else {
                 console.log('Successfully recorded in Google Sheets');
               }
-            } catch (e) {
+            } catch {
               // It's possible the response wasn't JSON
             }
           }
-        } catch (error) {
-          console.error('Error calling Google Sheets webhook:', error);
+        } catch {
+          console.error('Error forwarding data to Google Sheets (non-fatal)');
         }
       } else {
         console.warn('GOOGLE_SHEETS_WEBHOOK_URL is not defined in environment variables');
