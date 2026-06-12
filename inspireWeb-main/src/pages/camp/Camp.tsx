@@ -405,7 +405,7 @@ export default function Camp() {
               transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' as const }}
               style={{
                 fontFamily: '"BDSans", sans-serif',
-                fontSize: 'clamp(1.05rem, 5.5vw, 3.5rem)',
+                fontSize: 'clamp(0.95rem, 4vw, 2.4rem)',
                 lineHeight: 1.4,
                 textShadow: '0 4px 40px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.6)',
                 color: 'white',
