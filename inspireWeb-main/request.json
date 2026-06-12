@@ -1,0 +1,11 @@
+{
+  "formData": {
+    "plata": "integral",
+    "zile": "mai_putine",
+    "zileAlese": ["Miercuri", "Duminică"],
+    "nume": "Test",
+    "prenume": "Test",
+    "telefon": "123",
+    "email": "test@test.com"
+  }
+}

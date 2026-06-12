@@ -35,7 +35,7 @@ const faqs = [
   {
     user: "Elena", time: "acum 5 ore", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Elena",
     q: "Ce echipamente ar trebui să aduc cu mine?",
-    a: "Pentru a te pregăti pentru tabăra Fearless, nu uita să aduci cu tine cort, sac de dormit și izopren, iar pentru nopțile friguoase, asigură-te că ai haine mai groase. Aceste echipamente te vor ajuta să te simți confortabil și protejat în timpul șederii tale."
+    a: "Pentru a te pregăti pentru tabăra The Cross, nu uita să aduci cu tine cort, sac de dormit și izopren, iar pentru nopțile friguoase, asigură-te că ai haine mai groase. Aceste echipamente te vor ajuta să te simți confortabil și protejat în timpul șederii tale."
   },
   {
     user: "David C.", time: "ieri", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=David",
@@ -403,7 +403,7 @@ export default function Camp() {
               transition={{ duration: 0.8, delay: 0.8, ease: 'easeOut' as const }}
               style={{
                 fontFamily: '"BDSans", sans-serif',
-                fontSize: 'clamp(0.95rem, 4vw, 2.4rem)',
+                fontSize: 'clamp(0.95rem, 3vw, 1.8rem)',
                 lineHeight: 1.4,
                 textShadow: '0 4px 40px rgba(0,0,0,0.85), 0 2px 12px rgba(0,0,0,0.6)',
                 color: 'white',
