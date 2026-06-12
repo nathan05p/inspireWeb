@@ -22,7 +22,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       'Joi': 70,
       'Vineri': 70,
       'Sâmbătă': 70,
-      'Duminică': 40
+      'Duminică': 45
     };
 
     let amount = 0;
@@ -52,9 +52,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       email: formData.email,
       transport: formData.transport,
       cazareCabana: formData.cazareCabana ? 'Da' : 'Nu',
-      plata: formData.plata,
+      plata: formData.zile === 'toate' ? formData.plata : 'zile partiale',
       zile: formData.zile,
       zileAlese: formData.zileAlese.join(', '),
+      amount_paid: String(amount),
     };
 
     // The URL the user will be redirected to

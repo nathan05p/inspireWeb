@@ -23,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       email: formData.email,
       transport: formData.transport,
       cazareCabana: formData.cazareCabana,
-      plata: formData.plata,
+      plata: formData.zile === 'toate' ? formData.plata : 'zile partiale',
       zile: formData.zile,
       // Pass array for zileAlese
       zileAlese: formData.zileAlese || [],
