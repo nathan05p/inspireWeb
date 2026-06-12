@@ -49,7 +49,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       telefon: String(formData.telefon),
       email: formData.email,
       transport: formData.transport,
-      cazareCabana: formData.cazareCabana ? 'Da' : 'Nu',
       plata: formData.zile === 'toate' ? formData.plata : 'zile partiale',
       zile: formData.zile,
       zileAlese: formData.zileAlese.join(', '),

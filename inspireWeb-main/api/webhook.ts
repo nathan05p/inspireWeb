@@ -65,7 +65,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             // Ensure zileAlese is an array if the script calls .join on it, or just pass it as string and let the script handle it.
             // Since the current Apps Script calls .join(), we must send an array.
             zileAlese: metadata.zileAlese ? metadata.zileAlese.split(', ') : [],
-            cazareCabana: metadata.cazareCabana === 'Da',
             stripe_session_id: session.id
           };
 
