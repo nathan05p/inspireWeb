@@ -126,7 +126,7 @@ const InteractiveBackground: React.FC = () => {
       </video>
       
       {/* Dark Overlay to maintain text contrast */}
-      <div className="absolute inset-0 bg-[#0A0A0A]/40 backdrop-blur-[20px] pointer-events-none z-[2]" />
+      <div className="absolute inset-0 bg-[#0A0A0A]/40 pointer-events-none z-[2]" />
     </div>
   );
 };
