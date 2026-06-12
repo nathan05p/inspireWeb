@@ -1,16 +1,18 @@
-import { useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen';
 import Layout from './components/Layout';
-import Home from './pages/Home';
-import Work from './pages/Work';
-import Services from './pages/Services';
-import About from './pages/About';
-import Insights from './pages/Insights';
-import Contact from './pages/Contact';
 import Camp from './pages/camp/Camp';
+
+// Lazy loaded pages to optimize initial bundle size
+const Home = lazy(() => import('./pages/Home'));
+const Work = lazy(() => import('./pages/Work'));
+const Services = lazy(() => import('./pages/Services'));
+const About = lazy(() => import('./pages/About'));
+const Insights = lazy(() => import('./pages/Insights'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -23,12 +25,36 @@ function AnimatedRoutes() {
         
         {/* The original website is moved to /home temporarily */}
         <Route path="/home" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="work" element={<Work />} />
-          <Route path="services" element={<Services />} />
-          <Route path="about" element={<About />} />
-          <Route path="insights" element={<Insights />} />
-          <Route path="contact" element={<Contact />} />
+          <Route index element={
+            <Suspense fallback={null}>
+              <Home />
+            </Suspense>
+          } />
+          <Route path="work" element={
+            <Suspense fallback={null}>
+              <Work />
+            </Suspense>
+          } />
+          <Route path="services" element={
+            <Suspense fallback={null}>
+              <Services />
+            </Suspense>
+          } />
+          <Route path="about" element={
+            <Suspense fallback={null}>
+              <About />
+            </Suspense>
+          } />
+          <Route path="insights" element={
+            <Suspense fallback={null}>
+              <Insights />
+            </Suspense>
+          } />
+          <Route path="contact" element={
+            <Suspense fallback={null}>
+              <Contact />
+            </Suspense>
+          } />
         </Route>
       </Routes>
     </AnimatePresence>

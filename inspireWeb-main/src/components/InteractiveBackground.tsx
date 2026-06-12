@@ -1,8 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 const InteractiveBackground: React.FC = () => {
   const video1Ref = useRef<HTMLVideoElement>(null);
   const video2Ref = useRef<HTMLVideoElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const v1 = video1Ref.current;
@@ -113,7 +121,7 @@ const InteractiveBackground: React.FC = () => {
         preload="auto"
         style={videoStyle}
       >
-        <source src="/ClipFundalWide.mp4" type="video/mp4" />
+        <source src={isMobile ? "/ClipFundalMobile.mp4" : "/ClipFundalWide.mp4"} type="video/mp4" />
       </video>
       <video
         ref={video2Ref}
@@ -122,7 +130,7 @@ const InteractiveBackground: React.FC = () => {
         preload="auto"
         style={{ ...videoStyle, opacity: 0 }}
       >
-        <source src="/ClipFundalWide.mp4" type="video/mp4" />
+        <source src={isMobile ? "/ClipFundalMobile.mp4" : "/ClipFundalWide.mp4"} type="video/mp4" />
       </video>
       
       {/* Dark Overlay to maintain text contrast */}
