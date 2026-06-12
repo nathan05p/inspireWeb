@@ -398,7 +398,7 @@ export default function Camp() {
           transition={{ duration: 1.2, delay: 0.5, ease: 'easeOut' as const }}
         >
           {/* Text Container */}
-          <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center">
+          <div className="max-w-5xl mx-auto flex flex-col items-center justify-center drop-shadow-2xl px-4 text-center -mt-16 sm:-mt-24">
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
