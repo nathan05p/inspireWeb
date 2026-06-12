@@ -9,9 +9,7 @@ export const config = {
   },
 };
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-  apiVersion: '2022-11-15' as string,
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
 
 async function getRawBody(readable: Readable): Promise<Buffer> {
   const chunks = [];
