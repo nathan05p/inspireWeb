@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import gradientVideo from '../assets/Gradient.mp4';
+import gradientVideo from '../assets/FundalMain.mp4';
 
 const InteractiveBackground: React.FC = () => {
   const video1Ref = useRef<HTMLVideoElement>(null);
@@ -115,7 +115,7 @@ const InteractiveBackground: React.FC = () => {
         style={videoStyle}
       >
         <source src={gradientVideo} type="video/mp4" />
-        <source src="/Gradient.mp4" type="video/mp4" />
+        <source src="/FundalMain.mp4" type="video/mp4" />
       </video>
       <video
         ref={video2Ref}
@@ -125,7 +125,7 @@ const InteractiveBackground: React.FC = () => {
         style={{ ...videoStyle, opacity: 0 }}
       >
         <source src={gradientVideo} type="video/mp4" />
-        <source src="/Gradient.mp4" type="video/mp4" />
+        <source src="/FundalMain.mp4" type="video/mp4" />
       </video>
     </div>
   );
