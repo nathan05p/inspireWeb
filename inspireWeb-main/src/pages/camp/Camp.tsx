@@ -415,9 +415,10 @@ export default function Camp() {
               }}
             >
               MAI APROAPE DE CER,<br/>
-              MAI APROAPE DE OAMENI<br/>
+              MAI APROAPE DE <br/>
+              OAMENI <br/>
               ȘI MAI DE FOLOS <br/>
-              <span className="text-[#FA9339]">IMPĂRĂȚIEI</span>
+              <span className="text-[#FA9339]">ÎMPĂRĂȚIEI</span>
             </motion.h1>
           </div>
         </motion.div>
