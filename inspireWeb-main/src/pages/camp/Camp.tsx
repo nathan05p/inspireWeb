@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import {
-  MapPin, Mail, Phone, AtSign, CheckCircle,
+  MapPin, Mail, Phone, CheckCircle,
   Map, ChevronLeft, ChevronRight, Home
 } from 'lucide-react';
 import CampNavbar from './CampNavbar';
