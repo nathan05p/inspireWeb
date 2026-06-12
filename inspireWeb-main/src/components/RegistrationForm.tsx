@@ -108,7 +108,7 @@ export default function RegistrationForm() {
       'Joi': 70,
       'Vineri': 70,
       'Sâmbătă': 70,
-      'Duminică': 40
+      'Duminică': 45
     };
 
     if (formData.plata === 'avans') return AVANS;
