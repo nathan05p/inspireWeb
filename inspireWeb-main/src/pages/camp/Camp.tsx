@@ -302,7 +302,7 @@ function PhotoGallery() {
               }`}
             >
               <div className="absolute inset-0 bg-[#0A111F]/10 group-hover/image:bg-transparent transition-colors duration-500 z-10" />
-              <img src={src} alt={`Camp memory ${i}`} className="w-full h-full object-cover scale-100 group-hover/image:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              <img src={src} alt={`Camp memory ${i}`} className="w-full h-full object-cover scale-100 group-hover/image:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" loading="lazy" decoding="async" />
             </div>
           );
         })}

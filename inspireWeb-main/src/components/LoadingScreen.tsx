@@ -10,13 +10,13 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   useEffect(() => {
     // After entrance settles, hold briefly then exit
-    const holdTimer = setTimeout(() => setPhase('out'), 800);
+    const holdTimer = setTimeout(() => setPhase('out'), 200);
     return () => clearTimeout(holdTimer);
   }, []);
 
   useEffect(() => {
     if (phase === 'out') {
-      const exitTimer = setTimeout(onComplete, 750); // Wait for exit animations to finish
+      const exitTimer = setTimeout(onComplete, 500); // Wait for exit animations to finish
       return () => clearTimeout(exitTimer);
     }
   }, [phase, onComplete]);

@@ -74,11 +74,9 @@ function App() {
       </AnimatePresence>
 
       {/* Page content — rendered beneath loading screen from the start */}
-      {!loading && (
-        <Router>
-          <AnimatedRoutes />
-        </Router>
-      )}
+      <Router>
+        <AnimatedRoutes />
+      </Router>
       <SpeedInsights />
     </>
   );
