@@ -380,18 +380,6 @@ export default function Camp() {
       className="relative z-10 bg-[#0A0A0A] text-white min-h-screen overflow-x-hidden"
       style={{ fontFamily: '"Inter", sans-serif' }}
     >
-      {/* Side gradients stretching full height of the page, acting as subtle background touches */}
-      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
-           style={{
-             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.15) 0%, transparent 100%)',
-             mixBlendMode: 'screen'
-           }} />
-      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
-           style={{
-             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.15) 0%, transparent 100%)',
-             mixBlendMode: 'screen'
-           }} />
-
       <CampNavbar />
 
       {/* HERO SECTION */}
@@ -645,7 +633,7 @@ export default function Camp() {
         <div className="absolute inset-0 bg-black/20" />
 
         {/* Gradient transition from the section above */}
-        <div className="absolute top-0 left-0 right-0 h-48 sm:h-64 bg-gradient-to-t from-transparent to-[#0A0A0A] pointer-events-none z-10" />
+        <div className="absolute top-0 left-0 right-0 h-48 sm:h-64 bg-gradient-to-t from-transparent to-[#0A0A0A] pointer-events-none z-0" />
 
         <div className="relative z-10 flex flex-col items-center px-6 w-full max-w-5xl">
           <CampRotatingCircle />
@@ -665,7 +653,7 @@ export default function Camp() {
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="w-full bg-[#141414] py-8 sm:py-16 px-4 sm:px-12 md:px-20 border-t border-white/5">
+      <footer id="contact" className="relative z-10 w-full bg-[#141414] py-8 sm:py-16 px-4 sm:px-12 md:px-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-2 sm:gap-4 md:gap-0">
           
           {/* LEFT: INSTAGRAM */}
@@ -703,6 +691,18 @@ export default function Camp() {
 
         </div>
       </footer>
+
+      {/* Side gradients stretching full height of the page, acting as subtle background touches */}
+      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
+           style={{
+             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.15) 0%, transparent 100%)',
+             mixBlendMode: 'screen'
+           }} />
+      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
+           style={{
+             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.15) 0%, transparent 100%)',
+             mixBlendMode: 'screen'
+           }} />
     </motion.div>
   );
 }
