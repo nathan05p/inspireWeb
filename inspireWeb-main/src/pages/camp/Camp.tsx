@@ -73,8 +73,8 @@ function CampRotatingCircle() {
             d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
             fill="transparent"
           />
-          <text className="text-[8px] font-bold tracking-[0.2em] uppercase" fill="#FFFFFF">
-            <textPath href="#textPathCamp" startOffset="0%">
+          <text className="text-[7.5px] font-bold uppercase" fill="#FFFFFF" style={{ letterSpacing: '0.2em' }}>
+            <textPath href="#textPathCamp" startOffset="0%" textLength="215" lengthAdjust="spacingAndGlyphs">
               • THE CROSS • INSPIRE+ • THE CROSS • INSPIRE+ 
             </textPath>
           </text>
