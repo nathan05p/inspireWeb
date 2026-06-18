@@ -380,6 +380,16 @@ export default function Camp() {
       className="relative z-10 bg-[#0A0A0A] text-white min-h-screen overflow-x-hidden"
       style={{ fontFamily: '"Inter", sans-serif' }}
     >
+      {/* Side gradients to match the countdown timer theme */}
+      <div className="fixed top-0 bottom-0 left-0 w-16 sm:w-32 md:w-48 pointer-events-none z-30"
+           style={{
+             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.12) 0%, transparent 100%)'
+           }} />
+      <div className="fixed top-0 bottom-0 right-0 w-16 sm:w-32 md:w-48 pointer-events-none z-30"
+           style={{
+             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.12) 0%, transparent 100%)'
+           }} />
+
       <CampNavbar />
 
       {/* HERO SECTION */}
@@ -445,10 +455,9 @@ export default function Camp() {
       {/* THE CROSS / ABOUT */}
       <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-start">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-            <h3 className="font-outfit tracking-tight leading-none">
-              <span className="block text-3xl sm:text-4xl md:text-5xl text-[#A3A3A3] font-light tracking-[0.15em] uppercase mb-2">The</span>
-              <span className="block text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] font-bold italic text-white leading-none" style={{ textShadow: '0 0 60px rgba(232,104,26,0.25)' }}>Cross</span>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex justify-center lg:justify-start">
+            <h3 className="font-outfit tracking-tight leading-none w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
+              <img src="/logoCamp.png" alt="The Cross" className="w-full h-auto object-contain drop-shadow-2xl" />
             </h3>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.2} className="text-[#D4D4D4] leading-relaxed text-base md:text-lg space-y-5">
@@ -667,8 +676,13 @@ export default function Camp() {
 
           {/* CENTER: LOGO & COPYRIGHT */}
           <div className="flex-1 flex flex-col items-center justify-center gap-1 sm:gap-3">
-            <h2 className="text-white text-xl sm:text-3xl md:text-4xl font-spartan font-bold tracking-tight">
-              inspire+
+            <h2 className="text-white flex items-baseline justify-center gap-0.5 transition-colors">
+              <span style={{ fontFamily: '"League Spartan", sans-serif', fontSize: 'clamp(1.4rem, 2.5vw, 2rem)', fontStyle: 'normal', letterSpacing: '0.02em' }}>
+                inspire
+              </span>
+              <span style={{ fontFamily: '"League Spartan", sans-serif', fontWeight: 'normal', fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}>
+                +
+              </span>
             </h2>
             <p className="text-[#666666] text-[9px] sm:text-xs md:text-sm font-outfit tracking-wider text-center">
               © 2026 inspire+
