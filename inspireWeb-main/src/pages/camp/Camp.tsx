@@ -372,25 +372,28 @@ export default function Camp() {
 
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="relative z-10 bg-[#0A0A0A] text-white min-h-screen overflow-x-hidden"
-      style={{ fontFamily: '"Inter", sans-serif' }}
-    >
+    <>
       {/* Side gradients to match the countdown timer theme */}
-      <div className="fixed top-0 bottom-0 left-0 w-16 sm:w-32 md:w-48 pointer-events-none z-30"
+      <div className="fixed top-0 bottom-0 left-0 w-24 sm:w-48 md:w-64 pointer-events-none z-40"
            style={{
-             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.12) 0%, transparent 100%)'
+             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.5) 0%, transparent 100%)',
+             mixBlendMode: 'screen'
            }} />
-      <div className="fixed top-0 bottom-0 right-0 w-16 sm:w-32 md:w-48 pointer-events-none z-30"
+      <div className="fixed top-0 bottom-0 right-0 w-24 sm:w-48 md:w-64 pointer-events-none z-40"
            style={{
-             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.12) 0%, transparent 100%)'
+             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.6) 0%, transparent 100%)',
+             mixBlendMode: 'screen'
            }} />
 
-      <CampNavbar />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 bg-[#0A0A0A] text-white min-h-screen overflow-x-hidden"
+        style={{ fontFamily: '"Inter", sans-serif' }}
+      >
+        <CampNavbar />
 
       {/* HERO SECTION */}
       <section ref={heroRef} className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-[#1A0B05]">
@@ -702,5 +705,6 @@ export default function Camp() {
         </div>
       </footer>
     </motion.div>
+    </>
   );
 }
