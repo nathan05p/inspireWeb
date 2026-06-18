@@ -693,24 +693,24 @@ export default function Camp() {
       </footer>
 
       {/* Side gradients stretching full height of the page, acting as subtle background touches */}
-      <motion.div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
+      <motion.div className="absolute top-0 bottom-0 left-0 w-[10vw] sm:w-24 md:w-32 lg:w-48 pointer-events-none z-0"
            animate={{
              filter: ['hue-rotate(0deg)', 'hue-rotate(20deg)', 'hue-rotate(-10deg)', 'hue-rotate(0deg)'],
-             opacity: [0.7, 1.2, 0.7]
+             opacity: [0.8, 1.3, 0.8]
            }}
            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
            style={{
-             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.15) 0%, transparent 100%)',
+             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.25) 0%, transparent 100%)',
              mixBlendMode: 'screen'
            }} />
-      <motion.div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
+      <motion.div className="absolute top-0 bottom-0 right-0 w-[10vw] sm:w-24 md:w-32 lg:w-48 pointer-events-none z-0"
            animate={{
              filter: ['hue-rotate(0deg)', 'hue-rotate(-20deg)', 'hue-rotate(10deg)', 'hue-rotate(0deg)'],
-             opacity: [1.2, 0.7, 1.2]
+             opacity: [1.3, 0.8, 1.3]
            }}
            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
            style={{
-             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.15) 0%, transparent 100%)',
+             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.25) 0%, transparent 100%)',
              mixBlendMode: 'screen'
            }} />
     </motion.div>
