@@ -73,9 +73,9 @@ function CampRotatingCircle() {
             d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
             fill="transparent"
           />
-          <text className="text-[8.5px] font-bold tracking-[0.2em] uppercase" fill="#FFFFFF">
+          <text className="text-[8px] font-bold tracking-[0.2em] uppercase" fill="#FFFFFF">
             <textPath href="#textPathCamp" startOffset="0%">
-              • INSPIRE+ THE CROSS • INSPIRE+ THE CROSS 
+              • THE CROSS • INSPIRE+ • THE CROSS • INSPIRE+ 
             </textPath>
           </text>
         </svg>
