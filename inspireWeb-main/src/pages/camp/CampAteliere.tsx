@@ -40,7 +40,7 @@ export default function CampAteliere() {
   };
 
   return (
-    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10 bg-[#0A0A0A]">
+    <section id="ateliere" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10 relative z-10 bg-transparent">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
         
         {/* Left Column - Sticky Title */}

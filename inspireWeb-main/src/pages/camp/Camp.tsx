@@ -372,31 +372,30 @@ export default function Camp() {
 
 
   return (
-    <>
-      {/* Side gradients to match the countdown timer theme */}
-      <div className="fixed top-0 bottom-0 left-0 w-24 sm:w-48 md:w-64 pointer-events-none z-40"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="relative z-10 bg-[#0A0A0A] text-white min-h-screen overflow-x-hidden"
+      style={{ fontFamily: '"Inter", sans-serif' }}
+    >
+      {/* Side gradients stretching full height of the page, acting as subtle background touches */}
+      <div className="absolute top-0 bottom-0 left-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
            style={{
-             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.5) 0%, transparent 100%)',
+             background: 'linear-gradient(to right, rgba(104, 65, 32, 0.15) 0%, transparent 100%)',
              mixBlendMode: 'screen'
            }} />
-      <div className="fixed top-0 bottom-0 right-0 w-24 sm:w-48 md:w-64 pointer-events-none z-40"
+      <div className="absolute top-0 bottom-0 right-0 w-16 sm:w-32 md:w-48 pointer-events-none z-0"
            style={{
-             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.6) 0%, transparent 100%)',
+             background: 'linear-gradient(to left, rgba(42, 33, 54, 0.15) 0%, transparent 100%)',
              mixBlendMode: 'screen'
            }} />
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 bg-[#0A0A0A] text-white min-h-screen overflow-x-hidden"
-        style={{ fontFamily: '"Inter", sans-serif' }}
-      >
-        <CampNavbar />
+      <CampNavbar />
 
       {/* HERO SECTION */}
-      <section ref={heroRef} className="relative h-[100svh] min-h-[560px] w-full overflow-hidden bg-[#1A0B05]">
+      <section ref={heroRef} className="relative z-10 h-[100svh] min-h-[560px] w-full overflow-hidden bg-[#1A0B05]">
 
         {/* INTERACTIVE BACKGROUND */}
         <InteractiveBackground />
@@ -481,7 +480,7 @@ export default function Camp() {
       <CampAteliere />
 
       {/* PHOTO GALLERY */}
-      <section className="py-16 sm:py-24 md:py-32 bg-[#0A0A0A] overflow-hidden border-b border-[#FA9339]/10">
+      <section className="py-16 sm:py-24 md:py-32 relative z-10 bg-transparent overflow-hidden border-b border-[#FA9339]/10">
         <div className="mb-12 sm:mb-16 text-center px-4 relative z-10">
           <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-outfit tracking-tight text-white mb-4">Amintiri din <span className="italic text-[#FA9339]">anii trecuți</span></motion.h2>
           <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.1} className="text-[#A3A3A3] text-xs tracking-[0.3em] uppercase font-bold">GALERIE FOTO INSPIRE+ CAMP</motion.p>
@@ -493,7 +492,7 @@ export default function Camp() {
 
 
       {/* FAQ COMMUNITY STYLE */}
-      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-[#FA9339]/10 bg-[#0A0A0A]">
+      <section id="faq" className="py-16 sm:py-24 md:py-32 overflow-hidden border-b border-[#FA9339]/10 relative z-10 bg-transparent">
         <div className="px-6 md:px-12 max-w-screen-2xl mx-auto mb-16 relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="text-center">
             <h2 className="text-4xl font-outfit tracking-tight mb-4 text-white">Întrebări frecvente</h2>
@@ -705,6 +704,5 @@ export default function Camp() {
         </div>
       </footer>
     </motion.div>
-    </>
   );
 }
