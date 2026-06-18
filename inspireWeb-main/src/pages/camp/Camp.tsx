@@ -444,7 +444,7 @@ export default function Camp() {
 
       {/* THE CROSS / ABOUT */}
       <section id="about" className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-screen-2xl mx-auto border-b border-[#FA9339]/10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-8 md:gap-12 lg:gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex justify-center lg:justify-start">
             <h3 className="font-outfit tracking-tight leading-none w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl">
               <img src="/logoCamp.png" alt="The Cross" className="w-full h-auto object-contain drop-shadow-2xl" />
