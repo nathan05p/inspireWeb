@@ -235,7 +235,13 @@ export default function RegistrationForm() {
 
 
 
-            <div className="flex justify-end pt-4">
+            <div className="bg-[#0A0A0A]/40 border border-[#262626]/50 rounded-xl p-4">
+              <p className="text-xs text-[#A3A3A3] leading-relaxed">
+                <span className="text-[#D4D4D4] font-medium">Informații costuri:</span> Prețul pentru toată tabăra este de 290 RON. Dacă dorești să participi doar în anumite zile, vei plăti o sumă diferită. Opțiunile de participare și plata se vor alege în pasul următor.
+              </p>
+            </div>
+
+            <div className="flex justify-end pt-2">
               <button type="submit" className="flex items-center gap-2 bg-[#FA9339] text-[#0A0A0A] px-8 py-4 rounded-xl font-bold hover:bg-[#D45A10] transition-colors">
                 Mergi mai departe <ChevronRight size={18} />
               </button>
