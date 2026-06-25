@@ -237,7 +237,7 @@ export default function RegistrationForm() {
 
             <div className="bg-[#0A0A0A]/40 border border-[#262626]/50 rounded-xl p-4">
               <p className="text-xs text-[#A3A3A3] leading-relaxed">
-                <span className="text-[#D4D4D4] font-medium">Informații costuri:</span> Prețul pentru toată tabăra este de 290 RON. Dacă dorești să participi doar în anumite zile, vei plăti o sumă diferită. Opțiunile de participare și plata se vor alege în pasul următor.
+                <span className="text-[#D4D4D4] font-medium">Informații costuri:</span> Prețul pentru toată tabăra este de <span className="text-[#FA9339] font-bold text-sm">290 RON</span>. Dacă dorești să participi doar în anumite zile, vei plăti o sumă diferită. Opțiunile de participare și plata se vor alege în pasul următor.
               </p>
             </div>
 
