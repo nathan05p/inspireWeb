@@ -23,11 +23,6 @@ const ateliereData = [
     title: 'leadership',
     desc: 'Creat ca să conduci. Într-o lume în care leadershipul se confundă cu controlul, Dumnezeu caută lideri care inspiră. Un atelier de leadership te ajută să descoperi ce înseamnă să conduci după modelul Lui — pornind de la cine ești și de la viziunea pe care El o pune în inima ta.',
   },
-  {
-    id: 'creative_video',
-    title: 'creative video',
-    desc: 'Ai mereu la îndemână un instrument cu care poți spune povești care contează. Un atelier de video creativ te învață să filmezi, să montezi și să transformi o idee într-un clip care prinde — și să-ți pui creativitatea în slujba unui mesaj care merită spus.',
-  },
 ];
 
 export default function CampAteliere() {
