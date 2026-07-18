@@ -65,7 +65,10 @@ export default function RegistrationForm() {
     });
     setStep(1);
     setIsSuccess(false);
+    setIsSubmitting(false);
     setPaymentStatus(null);
+    setHasReadRules(false);
+    setHasScrolledToBottom(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
