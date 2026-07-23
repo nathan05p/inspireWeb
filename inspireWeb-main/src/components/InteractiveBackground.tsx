@@ -116,24 +116,24 @@ const InteractiveBackground: React.FC = () => {
   return (
     <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#1A0B05]">
       <video
+        key={isMobile ? "mobile-1" : "desktop-1"}
         ref={video1Ref}
         autoPlay
         muted
         playsInline
         preload="auto"
         style={videoStyle}
-      >
-        <source src={isMobile ? "/ClipFundalMobile.mp4" : "/ClipFundalWide.mp4"} type="video/mp4" />
-      </video>
+        src={isMobile ? "/ClipFundalMobile.mp4" : "/ClipFundalWide.mp4"}
+      />
       <video
+        key={isMobile ? "mobile-2" : "desktop-2"}
         ref={video2Ref}
         muted
         playsInline
         preload="auto"
         style={{ ...videoStyle, opacity: 0 }}
-      >
-        <source src={isMobile ? "/ClipFundalMobile.mp4" : "/ClipFundalWide.mp4"} type="video/mp4" />
-      </video>
+        src={isMobile ? "/ClipFundalMobile.mp4" : "/ClipFundalWide.mp4"}
+      />
       
       {/* Dark Overlay to maintain text contrast */}
       <div className="absolute inset-0 bg-[#0A0A0A]/40 pointer-events-none z-[2]" />

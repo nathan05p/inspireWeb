@@ -89,11 +89,13 @@ function CampRotatingCircle() {
 
 function CountdownTimer({ targetDate }: { targetDate: string }) {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [isEnded, setIsEnded] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const target = new Date(targetDate).getTime();
 
-    const interval = setInterval(() => {
+    const calculateTimeLeft = () => {
       const now = new Date().getTime();
       const difference = target - now;
 
@@ -104,13 +106,40 @@ function CountdownTimer({ targetDate }: { targetDate: string }) {
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
         });
+        setIsInitialized(true);
       } else {
-        clearInterval(interval);
+        setIsEnded(true);
+        setIsInitialized(true);
       }
-    }, 1000);
+      return difference;
+    };
 
-    return () => clearInterval(interval);
+    if (calculateTimeLeft() > 0) {
+      const interval = setInterval(() => {
+        if (calculateTimeLeft() <= 0) {
+          clearInterval(interval);
+        }
+      }, 1000);
+      return () => clearInterval(interval);
+    }
   }, [targetDate]);
+
+  if (!isInitialized) return null;
+
+  if (isEnded) {
+    return (
+      <motion.div 
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        className="flex items-center justify-center mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-5xl mx-auto px-4"
+      >
+        <h3 className="text-4xl sm:text-6xl md:text-8xl font-bold font-outfit text-transparent bg-clip-text bg-gradient-to-r from-[#FA9339] to-[#FFDEB5] drop-shadow-[0_0_15px_rgba(250,147,57,0.5)] text-center animate-pulse">
+          Am început tabăra!
+        </h3>
+      </motion.div>
+    );
+  }
 
   return (
     <div className="flex items-center justify-center gap-2 xs:gap-4 sm:gap-10 md:gap-16 lg:gap-24 mt-10 sm:mt-16 mb-6 sm:mb-8 relative z-10 w-full max-w-5xl mx-auto px-2 sm:px-4">
