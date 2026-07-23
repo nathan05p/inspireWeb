@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle, ChevronDown } from 'lucide-react';
+import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle, ChevronDown, Lock, Unlock, KeyRound, ShieldAlert } from 'lucide-react';
 
 export default function RegistrationForm() {
   const [step, setStep] = useState(1);
@@ -10,6 +10,31 @@ export default function RegistrationForm() {
   const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
   const [hasReadRules, setHasReadRules] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
+
+  const [isLocked, setIsLocked] = useState(() => {
+    return sessionStorage.getItem('admin_unlocked') !== 'true';
+  });
+  const [adminPassword, setAdminPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [showAdminInput, setShowAdminInput] = useState(false);
+
+  const handleAdminUnlock = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (adminPassword.trim() === 'admincross26') {
+      setIsLocked(false);
+      setPasswordError('');
+      sessionStorage.setItem('admin_unlocked', 'true');
+    } else {
+      setPasswordError('Parolă incorectă!');
+    }
+  };
+
+  const handleAdminLock = () => {
+    setIsLocked(true);
+    sessionStorage.removeItem('admin_unlocked');
+    setAdminPassword('');
+    setShowAdminInput(false);
+  };
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -190,9 +215,89 @@ export default function RegistrationForm() {
     );
   }
 
+  if (isLocked) {
+    return (
+      <div id="registration-form" className="bg-[#121212] border border-[#E0873C]/12 p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl text-center flex flex-col items-center">
+        <div className="w-16 h-16 bg-[#FA9339]/10 border border-[#FA9339]/20 rounded-2xl flex items-center justify-center mb-6">
+          <Lock size={32} className="text-[#FA9339]" />
+        </div>
+        <h3 className="text-3xl font-outfit tracking-tight text-white mb-3">Înscrierile sunt închise</h3>
+        <p className="text-[#D4D4D4] max-w-md mb-8 leading-relaxed">
+          Perioada oficială de înscriere pentru tabără s-a încheiat. Vă mulțumim pentru interes!
+        </p>
+
+        {!showAdminInput ? (
+          <button
+            onClick={() => setShowAdminInput(true)}
+            className="text-xs text-[#737373] hover:text-[#FA9339] flex items-center gap-1.5 transition-colors underline underline-offset-4"
+          >
+            <KeyRound size={14} /> Acces Administrator
+          </button>
+        ) : (
+          <motion.form
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            onSubmit={handleAdminUnlock}
+            className="w-full max-w-sm space-y-4 bg-[#0A0A0A] p-6 rounded-2xl border border-[#262626]"
+          >
+            <div className="flex items-center justify-between text-xs text-[#A3A3A3] mb-1">
+              <span className="font-semibold flex items-center gap-1">
+                <KeyRound size={14} className="text-[#FA9339]" /> Autentificare Admin
+              </span>
+              <button
+                type="button"
+                onClick={() => setShowAdminInput(false)}
+                className="hover:text-white"
+              >
+                Anulează
+              </button>
+            </div>
+            <div>
+              <input
+                type="password"
+                placeholder="Introduceți parola admin..."
+                value={adminPassword}
+                onChange={(e) => {
+                  setAdminPassword(e.target.value);
+                  setPasswordError('');
+                }}
+                className="w-full bg-[#121212] border border-[#262626] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#FA9339] transition-colors"
+                autoFocus
+              />
+              {passwordError && (
+                <p className="text-red-400 text-xs text-left mt-2 flex items-center gap-1">
+                  <ShieldAlert size={14} /> {passwordError}
+                </p>
+              )}
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#FA9339] text-[#0A0A0A] font-bold py-3 px-4 rounded-xl hover:bg-[#D45A10] transition-colors text-sm"
+            >
+              Deblochează Formularul
+            </button>
+          </motion.form>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div id="registration-form" className="bg-[#121212] border border-[#E0873C]/12 p-6 sm:p-8 md:p-12 rounded-3xl relative overflow-hidden shadow-xl">
-      <h3 className="text-3xl font-outfit tracking-tight mb-8 text-white">Înscrieri</h3>
+      <div className="flex items-center justify-between mb-8">
+        <h3 className="text-3xl font-outfit tracking-tight text-white">Înscrieri</h3>
+        <div className="flex items-center gap-2">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#FA9339]/10 border border-[#FA9339]/30 text-[#FA9339]">
+            <Unlock size={12} /> Mod Admin
+          </span>
+          <button
+            onClick={handleAdminLock}
+            className="text-xs text-[#A3A3A3] hover:text-white underline transition-colors"
+          >
+            Blochează
+          </button>
+        </div>
+      </div>
 
       {/* Progress */}
       <div className="flex gap-2 mb-8">
