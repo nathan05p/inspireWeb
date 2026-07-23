@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle, ChevronDown, Lock, Unlock, KeyRound, ShieldAlert } from 'lucide-react';
+import { Check, CreditCard, ChevronRight, ChevronLeft, AlertTriangle, ChevronDown, Lock } from 'lucide-react';
 
 export default function RegistrationForm() {
   const [step, setStep] = useState(1);
